@@ -588,7 +588,7 @@ export default function WholesalePage() {
         {/* Decorative line */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-[#B08D57] opacity-20" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div className="relative z-10 site-container w-full">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -634,7 +634,7 @@ export default function WholesalePage() {
       </section>
 
       {/* ── Partner Benefits ── */}
-      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 sm:py-16 md:py-24 site-container">
         <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Why Partner With Us
@@ -656,7 +656,7 @@ export default function WholesalePage() {
         className="py-16"
         style={{ backgroundColor: '#3B2A21' }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="site-container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={partnersInView ? { opacity: 1, y: 0 } : {}}
@@ -700,7 +700,7 @@ export default function WholesalePage() {
       </section>
 
       {/* ── Pricing Tiers ── */}
-      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 sm:py-16 md:py-24 site-container">
         <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Pricing & Tiers
@@ -726,7 +726,7 @@ export default function WholesalePage() {
         className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#F5EFE6' }}
       >
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
           <div className="text-center mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Get in Touch
@@ -746,7 +746,7 @@ export default function WholesalePage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-12 sm:py-16 md:py-24 max-w-4xl mx-auto px-6 lg:px-12">
+      <section className="py-12 sm:py-16 md:py-24 max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
         <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Common Questions
@@ -767,7 +767,7 @@ export default function WholesalePage() {
         className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#3B2A21' }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">

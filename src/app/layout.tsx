@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import { SmoothScrollProvider } from "@/components/ui/SmoothScroll";
-import { LoadingScreen } from "@/components/ui/LoadingScreen";
-import { CursorGlow } from "@/components/ui/CursorGlow";
 
 /* ============================================================
    Fonts
@@ -32,12 +29,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://himabeans.com.au"),
 
   title: {
-    default: "HIMA BEANS — Himalayan Coffee, Perfected at Altitude",
+    default: "HIMA BEANS — Himalayan Coffee, Crafted Above the Clouds",
     template: "%s | HIMA BEANS",
   },
 
   description:
-    "HIMA BEANS brings the world's highest-grown Nepali specialty coffee to Australia. Single-origin Himalayan coffee beans, sourced above 2,000 m and roasted to perfection. Crafted Above the Clouds.",
+    "HIMA BEANS sources single-origin specialty coffee from high-altitude Himalayan farms in Nepal — roasted in Melbourne and delivered across Australia. Crafted Above the Clouds.",
 
   keywords: [
     "Nepali coffee Australia",
@@ -46,9 +43,7 @@ export const metadata: Metadata = {
     "premium coffee Australia",
     "single origin Nepal coffee",
     "high altitude coffee",
-    "Himalayan single origin",
     "specialty coffee Melbourne",
-    "artisan coffee roasters Australia",
     "HIMA BEANS",
   ],
 
@@ -61,24 +56,16 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: "https://himabeans.com.au",
     siteName: "HIMA BEANS",
-    title: "HIMA BEANS — Himalayan Coffee, Perfected at Altitude",
+    title: "HIMA BEANS — Himalayan Coffee, Crafted Above the Clouds",
     description:
-      "Single-origin Nepali specialty coffee sourced above 2,000 m in the Himalayas and brought to Australia. Crafted Above the Clouds.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "HIMA BEANS — Crafted Above the Clouds",
-      },
-    ],
+      "Single-origin Nepali specialty coffee from 2,000m+ altitude in the Himalayas, brought to Australia.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "HIMA BEANS" }],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "HIMA BEANS — Himalayan Coffee, Perfected at Altitude",
-    description:
-      "Single-origin Nepali specialty coffee sourced above 2,000 m. Crafted Above the Clouds.",
+    title: "HIMA BEANS — Himalayan Coffee, Crafted Above the Clouds",
+    description: "Single-origin Nepali specialty coffee from 2,000m+. Crafted Above the Clouds.",
     images: ["/og-image.jpg"],
     creator: "@himabeans",
   },
@@ -86,13 +73,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
 
   icons: {
@@ -105,24 +86,21 @@ export const metadata: Metadata = {
   },
 
   manifest: "/site.webmanifest",
-
-  alternates: {
-    canonical: "https://himabeans.com.au",
-  },
+  alternates: { canonical: "https://himabeans.com.au" },
 };
 
 /* ============================================================
-   Viewport Export
+   Viewport
    ============================================================ */
 export const viewport: Viewport = {
-  themeColor: "#3B2A21",
+  themeColor: "#1a0f09",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
 
 /* ============================================================
-   Schema.org JSON-LD Structured Data
+   Schema.org JSON-LD
    ============================================================ */
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -131,12 +109,8 @@ const organizationSchema = {
   url: "https://himabeans.com.au",
   logo: "https://himabeans.com.au/logo.png",
   description:
-    "HIMA BEANS is an Australian premium coffee brand sourcing single-origin Himalayan coffee beans from Nepal, grown above 2,000 metres altitude.",
+    "Australian premium coffee brand sourcing single-origin Himalayan beans from Nepal, grown above 2,000m altitude.",
   slogan: "Crafted Above the Clouds",
-  foundingLocation: {
-    "@type": "Place",
-    name: "Australia",
-  },
   areaServed: "AU",
   contactPoint: {
     "@type": "ContactPoint",
@@ -144,42 +118,31 @@ const organizationSchema = {
     email: "hello@himabeans.com.au",
     availableLanguage: ["English"],
   },
-  sameAs: [
-    "https://instagram.com/himabeans",
-    "https://facebook.com/himabeans",
-  ],
+  sameAs: ["https://instagram.com/himabeans", "https://facebook.com/himabeans"],
 };
 
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
   name: "HIMA BEANS Himalayan Single-Origin Coffee",
-  brand: {
-    "@type": "Brand",
-    name: "HIMA BEANS",
-  },
+  brand: { "@type": "Brand", name: "HIMA BEANS" },
   description:
-    "Single-origin Nepali specialty coffee beans grown in the Himalayan highlands above 2,000 metres. Naturally processed, hand-picked, and roasted to highlight floral and chocolate notes.",
+    "Single-origin Nepali specialty coffee beans grown in the Himalayan highlands above 2,000m. Hand-picked, naturally processed, roasted in Melbourne.",
   category: "Specialty Coffee Beans",
   offers: {
     "@type": "AggregateOffer",
     priceCurrency: "AUD",
     availability: "https://schema.org/InStock",
-    seller: {
-      "@type": "Organization",
-      name: "HIMA BEANS",
-    },
+    seller: { "@type": "Organization", name: "HIMA BEANS" },
   },
 };
 
 /* ============================================================
-   Root Layout
+   Root Layout — native scroll, no Lenis/GSAP
    ============================================================ */
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en-AU"
@@ -187,26 +150,15 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Preconnect for font performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-
-        {/* Schema.org structured data */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(productSchema),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
         />
       </head>
 
@@ -214,14 +166,7 @@ export default function RootLayout({
         className="min-h-dvh flex flex-col relative"
         style={{ backgroundColor: "#F5EFE6" }}
       >
-        {/* Loading screen — renders first, unmounts after animation */}
-        <LoadingScreen />
-
-        {/* Custom cursor glow — desktop only */}
-        <CursorGlow />
-
-        {/* Lenis smooth scroll wrapper */}
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );

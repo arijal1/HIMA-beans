@@ -27,9 +27,8 @@ export function useLang() {
 
 const NAV_LINKS: { label: string; labelNP: string; href: string }[] = [
   { label: 'Home',          labelNP: 'गृहपृष्ठ',    href: '/' },
+  { label: 'Products',      labelNP: 'उत्पादनहरू',   href: '/beans' },
   { label: 'About',         labelNP: 'हाम्रो बारे',  href: '/about' },
-  { label: 'Our Beans',     labelNP: 'हाम्रो बीन',   href: '/beans' },
-  { label: 'Comparison',    labelNP: 'तुलना',         href: '/comparison' },
   { label: 'Sustainability', labelNP: 'दिगोपन',       href: '/sustainability' },
   { label: 'Wholesale',     labelNP: 'थोक',           href: '/wholesale' },
   { label: 'Journal',       labelNP: 'पत्रिका',       href: '/journal' },

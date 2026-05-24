@@ -220,10 +220,12 @@ function SectionWrapper({
 }) {
   return (
     <section
-      className={`relative px-6 md:px-12 lg:px-20 ${className}`}
+      className={`relative ${className}`}
       style={style}
     >
-      {children}
+      <div className="site-container">
+        {children}
+      </div>
     </section>
   );
 }

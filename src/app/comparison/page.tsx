@@ -491,7 +491,7 @@ export default function ComparisonPage() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div className="relative z-10 site-container w-full">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -523,7 +523,7 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Intro ── */}
-      <section className="py-12 sm:py-16 md:py-20 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 sm:py-16 md:py-20 site-container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
@@ -550,7 +550,7 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Filter Bar ── */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-6 md:mb-8">
+      <section className="site-container mb-6 md:mb-8">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="font-sans text-sm text-[#8C8477] font-medium mr-2">Filter by:</span>
           <button
@@ -580,12 +580,12 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Altitude Row ── */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="site-container">
         {(!activeFilter) && <AltitudeRow />}
       </section>
 
       {/* ── Animated Bar Charts ── */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-12 sm:pb-16 md:pb-24">
+      <section className="site-container pb-12 sm:pb-16 md:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter ?? 'all'}
@@ -604,7 +604,7 @@ export default function ComparisonPage() {
         className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#3B2A21' }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
@@ -632,7 +632,7 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Why Nepal Wins ── */}
-      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+      <section className="py-12 sm:py-16 md:py-24 site-container">
         <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             The Verdict

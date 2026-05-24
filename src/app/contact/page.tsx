@@ -121,7 +121,7 @@ export default function ContactPage() {
               background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(176,141,87,0.08) 0%, transparent 70%)',
             }}
           />
-          <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <div className="max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] relative z-10">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}

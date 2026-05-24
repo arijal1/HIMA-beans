@@ -563,7 +563,7 @@ function BeansHero() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full">
+      <div className="relative z-10 site-container md:px-12 lg:px-20 w-full">
         <motion.p
           initial={{ opacity: 0, letterSpacing: "0.2em" }}
           animate={{ opacity: 1, letterSpacing: "0.4em" }}

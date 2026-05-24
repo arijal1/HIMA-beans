@@ -240,7 +240,7 @@ function CommitmentBlock({
     >
       <div
         ref={ref}
-        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-14 md:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center ${
+        className={`site-container py-14 md:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center ${
           !isEven ? 'lg:grid-flow-dense' : ''
         }`}
       >
@@ -431,7 +431,7 @@ export default function SustainabilityPage() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 w-full">
+        <div className="relative z-10 site-container w-full">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -469,7 +469,7 @@ export default function SustainabilityPage() {
 
       {/* ── Farmer Stories ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               The People Behind the Cup
@@ -492,7 +492,7 @@ export default function SustainabilityPage() {
 
       {/* ── Impact Numbers ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: '#3B2A21' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Measured Impact
@@ -511,7 +511,7 @@ export default function SustainabilityPage() {
 
       {/* ── Certifications ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Verified by Third Parties
