@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* ============================================================
+   HIMA BEANS — Global Styles
+   Crafted Above the Clouds
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   Tailwind v4 Theme — Brand Color & Font Tokens
+   ------------------------------------------------------------ */
+@theme {
+  /* Brand colors */
+  --color-espresso:  #3B2A21;
+  --color-cream:     #F5EFE6;
+  --color-stone:     #8C8477;
+  --color-gold:      #B08D57;
+  --color-beige:     #E6D8C9;
+  --color-charcoal:  #222222;
+
+  /* Semantic aliases */
+  --color-background: var(--color-cream);
+  --color-foreground:  var(--color-charcoal);
+  --color-accent:      var(--color-gold);
+  --color-muted:       var(--color-stone);
+  --color-surface:     var(--color-beige);
+
+  /* Font families — populated by CSS vars injected from next/font */
+  --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-sans:  var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+/* ------------------------------------------------------------
+   CSS Custom Properties (runtime values)
+   ------------------------------------------------------------ */
+:root {
+  /* Brand palette */
+  --espresso:  #3B2A21;
+  --cream:     #F5EFE6;
+  --stone:     #8C8477;
+  --gold:      #B08D57;
+  --beige:     #E6D8C9;
+  --charcoal:  #222222;
+
+  /* Transitions */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --transition-base: 300ms var(--ease-out-quart);
+
+  /* Grain texture opacity */
+  --grain-opacity: 0.035;
+
+  /* Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+/* ------------------------------------------------------------
+   Base Resets & Document Defaults
+   ------------------------------------------------------------ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Hide default cursor on desktop — custom cursor handles it */
+  cursor: none;
+}
+
+@media (hover: none) {
+  /* Restore default cursor on touch devices */
+  html {
+    cursor: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ------------------------------------------------------------
+   Grain Texture Overlay
+   Adds premium film-grain feel via an SVG noise filter rendered
+   as a pseudo-element so it never interferes with interactions.
+   ------------------------------------------------------------ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  /* SVG-based perlin noise grain */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+}
+
+/* ------------------------------------------------------------
+   Custom Scrollbar (WebKit)
+   ------------------------------------------------------------ */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gold);
+  border-radius: 9999px;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--espresso);
+}
+
+/* ------------------------------------------------------------
+   Text Selection
+   ------------------------------------------------------------ */
+::selection {
+  background-color: var(--gold);
+  color: var(--cream);
+}
+
+::-moz-selection {
+  background-color: var(--gold);
+  color: var(--cream);
+}
+
+/* ------------------------------------------------------------
+   Custom Cursor Dot
+   A small cream dot that serves as the base cursor.
+   The JS CursorGlow component layers on top of this.
+   ------------------------------------------------------------ */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--cream);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: opacity 200ms ease, transform 200ms ease;
+  will-change: transform;
+}
+
+.cursor-dot.hidden {
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------
+   Typography Helpers
+   ------------------------------------------------------------ */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Fluid heading sizes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+}
+
+/* ------------------------------------------------------------
+   Focus Visible — Accessible, on-brand ring
+   ------------------------------------------------------------ */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------
+   Smooth Image Loading
+   ------------------------------------------------------------ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   Link Defaults
+   ------------------------------------------------------------ */
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: none;
+}
+
+button {
+  cursor: none;
+}
+
+@media (hover: none) {
+  a,
+  button {
+    cursor: auto;
+  }
+}
