@@ -224,7 +224,7 @@ function ComparisonBarGrid({ activeFilter }: { activeFilter: string | null }) {
       {filteredFactors.map((factor) => (
         <div key={factor.key} className="rounded-2xl overflow-hidden border border-[#E6D8C9]">
           {/* Factor header */}
-          <div className="px-6 py-4 bg-[#3B2A21]">
+          <div className="px-4 sm:px-6 py-4 bg-[#3B2A21]">
             <h3 className="font-serif text-lg text-[#F5EFE6] font-semibold">{factor.label}</h3>
           </div>
           {/* Origin bars */}
@@ -232,17 +232,17 @@ function ComparisonBarGrid({ activeFilter }: { activeFilter: string | null }) {
             {ORIGINS.map((origin, oi) => (
               <div
                 key={origin.name}
-                className="flex items-center gap-4 px-6 py-4"
+                className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-4"
                 style={{ backgroundColor: origin.isNepal ? '#FBF7F2' : '#FFFFFF' }}
               >
-                <div className="w-24 shrink-0">
+                <div className="w-16 sm:w-24 shrink-0">
                   <p
-                    className="font-sans text-sm font-semibold"
+                    className="font-sans text-xs sm:text-sm font-semibold"
                     style={{ color: origin.isNepal ? '#B08D57' : '#3B2A21' }}
                   >
                     {origin.name}
                   </p>
-                  <p className="font-sans text-xs text-[#8C8477]">{origin.country}</p>
+                  <p className="font-sans text-xs text-[#8C8477] hidden sm:block">{origin.country}</p>
                 </div>
                 <div className="flex-1">
                   <AnimatedBar
@@ -267,7 +267,7 @@ function AltitudeRow() {
 
   return (
     <div ref={ref} className="rounded-2xl overflow-hidden border border-[#E6D8C9] mb-10">
-      <div className="px-6 py-4 bg-[#3B2A21]">
+      <div className="px-4 sm:px-6 py-4 bg-[#3B2A21]">
         <h3 className="font-serif text-lg text-[#F5EFE6] font-semibold">Altitude (m)</h3>
       </div>
       <div className="divide-y divide-[#E6D8C9]">
@@ -276,17 +276,17 @@ function AltitudeRow() {
           return (
             <div
               key={origin.name}
-              className="flex items-center gap-4 px-6 py-4"
+              className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-4"
               style={{ backgroundColor: origin.isNepal ? '#FBF7F2' : '#FFFFFF' }}
             >
-              <div className="w-24 shrink-0">
+              <div className="w-16 sm:w-24 shrink-0">
                 <p
-                  className="font-sans text-sm font-semibold"
+                  className="font-sans text-xs sm:text-sm font-semibold"
                   style={{ color: origin.isNepal ? '#B08D57' : '#3B2A21' }}
                 >
                   {origin.name}
                 </p>
-                <p className="font-sans text-xs text-[#8C8477]">{origin.country}</p>
+                <p className="font-sans text-xs text-[#8C8477] hidden sm:block">{origin.country}</p>
               </div>
               <div className="flex-1 flex items-center gap-2">
                 <div className="flex-1 bg-[#E6D8C9] rounded-full h-2 overflow-hidden">
@@ -439,7 +439,7 @@ function DifferentiatorCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 0.6, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-white rounded-2xl p-8 border border-[#E6D8C9] flex flex-col gap-4"
+      className="bg-white rounded-2xl p-5 sm:p-8 border border-[#E6D8C9] flex flex-col gap-4"
     >
       <div
         className="w-12 h-12 rounded-full flex items-center justify-center text-xl"
@@ -470,7 +470,7 @@ export default function ComparisonPage() {
       {/* ── Hero ── */}
       <section
         ref={heroRef}
-        className="relative min-h-[70vh] flex items-end pb-20 overflow-hidden"
+        className="relative min-h-[60vh] sm:min-h-[70vh] flex items-end pb-12 sm:pb-16 md:pb-20 pt-28 sm:pt-0 overflow-hidden"
         style={{ backgroundColor: '#3B2A21' }}
       >
         {/* Background texture */}
@@ -504,7 +504,7 @@ export default function ComparisonPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-8"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-8"
           >
             The World&apos;s Best,
             <br />
@@ -523,8 +523,8 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Intro ── */}
-      <section className="py-20 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-12 sm:py-16 md:py-20 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               A New Benchmark
@@ -550,8 +550,8 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Filter Bar ── */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-8">
-        <div className="flex items-center gap-3 flex-wrap">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 mb-6 md:mb-8">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="font-sans text-sm text-[#8C8477] font-medium mr-2">Filter by:</span>
           <button
             onClick={() => setActiveFilter(null)}
@@ -585,7 +585,7 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Animated Bar Charts ── */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 pb-12 sm:pb-16 md:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter ?? 'all'}
@@ -601,11 +601,11 @@ export default function ComparisonPage() {
 
       {/* ── Radar Chart ── */}
       <section
-        className="py-24"
+        className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#3B2A21' }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 Flavour Profile Radar
@@ -624,7 +624,7 @@ export default function ComparisonPage() {
                 rare centre of excellence.
               </p>
             </div>
-            <div className="bg-[#F5EFE6] rounded-3xl p-8">
+            <div className="bg-[#F5EFE6] rounded-3xl p-4 sm:p-8">
               <RadarChart />
             </div>
           </div>
@@ -632,8 +632,8 @@ export default function ComparisonPage() {
       </section>
 
       {/* ── Why Nepal Wins ── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
+      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             The Verdict
           </p>
@@ -641,7 +641,7 @@ export default function ComparisonPage() {
             Why Nepal Wins
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {DIFFERENTIATORS.map((item, i) => (
             <DifferentiatorCard key={item.title} item={item} index={i} />
           ))}
@@ -650,7 +650,7 @@ export default function ComparisonPage() {
 
       {/* ── CTA ── */}
       <section
-        className="py-24 text-center"
+        className="py-12 sm:py-16 md:py-24 text-center"
         style={{ backgroundColor: '#B08D57' }}
       >
         <div className="max-w-2xl mx-auto px-6">

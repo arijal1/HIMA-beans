@@ -227,3 +227,15 @@ button {
     cursor: auto;
   }
 }
+
+/* ------------------------------------------------------------
+   OriginStory — Photo frame: restore full rotation on md+
+   On mobile the component applies a very small rotation so the
+   frames stay within their overflow-hidden wrapper. On md+ we
+   restore the full rotation stored in CSS custom properties.
+   ------------------------------------------------------------ */
+@media (min-width: 768px) {
+  .photo-frame-inner {
+    transform: rotate(var(--frame-rotate, 0deg)) translateY(var(--frame-offsetY, 0px)) !important;
+  }
+}

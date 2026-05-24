@@ -231,7 +231,7 @@ export default function Navigation() {
             >
               HIMA BEANS
             </span>
-            <span className="text-[#B08D57] text-[8px] tracking-[0.3em] uppercase mt-[5px] leading-none">
+            <span className="hidden min-[380px]:block text-[#B08D57] text-[8px] tracking-[0.3em] uppercase mt-[5px] leading-none">
               Est. 2024 &middot; Nepal → Australia
             </span>
           </Link>
@@ -337,7 +337,7 @@ export default function Navigation() {
             </div>
 
             {/* Menu content */}
-            <div className="relative z-10 flex flex-col justify-center h-full px-10 pt-24 pb-12">
+            <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-10 pt-24 pb-12">
               <nav aria-label="Mobile navigation">
                 <ul className="space-y-0.5" role="list">
                   {NAV_LINKS.map((link, i) => (
@@ -353,7 +353,7 @@ export default function Navigation() {
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
                         className={[
-                          'group flex items-center gap-5 py-3.5 rounded px-1',
+                          'group flex items-center gap-5 py-3.5 min-h-[44px] rounded px-1',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]',
                           'transition-opacity duration-200',
                           pathname === link.href

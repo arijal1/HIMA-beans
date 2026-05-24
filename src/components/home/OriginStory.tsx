@@ -111,70 +111,79 @@ interface PhotoFrameProps {
 }
 
 function PhotoFrame({ label, gradient, rotation, offsetY, accentColor, delay }: PhotoFrameProps) {
+  // Keep rotations very small (≤ ±0.5 deg) so they never cause overflow on
+  // any viewport. The outer overflow-hidden wrapper provides an extra safety
+  // clip, and the subtle tilt is still visually present everywhere.
+  const safeRotation = rotation * 0.18; // ≈ ±0.45 deg max
+  const safeOffsetY  = offsetY  * 0.2;  // small vertical nudge
+
   return (
-    <motion.div
-      initial={{ opacity: 0, x: 35 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-      className="relative overflow-hidden rounded-sm"
-      style={{
-        background: gradient,
-        border: '1px solid rgba(176,141,87,0.18)',
-        transform: `rotate(${rotation}deg) translateY(${offsetY}px)`,
-        boxShadow: '0 22px 55px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.4)',
-        aspectRatio: '4/3',
-      }}
-    >
-      {/* Top accent */}
-      <div className="h-[3px] w-full" style={{ backgroundColor: accentColor }} />
-
-      {/* Mountain silhouette */}
-      <svg
-        viewBox="0 0 400 160"
-        aria-hidden="true"
+    // Outer wrapper: clips any sub-pixel edge bleed from the rotation
+    <div className="overflow-hidden rounded-sm">
+      <motion.div
+        initial={{ opacity: 0, x: 35 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.9, delay, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+        className="relative overflow-hidden rounded-sm"
         style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '55%',
-          opacity: 0.22,
+          background: gradient,
+          border: '1px solid rgba(176,141,87,0.18)',
+          transform: `rotate(${safeRotation}deg) translateY(${safeOffsetY}px)`,
+          boxShadow: '0 22px 55px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.4)',
+          aspectRatio: '4/3',
         }}
       >
-        <path
-          d="M0,160 L0,100 L60,50 L95,75 L140,25 L180,60 L220,15 L265,55 L305,35 L345,62 L380,42 L400,58 L400,160Z"
-          fill={accentColor}
-        />
-        <path
-          d="M0,160 L0,130 L50,100 L90,115 L140,80 L190,105 L240,70 L290,100 L340,85 L400,105 L400,160Z"
-          fill="rgba(0,0,0,0.35)"
-        />
-      </svg>
+        {/* Top accent */}
+        <div className="h-[3px] w-full" style={{ backgroundColor: accentColor }} />
 
-      {/* Radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(245,239,230,0.07) 0%, transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
-
-      {/* Caption */}
-      <div
-        className="absolute bottom-0 inset-x-0 px-4 py-3"
-        style={{ backgroundColor: 'rgba(26,15,9,0.72)', backdropFilter: 'blur(4px)' }}
-      >
-        <p
-          className="text-[10px] tracking-[0.28em] uppercase"
-          style={{ color: 'rgba(245,239,230,0.55)' }}
+        {/* Mountain silhouette */}
+        <svg
+          viewBox="0 0 400 160"
+          aria-hidden="true"
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '55%',
+            opacity: 0.22,
+          }}
         >
-          {label}
-        </p>
-      </div>
-    </motion.div>
+          <path
+            d="M0,160 L0,100 L60,50 L95,75 L140,25 L180,60 L220,15 L265,55 L305,35 L345,62 L380,42 L400,58 L400,160Z"
+            fill={accentColor}
+          />
+          <path
+            d="M0,160 L0,130 L50,100 L90,115 L140,80 L190,105 L240,70 L290,100 L340,85 L400,105 L400,160Z"
+            fill="rgba(0,0,0,0.35)"
+          />
+        </svg>
+
+        {/* Radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(245,239,230,0.07) 0%, transparent 70%)',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Caption */}
+        <div
+          className="absolute bottom-0 inset-x-0 px-4 py-3"
+          style={{ backgroundColor: 'rgba(26,15,9,0.72)', backdropFilter: 'blur(4px)' }}
+        >
+          <p
+            className="text-[10px] tracking-[0.28em] uppercase"
+            style={{ color: 'rgba(245,239,230,0.55)' }}
+          >
+            {label}
+          </p>
+        </div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -200,7 +209,7 @@ export default function OriginStory() {
       <motion.div
         style={{ y: watermarkY }}
         aria-hidden="true"
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
       >
         <span
           style={{
@@ -227,7 +236,8 @@ export default function OriginStory() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 py-28 md:py-36">
+      {/* Reduced top/bottom padding on mobile: py-12 → md:py-20 → lg:py-36 */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 py-12 md:py-20 lg:py-36">
 
         {/* ── Header ── */}
         <motion.div
@@ -235,7 +245,7 @@ export default function OriginStory() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mb-20"
+          className="mb-10 md:mb-14 lg:mb-20"
         >
           <motion.p
             variants={childUp}
@@ -263,8 +273,11 @@ export default function OriginStory() {
           </motion.h2>
         </motion.div>
 
-        {/* ── Two-column ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 xl:gap-24 items-start mb-24 md:mb-32">
+        {/* ── Two-column layout ──
+             Gap is reduced on mobile (gap-8) and scales up through md/lg/xl.
+             The photo column gets overflow-hidden to prevent rotated children
+             from creating horizontal scroll. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 xl:gap-24 items-start mb-12 md:mb-20 lg:mb-32">
 
           {/* Left: story text */}
           <motion.div
@@ -367,8 +380,11 @@ export default function OriginStory() {
             </motion.div>
           </motion.div>
 
-          {/* Right: stacked photo frames */}
-          <div className="relative flex flex-col gap-5 pt-4 lg:pt-6">
+          {/* Right: stacked photo frames
+               overflow-hidden on this container prevents any rotated child from
+               causing horizontal scroll on mobile. Dot decorations are hidden on
+               small screens to avoid negative-offset overflow. */}
+          <div className="relative flex flex-col gap-5 pt-4 lg:pt-6 overflow-hidden">
             {PHOTO_FRAMES.map((f, i) => (
               <PhotoFrame
                 key={f.label}
@@ -381,9 +397,9 @@ export default function OriginStory() {
               />
             ))}
 
-            {/* Dot grid decorations */}
+            {/* Dot grid decorations — hidden on mobile to prevent overflow */}
             <div
-              className="absolute -bottom-4 -right-4 w-20 h-20 pointer-events-none"
+              className="absolute -bottom-4 -right-4 w-20 h-20 pointer-events-none hidden sm:block"
               aria-hidden="true"
               style={{
                 backgroundImage:
@@ -392,7 +408,7 @@ export default function OriginStory() {
               }}
             />
             <div
-              className="absolute -top-4 -left-6 w-16 h-16 pointer-events-none"
+              className="absolute -top-4 -left-6 w-16 h-16 pointer-events-none hidden sm:block"
               aria-hidden="true"
               style={{
                 backgroundImage:
@@ -422,6 +438,7 @@ export default function OriginStory() {
             Our Growing Regions
           </motion.h3>
 
+          {/* 1-col on mobile → 2-col on sm → 3-col on lg */}
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden rounded-sm"
             style={{ border: '1px solid rgba(176,141,87,0.14)' }}
@@ -434,7 +451,7 @@ export default function OriginStory() {
                 whileInView="visible"
                 viewport={{ once: true, margin: '-60px' }}
                 variants={fadeCustom}
-                className="group relative flex flex-col gap-2 p-7"
+                className="group relative flex flex-col gap-2 p-6 sm:p-7"
                 style={{
                   backgroundColor: 'rgba(245,239,230,0.025)',
                   borderRight:

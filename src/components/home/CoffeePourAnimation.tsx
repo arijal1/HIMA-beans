@@ -313,6 +313,7 @@ export default function CoffeePourAnimation() {
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
+            padding: '0 1rem',
           }}
         >
           {/* Watermark */}
@@ -332,6 +333,8 @@ export default function CoffeePourAnimation() {
               pointerEvents: 'none',
               userSelect: 'none',
               whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              maxWidth: '100vw',
               fontFamily: 'Georgia, "Times New Roman", serif',
             }}
             aria-hidden="true"
@@ -749,6 +752,8 @@ export default function CoffeePourAnimation() {
               opacity: 0.75,
               zIndex: 5,
               whiteSpace: 'nowrap',
+              maxWidth: '90vw',
+              textAlign: 'center',
             }}
             aria-live="polite"
           >

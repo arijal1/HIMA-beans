@@ -170,6 +170,7 @@ function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate aria-label="Newsletter signup">
+      {/* max-w-sm keeps text from stretching too wide on large screens */}
       <p className="text-[#E6D8C9]/55 text-sm tracking-wide mb-5 leading-relaxed max-w-sm">
         Stories from the highlands. Seasonal releases. Wholesale updates.
         <br />
@@ -197,6 +198,7 @@ function NewsletterForm() {
         </motion.div>
       ) : (
         <>
+          {/* flex-col on mobile → flex-row on sm+ */}
           <div className="flex flex-col sm:flex-row gap-3">
             <label htmlFor="footer-email" className="sr-only">
               Email address
@@ -281,7 +283,10 @@ export default function Footer() {
       className="relative bg-[#3B2A21] overflow-hidden"
       aria-label="Site footer"
     >
-      {/* Large background watermark */}
+      {/* Large background watermark
+           overflow-hidden on the parent footer already clips this, but we
+           additionally clip inside this div and cap the font size lower on
+           mobile so it never triggers horizontal scroll. */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
         aria-hidden="true"
@@ -291,7 +296,8 @@ export default function Footer() {
           style={{
             fontFamily:
               'var(--font-playfair, "Playfair Display", Georgia, serif)',
-            fontSize: 'clamp(72px, 18vw, 240px)',
+            // clamp: 48 px on the smallest screens → scales to 18vw → capped at 240 px
+            fontSize: 'clamp(48px, 18vw, 240px)',
             opacity: 0.03,
           }}
         >
@@ -316,17 +322,18 @@ export default function Footer() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-16 pb-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 pt-12 sm:pt-16 pb-8 sm:pb-10">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
         >
-          {/* ---- Brand + Newsletter row ---- */}
+          {/* ---- Brand + Newsletter row
+               Single column on mobile, 2-col on lg+ ---- */}
           <motion.div
             variants={fadeUpVariants}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 pb-14"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 pb-12 lg:pb-14"
           >
             {/* Brand identity */}
             <div>
@@ -349,6 +356,7 @@ export default function Footer() {
                 </span>
               </Link>
 
+              {/* max-w-sm prevents text stretching awkwardly on wide single-column mobile */}
               <p className="text-[#E6D8C9]/55 text-sm leading-relaxed max-w-sm tracking-wide">
                 Single-origin specialty coffee sourced from high-altitude
                 Himalayan farms above 2,000 m in Nepal — brought to Australian
@@ -368,9 +376,9 @@ export default function Footer() {
                 </span>
               </div>
 
-              {/* Social links */}
+              {/* Social links — flex-wrap so they never overflow on tiny screens */}
               <div
-                className="flex items-center gap-3 mt-8"
+                className="flex flex-wrap items-center gap-3 mt-8"
                 role="list"
                 aria-label="Social media links"
               >
@@ -412,28 +420,31 @@ export default function Footer() {
           {/* Divider */}
           <motion.div
             variants={fadeUpVariants}
-            className="h-px bg-gradient-to-r from-transparent via-[#F5EFE6]/10 to-transparent mb-14"
+            className="h-px bg-gradient-to-r from-transparent via-[#F5EFE6]/10 to-transparent mb-10 lg:mb-14"
             aria-hidden="true"
           />
 
-          {/* ---- Navigation columns ---- */}
+          {/* ---- Navigation columns
+               2-col on mobile (Explore + Learn), 3-col on sm+ (+ Connect) ---- */}
           <motion.div
             variants={fadeUpVariants}
-            className="grid grid-cols-2 md:grid-cols-3 gap-10 md:gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-10 md:gap-8"
           >
             <FooterColumn title="Explore" links={EXPLORE_LINKS} />
             <FooterColumn title="Learn" links={LEARN_LINKS} />
+            {/* On mobile this falls into the second row (col-span handled by grid auto-flow) */}
             <FooterColumn title="Connect" links={CONNECT_LINKS} />
           </motion.div>
 
           {/* Bottom divider */}
           <motion.div
             variants={fadeUpVariants}
-            className="h-px bg-gradient-to-r from-transparent via-[#F5EFE6]/10 to-transparent mt-14 mb-8"
+            className="h-px bg-gradient-to-r from-transparent via-[#F5EFE6]/10 to-transparent mt-10 lg:mt-14 mb-6 lg:mb-8"
             aria-hidden="true"
           />
 
-          {/* ---- Copyright bar ---- */}
+          {/* ---- Copyright bar
+               Stacks vertically on mobile, side-by-side on sm+ ---- */}
           <motion.div
             variants={fadeUpVariants}
             className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[#F5EFE6]/28 text-[11px] tracking-wide"
@@ -441,7 +452,8 @@ export default function Footer() {
             <p>
               &copy; {year} Hima Beans Pty Ltd. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
+            {/* Wrap on very small screens to prevent overflow */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <p>ABN 00 000 000 000</p>
               <Link
                 href="/privacy"

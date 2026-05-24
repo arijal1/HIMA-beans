@@ -60,18 +60,17 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Gold quote mark SVG
+// Gold quote mark SVG — scales responsively
 // ---------------------------------------------------------------------------
 
 function QuoteMark() {
   return (
     <svg
-      width="40"
-      height="32"
       viewBox="0 0 40 32"
       fill="none"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-auto sm:w-8"
     >
       <path
         d="M0 32V19.2C0 10.4 5.6 4.16 16.8 0L19.2 3.68C13.52 5.76 10.16 9.68 9.6 14.4H16V32H0ZM24 32V19.2C24 10.4 29.6 4.16 40.8 0L43.2 3.68C37.52 5.76 34.16 9.68 33.6 14.4H40V32H24Z"
@@ -89,7 +88,7 @@ function QuoteMark() {
 function Avatar({ initials }: { initials: string }) {
   return (
     <div
-      className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-semibold tracking-wider"
+      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-semibold tracking-wider"
       style={{ background: '#3B2A21', color: '#B08D57' }}
       aria-hidden="true"
     >
@@ -104,12 +103,12 @@ function Avatar({ initials }: { initials: string }) {
 
 function Stars() {
   return (
-    <div className="flex gap-0.5 mb-5" aria-label="5 stars">
+    <div className="flex gap-0.5 mb-4 sm:mb-5" aria-label="5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <svg
           key={i}
-          width="14"
-          height="14"
+          width="13"
+          height="13"
           viewBox="0 0 14 14"
           fill="#B08D57"
           aria-hidden="true"
@@ -142,11 +141,14 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
         delay: index * 0.11,
         ease: [0.22, 1, 0.36, 1] as [number,number,number,number],
       }}
-      className="group relative flex flex-col p-8 transition-shadow duration-300"
+      className="group relative flex flex-col p-5 sm:p-6 md:p-8 transition-shadow duration-300 w-full"
       style={{
         background: '#F5EFE6',
         border: '1px solid #E6D8C9',
-        minWidth: '300px',
+        boxSizing: 'border-box',
+        /* Prevent cards from overflowing their grid cell */
+        minWidth: 0,
+        overflow: 'hidden',
       }}
       aria-label={`Testimonial from ${testimonial.author}`}
     >
@@ -158,7 +160,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       />
 
       {/* Quote mark */}
-      <div className="mb-4">
+      <div className="mb-3 sm:mb-4">
         <QuoteMark />
       </div>
 
@@ -166,9 +168,9 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       <Stars />
 
       {/* Quote text */}
-      <blockquote className="flex-1 mb-8">
+      <blockquote className="flex-1 mb-5 sm:mb-7">
         <p
-          className="text-base leading-[1.75] italic"
+          className="text-sm leading-[1.75] italic"
           style={{ color: '#3B2A21' }}
         >
           &ldquo;{testimonial.quote}&rdquo;
@@ -177,22 +179,22 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
 
       {/* Divider */}
       <span
-        className="block h-px mb-6"
+        className="block h-px mb-4 sm:mb-6"
         style={{ background: '#E6D8C9' }}
         aria-hidden="true"
       />
 
-      {/* Attribution */}
-      <div className="flex items-center gap-3">
+      {/* Attribution — avatar + text side by side, constrained so it never overflows */}
+      <div className="flex items-center gap-3 min-w-0">
         <Avatar initials={testimonial.initials} />
-        <div>
+        <div className="min-w-0 flex-1">
           <p
-            className="text-sm font-semibold leading-snug"
+            className="text-sm font-semibold leading-snug truncate"
             style={{ color: '#3B2A21' }}
           >
             {testimonial.author}
           </p>
-          <p className="text-xs leading-snug" style={{ color: '#8C8477' }}>
+          <p className="text-xs leading-snug truncate" style={{ color: '#8C8477' }}>
             {testimonial.role}
             <span aria-hidden="true"> · </span>
             {testimonial.location}
@@ -227,9 +229,13 @@ export default function Testimonials() {
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 lg:py-36">
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+      {/* Section padding: clamp-based — 4rem on mobile, scales up to 9rem on large screens */}
+      <div
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10"
+        style={{ paddingTop: 'clamp(4rem, 8vw, 9rem)', paddingBottom: 'clamp(4rem, 8vw, 9rem)' }}
+      >
+        {/* Section header — stacks to column on mobile, flex-row on md+ */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 sm:gap-8 mb-8 md:mb-16">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -248,10 +254,11 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="text-5xl md:text-6xl font-serif leading-[1.05]"
+              className="font-serif leading-[1.05]"
               style={{
                 color: '#3B2A21',
                 fontFamily: '"Playfair Display", Georgia, serif',
+                fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
               }}
             >
               Voices from
@@ -275,28 +282,33 @@ export default function Testimonials() {
           </motion.p>
         </div>
 
-        {/* Testimonial grid — scrollable on mobile, 4-col on large */}
+        {/* Testimonial grid:
+            - 1 column on mobile (< sm): full-width cards, no overflow
+            - 2 columns on sm–lg: side-by-side pairs
+            - 4 columns on lg+: full row of four
+            gap reduced on mobile to avoid crowding */}
         <div
           ref={scrollRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
+          style={{ overflow: 'hidden' }}
         >
           {TESTIMONIALS.map((t, i) => (
             <TestimonialCard key={t.id} testimonial={t} index={i} />
           ))}
         </div>
 
-        {/* Aggregate social proof strip */}
+        {/* Aggregate social proof strip — wraps on mobile, horizontal on sm+ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="mt-14 flex flex-wrap items-center gap-8"
+          className="mt-8 sm:mt-14 flex flex-wrap items-center gap-6 sm:gap-8"
         >
           {/* Rating */}
           <div className="flex items-baseline gap-2">
             <span
-              className="text-4xl font-serif"
+              className="text-3xl sm:text-4xl font-serif"
               style={{
                 color: '#3B2A21',
                 fontFamily: '"Playfair Display", Georgia, serif',
@@ -325,6 +337,7 @@ export default function Testimonials() {
             </div>
           </div>
 
+          {/* Divider — hidden on mobile to avoid orphaned vertical lines */}
           <span
             className="hidden sm:block w-px h-10"
             style={{ background: '#E6D8C9' }}

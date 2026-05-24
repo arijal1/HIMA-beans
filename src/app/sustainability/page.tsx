@@ -240,7 +240,7 @@ function CommitmentBlock({
     >
       <div
         ref={ref}
-        className={`max-w-7xl mx-auto px-6 lg:px-12 py-24 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center ${
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-14 md:py-20 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center ${
           !isEven ? 'lg:grid-flow-dense' : ''
         }`}
       >
@@ -358,9 +358,9 @@ function ImpactCard({ stat, index }: { stat: ImpactStat; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="text-center px-6 py-8"
+      className="text-center px-4 sm:px-6 py-6 sm:py-8"
     >
-      <div className="font-serif text-5xl md:text-6xl font-bold text-[#B08D57] mb-2">
+      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#B08D57] mb-2">
         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
       </div>
       <p className="font-serif text-xl text-[#F5EFE6] font-semibold mb-2">{stat.label}</p>
@@ -407,7 +407,7 @@ export default function SustainabilityPage() {
       {/* ── Hero ── */}
       <section
         ref={heroRef}
-        className="relative min-h-[80vh] flex items-end pb-24 overflow-hidden"
+        className="relative min-h-[70vh] md:min-h-[80vh] flex items-end pb-16 md:pb-24 overflow-hidden"
         style={{ backgroundColor: '#222222' }}
       >
         {/* Mountain gradient */}
@@ -444,7 +444,7 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-8"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-6 md:mb-8"
           >
             Our Earth
             <br />
@@ -468,13 +468,13 @@ export default function SustainabilityPage() {
       ))}
 
       {/* ── Farmer Stories ── */}
-      <section className="py-24" style={{ backgroundColor: '#F5EFE6' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               The People Behind the Cup
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
               Farmer Stories
             </h2>
             <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
@@ -491,13 +491,13 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Impact Numbers ── */}
-      <section className="py-24" style={{ backgroundColor: '#3B2A21' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#3B2A21' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Measured Impact
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#F5EFE6] font-bold leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EFE6] font-bold leading-tight">
               By the Numbers
             </h2>
           </div>
@@ -510,13 +510,13 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Certifications ── */}
-      <section className="py-24" style={{ backgroundColor: '#F5EFE6' }}>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-14">
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="text-center mb-10 md:mb-14">
             <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Verified by Third Parties
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
               Our Certifications
             </h2>
             <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
@@ -534,21 +534,21 @@ export default function SustainabilityPage() {
 
       {/* ── CTA ── */}
       <section
-        className="py-24 text-center"
+        className="py-16 md:py-24 text-center"
         style={{ backgroundColor: '#3B2A21' }}
       >
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-4xl md:text-5xl text-[#F5EFE6] font-bold leading-tight mb-6">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EFE6] font-bold leading-tight mb-6">
             Drink Coffee That Does Good
           </h2>
           <p className="font-sans text-[#E6D8C9] text-base leading-relaxed mb-10 opacity-90">
             Every purchase directly supports Nepali farming families and a regenerative supply
             chain. Shop our full bean range and taste the difference ethical sourcing makes.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
             <Link
               href="/beans"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
               style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
             >
               Shop Our Beans
@@ -556,7 +556,7 @@ export default function SustainabilityPage() {
             </Link>
             <Link
               href="/wholesale"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
               style={{ borderColor: '#B08D57', color: '#B08D57' }}
             >
               Wholesale Inquiry

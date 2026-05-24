@@ -161,12 +161,13 @@ function AccordionItem({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'flex-start',
-          padding: '1.5rem 0',
+          padding: '1.25rem 0',
           background: 'none',
           border: 'none',
           textAlign: 'left',
           cursor: 'pointer',
-          gap: '1.5rem',
+          gap: '1rem',
+          minHeight: '56px',
         }}
       >
         <span
@@ -254,7 +255,7 @@ export default function FAQPage() {
 
       <main style={{ background: '#F5EFE6', minHeight: '100vh' }}>
         {/* Hero */}
-        <section style={{ background: '#3B2A21', padding: '8rem 0 5rem', position: 'relative', overflow: 'hidden' }}>
+        <section style={{ background: '#3B2A21', padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)', position: 'relative', overflow: 'hidden' }}>
           <div
             aria-hidden="true"
             style={{
@@ -263,7 +264,7 @@ export default function FAQPage() {
               background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(176,141,87,0.08) 0%, transparent 70%)',
             }}
           />
-          <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -300,17 +301,18 @@ export default function FAQPage() {
         </section>
 
         {/* Content */}
-        <section style={{ padding: '5rem 0 8rem' }}>
-          <div className="max-w-4xl mx-auto px-6">
+        <section style={{ padding: 'clamp(2.5rem, 5vw, 5rem) 0 clamp(4rem, 8vw, 8rem)' }}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6">
             {/* Category tabs */}
             <div
               style={{
                 display: 'flex',
-                gap: '0.5rem',
+                gap: '0.25rem',
                 flexWrap: 'wrap',
-                marginBottom: '3rem',
+                marginBottom: '2rem',
                 borderBottom: '1px solid rgba(59,42,33,0.1)',
                 paddingBottom: '0',
+                overflowX: 'auto',
               }}
             >
               {CATEGORIES.map((cat) => (
@@ -318,7 +320,7 @@ export default function FAQPage() {
                   key={cat}
                   onClick={() => handleCategoryChange(cat)}
                   style={{
-                    padding: '0.75rem 1.25rem',
+                    padding: '0.875rem 1rem',
                     background: 'none',
                     border: 'none',
                     cursor: 'pointer',
@@ -331,6 +333,7 @@ export default function FAQPage() {
                     transition: 'all 0.2s ease',
                     marginBottom: '-1px',
                     whiteSpace: 'nowrap',
+                    minHeight: '44px',
                   }}
                 >
                   {cat}
@@ -366,8 +369,8 @@ export default function FAQPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
               style={{
-                marginTop: '5rem',
-                padding: '3rem',
+                marginTop: 'clamp(2.5rem, 5vw, 5rem)',
+                padding: 'clamp(1.5rem, 4vw, 3rem)',
                 background: '#3B2A21',
                 borderRadius: '2px',
                 textAlign: 'center',

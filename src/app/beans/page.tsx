@@ -303,7 +303,7 @@ function BeanCard({
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={handleMouseLeave}
-        className="relative rounded-2xl overflow-hidden flex flex-col h-full"
+        className="relative rounded-2xl overflow-hidden flex flex-col h-full min-h-[420px] sm:min-h-[480px]"
       >
         {/* Hover glow */}
         <AnimatePresence>
@@ -328,7 +328,7 @@ function BeanCard({
         />
 
         {/* Header area */}
-        <div className="pt-8 px-6 pb-4 relative z-10">
+        <div className="pt-6 sm:pt-8 px-5 sm:px-6 pb-4 relative z-10">
           {/* Badges row */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
@@ -371,12 +371,12 @@ function BeanCard({
 
         {/* Divider */}
         <div
-          className="mx-6 h-px"
+          className="mx-5 sm:mx-6 h-px"
           style={{ backgroundColor: `${C.stone}18` }}
         />
 
         {/* Details */}
-        <div className="px-6 py-4 flex flex-col gap-4 flex-1 relative z-10">
+        <div className="px-5 sm:px-6 py-4 flex flex-col gap-4 flex-1 relative z-10">
           {/* Description */}
           <p
             className="text-sm leading-relaxed"
@@ -427,7 +427,7 @@ function BeanCard({
         </div>
 
         {/* CTA */}
-        <div className="px-6 pb-6 relative z-10">
+        <div className="px-5 sm:px-6 pb-5 sm:pb-6 relative z-10">
           <motion.button
             initial={false}
             animate={hovered ? { backgroundColor: C.espresso } : { backgroundColor: "transparent" }}
@@ -509,7 +509,7 @@ function FilterBar({
 function BeansHero() {
   return (
     <section
-      className="relative min-h-[70vh] flex items-end pb-24 pt-40 overflow-hidden"
+      className="relative min-h-[70vh] flex items-end pb-16 sm:pb-20 md:pb-24 pt-28 sm:pt-36 md:pt-40 overflow-hidden"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Background texture */}
@@ -579,7 +579,7 @@ function BeansHero() {
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.35, ease }}
-            className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold leading-none"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-none"
             style={{ color: C.cream }}
           >
             Our Signature
@@ -613,11 +613,11 @@ function IntroSection() {
 
   return (
     <section
-      className="py-20 px-6 md:px-12 lg:px-20"
+      className="py-12 sm:py-16 md:py-20 px-6 md:px-12 lg:px-20"
       style={{ backgroundColor: C.beige }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {[
             {
               label: "Rarity by Design",
@@ -675,7 +675,7 @@ function BeanGridSection() {
 
   return (
     <section
-      className="py-24 px-6 md:px-12 lg:px-20"
+      className="py-16 sm:py-20 md:py-24 px-6 md:px-12 lg:px-20"
       style={{ backgroundColor: C.cream }}
     >
       <div className="max-w-7xl mx-auto">
@@ -757,7 +757,7 @@ function CustomRoastingSection() {
 
   return (
     <section
-      className="py-28 md:py-36 px-6 md:px-12 lg:px-20 relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-28 lg:py-36 px-6 md:px-12 lg:px-20 relative overflow-hidden"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Background elements */}
@@ -779,7 +779,7 @@ function CustomRoastingSection() {
       </div>
 
       <div ref={ref} className="max-w-7xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: text */}
           <div>
             <motion.p
@@ -942,7 +942,7 @@ function BottomCTA() {
 
   return (
     <section
-      className="py-20 px-6 md:px-12 lg:px-20 text-center"
+      className="py-12 sm:py-16 md:py-20 px-6 md:px-12 lg:px-20 text-center"
       style={{ backgroundColor: C.beige }}
     >
       <div ref={ref} className="max-w-2xl mx-auto">

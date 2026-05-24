@@ -93,15 +93,16 @@ export default function WholesaleCTA() {
       className="relative overflow-hidden"
       aria-labelledby="wholesale-heading"
     >
-      {/* ── Split background ── */}
-      <div className="absolute inset-0 flex pointer-events-none" aria-hidden="true">
-        <div className="w-1/2 h-full" style={{ background: '#3B2A21' }} />
-        <div className="w-1/2 h-full" style={{ background: '#B08D57' }} />
+      {/* ── Split background: full espresso on mobile, split on lg ── */}
+      <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none" aria-hidden="true">
+        {/* On mobile this stacks; each takes 50% of height. On lg they sit side-by-side at 50% width each */}
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#3B2A21' }} />
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#B08D57' }} />
       </div>
 
-      {/* ── Diagonal divider ── */}
+      {/* ── Diagonal divider: only visible on lg where layout is side-by-side ── */}
       <div
-        className="absolute inset-y-0 left-1/2 -translate-x-full w-24 pointer-events-none"
+        className="absolute inset-y-0 left-1/2 -translate-x-full w-24 pointer-events-none hidden lg:block"
         aria-hidden="true"
         style={{
           background: 'linear-gradient(to bottom right, #3B2A21 50%, #B08D57 50%)',
@@ -110,8 +111,11 @@ export default function WholesaleCTA() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10 py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div
+        className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10"
+        style={{ paddingTop: 'clamp(3rem, 8vw, 8rem)', paddingBottom: 'clamp(3rem, 8vw, 8rem)' }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center">
 
           {/* ── Left: Copy ── */}
           <motion.div
@@ -126,7 +130,7 @@ export default function WholesaleCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="mb-6"
+              className="mb-5 sm:mb-6"
             >
               <SocialProofBadge text="Join 50+ Australian Cafés" />
             </motion.div>
@@ -150,10 +154,11 @@ export default function WholesaleCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="text-5xl md:text-6xl font-serif leading-[1.05] mb-6"
+              className="font-serif leading-[1.05] mb-5 sm:mb-6"
               style={{
                 color: '#F5EFE6',
                 fontFamily: '"Playfair Display", Georgia, serif',
+                fontSize: 'clamp(2.25rem, 7vw, 4rem)',
               }}
             >
               Partner
@@ -169,7 +174,7 @@ export default function WholesaleCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.28, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="text-base leading-relaxed mb-8 max-w-md"
+              className="text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-md"
               style={{ color: 'rgba(245,239,230,0.65)' }}
             >
               We supply specialty-grade Himalayan beans to cafés, restaurants, and
@@ -184,7 +189,7 @@ export default function WholesaleCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="space-y-3 mb-10"
+              className="space-y-2.5 sm:space-y-3 mb-8 sm:mb-10"
               role="list"
             >
               {PERKS.map((perk) => (
@@ -243,10 +248,10 @@ export default function WholesaleCTA() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.75, delay: 0.1, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className="relative"
+            className="relative w-full"
           >
             <div
-              className="relative p-8 lg:p-10"
+              className="relative p-5 sm:p-8 lg:p-10 w-full"
               style={{
                 background: 'rgba(245,239,230,0.08)',
                 border: '1px solid rgba(245,239,230,0.15)',
@@ -276,7 +281,7 @@ export default function WholesaleCTA() {
               />
 
               <h3
-                className="text-2xl font-serif mb-2"
+                className="text-xl sm:text-2xl font-serif mb-2"
                 style={{
                   color: '#1a0f09',
                   fontFamily: '"Playfair Display", Georgia, serif',
@@ -285,7 +290,7 @@ export default function WholesaleCTA() {
                 Start the Conversation
               </h3>
               <p
-                className="text-sm leading-relaxed mb-8"
+                className="text-sm leading-relaxed mb-6 sm:mb-8"
                 style={{ color: 'rgba(26,15,9,0.65)' }}
               >
                 Drop your email and we&apos;ll reach out within one business day with

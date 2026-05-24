@@ -138,16 +138,20 @@ function AnimatedCounter({ target, suffix, label }: CounterProps) {
   }, [inView, motionValue, target]);
 
   return (
-    <div ref={ref} className="mb-6">
+    <div ref={ref} className="mb-5 sm:mb-6">
       <div className="flex items-baseline gap-0.5">
         <motion.span
-          className="text-4xl font-serif tracking-tight"
-          style={{ color: '#B08D57', fontFamily: '"Playfair Display", Georgia, serif' }}
+          className="font-serif tracking-tight"
+          style={{
+            color: '#B08D57',
+            fontFamily: '"Playfair Display", Georgia, serif',
+            fontSize: 'clamp(1.75rem, 5vw, 2.25rem)',
+          }}
         >
           {display}
         </motion.span>
         <span
-          className="text-2xl font-serif"
+          className="text-xl sm:text-2xl font-serif"
           style={{ color: '#B08D57', fontFamily: '"Playfair Display", Georgia, serif' }}
         >
           {suffix}
@@ -175,7 +179,7 @@ function PillarCard({ pillar, index }: PillarCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.7, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-      className="group flex flex-col p-8 border border-white/[0.07] relative overflow-hidden"
+      className="group flex flex-col p-6 sm:p-8 border border-white/[0.07] relative overflow-hidden"
       style={{ background: 'rgba(255,255,255,0.025)' }}
     >
       {/* Hover accent fill */}
@@ -192,7 +196,7 @@ function PillarCard({ pillar, index }: PillarCardProps) {
       />
 
       {/* Icon */}
-      <div className="mb-8 relative z-10">{pillar.icon}</div>
+      <div className="mb-6 sm:mb-8 relative z-10">{pillar.icon}</div>
 
       {/* Animated counter */}
       <div className="relative z-10">
@@ -205,7 +209,7 @@ function PillarCard({ pillar, index }: PillarCardProps) {
 
       {/* Title */}
       <h3
-        className="text-xl font-serif mb-4 relative z-10"
+        className="text-lg sm:text-xl font-serif mb-3 sm:mb-4 relative z-10"
         style={{ color: '#F5EFE6', fontFamily: '"Playfair Display", Georgia, serif' }}
       >
         {pillar.title}
@@ -251,16 +255,19 @@ export default function SustainabilitySection() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 lg:py-36">
+      <div
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10"
+        style={{ paddingTop: 'clamp(3.5rem, 8vw, 9rem)', paddingBottom: 'clamp(3.5rem, 8vw, 9rem)' }}
+      >
 
         {/* Section header */}
-        <div className="mb-20 max-w-2xl">
+        <div className="mb-10 sm:mb-14 lg:mb-20 max-w-2xl">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className="text-xs tracking-[0.3em] uppercase mb-5"
+            className="text-xs tracking-[0.3em] uppercase mb-4 sm:mb-5"
             style={{ color: '#B08D57' }}
           >
             Our Earth Promise
@@ -272,8 +279,12 @@ export default function SustainabilitySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className="text-5xl md:text-6xl font-serif leading-[1.05] mb-6"
-            style={{ color: '#F5EFE6', fontFamily: '"Playfair Display", Georgia, serif' }}
+            className="font-serif leading-[1.05] mb-5 sm:mb-6"
+            style={{
+              color: '#F5EFE6',
+              fontFamily: '"Playfair Display", Georgia, serif',
+              fontSize: 'clamp(2rem, 6vw, 3.75rem)',
+            }}
           >
             Earth First,
             <br />
@@ -285,7 +296,7 @@ export default function SustainabilitySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.16, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className="text-base leading-relaxed max-w-xl"
+            className="text-sm sm:text-base leading-relaxed max-w-xl"
             style={{ color: '#8C8477' }}
           >
             Premium coffee and environmental stewardship aren&apos;t at odds — they&apos;re inseparable.
@@ -293,8 +304,11 @@ export default function SustainabilitySection() {
           </motion.p>
         </div>
 
-        {/* Pillars grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: 'rgba(255,255,255,0.07)' }}>
+        {/* Pillars grid — 1 col mobile, 2 col sm, 4 col lg */}
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px"
+          style={{ background: 'rgba(255,255,255,0.07)' }}
+        >
           {PILLARS.map((pillar, i) => (
             <PillarCard key={pillar.id} pillar={pillar} index={i} />
           ))}
@@ -306,7 +320,7 @@ export default function SustainabilitySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6"
+          className="mt-10 sm:mt-14 lg:mt-16 flex flex-col sm:flex-row items-start sm:items-center gap-6"
         >
           <Link
             href="/sustainability"

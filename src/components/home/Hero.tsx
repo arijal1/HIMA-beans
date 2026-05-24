@@ -578,7 +578,7 @@ export default function Hero() {
               letterSpacing: '-0.02em',
               color: '#F5EFE6',
               fontFamily: "'Playfair Display', var(--font-playfair), serif",
-              fontSize: 'clamp(48px, 8vw, 96px)',
+              fontSize: 'clamp(32px, 8vw, 96px)',
               fontWeight: 700,
             }}
           >
@@ -602,7 +602,7 @@ export default function Hero() {
             style={{
               margin: 0,
               maxWidth: '600px',
-              fontSize: 'clamp(15px, 1.8vw, 18px)',
+              fontSize: 'clamp(15px, 4vw, 18px)',
               lineHeight: 1.7,
               color: 'rgba(245,239,230,0.68)',
               fontFamily: 'var(--font-inter), Inter, sans-serif',
@@ -628,7 +628,9 @@ export default function Hero() {
               <button
                 type="button"
                 style={{
-                  padding: '0.85rem 2.25rem',
+                  padding: '0.75rem 1.5rem',
+                  width: '100%',
+                  maxWidth: '280px',
                   background: '#B08D57',
                   color: '#1a0f09',
                   border: 'none',
@@ -658,7 +660,9 @@ export default function Hero() {
               <button
                 type="button"
                 style={{
-                  padding: '0.85rem 2.25rem',
+                  padding: '0.75rem 1.5rem',
+                  width: '100%',
+                  maxWidth: '280px',
                   background: 'transparent',
                   color: '#F5EFE6',
                   border: '1.5px solid rgba(245,239,230,0.45)',

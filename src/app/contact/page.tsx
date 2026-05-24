@@ -112,7 +112,7 @@ export default function ContactPage() {
 
       <main style={{ background: '#F5EFE6', minHeight: '100vh' }}>
         {/* Hero */}
-        <section style={{ background: '#3B2A21', padding: '8rem 0 5rem', position: 'relative', overflow: 'hidden' }}>
+        <section style={{ background: '#3B2A21', padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)', position: 'relative', overflow: 'hidden' }}>
           <div
             aria-hidden="true"
             style={{
@@ -158,9 +158,9 @@ export default function ContactPage() {
         </section>
 
         {/* Main content */}
-        <section style={{ padding: '5rem 0 8rem' }}>
+        <section style={{ padding: 'clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 8vw, 8rem)' }}>
           <div className="max-w-6xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16">
 
               {/* ── Form (3/5) ── */}
               <motion.div
@@ -276,7 +276,7 @@ export default function ContactPage() {
                           textTransform: 'uppercase',
                           fontFamily: 'var(--font-inter), Inter, sans-serif',
                           cursor: submitting ? 'not-allowed' : 'pointer',
-                          alignSelf: 'flex-start',
+                          alignSelf: 'stretch',
                           transition: 'background 0.2s ease',
                           boxShadow: '0 4px 20px rgba(176,141,87,0.2)',
                         }}
@@ -381,7 +381,7 @@ export default function ContactPage() {
         </section>
 
         {/* Map placeholder */}
-        <section style={{ padding: '0 0 8rem' }}>
+        <section style={{ padding: '0 0 clamp(4rem, 8vw, 8rem)' }}>
           <div className="max-w-6xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -389,7 +389,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               style={{
-                height: '280px',
+                height: 'clamp(180px, 30vw, 280px)',
                 borderRadius: '2px',
                 background: 'linear-gradient(135deg, #3B2A21 0%, #4a3728 30%, #8C8477 70%, #E6D8C9 100%)',
                 position: 'relative',

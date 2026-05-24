@@ -91,10 +91,11 @@ interface FlavorBarProps {
 
 function FlavorBar({ label, intensity, color, index }: FlavorBarProps) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-3 sm:gap-4">
+      {/* Fixed-width label — narrower on mobile to reclaim bar space */}
       <span
-        className="text-[11px] tracking-[0.12em] uppercase shrink-0"
-        style={{ color: '#8C8477', width: '7rem', textAlign: 'right' }}
+        className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase shrink-0 text-right"
+        style={{ color: '#8C8477', width: '5.5rem' }}
       >
         {label}
       </span>
@@ -228,11 +229,12 @@ function BeanTab({
       onClick={onClick}
       whileHover={{ y: -1 }}
       whileTap={{ scale: 0.97 }}
-      className="relative flex flex-col items-start px-6 py-4 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57]"
+      // On mobile: full-width inside the scroll container; on sm+ auto-width
+      className="relative flex flex-col items-start px-5 py-3.5 sm:px-6 sm:py-4 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B08D57] flex-shrink-0"
       style={{
         background: active ? '#3B2A21' : 'transparent',
         border: `1px solid ${active ? '#3B2A21' : '#E6D8C9'}`,
-        minWidth: '150px',
+        minWidth: '140px',
       }}
       aria-pressed={active}
     >
@@ -243,7 +245,7 @@ function BeanTab({
         {profile.region}
       </span>
       <span
-        className="text-sm font-serif leading-tight"
+        className="text-sm font-serif leading-tight whitespace-nowrap"
         style={{
           color: active ? '#F5EFE6' : '#3B2A21',
           fontFamily: '"Playfair Display", Georgia, serif',
@@ -284,10 +286,11 @@ export default function FlavorNotes() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 md:py-36">
+      {/* Reduced padding on mobile: py-14 → md:py-24 → lg:py-36 */}
+      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 md:py-24 lg:py-36">
 
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+        {/* Section header — stacks on mobile, side-by-side on md+ */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-16">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -330,27 +333,34 @@ export default function FlavorNotes() {
           </motion.p>
         </div>
 
-        {/* Bean selector tabs */}
+        {/* Bean selector tabs
+             On mobile: horizontally scrollable row so tabs never wrap awkwardly
+             On sm+: wrapping flex row (original behaviour) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="flex flex-wrap gap-3 mb-12"
+          className="mb-8 md:mb-12"
           role="group"
           aria-label="Select bean flavor profile"
         >
-          {PROFILES.map((p) => (
-            <BeanTab
-              key={p.id}
-              profile={p}
-              active={p.id === activeId}
-              onClick={() => setActiveId(p.id)}
-            />
-          ))}
+          {/* Scrollable container on mobile */}
+          <div className="flex overflow-x-auto sm:flex-wrap gap-3 pb-1 sm:pb-0 -mx-1 px-1">
+            {PROFILES.map((p) => (
+              <BeanTab
+                key={p.id}
+                profile={p}
+                active={p.id === activeId}
+                onClick={() => setActiveId(p.id)}
+              />
+            ))}
+          </div>
         </motion.div>
 
-        {/* Active profile detail */}
+        {/* Active profile detail
+             Mobile:  single column — meta + descriptor, then bars, then radar
+             lg+:     3-column grid (meta | bars | radar) */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeId}
@@ -358,9 +368,9 @@ export default function FlavorNotes() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-16"
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16"
           >
-            {/* Left: meta + descriptor */}
+            {/* Col 1: meta tiles + descriptor + pairing */}
             <div className="flex flex-col gap-6">
               {/* Meta tiles */}
               <div className="flex flex-wrap gap-2">
@@ -409,7 +419,7 @@ export default function FlavorNotes() {
               </div>
             </div>
 
-            {/* Center: flavor bars */}
+            {/* Col 2: flavor intensity bars */}
             <div className="flex flex-col justify-center gap-4">
               <p
                 className="text-[10px] tracking-[0.3em] uppercase mb-2"
@@ -428,7 +438,9 @@ export default function FlavorNotes() {
               ))}
             </div>
 
-            {/* Right: radar chart */}
+            {/* Col 3: radar chart
+                 On mobile the radar is centred and capped at 240 px so it never
+                 overflows a narrow viewport. On lg+ it expands to fill the column. */}
             <div className="flex flex-col items-center justify-center gap-4">
               <p
                 className="text-[10px] tracking-[0.3em] uppercase"
@@ -436,7 +448,9 @@ export default function FlavorNotes() {
               >
                 Flavor Profile
               </p>
-              <div className="w-52 h-52">
+              {/* max-w-[240px] on mobile keeps the SVG from overflowing small screens;
+                  w-52 h-52 (208 px) is fine on lg where the column is wide enough */}
+              <div className="w-full max-w-[240px] aspect-square lg:w-52 lg:h-52 lg:max-w-none">
                 <FlavorRadar profile={active} />
               </div>
             </div>

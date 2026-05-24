@@ -179,8 +179,12 @@ function FeaturedArticleCard({ article }: { article: Article }) {
         className="group block"
         aria-label={`Read article: ${article.title}`}
       >
-        {/* Image area */}
-        <div className="relative overflow-hidden" style={{ height: '420px' }}>
+        {/* Image area — clamp ensures flexibility on all screen sizes:
+            min 240px on mobile, scales with viewport, capped at 480px on desktop */}
+        <div
+          className="relative overflow-hidden"
+          style={{ height: 'clamp(240px, 50vw, 480px)' }}
+        >
           <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-700 ease-out">
             <ArticleImagePlaceholder
               gradient={article.gradient}
@@ -199,26 +203,27 @@ function FeaturedArticleCard({ article }: { article: Article }) {
           />
 
           {/* Overlay content */}
-          <div className="absolute inset-0 flex flex-col justify-end p-8">
-            <div className="mb-3">
+          <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-6 md:p-8">
+            <div className="mb-2 sm:mb-3">
               <CategoryTag category={article.category} />
             </div>
             <h3
-              className="text-2xl md:text-3xl font-serif leading-[1.2] mb-2"
+              className="font-serif leading-[1.2] mb-2"
               style={{
                 color: '#F5EFE6',
                 fontFamily: '"Playfair Display", Georgia, serif',
+                fontSize: 'clamp(1.125rem, 3.5vw, 1.875rem)',
               }}
             >
               {article.title}
             </h3>
             <p
-              className="text-sm leading-relaxed mb-4 line-clamp-2"
+              className="text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2"
               style={{ color: 'rgba(245,239,230,0.65)' }}
             >
               {article.excerpt}
             </p>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2">
               <span
                 className="text-xs tracking-[0.15em] uppercase"
                 style={{ color: '#B08D57' }}
@@ -264,13 +269,16 @@ function SecondaryArticleCard({ article, index }: SecondaryArticleCardProps) {
     >
       <Link
         href={`/journal/${article.slug}`}
-        className="flex gap-5 items-start w-full"
+        className="flex gap-4 sm:gap-5 items-start w-full min-w-0"
         aria-label={`Read article: ${article.title}`}
       >
-        {/* Thumbnail */}
+        {/* Thumbnail — clamp width/height so it never shrinks below 72px or grows too large */}
         <div
           className="relative overflow-hidden shrink-0"
-          style={{ width: '110px', height: '110px' }}
+          style={{
+            width: 'clamp(72px, 22vw, 110px)',
+            height: 'clamp(72px, 22vw, 110px)',
+          }}
         >
           <div className="absolute inset-0 group-hover:scale-110 transition-transform duration-600 ease-out">
             <ArticleImagePlaceholder
@@ -280,13 +288,13 @@ function SecondaryArticleCard({ article, index }: SecondaryArticleCardProps) {
           </div>
         </div>
 
-        {/* Text */}
+        {/* Text — min-w-0 + flex-1 prevent text overflow */}
         <div className="flex flex-col justify-center min-w-0 flex-1 py-1">
           <div className="mb-2">
             <CategoryTag category={article.category} />
           </div>
           <h3
-            className="text-base font-serif leading-snug mb-2 line-clamp-2"
+            className="text-sm sm:text-base font-serif leading-snug mb-2 line-clamp-2"
             style={{
               color: '#3B2A21',
               fontFamily: '"Playfair Display", Georgia, serif',
@@ -294,7 +302,7 @@ function SecondaryArticleCard({ article, index }: SecondaryArticleCardProps) {
           >
             {article.title}
           </h3>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <span
               className="text-xs tracking-[0.12em] uppercase"
               style={{ color: '#8C8477' }}
@@ -338,9 +346,13 @@ export default function JournalPreview() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 lg:py-36">
-        {/* Section header */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+      {/* Section padding: clamp-based to scale gracefully from mobile to desktop */}
+      <div
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10"
+        style={{ paddingTop: 'clamp(4rem, 8vw, 8rem)', paddingBottom: 'clamp(4rem, 8vw, 8rem)' }}
+      >
+        {/* Section header — stacks to column on mobile, flex-row on md+ */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 md:mb-16">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -359,10 +371,11 @@ export default function JournalPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="text-5xl md:text-6xl font-serif leading-[1.05]"
+              className="font-serif leading-[1.05]"
               style={{
                 color: '#3B2A21',
                 fontFamily: '"Playfair Display", Georgia, serif',
+                fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
               }}
             >
               From the
@@ -394,18 +407,20 @@ export default function JournalPreview() {
           </motion.div>
         </div>
 
-        {/* Editorial layout: featured left, secondary right */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-10">
-          {/* Featured card */}
+        {/* Editorial layout:
+            - Single column on mobile (< lg)
+            - Two columns on lg+ (featured left, secondary cards right) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          {/* Featured card — full width on mobile, left column on lg+ */}
           <FeaturedArticleCard article={featured} />
 
-          {/* Right column: secondary cards + dividers */}
+          {/* Right column: secondary cards stacked with dividers */}
           <div className="flex flex-col gap-0">
             {secondary.map((article, i) => (
               <div key={article.id}>
                 {i > 0 && (
                   <span
-                    className="block h-px my-6"
+                    className="block h-px my-5 sm:my-6"
                     style={{ background: '#E6D8C9' }}
                     aria-hidden="true"
                   />
@@ -420,7 +435,7 @@ export default function JournalPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="mt-10 pt-8"
+              className="mt-8 sm:mt-10 pt-6 sm:pt-8"
               style={{ borderTop: '1px solid #E6D8C9' }}
             >
               <p
@@ -432,7 +447,7 @@ export default function JournalPreview() {
               </p>
               <Link
                 href="/journal"
-                className="group inline-flex items-center gap-3 px-6 py-3 text-sm tracking-[0.12em] uppercase font-medium transition-all duration-200 hover:opacity-90"
+                className="group inline-flex items-center gap-3 px-5 sm:px-6 py-3 text-sm tracking-[0.12em] uppercase font-medium transition-all duration-200 hover:opacity-90"
                 style={{ background: '#3B2A21', color: '#F5EFE6' }}
               >
                 Explore All Stories

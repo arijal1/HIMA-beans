@@ -263,7 +263,7 @@ function AnimatedHeading({
       variants={fadeUp}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className={`font-serif text-4xl md:text-5xl lg:text-6xl leading-tight ${className}`}
+      className={`font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight ${className}`}
       style={{ color: light ? C.cream : C.espresso }}
     >
       {children}
@@ -347,7 +347,7 @@ function RegionCard({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="relative overflow-hidden rounded-2xl p-6 flex flex-col gap-4"
+      className="relative overflow-hidden rounded-2xl p-5 sm:p-6 flex flex-col gap-4"
       style={{ backgroundColor: C.beige, border: `1px solid ${C.stone}22` }}
     >
       {/* Accent stripe */}
@@ -409,7 +409,7 @@ function JourneyStep({
       variants={index % 2 === 0 ? slideLeft : slideRight}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="flex items-start gap-6 group"
+      className="flex items-start gap-4 sm:gap-6 group"
     >
       {/* Step marker */}
       <div className="relative flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full"
@@ -505,7 +505,7 @@ function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden px-4"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Parallax grain bg */}
@@ -551,7 +551,7 @@ function HeroSection() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.0, delay: 0.4, ease }}
-            className="font-serif text-6xl md:text-7xl lg:text-9xl font-bold leading-none"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-bold leading-none"
             style={{ color: C.cream }}
           >
             Our Story
@@ -599,11 +599,11 @@ function HistorySection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.cream }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Text */}
           <div>
             <motion.div
@@ -660,7 +660,7 @@ function HistorySection() {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="p-6 rounded-2xl flex flex-col gap-2"
+                className="p-4 sm:p-6 rounded-2xl flex flex-col gap-2"
                 style={{
                   backgroundColor: C.beige,
                   border: `1px solid ${C.stone}22`,
@@ -693,11 +693,11 @@ function FarmingSection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.espresso }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: Decorative visual */}
           <motion.div
             custom={0}
@@ -840,11 +840,11 @@ function RegionsSection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.cream }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -883,11 +883,11 @@ function JourneySection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.beige }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left: intro */}
           <div>
             <motion.div
@@ -948,11 +948,11 @@ function QualitySection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.charcoal }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 md:mb-16">
           <motion.div
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
@@ -972,7 +972,7 @@ function QualitySection() {
           </AnimatedParagraph>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mt-8 md:mt-12">
           {qualities.map((item, index) => (
             <QualityCard key={item.label} item={item} index={index} />
           ))}
@@ -1044,11 +1044,11 @@ function PromiseSection() {
 
   return (
     <SectionWrapper
-      className="py-28 md:py-40"
+      className="py-16 sm:py-20 md:py-28 lg:py-40"
       style={{ backgroundColor: C.espresso }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left */}
           <div>
             <motion.div
@@ -1075,7 +1075,7 @@ function PromiseSection() {
               variants={fadeUp}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="mt-10 flex flex-wrap gap-4"
+              className="mt-10 flex flex-col sm:flex-row flex-wrap gap-4"
             >
               <Link
                 href="/beans"

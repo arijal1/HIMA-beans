@@ -183,7 +183,7 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-[#F5EFE6] rounded-2xl p-8 flex flex-col gap-4 group hover:bg-[#3B2A21] transition-colors duration-300"
+      className="bg-[#F5EFE6] rounded-2xl p-5 sm:p-8 flex flex-col gap-4 group hover:bg-[#3B2A21] transition-colors duration-300"
     >
       <div
         className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-colors duration-300"
@@ -213,7 +213,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       transition={{ duration: 0.65, delay: index * 0.12, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
       className={`rounded-3xl overflow-hidden flex flex-col ${
         tier.highlighted
-          ? 'shadow-2xl shadow-[#3B2A21]/20 ring-2 ring-[#B08D57] scale-[1.02]'
+          ? 'shadow-2xl shadow-[#3B2A21]/20 ring-2 ring-[#B08D57] md:scale-[1.02]'
           : 'border border-[#E6D8C9]'
       }`}
       style={{
@@ -222,7 +222,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
     >
       {/* Header */}
       <div
-        className="px-8 pt-8 pb-6 relative"
+        className="px-5 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 relative"
         style={{
           borderBottom: `1px solid ${tier.highlighted ? '#5C3D2E' : '#E6D8C9'}`,
         }}
@@ -250,7 +250,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       </div>
 
       {/* Features */}
-      <div className="px-8 py-6 flex-1">
+      <div className="px-5 sm:px-8 py-5 sm:py-6 flex-1">
         <ul className="space-y-3">
           {tier.features.map((feature) => (
             <li key={feature} className="flex items-start gap-3">
@@ -267,7 +267,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       </div>
 
       {/* CTA */}
-      <div className="px-8 pb-8">
+      <div className="px-5 sm:px-8 pb-5 sm:pb-8">
         <a
           href="#inquiry"
           className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
@@ -298,7 +298,7 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
       className="border-b border-[#E6D8C9] last:border-0"
     >
       <button
-        className="w-full flex items-center justify-between gap-6 py-6 text-left group"
+        className="w-full flex items-center justify-between gap-4 sm:gap-6 py-5 sm:py-6 text-left group min-h-[56px]"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
       >
@@ -522,11 +522,11 @@ function WholesaleForm() {
         />
       </div>
 
-      <div className="md:col-span-2 flex justify-end">
+      <div className="md:col-span-2 flex justify-stretch sm:justify-end">
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
           style={{ backgroundColor: '#3B2A21', color: '#F5EFE6' }}
         >
           {submitting ? (
@@ -566,7 +566,7 @@ export default function WholesalePage() {
       {/* ── Hero ── */}
       <section
         ref={heroRef}
-        className="relative min-h-[75vh] flex items-end pb-24 overflow-hidden"
+        className="relative min-h-[65vh] sm:min-h-[75vh] flex items-end pb-16 sm:pb-20 md:pb-24 pt-28 sm:pt-0 overflow-hidden"
         style={{ backgroundColor: '#3B2A21' }}
       >
         {/* Background texture */}
@@ -634,8 +634,8 @@ export default function WholesalePage() {
       </section>
 
       {/* ── Partner Benefits ── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
+      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Why Partner With Us
           </p>
@@ -700,8 +700,8 @@ export default function WholesalePage() {
       </section>
 
       {/* ── Pricing Tiers ── */}
-      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
+      <section className="py-12 sm:py-16 md:py-24 max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Pricing & Tiers
           </p>
@@ -713,7 +713,7 @@ export default function WholesalePage() {
             shared on inquiry.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {PRICING_TIERS.map((tier, i) => (
             <PricingCard key={tier.name} tier={tier} index={i} />
           ))}
@@ -723,7 +723,7 @@ export default function WholesalePage() {
       {/* ── Wholesale Inquiry Form ── */}
       <section
         id="inquiry"
-        className="py-24"
+        className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#F5EFE6' }}
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
@@ -739,15 +739,15 @@ export default function WholesalePage() {
               business day.
             </p>
           </div>
-          <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#E6D8C9]">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-12 border border-[#E6D8C9]">
             <WholesaleForm />
           </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-24 max-w-4xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-14">
+      <section className="py-12 sm:py-16 md:py-24 max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Common Questions
           </p>
@@ -755,7 +755,7 @@ export default function WholesalePage() {
             FAQ
           </h2>
         </div>
-        <div className="bg-white rounded-3xl border border-[#E6D8C9] px-8 md:px-12 divide-y divide-[#E6D8C9]">
+        <div className="bg-white rounded-3xl border border-[#E6D8C9] px-4 sm:px-8 md:px-12 divide-y divide-[#E6D8C9]">
           {FAQS.map((faq, i) => (
             <FAQItem key={faq.question} faq={faq} index={i} />
           ))}
@@ -764,11 +764,11 @@ export default function WholesalePage() {
 
       {/* ── Contact ── */}
       <section
-        className="py-24"
+        className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#3B2A21' }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 Direct Contact
@@ -826,14 +826,14 @@ export default function WholesalePage() {
 
       {/* ── Final CTA ── */}
       <section
-        className="py-20 text-center"
+        className="py-12 sm:py-16 md:py-20 text-center"
         style={{ backgroundColor: '#B08D57' }}
       >
         <div className="max-w-2xl mx-auto px-6">
           <h2 className="font-serif text-4xl text-[#F5EFE6] font-bold leading-tight mb-6">
             Ready to Bring the Himalayas to Your Customers?
           </h2>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
             <a
               href="#inquiry"
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"

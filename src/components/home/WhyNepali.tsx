@@ -198,7 +198,7 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
     <motion.div
       variants={cardVariants}
       custom={index}
-      className="group relative flex flex-col gap-6 p-10 lg:p-12"
+      className="group relative flex flex-col gap-5 sm:gap-6 p-7 sm:p-10 lg:p-12"
       style={{ backgroundColor: '#222222' }}
     >
       {/* Hover left-border accent */}
@@ -217,7 +217,7 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
       </div>
 
       {/* Text block */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2 sm:gap-3">
         <p
           className="text-[10px] tracking-[0.3em] uppercase"
           style={{ color: '#B08D57' }}
@@ -225,7 +225,7 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
           {feature.subheading}
         </p>
         <h3
-          className="text-2xl md:text-[1.65rem] leading-snug"
+          className="text-xl sm:text-2xl md:text-[1.65rem] leading-snug"
           style={{
             color: '#F5EFE6',
             fontFamily: '"Playfair Display", Georgia, serif',
@@ -274,7 +274,7 @@ export default function WhyNepali() {
           color: '#F5EFE6',
           opacity: 0.025,
           fontFamily: '"Playfair Display", Georgia, serif',
-          fontSize: 'clamp(100px, 18vw, 260px)',
+          fontSize: 'clamp(80px, 18vw, 260px)',
           lineHeight: 0.9,
         }}
         aria-hidden="true"
@@ -282,7 +282,10 @@ export default function WhyNepali() {
         01
       </span>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-10 py-28 md:py-36">
+      <div
+        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10"
+        style={{ paddingTop: 'clamp(3.5rem, 8vw, 9rem)', paddingBottom: 'clamp(3.5rem, 8vw, 9rem)' }}
+      >
 
         {/* ── Intro block ── */}
         <motion.div
@@ -290,12 +293,12 @@ export default function WhyNepali() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="max-w-3xl mb-20 md:mb-28"
+          className="max-w-3xl mb-12 sm:mb-16 md:mb-20 lg:mb-28"
         >
           {/* Eyebrow */}
           <motion.p
             variants={headingVariants}
-            className="text-[10px] tracking-[0.4em] uppercase mb-6"
+            className="text-[10px] tracking-[0.4em] uppercase mb-5 sm:mb-6"
             style={{ color: '#B08D57' }}
           >
             Origin &middot; Craft &middot; Excellence
@@ -305,12 +308,12 @@ export default function WhyNepali() {
           <motion.h2
             id="why-nepali-heading"
             variants={headingVariants}
-            className="mb-8 leading-[1.1]"
+            className="mb-6 sm:mb-8 leading-[1.1]"
             style={{
               color: '#F5EFE6',
               fontFamily: '"Playfair Display", Georgia, serif',
               fontWeight: 700,
-              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+              fontSize: 'clamp(2rem, 6vw, 4.5rem)',
             }}
           >
             Why Nepali
@@ -321,7 +324,7 @@ export default function WhyNepali() {
           {/* Gold rule */}
           <motion.div
             variants={headingVariants}
-            className="h-px w-20 mb-8"
+            className="h-px w-20 mb-6 sm:mb-8"
             style={{ backgroundColor: '#B08D57' }}
             aria-hidden="true"
           />
@@ -329,7 +332,7 @@ export default function WhyNepali() {
           {/* Intro paragraph */}
           <motion.p
             variants={headingVariants}
-            className="text-lg md:text-xl leading-[1.8] font-light"
+            className="text-base sm:text-lg md:text-xl leading-[1.8] font-light"
             style={{ color: '#8C8477' }}
           >
             The Himalayas have shaped some of the world&rsquo;s most dramatic landscapes —
@@ -341,13 +344,13 @@ export default function WhyNepali() {
           </motion.p>
         </motion.div>
 
-        {/* ── Feature columns ── */}
+        {/* ── Feature columns — 1 col mobile, 3 col md ── */}
         <motion.div
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-px"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px"
           style={{ backgroundColor: 'rgba(176,141,87,0.13)' }}
         >
           {FEATURES.map((feature, i) => (
@@ -355,13 +358,13 @@ export default function WhyNepali() {
           ))}
         </motion.div>
 
-        {/* ── Stats row ── */}
+        {/* ── Stats row — 2 col mobile, 4 col md ── */}
         <motion.div
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px"
+          className="mt-10 sm:mt-14 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px"
           style={{ backgroundColor: 'rgba(176,141,87,0.08)' }}
         >
           {[
@@ -373,7 +376,7 @@ export default function WhyNepali() {
             <motion.div
               key={label}
               variants={headingVariants}
-              className="flex flex-col gap-2 p-8 md:p-10"
+              className="flex flex-col gap-1.5 sm:gap-2 p-5 sm:p-8 md:p-10"
               style={{ backgroundColor: '#222222' }}
             >
               <span
@@ -381,7 +384,7 @@ export default function WhyNepali() {
                 style={{
                   color: '#B08D57',
                   fontFamily: '"Playfair Display", Georgia, serif',
-                  fontSize: 'clamp(1.8rem, 4vw, 2.6rem)',
+                  fontSize: 'clamp(1.4rem, 4vw, 2.6rem)',
                   fontWeight: 700,
                 }}
               >

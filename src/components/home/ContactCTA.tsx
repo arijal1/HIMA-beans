@@ -20,15 +20,15 @@ interface InfoItemProps {
 
 function InfoItem({ icon, label, value, href }: InfoItemProps) {
   const content = (
-    <div className="flex items-start gap-4 group">
+    <div className="flex items-start gap-3 sm:gap-4 group">
       <div
-        className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors duration-300 group-hover:bg-white/10"
+        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-colors duration-300 group-hover:bg-white/10"
         style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
         aria-hidden="true"
       >
         {icon}
       </div>
-      <div>
+      <div className="min-w-0">
         <p
           className="text-[10px] tracking-[0.25em] uppercase mb-0.5"
           style={{ color: 'rgba(245,239,230,0.4)' }}
@@ -36,7 +36,7 @@ function InfoItem({ icon, label, value, href }: InfoItemProps) {
           {label}
         </p>
         <p
-          className="text-sm transition-colors duration-300"
+          className="text-sm break-all sm:break-normal transition-colors duration-300"
           style={{ color: href ? '#B08D57' : 'rgba(245,239,230,0.75)' }}
         >
           {value}
@@ -49,7 +49,7 @@ function InfoItem({ icon, label, value, href }: InfoItemProps) {
     return (
       <a
         href={href}
-        className="block"
+        className="block min-w-0"
         aria-label={`${label}: ${value}`}
       >
         {content}
@@ -57,7 +57,7 @@ function InfoItem({ icon, label, value, href }: InfoItemProps) {
     );
   }
 
-  return <div>{content}</div>;
+  return <div className="min-w-0">{content}</div>;
 }
 
 // ---------------------------------------------------------------------------
@@ -204,31 +204,39 @@ export default function ContactCTA() {
       {/* Mountain silhouette */}
       <MountainDecoration />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 lg:px-10 py-28 lg:py-40 text-center">
-
+      {/* Main content — clamp-based padding reduces vertical space on mobile */}
+      <div
+        className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-10 text-center"
+        style={{
+          paddingTop: 'clamp(4rem, 10vw, 10rem)',
+          paddingBottom: 'clamp(4rem, 10vw, 10rem)',
+        }}
+      >
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="text-xs tracking-[0.35em] uppercase mb-6"
+          className="text-xs tracking-[0.35em] uppercase mb-5 sm:mb-6"
           style={{ color: '#B08D57' }}
         >
           Crafted Above the Clouds
         </motion.p>
 
-        {/* Main heading */}
+        {/* Main heading — clamp from 2.75rem on mobile up to 6rem on desktop.
+            Fixed large sizes like text-6xl / text-8xl would overflow on narrow viewports. */}
         <motion.h2
           id="contact-heading"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="text-6xl md:text-7xl lg:text-8xl font-serif leading-[1.0] mb-8"
+          className="font-serif leading-[1.0] mb-6 sm:mb-8"
           style={{
             color: '#F5EFE6',
             fontFamily: '"Playfair Display", Georgia, serif',
+            fontSize: 'clamp(2.75rem, 10vw, 6rem)',
             letterSpacing: '-0.02em',
           }}
         >
@@ -248,24 +256,24 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-12"
+          className="text-sm sm:text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-8 sm:mb-12"
           style={{ color: 'rgba(245,239,230,0.6)' }}
         >
           Whether you&apos;re a café owner, a coffee lover, or simply curious about
           Nepal&apos;s finest — we&apos;d love to hear from you.
         </motion.p>
 
-        {/* CTA buttons */}
+        {/* CTA buttons — stack vertically on mobile, side-by-side on sm+ */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.26, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-20"
         >
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 text-sm tracking-[0.12em] uppercase font-semibold transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
+            className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-6 sm:px-7 py-3.5 text-sm tracking-[0.12em] uppercase font-semibold transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
             style={{ background: '#B08D57', color: '#1a0f09' }}
           >
             Get in Touch
@@ -274,7 +282,7 @@ export default function ContactCTA() {
 
           <Link
             href="/shop"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 text-sm tracking-[0.12em] uppercase font-medium transition-all duration-200"
+            className="group inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-6 sm:px-7 py-3.5 text-sm tracking-[0.12em] uppercase font-medium transition-all duration-200"
             style={{
               background: 'transparent',
               color: '#F5EFE6',
@@ -296,13 +304,14 @@ export default function ContactCTA() {
           </Link>
         </motion.div>
 
-        {/* Contact info strip */}
+        {/* Contact info strip — stacks vertically on mobile, horizontal on sm+
+            Divider line hidden on mobile to avoid stray vertical bar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.34, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10 lg:gap-12"
         >
           <InfoItem
             icon={<EmailIcon />}
@@ -311,8 +320,9 @@ export default function ContactCTA() {
             href="mailto:hello@himabeans.com.au"
           />
 
+          {/* Vertical divider — only shown on sm+ where layout is horizontal */}
           <span
-            className="hidden sm:block w-px h-10"
+            className="hidden sm:block w-px h-10 shrink-0"
             style={{ background: 'rgba(245,239,230,0.12)' }}
             aria-hidden="true"
           />
@@ -324,13 +334,13 @@ export default function ContactCTA() {
           />
         </motion.div>
 
-        {/* Tagline footer */}
+        {/* Tagline footer — truncated on mobile to prevent horizontal overflow */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.5, ease: 'easeOut' }}
-          className="mt-20 text-[11px] tracking-[0.3em] uppercase"
+          className="mt-12 sm:mt-20 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.3em] uppercase overflow-hidden text-ellipsis whitespace-nowrap px-4"
           style={{ color: 'rgba(245,239,230,0.2)' }}
           aria-hidden="true"
         >
