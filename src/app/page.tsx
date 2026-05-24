@@ -6,19 +6,15 @@ import CoffeePourAnimation from '@/components/home/CoffeePourAnimation';
 import WhyNepali from '@/components/home/WhyNepali';
 import FeaturedBeans from '@/components/home/FeaturedBeans';
 import OriginStory from '@/components/home/OriginStory';
-import FlavorNotes from '@/components/home/FlavorNotes';
-import SustainabilitySection from '@/components/home/SustainabilitySection';
-import WholesaleCTA from '@/components/home/WholesaleCTA';
 import Testimonials from '@/components/home/Testimonials';
-import JournalPreview from '@/components/home/JournalPreview';
 import ContactCTA from '@/components/home/ContactCTA';
 
 export const metadata: Metadata = {
-  title: 'HIMA BEANS — Himalayan Coffee, Perfected at Altitude',
+  title: 'HIMA BEANS — Himalayan Coffee, Crafted Above the Clouds',
   description:
-    'HIMA BEANS sources rare single-origin specialty coffee from high-altitude Himalayan farms in Nepal and delivers it across Australia. Crafted Above the Clouds.',
+    'Single-origin specialty coffee sourced directly from high-altitude Himalayan farms in Nepal — roasted in Melbourne and delivered across Australia.',
   openGraph: {
-    title: 'HIMA BEANS — Himalayan Coffee, Perfected at Altitude',
+    title: 'HIMA BEANS — Himalayan Coffee, Crafted Above the Clouds',
     description:
       'Single-origin Nepali specialty coffee from 2000m+ altitude, crafted for Australia.',
     url: 'https://himabeans.com.au',
@@ -35,11 +31,7 @@ export default function HomePage() {
       <WhyNepali />
       <FeaturedBeans />
       <OriginStory />
-      <FlavorNotes />
-      <SustainabilitySection />
-      <WholesaleCTA />
       <Testimonials />
-      <JournalPreview />
       <ContactCTA />
       <Footer />
     </main>

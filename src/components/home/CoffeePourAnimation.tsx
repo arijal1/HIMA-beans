@@ -292,11 +292,11 @@ export default function CoffeePourAnimation() {
         }
       `}</style>
 
-      {/* ── Section: 400vh scrollable space ── */}
+      {/* ── Section: 220vh scrollable space ── */}
       <section
         ref={sectionRef}
         style={{
-          height: '400vh',
+          height: '220vh',
           position: 'relative',
           backgroundColor: WARM_CREAM,
         }}
@@ -313,7 +313,7 @@ export default function CoffeePourAnimation() {
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden',
-            padding: '0 1rem',
+            padding: '68px 1rem 0',
           }}
         >
           {/* Watermark */}

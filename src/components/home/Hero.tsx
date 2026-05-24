@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import React, { useRef } from 'react';
 import {
   useMotionValue,
   useScroll,
@@ -9,214 +8,112 @@ import {
   motion,
   Variants,
 } from 'framer-motion';
-import * as THREE from 'three';
 import MagneticButton from '@/components/ui/MagneticButton';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
-const BEAN_COUNT = 80;
-const MIST_COUNT = 30;
-const STEAM_COUNT = 40;
-
 // Cubic-bezier as a typed tuple so Framer Motion v12 accepts it
 const EASE_OUT_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Three.js — Coffee Bean Particles (instanced mesh)
+// CSS Floating Bean Particle Data
+// Each bean has fixed position, animation duration, and delay — no JS loops
 // ─────────────────────────────────────────────────────────────────────────────
 
-function CoffeeBeansParticles() {
-  const meshRef = useRef<THREE.InstancedMesh>(null!);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
+interface BeanParticle {
+  left: string;
+  top: string;
+  width: string;
+  height: string;
+  opacity: number;
+  duration: string;
+  delay: string;
+  rotate: string;
+  driftX: string;
+}
 
-  const beans = useMemo(
-    () =>
-      Array.from({ length: BEAN_COUNT }, () => ({
-        x: (Math.random() - 0.5) * 22,
-        y: (Math.random() - 0.5) * 14,
-        z: (Math.random() - 0.5) * 8 - 2,
-        speed: 0.008 + Math.random() * 0.012,
-        rotX: Math.random() * Math.PI * 2,
-        rotY: Math.random() * Math.PI * 2,
-        rotZ: Math.random() * Math.PI * 2,
-        rotSpeedX: (Math.random() - 0.5) * 0.008,
-        rotSpeedY: (Math.random() - 0.5) * 0.012,
-        phase: Math.random() * Math.PI * 2,
-      })),
-    []
-  );
+const BEAN_PARTICLES: BeanParticle[] = [
+  { left: '5%',  top: '75%', width: '9px',  height: '6px',  opacity: 0.18, duration: '22s', delay: '0s',    rotate: '15deg',  driftX: '18px'  },
+  { left: '12%', top: '82%', width: '7px',  height: '5px',  opacity: 0.22, duration: '28s', delay: '3s',    rotate: '-20deg', driftX: '-14px' },
+  { left: '20%', top: '68%', width: '11px', height: '7px',  opacity: 0.15, duration: '34s', delay: '7s',    rotate: '35deg',  driftX: '22px'  },
+  { left: '28%', top: '88%', width: '8px',  height: '5px',  opacity: 0.28, duration: '19s', delay: '1.5s',  rotate: '-10deg', driftX: '-10px' },
+  { left: '35%', top: '72%', width: '10px', height: '6px',  opacity: 0.20, duration: '25s', delay: '9s',    rotate: '45deg',  driftX: '16px'  },
+  { left: '42%', top: '91%', width: '6px',  height: '4px',  opacity: 0.32, duration: '31s', delay: '4s',    rotate: '-30deg', driftX: '-20px' },
+  { left: '50%', top: '78%', width: '12px', height: '8px',  opacity: 0.14, duration: '40s', delay: '12s',   rotate: '8deg',   driftX: '12px'  },
+  { left: '58%', top: '85%', width: '7px',  height: '5px',  opacity: 0.25, duration: '23s', delay: '6s',    rotate: '-42deg', driftX: '-16px' },
+  { left: '65%', top: '70%', width: '9px',  height: '6px',  opacity: 0.19, duration: '37s', delay: '2s',    rotate: '22deg',  driftX: '20px'  },
+  { left: '72%', top: '93%', width: '8px',  height: '5px',  opacity: 0.30, duration: '20s', delay: '8s',    rotate: '-15deg', driftX: '-12px' },
+  { left: '80%', top: '76%', width: '10px', height: '7px',  opacity: 0.17, duration: '29s', delay: '14s',   rotate: '50deg',  driftX: '14px'  },
+  { left: '88%', top: '88%', width: '6px',  height: '4px',  opacity: 0.24, duration: '33s', delay: '5s',    rotate: '-38deg', driftX: '-18px' },
+  { left: '93%', top: '65%', width: '11px', height: '7px',  opacity: 0.16, duration: '26s', delay: '10s',   rotate: '28deg',  driftX: '10px'  },
+  { left: '8%',  top: '55%', width: '7px',  height: '5px',  opacity: 0.20, duration: '44s', delay: '16s',   rotate: '-25deg', driftX: '-8px'  },
+  { left: '78%', top: '58%', width: '8px',  height: '5px',  opacity: 0.18, duration: '38s', delay: '11s',   rotate: '18deg',  driftX: '16px'  },
+  { left: '47%', top: '60%', width: '6px',  height: '4px',  opacity: 0.14, duration: '48s', delay: '18s',   rotate: '-12deg', driftX: '-6px'  },
+  { left: '32%', top: '50%', width: '9px',  height: '6px',  opacity: 0.12, duration: '52s', delay: '22s',   rotate: '40deg',  driftX: '10px'  },
+  { left: '62%', top: '48%', width: '7px',  height: '5px',  opacity: 0.13, duration: '46s', delay: '20s',   rotate: '-32deg', driftX: '-14px' },
+];
 
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const t = clock.getElapsedTime();
+// ─────────────────────────────────────────────────────────────────────────────
+// CSS Keyframe Injection (runs once, appended to <head>)
+// We do this in a style tag rather than globals.css so the component is
+// self-contained and the keyframes are scoped to this usage.
+// ─────────────────────────────────────────────────────────────────────────────
 
-    beans.forEach((bean, i) => {
-      // Drift upward slowly, wrap at bounds
-      const yOff = ((bean.y + t * bean.speed * 14 + 7) % 14) - 7;
-      const xOff = bean.x + Math.sin(t * 0.3 + bean.phase) * 0.5;
+const BEAN_KEYFRAMES = `
+@keyframes floatBean {
+  0%   { transform: translateY(0px)   translateX(0px)   rotate(var(--bean-rotate)); opacity: 0; }
+  8%   { opacity: var(--bean-opacity); }
+  92%  { opacity: var(--bean-opacity); }
+  100% { transform: translateY(-110vh) translateX(var(--bean-drift-x)) rotate(var(--bean-rotate)); opacity: 0; }
+}
+`;
 
-      dummy.position.set(xOff, yOff, bean.z);
-      dummy.rotation.set(
-        bean.rotX + t * bean.rotSpeedX,
-        bean.rotY + t * bean.rotSpeedY,
-        bean.rotZ
-      );
-      // Flatten into ellipsoid bean shape
-      dummy.scale.set(0.07, 0.05, 0.045);
-      dummy.updateMatrix();
-      meshRef.current.setMatrixAt(i, dummy.matrix);
-    });
-
-    meshRef.current.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, BEAN_COUNT]}>
-      <sphereGeometry args={[1, 8, 6]} />
-      <meshStandardMaterial
-        color="#3B2A21"
-        roughness={0.85}
-        metalness={0.05}
-        transparent
-        opacity={0.72}
-      />
-    </instancedMesh>
-  );
+function BeanKeyframesStyle() {
+  return <style>{BEAN_KEYFRAMES}</style>;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Three.js — Fog / Mist Particles
+// CSS-only Floating Coffee Bean Particles
 // ─────────────────────────────────────────────────────────────────────────────
 
-function MistParticles() {
-  const meshRef = useRef<THREE.InstancedMesh>(null!);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-
-  const mists = useMemo(
-    () =>
-      Array.from({ length: MIST_COUNT }, () => ({
-        x: (Math.random() - 0.5) * 24,
-        y: (Math.random() - 0.5) * 14,
-        z: (Math.random() - 0.5) * 6,
-        speed: 0.003 + Math.random() * 0.005,
-        size: 0.25 + Math.random() * 0.55,
-        phase: Math.random() * Math.PI * 2,
-      })),
-    []
-  );
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const t = clock.getElapsedTime();
-
-    mists.forEach((m, i) => {
-      const yOff = ((m.y + t * m.speed * 14 + 7) % 14) - 7;
-      const xOff = m.x + Math.sin(t * 0.15 + m.phase) * 1.2;
-      dummy.position.set(xOff, yOff, m.z);
-      dummy.scale.setScalar(m.size);
-      dummy.rotation.set(0, 0, t * 0.02);
-      dummy.updateMatrix();
-      meshRef.current.setMatrixAt(i, dummy.matrix);
-    });
-    meshRef.current.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, MIST_COUNT]}>
-      <sphereGeometry args={[1, 6, 6]} />
-      <meshStandardMaterial
-        color="#F5EFE6"
-        transparent
-        opacity={0.055}
-        roughness={1}
-        depthWrite={false}
-      />
-    </instancedMesh>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Three.js — Steam Rising Particles
-// ─────────────────────────────────────────────────────────────────────────────
-
-function SteamParticles() {
-  const meshRef = useRef<THREE.InstancedMesh>(null!);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-
-  const steams = useMemo(
-    () =>
-      Array.from({ length: STEAM_COUNT }, () => ({
-        x: (Math.random() - 0.5) * 10,
-        baseY: -7 + Math.random() * 1.5,
-        z: (Math.random() - 0.5) * 3 - 1,
-        speed: 0.025 + Math.random() * 0.03,
-        size: 0.018 + Math.random() * 0.025,
-        phase: Math.random() * Math.PI * 2,
-      })),
-    []
-  );
-
-  useFrame(({ clock }) => {
-    if (!meshRef.current) return;
-    const t = clock.getElapsedTime();
-
-    steams.forEach((s, i) => {
-      const elapsed = (t * s.speed + s.phase / (Math.PI * 2)) % 1;
-      const yOff = s.baseY + elapsed * 10;
-      const xOff = s.x + Math.sin(t * 0.4 + s.phase) * 0.3;
-
-      dummy.position.set(xOff, yOff, s.z);
-      dummy.scale.setScalar(s.size * (0.5 + elapsed * 1.5));
-      dummy.updateMatrix();
-      meshRef.current.setMatrixAt(i, dummy.matrix);
-    });
-    meshRef.current.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, STEAM_COUNT]}>
-      <sphereGeometry args={[1, 5, 5]} />
-      <meshStandardMaterial
-        color="#ffffff"
-        transparent
-        opacity={0.12}
-        roughness={1}
-        depthWrite={false}
-      />
-    </instancedMesh>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Three.js — Full Atmospheric Scene
-// ─────────────────────────────────────────────────────────────────────────────
-
-function AtmosphericScene() {
+function CSSBeanParticles() {
   return (
     <>
-      {/* Warm amber ambient fill */}
-      <ambientLight intensity={0.35} color="#c8a97a" />
-      {/* Key light from upper-right */}
-      <directionalLight
-        position={[5, 8, 4]}
-        intensity={0.6}
-        color="#F5EFE6"
-        castShadow={false}
-      />
-      {/* Subtle fill from lower-left in gold */}
-      <directionalLight
-        position={[-4, -2, -3]}
-        intensity={0.2}
-        color="#B08D57"
-      />
-      {/* Atmospheric depth fog */}
-      <fog attach="fog" args={['#1a0f09', 12, 30]} />
-
-      <CoffeeBeansParticles />
-      <MistParticles />
-      <SteamParticles />
+      <BeanKeyframesStyle />
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 2,
+          pointerEvents: 'none',
+          overflow: 'hidden',
+        }}
+      >
+        {BEAN_PARTICLES.map((bean, i) => (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              left: bean.left,
+              top: bean.top,
+              width: bean.width,
+              height: bean.height,
+              // Coffee bean oval shape
+              borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
+              background: 'radial-gradient(ellipse at 35% 40%, #5a3820, #3B2A21)',
+              // CSS custom properties feed the keyframe
+              ['--bean-rotate' as string]: bean.rotate,
+              ['--bean-opacity' as string]: bean.opacity,
+              ['--bean-drift-x' as string]: bean.driftX,
+              animation: `floatBean ${bean.duration} ${bean.delay} infinite linear`,
+              willChange: 'transform, opacity',
+            }}
+          />
+        ))}
+      </div>
     </>
   );
 }
@@ -331,7 +228,7 @@ function AnimatedHeadline({ line }: { line: string }) {
               {word}
             </motion.span>
           </span>
-          {i < words.length - 1 && ' '}
+          {i < words.length - 1 && ' '}
         </React.Fragment>
       ))}
     </>
@@ -455,31 +352,28 @@ export default function Hero() {
         opacity: sectionOpacity,
       }}
     >
-      {/* ── Three.js Canvas Overlay ─────────────────────────────────────────── */}
+      {/* ── CSS-only Floating Coffee Bean Particles ──────────────────────────── */}
+      <CSSBeanParticles />
+
+      {/* ── Radial glow behind text centre — warm gold bloom ─────────────────── */}
       <div
+        aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          zIndex: 2,
+          zIndex: 3,
+          background:
+            'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(176,141,87,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
-      >
-        <Canvas
-          camera={{ position: [0, 0, 10], fov: 60, near: 0.1, far: 100 }}
-          gl={{ alpha: true, antialias: false }}
-          style={{ width: '100%', height: '100%' }}
-          dpr={[1, 1.5]}
-        >
-          <AtmosphericScene />
-        </Canvas>
-      </div>
+      />
 
       {/* ── Mountain Silhouette (parallax-scrolled) ─────────────────────────── */}
       <motion.div
         style={{
           position: 'absolute',
           inset: 0,
-          zIndex: 3,
+          zIndex: 4,
           pointerEvents: 'none',
           y: mountainY,
         }}
@@ -493,7 +387,7 @@ export default function Hero() {
         style={{
           position: 'absolute',
           inset: 0,
-          zIndex: 4,
+          zIndex: 5,
           background:
             'radial-gradient(ellipse 80% 60% at 50% 40%, transparent 30%, rgba(26,15,9,0.4) 100%)',
           pointerEvents: 'none',
@@ -555,7 +449,7 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              Nepal · Altitude 2000M+
+              Est. 2024 · Nepal → Australia
             </span>
             <span
               aria-hidden="true"
@@ -576,23 +470,24 @@ export default function Hero() {
               margin: 0,
               lineHeight: 1.08,
               letterSpacing: '-0.02em',
-              color: '#F5EFE6',
               fontFamily: "'Playfair Display', var(--font-playfair), serif",
               fontSize: 'clamp(32px, 8vw, 96px)',
               fontWeight: 700,
             }}
           >
-            <span style={{ display: 'block' }}>
-              <AnimatedHeadline line="Himalayan Coffee," />
+            {/* Line 1 — cream */}
+            <span style={{ display: 'block', color: '#F5EFE6' }}>
+              <AnimatedHeadline line="Crafted Above" />
             </span>
+            {/* Line 2 — gold italic */}
             <span
               style={{
                 display: 'block',
-                color: '#E6D8C9',
+                color: '#B08D57',
                 fontStyle: 'italic',
               }}
             >
-              <AnimatedHeadline line="Perfected at Altitude" />
+              <AnimatedHeadline line="the Clouds" />
             </span>
           </motion.h1>
 
@@ -609,7 +504,23 @@ export default function Hero() {
               fontWeight: 400,
             }}
           >
-            Rare specialty beans from Nepal, crafted for Australia.
+            Single-origin specialty coffee from Nepal&apos;s Himalayan highlands — sourced above 2,000 metres, roasted in Melbourne.
+          </motion.p>
+
+          {/* ── Intimate Quote ────────────────────────────────────────────── */}
+          <motion.p
+            variants={fadeSlideUp}
+            style={{
+              margin: '-0.5rem 0 0',
+              fontFamily: "'Playfair Display', var(--font-playfair), serif",
+              fontStyle: 'italic',
+              fontSize: 'clamp(12px, 2vw, 14px)',
+              letterSpacing: '0.08em',
+              color: 'rgba(245,239,230,0.5)',
+              maxWidth: '400px',
+            }}
+          >
+            &ldquo;Every cup carries a story 2,000 metres high.&rdquo;
           </motion.p>
 
           {/* ── CTA Buttons ───────────────────────────────────────────────── */}
@@ -623,14 +534,13 @@ export default function Hero() {
               marginTop: '0.5rem',
             }}
           >
-            {/* Primary — Explore Beans */}
+            {/* Primary — Explore Our Beans */}
             <MagneticButton>
-              <button
-                type="button"
+              <a
+                href="/beans"
                 style={{
-                  padding: '0.75rem 1.5rem',
-                  width: '100%',
-                  maxWidth: '280px',
+                  display: 'inline-block',
+                  padding: '0.75rem 1.75rem',
                   background: '#B08D57',
                   color: '#1a0f09',
                   border: 'none',
@@ -641,28 +551,28 @@ export default function Hero() {
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-inter), Inter, sans-serif',
                   cursor: 'pointer',
+                  textDecoration: 'none',
                   transition: 'background 0.2s ease',
                   boxShadow: '0 4px 24px rgba(176,141,87,0.3)',
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = '#c9a26a';
+                  (e.currentTarget as HTMLAnchorElement).style.background = '#c9a26a';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLButtonElement).style.background = '#B08D57';
+                  (e.currentTarget as HTMLAnchorElement).style.background = '#B08D57';
                 }}
               >
-                Explore Beans
-              </button>
+                Explore Our Beans
+              </a>
             </MagneticButton>
 
             {/* Secondary — Our Story */}
             <MagneticButton>
-              <button
-                type="button"
+              <a
+                href="/about"
                 style={{
-                  padding: '0.75rem 1.5rem',
-                  width: '100%',
-                  maxWidth: '280px',
+                  display: 'inline-block',
+                  padding: '0.75rem 1.75rem',
                   background: 'transparent',
                   color: '#F5EFE6',
                   border: '1.5px solid rgba(245,239,230,0.45)',
@@ -673,21 +583,22 @@ export default function Hero() {
                   textTransform: 'uppercase',
                   fontFamily: 'var(--font-inter), Inter, sans-serif',
                   cursor: 'pointer',
+                  textDecoration: 'none',
                   transition: 'border-color 0.2s ease, background 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLButtonElement;
+                  const el = e.currentTarget as HTMLAnchorElement;
                   el.style.borderColor = 'rgba(245,239,230,0.85)';
                   el.style.background = 'rgba(245,239,230,0.06)';
                 }}
                 onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLButtonElement;
+                  const el = e.currentTarget as HTMLAnchorElement;
                   el.style.borderColor = 'rgba(245,239,230,0.45)';
                   el.style.background = 'transparent';
                 }}
               >
                 Our Story
-              </button>
+              </a>
             </MagneticButton>
           </motion.div>
         </motion.div>
@@ -706,7 +617,7 @@ export default function Hero() {
           right: 0,
           height: '200px',
           background: 'linear-gradient(to top, #1a0f09 0%, transparent 100%)',
-          zIndex: 5,
+          zIndex: 6,
           pointerEvents: 'none',
         }}
       />
