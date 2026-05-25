@@ -550,7 +550,7 @@ function BeansHero() {
           animate={{ opacity: 1, letterSpacing: "0.4em" }}
           transition={{ duration: 1, delay: 0.2, ease }}
           className="text-xs font-medium uppercase mb-6"
-          style={{ color: C.gold }}
+          style={{ color: "rgba(237,224,204,0.45)" }}
         >
           Specialty Coffee
         </motion.p>
@@ -657,7 +657,7 @@ function BeanGridSection() {
   return (
     <section
       className="py-16 sm:py-20 md:py-24 "
-      style={{ backgroundColor: C.cream }}
+      style={{ backgroundColor: "#EBE2D2" }}
     >
       <div className="site-container">
         {/* Section header */}
@@ -706,7 +706,7 @@ function BeanGridSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease }}
-            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           >
             {filteredBeans.map((bean, index) => (
               <BeanCard key={bean.id} bean={bean} index={index} />
@@ -769,7 +769,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-xs font-medium uppercase tracking-[0.35em] mb-4"
-              style={{ color: C.gold }}
+              style={{ color: "rgba(237,224,204,0.45)" }}
             >
               Wholesale &amp; Custom Roasting
             </motion.p>
@@ -784,7 +784,7 @@ function CustomRoastingSection() {
             >
               Custom Roasting
               <br />
-              <em style={{ color: C.gold }}>Available</em>
+              <em style={{ color: "#EDE0CC", fontStyle: "italic" }}>Available</em>
             </motion.h2>
 
             <motion.p
@@ -823,17 +823,11 @@ function CustomRoastingSection() {
             >
               <Link
                 href="/wholesale"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-90 hover:scale-105 active:scale-100"
-                style={{ backgroundColor: C.gold, color: C.espresso }}
+                className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.18em] font-semibold uppercase transition-all duration-300 hover:opacity-80"
+                style={{ backgroundColor: C.beige, color: C.espresso }}
               >
                 Enquire About Wholesale
-                <span
-                  className="w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: C.espresso }}
-                  aria-hidden
-                >
-                  <span style={{ color: C.gold, fontSize: "0.7rem" }}>→</span>
-                </span>
+                <span aria-hidden>→</span>
               </Link>
             </motion.div>
           </div>
@@ -879,11 +873,8 @@ function CustomRoastingSection() {
                 variants={fadeUp}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="flex items-start gap-4 p-5 rounded-2xl"
-                style={{
-                  backgroundColor: "rgba(237,224,204,0.05)",
-                  border: "1px solid rgba(124,72,40,0.15)",
-                }}
+                className="flex items-start gap-4 py-5 border-b"
+                style={{ borderColor: "rgba(237,224,204,0.08)" }}
               >
                 <span
                   className="text-base mt-0.5 flex-shrink-0"
@@ -923,64 +914,67 @@ function BottomCTA() {
 
   return (
     <section
-      className="py-12 sm:py-16 md:py-20 text-center"
+      className="section-gap"
       style={{ backgroundColor: C.beige }}
     >
-      <div ref={ref} className="max-w-2xl mx-auto">
-        <motion.p
-          custom={0}
-          variants={fadeIn}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-xs uppercase tracking-[0.35em] mb-4"
-          style={{ color: C.gold }}
-        >
-          Learn More
-        </motion.p>
-        <motion.h3
-          custom={0.1}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="font-serif text-3xl md:text-4xl font-bold mb-4"
-          style={{ color: C.espresso }}
-        >
-          Curious About the Origin?
-        </motion.h3>
-        <motion.p
-          custom={0.2}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="text-base mb-8"
-          style={{ color: C.stone }}
-        >
-          Discover the story behind Nepal&apos;s remarkable coffee heritage —
-          the regions, the farming culture, and the journey from seed to your cup.
-        </motion.p>
-        <motion.div
-          custom={0.3}
-          variants={fadeUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="flex flex-wrap gap-4 justify-center"
-        >
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 hover:opacity-90 hover:scale-105"
-            style={{ backgroundColor: C.espresso, color: C.cream }}
+      <div ref={ref} className="site-container">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-end">
+          <div>
+            <motion.div
+              custom={0}
+              variants={fadeIn}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="w-8 h-px mb-6"
+              style={{ backgroundColor: C.gold }}
+            />
+            <motion.h3
+              custom={0.1}
+              variants={fadeUp}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="font-serif text-3xl md:text-4xl font-bold mb-5"
+              style={{ color: C.espresso }}
+            >
+              The Story Behind
+              <br />the Bean
+            </motion.h3>
+            <motion.p
+              custom={0.2}
+              variants={fadeUp}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="text-base leading-relaxed"
+              style={{ color: C.stone }}
+            >
+              Nepal&apos;s coffee heritage spans five growing regions, each shaped by altitude,
+              soil, and generations of farming knowledge. Follow the journey.
+            </motion.p>
+          </div>
+          <motion.div
+            custom={0.3}
+            variants={fadeUp}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="flex flex-col sm:flex-row gap-4"
           >
-            Read Our Story
-            <span aria-hidden>→</span>
-          </Link>
-          <Link
-            href="/wholesale"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all duration-300 hover:bg-espresso/5"
-            style={{ borderColor: `${C.espresso}30`, color: C.espresso }}
-          >
-            Wholesale Enquiry
-          </Link>
-        </motion.div>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium transition-all duration-300 hover:opacity-80"
+              style={{ backgroundColor: C.espresso, color: C.cream }}
+            >
+              Our Origin Story
+              <span aria-hidden>→</span>
+            </Link>
+            <Link
+              href="/wholesale"
+              className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#1A1008]"
+              style={{ borderColor: `rgba(26,16,8,0.2)`, color: C.espresso }}
+            >
+              Wholesale Enquiry
+            </Link>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -13,8 +13,8 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[#7C4828] text-[10px] tracking-[0.4em] uppercase mb-5"
-          style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
+          className="text-[10px] tracking-[0.4em] uppercase mb-5"
+          style={{ color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
           Get in Touch
         </motion.p>
@@ -60,10 +60,10 @@ export default function ContactCTA() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:opacity-85"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:opacity-80"
             style={{
-              backgroundColor: '#7C4828',
-              color: '#0A0704',
+              backgroundColor: '#EDE0CC',
+              color: '#0E0A07',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}
@@ -72,10 +72,10 @@ export default function ContactCTA() {
           </Link>
           <Link
             href="/wholesale"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#F5EDE0]/60"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#EDE0CC]"
             style={{
-              border: '1px solid rgba(124,72,40,0.45)',
-              color: '#7C4828',
+              border: '1px solid rgba(237,224,204,0.25)',
+              color: 'rgba(237,224,204,0.7)',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}

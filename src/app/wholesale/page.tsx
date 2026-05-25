@@ -183,11 +183,11 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-[#F5EDE0] rounded-2xl p-5 sm:p-8 flex flex-col gap-4 group hover:bg-[#0E0A07] transition-colors duration-300"
+      className="bg-[#EBE2D2] p-5 sm:p-8 flex flex-col gap-4 group hover:bg-[#0E0A07] transition-colors duration-300"
     >
       <div
-        className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-colors duration-300"
-        style={{ backgroundColor: '#EDE0CC', color: '#7C4828' }}
+        className="w-10 h-10 flex items-center justify-center text-lg transition-colors duration-300"
+        style={{ backgroundColor: 'rgba(26,16,8,0.06)', color: '#7C4828' }}
       >
         {benefit.icon}
       </div>
@@ -211,10 +211,10 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.65, delay: index * 0.12, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className={`rounded-3xl overflow-hidden flex flex-col ${
+      className={`overflow-hidden flex flex-col ${
         tier.highlighted
-          ? 'shadow-2xl shadow-[#0E0A07]/20 ring-2 ring-[#7C4828] md:scale-[1.02]'
-          : 'border border-[#EDE0CC]'
+          ? 'shadow-xl shadow-[#0E0A07]/15 ring-1 ring-[#7C4828]/60 md:scale-[1.02]'
+          : 'border border-[rgba(26,16,8,0.1)]'
       }`}
       style={{
         backgroundColor: tier.highlighted ? '#0E0A07' : '#FFFFFF',
@@ -270,7 +270,7 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       <div className="px-5 sm:px-8 pb-5 sm:pb-8">
         <a
           href="#inquiry"
-          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
+          className="flex items-center justify-center gap-2 w-full py-3.5 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80"
           style={
             tier.highlighted
               ? { backgroundColor: '#7C4828', color: '#F5EDE0' }
@@ -295,7 +295,7 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="border-b border-[#EDE0CC] last:border-0"
+      className="border-b border-[rgba(26,16,8,0.08)] last:border-0"
     >
       <button
         className="w-full flex items-center justify-between gap-4 sm:gap-6 py-5 sm:py-6 text-left group min-h-[56px]"
@@ -365,7 +365,8 @@ function WholesaleForm() {
   }
 
   const inputClass =
-    'w-full px-4 py-3.5 rounded-xl border border-[#EDE0CC] bg-white font-sans text-sm text-[#0E0A07] placeholder-[#7A6555] focus:outline-none focus:ring-2 focus:ring-[#7C4828] focus:border-transparent transition-all duration-200';
+    'w-full px-0 py-3 bg-transparent border-0 border-b font-sans text-sm text-[#0E0A07] placeholder:text-[#7A6555]/50 focus:outline-none transition-all duration-200'
+    + ' border-[rgba(26,16,8,0.15)] focus:border-[#7C4828]';
 
   const labelClass = 'block font-sans text-xs font-semibold text-[#7A6555] tracking-wider uppercase mb-1.5';
 
@@ -526,7 +527,7 @@ function WholesaleForm() {
         <button
           type="submit"
           disabled={submitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80 disabled:opacity-40 disabled:cursor-not-allowed"
           style={{ backgroundColor: '#0E0A07', color: '#F5EDE0' }}
         >
           {submitting ? (
@@ -593,7 +594,8 @@ export default function WholesalePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+            className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+          style={{ color: 'rgba(237,224,204,0.45)' }}
           >
             Wholesale Partnerships
           </motion.p>
@@ -605,7 +607,7 @@ export default function WholesalePage() {
           >
             Partner With
             <br />
-            <em className="text-[#7C4828]">Nepal&apos;s Finest</em>
+            <em className="text-[#EDE0CC]">Nepal&apos;s Finest</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -623,8 +625,8 @@ export default function WholesalePage() {
           >
             <a
               href="#inquiry"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#7C4828', color: '#F5EDE0' }}
+              className="inline-flex items-center gap-3 px-8 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80"
+              style={{ backgroundColor: '#EDE0CC', color: '#0E0A07' }}
             >
               Start Partnering
               <span>→</span>
@@ -663,13 +665,13 @@ export default function WholesalePage() {
             transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
             className="text-center"
           >
-            <p className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(237,224,204,0.45)' }}>
               Trusted By
             </p>
             <h2 className="font-serif text-3xl text-[#F5EDE0] font-bold mb-3">
               50+ Australian Café Partners
             </h2>
-            <p className="font-sans text-[#7A6555] text-base mb-12">
+            <p className="font-sans text-base mb-12" style={{ color: 'rgba(237,224,204,0.5)' }}>
               From Melbourne laneways to Sydney rooftops and Brisbane riverside — HIMA BEANS is
               pouring across Australia.
             </p>
@@ -739,9 +741,7 @@ export default function WholesalePage() {
               business day.
             </p>
           </div>
-          <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-12 border border-[#EDE0CC]">
-            <WholesaleForm />
-          </div>
+          <WholesaleForm />
         </div>
       </section>
 
@@ -755,7 +755,7 @@ export default function WholesalePage() {
             FAQ
           </h2>
         </div>
-        <div className="bg-white rounded-3xl border border-[#EDE0CC] px-4 sm:px-8 md:px-12 divide-y divide-[#EDE0CC]">
+        <div className="divide-y divide-[rgba(26,16,8,0.08)]">
           {FAQS.map((faq, i) => (
             <FAQItem key={faq.question} faq={faq} index={i} />
           ))}
@@ -770,7 +770,7 @@ export default function WholesalePage() {
         <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <p className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(237,224,204,0.45)' }}>
                 Direct Contact
               </p>
               <h2 className="font-serif text-4xl md:text-5xl text-[#F5EDE0] font-bold leading-tight mb-6">
@@ -801,16 +801,16 @@ export default function WholesalePage() {
               ].map((contact) => (
                 <div
                   key={contact.label}
-                  className="flex flex-col gap-1 p-6 rounded-2xl"
-                  style={{ backgroundColor: '#2D1E16' }}
+                  className="flex flex-col gap-1 py-5 border-b"
+                  style={{ borderColor: 'rgba(237,224,204,0.08)' }}
                 >
-                  <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#7A6555]">
+                  <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: 'rgba(237,224,204,0.4)' }}>
                     {contact.label}
                   </p>
                   {contact.href ? (
                     <a
                       href={contact.href}
-                      className="font-serif text-xl text-[#F5EDE0] hover:text-[#7C4828] transition-colors duration-200"
+                      className="font-serif text-xl text-[#F5EDE0] transition-opacity duration-200 hover:opacity-70"
                     >
                       {contact.value}
                     </a>
@@ -826,29 +826,38 @@ export default function WholesalePage() {
 
       {/* ── Final CTA ── */}
       <section
-        className="py-12 sm:py-16 md:py-20 text-center"
-        style={{ backgroundColor: '#7C4828' }}
+        className="section-gap"
+        style={{ backgroundColor: '#F5EDE0' }}
       >
-        <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-4xl text-[#F5EDE0] font-bold leading-tight mb-6">
-            Ready to Bring the Himalayas to Your Customers?
-          </h2>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
-            <a
-              href="#inquiry"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#0E0A07', color: '#F5EDE0' }}
-            >
-              Start Your Enquiry
-              <span>→</span>
-            </a>
-            <Link
-              href="/sustainability"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
-              style={{ borderColor: '#0E0A07', color: '#0E0A07' }}
-            >
-              Our Sustainability Story
-            </Link>
+        <div className="site-container">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-end">
+            <div>
+              <div className="w-8 h-px mb-6" style={{ backgroundColor: '#7C4828' }} />
+              <h2 className="font-serif text-3xl md:text-4xl text-[#0E0A07] font-bold leading-tight mb-5">
+                Ready to Bring the Himalayas to Your Customers?
+              </h2>
+              <p className="font-sans text-base leading-relaxed" style={{ color: '#7A6555' }}>
+                Fill in the enquiry form above or reach us directly — your dedicated partner manager
+                will be in touch within one business day.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#inquiry"
+                className="inline-flex items-center gap-3 px-7 py-3.5 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80"
+                style={{ backgroundColor: '#0E0A07', color: '#F5EDE0' }}
+              >
+                Start Your Enquiry
+                <span>→</span>
+              </a>
+              <Link
+                href="/sustainability"
+                className="inline-flex items-center gap-3 px-7 py-3.5 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase border transition-all duration-300 hover:border-[#0E0A07]"
+                style={{ borderColor: 'rgba(26,16,8,0.2)', color: '#0E0A07' }}
+              >
+                Sustainability Story
+              </Link>
+            </div>
           </div>
         </div>
       </section>

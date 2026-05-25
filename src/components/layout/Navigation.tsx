@@ -183,7 +183,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-[68px] flex items-center justify-between gap-4"
+          className="site-container h-[68px] flex items-center justify-between gap-4"
           aria-label="Main navigation"
         >
           {/* Logo */}
