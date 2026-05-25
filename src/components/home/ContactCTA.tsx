@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function ContactCTA() {
   return (
-    <section style={{ backgroundColor: '#3B2A21' }} className="section-gap">
+    <section style={{ backgroundColor: '#182118' }} className="section-gap">
       <div className="site-container text-center">
 
         <motion.p
@@ -13,7 +13,7 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[#B08D57] text-[10px] tracking-[0.4em] uppercase mb-5"
+          className="text-[#7B5920] text-[10px] tracking-[0.4em] uppercase mb-5"
           style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
           Get in Touch
@@ -24,7 +24,7 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          className="text-[#F5EFE6] font-bold mx-auto"
+          className="text-[#F3EFE6] font-bold mx-auto"
           style={{
             fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
             fontSize: 'clamp(1.75rem, 5vw, 3rem)',
@@ -62,8 +62,8 @@ export default function ContactCTA() {
             href="/contact"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:opacity-85"
             style={{
-              backgroundColor: '#B08D57',
-              color: '#1a0f09',
+              backgroundColor: '#7B5920',
+              color: '#0F1710',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}
@@ -72,10 +72,10 @@ export default function ContactCTA() {
           </Link>
           <Link
             href="/wholesale"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#F5EFE6]/60"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#F3EFE6]/60"
             style={{
-              border: '1px solid rgba(176,141,87,0.45)',
-              color: '#B08D57',
+              border: '1px solid rgba(123,89,32,0.45)',
+              color: '#7B5920',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}

@@ -36,10 +36,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * The flagship CTA button.
    */
   primary: [
-    'bg-[#B08D57] text-[#F5EFE6]',
-    'border border-[#B08D57]',
-    'hover:bg-[#9a7a49] hover:border-[#9a7a49]',
-    'focus-visible:ring-[#B08D57] focus-visible:ring-offset-[#F5EFE6]',
+    'bg-[#7B5920] text-[#F3EFE6]',
+    'border border-[#7B5920]',
+    'hover:bg-[#967033] hover:border-[#967033]',
+    'focus-visible:ring-[#7B5920] focus-visible:ring-offset-[#F3EFE6]',
   ].join(' '),
 
   /**
@@ -47,10 +47,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * Used on dark sections or as a secondary action.
    */
   outline: [
-    'bg-transparent text-[#F5EFE6]',
-    'border border-[#F5EFE6]/70',
-    'hover:bg-[#F5EFE6]/8 hover:border-[#F5EFE6]',
-    'focus-visible:ring-[#F5EFE6] focus-visible:ring-offset-[#3B2A21]',
+    'bg-transparent text-[#F3EFE6]',
+    'border border-[#F3EFE6]/70',
+    'hover:bg-[#F3EFE6]/8 hover:border-[#F3EFE6]',
+    'focus-visible:ring-[#F3EFE6] focus-visible:ring-offset-[#182118]',
   ].join(' '),
 
   /**
@@ -58,10 +58,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * Used for tertiary actions like "Learn more".
    */
   ghost: [
-    'bg-transparent text-[#B08D57]',
+    'bg-transparent text-[#7B5920]',
     'border border-transparent',
-    'hover:text-[#9a7a49]',
-    'focus-visible:ring-[#B08D57] focus-visible:ring-offset-transparent',
+    'hover:text-[#967033]',
+    'focus-visible:ring-[#7B5920] focus-visible:ring-offset-transparent',
     'underline-offset-4',
   ].join(' '),
 };

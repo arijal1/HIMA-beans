@@ -183,18 +183,18 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-[#F5EFE6] rounded-2xl p-5 sm:p-8 flex flex-col gap-4 group hover:bg-[#3B2A21] transition-colors duration-300"
+      className="bg-[#F3EFE6] rounded-2xl p-5 sm:p-8 flex flex-col gap-4 group hover:bg-[#182118] transition-colors duration-300"
     >
       <div
         className="w-12 h-12 rounded-full flex items-center justify-center text-xl transition-colors duration-300"
-        style={{ backgroundColor: '#E6D8C9', color: '#B08D57' }}
+        style={{ backgroundColor: '#EDE6D8', color: '#7B5920' }}
       >
         {benefit.icon}
       </div>
-      <h3 className="font-serif text-xl text-[#3B2A21] font-semibold group-hover:text-[#F5EFE6] transition-colors duration-300">
+      <h3 className="font-serif text-xl text-[#182118] font-semibold group-hover:text-[#F3EFE6] transition-colors duration-300">
         {benefit.title}
       </h3>
-      <p className="font-sans text-sm text-[#8C8477] leading-relaxed group-hover:text-[#E6D8C9] transition-colors duration-300">
+      <p className="font-sans text-sm text-[#6E675F] leading-relaxed group-hover:text-[#EDE6D8] transition-colors duration-300">
         {benefit.description}
       </p>
     </motion.div>
@@ -213,37 +213,37 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
       transition={{ duration: 0.65, delay: index * 0.12, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
       className={`rounded-3xl overflow-hidden flex flex-col ${
         tier.highlighted
-          ? 'shadow-2xl shadow-[#3B2A21]/20 ring-2 ring-[#B08D57] md:scale-[1.02]'
-          : 'border border-[#E6D8C9]'
+          ? 'shadow-2xl shadow-[#182118]/20 ring-2 ring-[#7B5920] md:scale-[1.02]'
+          : 'border border-[#EDE6D8]'
       }`}
       style={{
-        backgroundColor: tier.highlighted ? '#3B2A21' : '#FFFFFF',
+        backgroundColor: tier.highlighted ? '#182118' : '#FFFFFF',
       }}
     >
       {/* Header */}
       <div
         className="px-5 sm:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 relative"
         style={{
-          borderBottom: `1px solid ${tier.highlighted ? '#5C3D2E' : '#E6D8C9'}`,
+          borderBottom: `1px solid ${tier.highlighted ? '#5C3D2E' : '#EDE6D8'}`,
         }}
       >
         {tier.badge && (
           <span
             className="absolute top-6 right-6 text-xs font-sans font-semibold px-3 py-1 rounded-full"
-            style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
+            style={{ backgroundColor: '#7B5920', color: '#F3EFE6' }}
           >
             {tier.badge}
           </span>
         )}
         <p
           className="font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-2"
-          style={{ color: '#B08D57' }}
+          style={{ color: '#7B5920' }}
         >
           {tier.name}
         </p>
         <p
           className="font-serif text-2xl font-bold"
-          style={{ color: tier.highlighted ? '#F5EFE6' : '#3B2A21' }}
+          style={{ color: tier.highlighted ? '#F3EFE6' : '#182118' }}
         >
           {tier.volume}
         </p>
@@ -254,10 +254,10 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
         <ul className="space-y-3">
           {tier.features.map((feature) => (
             <li key={feature} className="flex items-start gap-3">
-              <span className="mt-0.5 text-[#B08D57] text-sm leading-none">✓</span>
+              <span className="mt-0.5 text-[#7B5920] text-sm leading-none">✓</span>
               <span
                 className="font-sans text-sm leading-relaxed"
-                style={{ color: tier.highlighted ? '#E6D8C9' : '#8C8477' }}
+                style={{ color: tier.highlighted ? '#EDE6D8' : '#6E675F' }}
               >
                 {feature}
               </span>
@@ -273,8 +273,8 @@ function PricingCard({ tier, index }: { tier: PricingTier; index: number }) {
           className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
           style={
             tier.highlighted
-              ? { backgroundColor: '#B08D57', color: '#F5EFE6' }
-              : { backgroundColor: '#3B2A21', color: '#F5EFE6' }
+              ? { backgroundColor: '#7B5920', color: '#F3EFE6' }
+              : { backgroundColor: '#182118', color: '#F3EFE6' }
           }
         >
           {tier.cta}
@@ -295,20 +295,20 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="border-b border-[#E6D8C9] last:border-0"
+      className="border-b border-[#EDE6D8] last:border-0"
     >
       <button
         className="w-full flex items-center justify-between gap-4 sm:gap-6 py-5 sm:py-6 text-left group min-h-[56px]"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
       >
-        <span className="font-serif text-lg text-[#3B2A21] font-semibold group-hover:text-[#B08D57] transition-colors duration-200">
+        <span className="font-serif text-lg text-[#182118] font-semibold group-hover:text-[#7B5920] transition-colors duration-200">
           {faq.question}
         </span>
         <motion.span
           animate={{ rotate: open ? 45 : 0 }}
           transition={{ duration: 0.25 }}
-          className="shrink-0 w-7 h-7 rounded-full border border-[#E6D8C9] flex items-center justify-center text-[#B08D57] font-bold text-lg"
+          className="shrink-0 w-7 h-7 rounded-full border border-[#EDE6D8] flex items-center justify-center text-[#7B5920] font-bold text-lg"
         >
           +
         </motion.span>
@@ -323,7 +323,7 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
             transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
             className="overflow-hidden"
           >
-            <p className="font-sans text-sm text-[#8C8477] leading-relaxed pb-6 max-w-3xl">
+            <p className="font-sans text-sm text-[#6E675F] leading-relaxed pb-6 max-w-3xl">
               {faq.answer}
             </p>
           </motion.div>
@@ -365,9 +365,9 @@ function WholesaleForm() {
   }
 
   const inputClass =
-    'w-full px-4 py-3.5 rounded-xl border border-[#E6D8C9] bg-white font-sans text-sm text-[#3B2A21] placeholder-[#8C8477] focus:outline-none focus:ring-2 focus:ring-[#B08D57] focus:border-transparent transition-all duration-200';
+    'w-full px-4 py-3.5 rounded-xl border border-[#EDE6D8] bg-white font-sans text-sm text-[#182118] placeholder-[#6E675F] focus:outline-none focus:ring-2 focus:ring-[#7B5920] focus:border-transparent transition-all duration-200';
 
-  const labelClass = 'block font-sans text-xs font-semibold text-[#8C8477] tracking-wider uppercase mb-1.5';
+  const labelClass = 'block font-sans text-xs font-semibold text-[#6E675F] tracking-wider uppercase mb-1.5';
 
   if (submitted) {
     return (
@@ -378,12 +378,12 @@ function WholesaleForm() {
       >
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-6"
-          style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
+          style={{ backgroundColor: '#7B5920', color: '#F3EFE6' }}
         >
           ✓
         </div>
-        <h3 className="font-serif text-3xl text-[#3B2A21] font-bold mb-4">Enquiry Received</h3>
-        <p className="font-sans text-[#8C8477] text-base leading-relaxed max-w-md mx-auto">
+        <h3 className="font-serif text-3xl text-[#182118] font-bold mb-4">Enquiry Received</h3>
+        <p className="font-sans text-[#6E675F] text-base leading-relaxed max-w-md mx-auto">
           Thank you for reaching out. Your dedicated account manager will be in touch within one
           business day to discuss your partnership.
         </p>
@@ -527,14 +527,14 @@ function WholesaleForm() {
           type="submit"
           disabled={submitting}
           className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-          style={{ backgroundColor: '#3B2A21', color: '#F5EFE6' }}
+          style={{ backgroundColor: '#182118', color: '#F3EFE6' }}
         >
           {submitting ? (
             <>
               <motion.span
                 animate={{ rotate: 360 }}
                 transition={{ repeat: Infinity, duration: 0.8, ease: 'linear' }}
-                className="inline-block w-4 h-4 border-2 border-[#F5EFE6] border-t-transparent rounded-full"
+                className="inline-block w-4 h-4 border-2 border-[#F3EFE6] border-t-transparent rounded-full"
               />
               Sending...
             </>
@@ -562,19 +562,19 @@ export default function WholesalePage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen" style={{ backgroundColor: '#F5EFE6' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#F3EFE6' }}>
       {/* ── Hero ── */}
       <section
         ref={heroRef}
         className="relative min-h-[65vh] sm:min-h-[75vh] flex items-end pb-16 sm:pb-20 md:pb-24 pt-28 sm:pt-0 overflow-hidden"
-        style={{ backgroundColor: '#3B2A21' }}
+        style={{ backgroundColor: '#182118' }}
       >
         {/* Background texture */}
         <div
           className="absolute inset-0 opacity-10"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 75% 40%, #B08D57 0%, transparent 55%), radial-gradient(circle at 15% 70%, #8C8477 0%, transparent 50%)',
+              'radial-gradient(circle at 75% 40%, #7B5920 0%, transparent 55%), radial-gradient(circle at 15% 70%, #6E675F 0%, transparent 50%)',
           }}
         />
         <div
@@ -586,14 +586,14 @@ export default function WholesalePage() {
         />
 
         {/* Decorative line */}
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-[#B08D57] opacity-20" />
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-[#7B5920] opacity-20" />
 
         <div className="relative z-10 site-container w-full">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+            className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
           >
             Wholesale Partnerships
           </motion.p>
@@ -601,17 +601,17 @@ export default function WholesalePage() {
             initial={{ opacity: 0, y: 40 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-            className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-8"
+            className="font-serif text-5xl md:text-7xl lg:text-8xl text-[#F3EFE6] font-bold leading-[0.95] mb-8"
           >
             Partner With
             <br />
-            <em className="text-[#B08D57]">Nepal&apos;s Finest</em>
+            <em className="text-[#7B5920]">Nepal&apos;s Finest</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-sans text-[#E6D8C9] text-lg max-w-xl leading-relaxed mb-10"
+            className="font-sans text-[#EDE6D8] text-lg max-w-xl leading-relaxed mb-10"
           >
             Bring the world&apos;s most compelling specialty origin to your Australian café. We offer
             more than great coffee — we offer a complete partnership built for long-term success.
@@ -624,7 +624,7 @@ export default function WholesalePage() {
             <a
               href="#inquiry"
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
+              style={{ backgroundColor: '#7B5920', color: '#F3EFE6' }}
             >
               Start Partnering
               <span>→</span>
@@ -636,10 +636,10 @@ export default function WholesalePage() {
       {/* ── Partner Benefits ── */}
       <section className="py-12 sm:py-16 md:py-24 site-container">
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Why Partner With Us
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl text-[#182118] font-bold leading-tight">
             Everything Your Café Needs
           </h2>
         </div>
@@ -654,7 +654,7 @@ export default function WholesalePage() {
       <section
         ref={partnersRef}
         className="py-16"
-        style={{ backgroundColor: '#3B2A21' }}
+        style={{ backgroundColor: '#182118' }}
       >
         <div className="site-container">
           <motion.div
@@ -663,13 +663,13 @@ export default function WholesalePage() {
             transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
             className="text-center"
           >
-            <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Trusted By
             </p>
-            <h2 className="font-serif text-3xl text-[#F5EFE6] font-bold mb-3">
+            <h2 className="font-serif text-3xl text-[#F3EFE6] font-bold mb-3">
               50+ Australian Café Partners
             </h2>
-            <p className="font-sans text-[#8C8477] text-base mb-12">
+            <p className="font-sans text-[#6E675F] text-base mb-12">
               From Melbourne laneways to Sydney rooftops and Brisbane riverside — HIMA BEANS is
               pouring across Australia.
             </p>
@@ -689,7 +689,7 @@ export default function WholesalePage() {
                   className="aspect-[3/2] rounded-xl flex items-center justify-center"
                   style={{ backgroundColor: '#2D1E16' }}
                 >
-                  <span className="font-sans text-xs text-[#8C8477] font-medium">
+                  <span className="font-sans text-xs text-[#6E675F] font-medium">
                     Café {String.fromCharCode(65 + i)}
                   </span>
                 </motion.div>
@@ -702,13 +702,13 @@ export default function WholesalePage() {
       {/* ── Pricing Tiers ── */}
       <section className="py-12 sm:py-16 md:py-24 site-container">
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Pricing & Tiers
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl text-[#182118] font-bold leading-tight mb-4">
             Find Your Partnership Level
           </h2>
-          <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
+          <p className="font-sans text-[#6E675F] text-base max-w-lg mx-auto leading-relaxed">
             All tiers include access to our full range of Himalayan single-origin lots. Pricing
             shared on inquiry.
           </p>
@@ -724,22 +724,22 @@ export default function WholesalePage() {
       <section
         id="inquiry"
         className="py-12 sm:py-16 md:py-24"
-        style={{ backgroundColor: '#F5EFE6' }}
+        style={{ backgroundColor: '#F3EFE6' }}
       >
         <div className="max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
           <div className="text-center mb-14">
-            <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Get in Touch
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-4xl md:text-5xl text-[#182118] font-bold leading-tight mb-4">
               Wholesale Enquiry
             </h2>
-            <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6E675F] text-base max-w-lg mx-auto leading-relaxed">
               Fill in the form below and your dedicated account manager will contact you within one
               business day.
             </p>
           </div>
-          <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-12 border border-[#E6D8C9]">
+          <div className="bg-white rounded-3xl p-5 sm:p-8 md:p-12 border border-[#EDE6D8]">
             <WholesaleForm />
           </div>
         </div>
@@ -748,14 +748,14 @@ export default function WholesalePage() {
       {/* ── FAQ ── */}
       <section className="py-12 sm:py-16 md:py-24 max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
         <div className="text-center mb-10 md:mb-14">
-          <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Common Questions
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#3B2A21] font-bold leading-tight">
+          <h2 className="font-serif text-4xl md:text-5xl text-[#182118] font-bold leading-tight">
             FAQ
           </h2>
         </div>
-        <div className="bg-white rounded-3xl border border-[#E6D8C9] px-4 sm:px-8 md:px-12 divide-y divide-[#E6D8C9]">
+        <div className="bg-white rounded-3xl border border-[#EDE6D8] px-4 sm:px-8 md:px-12 divide-y divide-[#EDE6D8]">
           {FAQS.map((faq, i) => (
             <FAQItem key={faq.question} faq={faq} index={i} />
           ))}
@@ -765,18 +765,18 @@ export default function WholesalePage() {
       {/* ── Contact ── */}
       <section
         className="py-12 sm:py-16 md:py-24"
-        style={{ backgroundColor: '#3B2A21' }}
+        style={{ backgroundColor: '#182118' }}
       >
         <div className="site-container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
                 Direct Contact
               </p>
-              <h2 className="font-serif text-4xl md:text-5xl text-[#F5EFE6] font-bold leading-tight mb-6">
+              <h2 className="font-serif text-4xl md:text-5xl text-[#F3EFE6] font-bold leading-tight mb-6">
                 Let&apos;s Talk Coffee
               </h2>
-              <p className="font-sans text-[#E6D8C9] text-base leading-relaxed">
+              <p className="font-sans text-[#EDE6D8] text-base leading-relaxed">
                 Prefer to talk before filling in a form? Reach us directly — we love talking
                 coffee, origin, and how we can make your café stand out.
               </p>
@@ -804,18 +804,18 @@ export default function WholesalePage() {
                   className="flex flex-col gap-1 p-6 rounded-2xl"
                   style={{ backgroundColor: '#2D1E16' }}
                 >
-                  <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#8C8477]">
+                  <p className="font-sans text-xs font-semibold tracking-[0.2em] uppercase text-[#6E675F]">
                     {contact.label}
                   </p>
                   {contact.href ? (
                     <a
                       href={contact.href}
-                      className="font-serif text-xl text-[#F5EFE6] hover:text-[#B08D57] transition-colors duration-200"
+                      className="font-serif text-xl text-[#F3EFE6] hover:text-[#7B5920] transition-colors duration-200"
                     >
                       {contact.value}
                     </a>
                   ) : (
-                    <p className="font-serif text-xl text-[#F5EFE6]">{contact.value}</p>
+                    <p className="font-serif text-xl text-[#F3EFE6]">{contact.value}</p>
                   )}
                 </div>
               ))}
@@ -827,17 +827,17 @@ export default function WholesalePage() {
       {/* ── Final CTA ── */}
       <section
         className="py-12 sm:py-16 md:py-20 text-center"
-        style={{ backgroundColor: '#B08D57' }}
+        style={{ backgroundColor: '#7B5920' }}
       >
         <div className="max-w-2xl mx-auto px-6">
-          <h2 className="font-serif text-4xl text-[#F5EFE6] font-bold leading-tight mb-6">
+          <h2 className="font-serif text-4xl text-[#F3EFE6] font-bold leading-tight mb-6">
             Ready to Bring the Himalayas to Your Customers?
           </h2>
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
             <a
               href="#inquiry"
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#3B2A21', color: '#F5EFE6' }}
+              style={{ backgroundColor: '#182118', color: '#F3EFE6' }}
             >
               Start Your Enquiry
               <span>→</span>
@@ -845,7 +845,7 @@ export default function WholesalePage() {
             <Link
               href="/sustainability"
               className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
-              style={{ borderColor: '#3B2A21', color: '#3B2A21' }}
+              style={{ borderColor: '#182118', color: '#182118' }}
             >
               Our Sustainability Story
             </Link>

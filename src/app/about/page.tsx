@@ -16,12 +16,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#3B2A21",
-  cream: "#F5EFE6",
-  stone: "#8C8477",
-  gold: "#B08D57",
-  beige: "#E6D8C9",
-  charcoal: "#222222",
+  espresso: "#182118",
+  cream: "#F3EFE6",
+  stone: "#6E675F",
+  gold: "#7B5920",
+  beige: "#EDE6D8",
+  charcoal: "#1A1814",
 } as const;
 
 /* ============================================================
@@ -321,8 +321,8 @@ function GoldDivider({ light = false }: { light?: boolean }) {
       className="h-px my-8 origin-left"
       style={{
         backgroundColor: light
-          ? "rgba(176,141,87,0.3)"
-          : "rgba(176,141,87,0.25)",
+          ? "rgba(123,89,32,0.3)"
+          : "rgba(123,89,32,0.25)",
       }}
     />
   );
@@ -415,7 +415,7 @@ function JourneyStep({
     >
       {/* Step marker */}
       <div className="relative flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full"
-        style={{ backgroundColor: "rgba(176,141,87,0.12)", border: `1px solid ${C.gold}40` }}
+        style={{ backgroundColor: "rgba(123,89,32,0.12)", border: `1px solid ${C.gold}40` }}
       >
         <span className="text-lg" style={{ color: C.gold }}>
           {step.icon}
@@ -476,7 +476,7 @@ function QualityCard({
       className="p-6 rounded-2xl flex flex-col gap-3"
       style={{
         backgroundColor: "rgba(245,239,230,0.06)",
-        border: "1px solid rgba(176,141,87,0.2)",
+        border: "1px solid rgba(123,89,32,0.2)",
       }}
     >
       <p
@@ -519,17 +519,17 @@ function HeroSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(176,141,87,0.12) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(123,89,32,0.12) 0%, transparent 70%)`,
           }}
         />
         {/* Decorative rings */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
-          style={{ border: "1px solid rgba(176,141,87,0.07)" }}
+          style={{ border: "1px solid rgba(123,89,32,0.07)" }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full"
-          style={{ border: "1px solid rgba(176,141,87,0.05)" }}
+          style={{ border: "1px solid rgba(123,89,32,0.05)" }}
         />
       </motion.div>
 
@@ -719,12 +719,12 @@ function FarmingSection() {
                   {/* Sky gradient */}
                   <defs>
                     <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#1A0F09" />
-                      <stop offset="100%" stopColor="#3B2A21" />
+                      <stop offset="0%" stopColor="#0F1710" />
+                      <stop offset="100%" stopColor="#182118" />
                     </linearGradient>
                     <linearGradient id="goldGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#B08D57" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#B08D57" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#7B5920" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#7B5920" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <rect width="800" height="500" fill="url(#skyGrad)" />
@@ -737,12 +737,12 @@ function FarmingSection() {
                   {/* Mid range */}
                   <polygon
                     points="0,420 100,280 220,360 350,200 470,310 600,220 720,300 800,260 800,500 0,500"
-                    fill="rgba(59,42,33,0.6)"
+                    fill="rgba(24,33,24,0.6)"
                   />
                   {/* Front hills */}
                   <polygon
                     points="0,460 120,380 250,430 380,350 500,400 620,360 750,420 800,390 800,500 0,500"
-                    fill="#3B2A21"
+                    fill="#182118"
                   />
                   {/* Terraced lines */}
                   {[350, 370, 390, 410, 430, 450].map((y, i) => (
@@ -752,7 +752,7 @@ function FarmingSection() {
                       y1={y}
                       x2={700 - i * 20}
                       y2={y + 5}
-                      stroke="rgba(176,141,87,0.15)"
+                      stroke="rgba(123,89,32,0.15)"
                       strokeWidth="1"
                     />
                   ))}
@@ -760,7 +760,7 @@ function FarmingSection() {
                   <ellipse cx="400" cy="200" rx="200" ry="100" fill="url(#goldGlow)" />
                   {/* Stars */}
                   {[[100,80],[250,50],[600,70],[700,100],[500,40],[350,90],[150,110]].map(([cx,cy], i) => (
-                    <circle key={i} cx={cx} cy={cy} r="1.5" fill="rgba(176,141,87,0.6)" />
+                    <circle key={i} cx={cx} cy={cy} r="1.5" fill="rgba(123,89,32,0.6)" />
                   ))}
                 </svg>
               </div>
@@ -1109,7 +1109,7 @@ function PromiseSection() {
                 className="p-6 rounded-2xl"
                 style={{
                   backgroundColor: "rgba(245,239,230,0.05)",
-                  border: "1px solid rgba(176,141,87,0.2)",
+                  border: "1px solid rgba(123,89,32,0.2)",
                 }}
               >
                 <p className="font-serif text-base font-semibold mb-2" style={{ color: C.gold }}>

@@ -55,7 +55,7 @@ const COMMITMENTS: CommitmentSection[] = [
       'For us, ethical sourcing isn\'t a certification — it\'s the foundation of every business decision we make.',
     ],
     dark: true,
-    gradientFrom: '#3B2A21',
+    gradientFrom: '#182118',
     gradientTo: '#5C3D2E',
   },
   {
@@ -68,7 +68,7 @@ const COMMITMENTS: CommitmentSection[] = [
       'By refusing to clear-cut for sun-cultivation monocultures, our farming partners preserve the living ecosystem that makes Himalayan coffee possible — for this generation and the next.',
     ],
     dark: false,
-    gradientFrom: '#8C8477',
+    gradientFrom: '#6E675F',
     gradientTo: '#A89D8E',
   },
   {
@@ -81,8 +81,8 @@ const COMMITMENTS: CommitmentSection[] = [
       'This isn\'t just transparency for marketing. It\'s accountability — a record of every hand that touched your coffee, and a guarantee that each one was paid fairly.',
     ],
     dark: true,
-    gradientFrom: '#222222',
-    gradientTo: '#3B2A21',
+    gradientFrom: '#1A1814',
+    gradientTo: '#182118',
   },
   {
     tag: 'Commitment 04',
@@ -94,8 +94,8 @@ const COMMITMENTS: CommitmentSection[] = [
       'We ship in consolidated freight runs to reduce per-kilo emissions, and we\'re working with our logistics partner on a sea-freight-first model for wholesale customers — cutting air-freight emissions by up to 90% on each pallet.',
     ],
     dark: false,
-    gradientFrom: '#B08D57',
-    gradientTo: '#8C8477',
+    gradientFrom: '#7B5920',
+    gradientTo: '#6E675F',
   },
 ];
 
@@ -235,7 +235,7 @@ function CommitmentBlock({
   return (
     <section
       style={{
-        backgroundColor: section.dark ? '#222222' : '#F5EFE6',
+        backgroundColor: section.dark ? '#1A1814' : '#F3EFE6',
       }}
     >
       <div
@@ -257,7 +257,7 @@ function CommitmentBlock({
           <div className="w-full h-full flex items-center justify-center">
             <span
               className="font-serif text-7xl opacity-20 select-none"
-              style={{ color: '#F5EFE6' }}
+              style={{ color: '#F3EFE6' }}
             >
               {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </span>
@@ -273,19 +273,19 @@ function CommitmentBlock({
         >
           <p
             className="font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-3"
-            style={{ color: '#B08D57' }}
+            style={{ color: '#7B5920' }}
           >
             {section.tag}
           </p>
           <h2
             className="font-serif text-4xl md:text-5xl font-bold leading-tight mb-3"
-            style={{ color: section.dark ? '#F5EFE6' : '#3B2A21' }}
+            style={{ color: section.dark ? '#F3EFE6' : '#182118' }}
           >
             {section.title}
           </h2>
           <p
             className="font-serif text-xl italic mb-8"
-            style={{ color: '#B08D57' }}
+            style={{ color: '#7B5920' }}
           >
             {section.subtitle}
           </p>
@@ -294,7 +294,7 @@ function CommitmentBlock({
               <p
                 key={i}
                 className="font-sans text-base leading-relaxed"
-                style={{ color: section.dark ? '#E6D8C9' : '#8C8477' }}
+                style={{ color: section.dark ? '#EDE6D8' : '#6E675F' }}
               >
                 {para}
               </p>
@@ -316,33 +316,33 @@ function FarmerCard({ farmer, index }: { farmer: FarmerProfile; index: number })
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-white rounded-3xl overflow-hidden border border-[#E6D8C9]"
+      className="bg-white rounded-3xl overflow-hidden border border-[#EDE6D8]"
     >
       {/* Avatar banner */}
       <div
         className="h-32 flex items-end px-8 pb-0 relative"
         style={{
-          background: 'linear-gradient(135deg, #3B2A21 0%, #B08D57 100%)',
+          background: 'linear-gradient(135deg, #182118 0%, #7B5920 100%)',
         }}
       >
         <div
           className="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center translate-y-10 font-serif text-xl font-bold"
-          style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
+          style={{ backgroundColor: '#7B5920', color: '#F3EFE6' }}
         >
           {farmer.initial}
         </div>
       </div>
 
       <div className="px-8 pt-14 pb-8">
-        <h3 className="font-serif text-2xl text-[#3B2A21] font-semibold mb-1">{farmer.name}</h3>
-        <p className="font-sans text-sm text-[#B08D57] font-semibold mb-0.5">{farmer.location}</p>
-        <p className="font-sans text-xs text-[#8C8477] mb-6">{farmer.tenure}</p>
+        <h3 className="font-serif text-2xl text-[#182118] font-semibold mb-1">{farmer.name}</h3>
+        <p className="font-sans text-sm text-[#7B5920] font-semibold mb-0.5">{farmer.location}</p>
+        <p className="font-sans text-xs text-[#6E675F] mb-6">{farmer.tenure}</p>
 
-        <blockquote className="font-serif text-base italic text-[#3B2A21] leading-relaxed mb-6 border-l-2 border-[#B08D57] pl-4">
+        <blockquote className="font-serif text-base italic text-[#182118] leading-relaxed mb-6 border-l-2 border-[#7B5920] pl-4">
           {farmer.quote}
         </blockquote>
 
-        <p className="font-sans text-sm text-[#8C8477] leading-relaxed">{farmer.detail}</p>
+        <p className="font-sans text-sm text-[#6E675F] leading-relaxed">{farmer.detail}</p>
       </div>
     </motion.div>
   );
@@ -360,11 +360,11 @@ function ImpactCard({ stat, index }: { stat: ImpactStat; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
       className="text-center px-4 sm:px-6 py-6 sm:py-8"
     >
-      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#B08D57] mb-2">
+      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#7B5920] mb-2">
         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
       </div>
-      <p className="font-serif text-xl text-[#F5EFE6] font-semibold mb-2">{stat.label}</p>
-      <p className="font-sans text-sm text-[#8C8477]">{stat.description}</p>
+      <p className="font-serif text-xl text-[#F3EFE6] font-semibold mb-2">{stat.label}</p>
+      <p className="font-sans text-sm text-[#6E675F]">{stat.description}</p>
     </motion.div>
   );
 }
@@ -379,16 +379,16 @@ function CertBadge({ cert, index }: { cert: Certification; index: number }) {
       initial={{ opacity: 0, scale: 0.85 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="flex flex-col items-center gap-3 p-8 rounded-2xl border-2 border-[#E6D8C9] bg-white"
+      className="flex flex-col items-center gap-3 p-8 rounded-2xl border-2 border-[#EDE6D8] bg-white"
     >
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
-        style={{ backgroundColor: '#F5EFE6', color: '#B08D57' }}
+        style={{ backgroundColor: '#F3EFE6', color: '#7B5920' }}
       >
         {cert.icon}
       </div>
-      <p className="font-serif text-lg text-[#3B2A21] font-semibold text-center">{cert.name}</p>
-      <p className="font-sans text-xs text-[#8C8477] text-center">{cert.body}</p>
+      <p className="font-serif text-lg text-[#182118] font-semibold text-center">{cert.name}</p>
+      <p className="font-sans text-xs text-[#6E675F] text-center">{cert.body}</p>
     </motion.div>
   );
 }
@@ -403,19 +403,19 @@ export default function SustainabilityPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen" style={{ backgroundColor: '#F5EFE6' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#F3EFE6' }}>
       {/* ── Hero ── */}
       <section
         ref={heroRef}
         className="relative min-h-[70vh] md:min-h-[80vh] flex items-end pb-16 md:pb-24 overflow-hidden"
-        style={{ backgroundColor: '#222222' }}
+        style={{ backgroundColor: '#1A1814' }}
       >
         {/* Mountain gradient */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 100%, #3B2A21 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, #8C8477 0%, transparent 50%), radial-gradient(ellipse at 20% 60%, #3B2A21 0%, transparent 40%)',
+              'radial-gradient(ellipse at 50% 100%, #182118 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, #6E675F 0%, transparent 50%), radial-gradient(ellipse at 20% 60%, #182118 0%, transparent 40%)',
           }}
         />
 
@@ -425,7 +425,7 @@ export default function SustainabilityPage() {
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
             className="w-full h-64 opacity-20"
-            fill="#8C8477"
+            fill="#6E675F"
           >
             <path d="M0,320 L0,200 L200,80 L400,180 L600,40 L720,120 L840,20 L1000,140 L1200,60 L1440,160 L1440,320 Z" />
           </svg>
@@ -436,7 +436,7 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+            className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
           >
             Our Earth Promise
           </motion.p>
@@ -444,17 +444,17 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EFE6] font-bold leading-[0.95] mb-6 md:mb-8"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F3EFE6] font-bold leading-[0.95] mb-6 md:mb-8"
           >
             Our Earth
             <br />
-            <em className="text-[#B08D57]">Promise</em>
+            <em className="text-[#7B5920]">Promise</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-sans text-[#E6D8C9] text-lg max-w-xl leading-relaxed"
+            className="font-sans text-[#EDE6D8] text-lg max-w-xl leading-relaxed"
           >
             Every decision we make — from how we source to how we ship — is guided by a single
             commitment: to leave the mountains better than we found them.
@@ -468,16 +468,16 @@ export default function SustainabilityPage() {
       ))}
 
       {/* ── Farmer Stories ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F3EFE6' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               The People Behind the Cup
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#182118] font-bold leading-tight mb-4">
               Farmer Stories
             </h2>
-            <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6E675F] text-base max-w-lg mx-auto leading-relaxed">
               Behind every bag of HIMA BEANS is a farming family with generations of knowledge and a
               story worth knowing.
             </p>
@@ -491,13 +491,13 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Impact Numbers ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#3B2A21' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#182118' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Measured Impact
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EFE6] font-bold leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F3EFE6] font-bold leading-tight">
               By the Numbers
             </h2>
           </div>
@@ -510,16 +510,16 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Certifications ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EFE6' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F3EFE6' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#B08D57] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#7B5920] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Verified by Third Parties
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#3B2A21] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#182118] font-bold leading-tight mb-4">
               Our Certifications
             </h2>
-            <p className="font-sans text-[#8C8477] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6E675F] text-base max-w-lg mx-auto leading-relaxed">
               We hold ourselves accountable through independent verification. These certifications
               reflect the standards we meet — and the higher standards we aim for.
             </p>
@@ -535,13 +535,13 @@ export default function SustainabilityPage() {
       {/* ── CTA ── */}
       <section
         className="py-16 md:py-24 text-center"
-        style={{ backgroundColor: '#3B2A21' }}
+        style={{ backgroundColor: '#182118' }}
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EFE6] font-bold leading-tight mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F3EFE6] font-bold leading-tight mb-6">
             Drink Coffee That Does Good
           </h2>
-          <p className="font-sans text-[#E6D8C9] text-base leading-relaxed mb-10 opacity-90">
+          <p className="font-sans text-[#EDE6D8] text-base leading-relaxed mb-10 opacity-90">
             Every purchase directly supports Nepali farming families and a regenerative supply
             chain. Shop our full bean range and taste the difference ethical sourcing makes.
           </p>
@@ -549,7 +549,7 @@ export default function SustainabilityPage() {
             <Link
               href="/beans"
               className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#B08D57', color: '#F5EFE6' }}
+              style={{ backgroundColor: '#7B5920', color: '#F3EFE6' }}
             >
               Shop Our Beans
               <span>→</span>
@@ -557,7 +557,7 @@ export default function SustainabilityPage() {
             <Link
               href="/wholesale"
               className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
-              style={{ borderColor: '#B08D57', color: '#B08D57' }}
+              style={{ borderColor: '#7B5920', color: '#7B5920' }}
             >
               Wholesale Inquiry
             </Link>

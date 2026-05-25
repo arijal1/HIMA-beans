@@ -17,12 +17,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#3B2A21",
-  cream: "#F5EFE6",
-  stone: "#8C8477",
-  gold: "#B08D57",
-  beige: "#E6D8C9",
-  charcoal: "#222222",
+  espresso: "#182118",
+  cream: "#F3EFE6",
+  stone: "#6E675F",
+  gold: "#7B5920",
+  beige: "#EDE6D8",
+  charcoal: "#1A1814",
 } as const;
 
 /* ============================================================
@@ -296,8 +296,8 @@ function BeanCard({
           backgroundColor: C.cream,
           border: `1px solid ${C.beige}`,
           boxShadow: hovered
-            ? "0 24px 48px rgba(59,42,33,0.18), 0 8px 16px rgba(59,42,33,0.10)"
-            : "0 4px 16px rgba(59,42,33,0.07)",
+            ? "0 24px 48px rgba(24,33,24,0.18), 0 8px 16px rgba(24,33,24,0.10)"
+            : "0 4px 16px rgba(24,33,24,0.07)",
           transition: "box-shadow 0.3s ease",
         }}
         onMouseMove={handleMouseMove}
@@ -315,7 +315,7 @@ function BeanCard({
               transition={{ duration: 0.2 }}
               className="absolute inset-0 pointer-events-none rounded-2xl z-0"
               style={{
-                background: `radial-gradient(circle at ${glowX.get()}% ${glowY.get()}%, rgba(176,141,87,0.12) 0%, transparent 60%)`,
+                background: `radial-gradient(circle at ${glowX.get()}% ${glowY.get()}%, rgba(123,89,32,0.12) 0%, transparent 60%)`,
               }}
             />
           )}
@@ -518,7 +518,7 @@ function BeansHero() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(176,141,87,0.1) 0%, transparent 65%)`,
+            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(123,89,32,0.1) 0%, transparent 65%)`,
           }}
         />
         {/* Decorative element — coffee bean shape (CSS ellipse rings) */}
@@ -530,7 +530,7 @@ function BeansHero() {
               style={{
                 width: 400 - i * 80,
                 height: 400 - i * 80,
-                border: `1px solid rgba(176,141,87,${opacity * 0.12})`,
+                border: `1px solid rgba(123,89,32,${opacity * 0.12})`,
                 top: `${i * 40}px`,
                 left: `${i * 40}px`,
               }}
@@ -543,10 +543,10 @@ function BeansHero() {
             viewBox="0 0 200 200"
             style={{ opacity: 0.06, position: "absolute", top: 60, left: 60 }}
           >
-            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#B08D57" />
+            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7B5920" />
             <path
               d="M100 10 Q130 100 100 190"
-              stroke="#3B2A21"
+              stroke="#182118"
               strokeWidth="8"
               fill="none"
             />
@@ -557,13 +557,13 @@ function BeansHero() {
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `linear-gradient(rgba(176,141,87,1) 1px, transparent 1px), linear-gradient(90deg, rgba(176,141,87,1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(123,89,32,1) 1px, transparent 1px), linear-gradient(90deg, rgba(123,89,32,1) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
           }}
         />
       </div>
 
-      <div className="relative z-10 site-container md:px-12 lg:px-20 w-full">
+      <div className="relative z-10 site-container w-full">
         <motion.p
           initial={{ opacity: 0, letterSpacing: "0.2em" }}
           animate={{ opacity: 1, letterSpacing: "0.4em" }}
@@ -613,10 +613,10 @@ function IntroSection() {
 
   return (
     <section
-      className="py-12 sm:py-16 md:py-20 px-6 md:px-12 lg:px-20"
+      className="py-12 sm:py-16 md:py-20 "
       style={{ backgroundColor: C.beige }}
     >
-      <div ref={ref} className="max-w-7xl mx-auto">
+      <div ref={ref} className="site-container">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {[
             {
@@ -675,10 +675,10 @@ function BeanGridSection() {
 
   return (
     <section
-      className="py-16 sm:py-20 md:py-24 px-6 md:px-12 lg:px-20"
+      className="py-16 sm:py-20 md:py-24 "
       style={{ backgroundColor: C.cream }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="site-container">
         {/* Section header */}
         <div ref={ref} className="text-center mb-12">
           <motion.p
@@ -757,7 +757,7 @@ function CustomRoastingSection() {
 
   return (
     <section
-      className="py-16 sm:py-20 md:py-28 lg:py-36 px-6 md:px-12 lg:px-20 relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-28 lg:py-36 relative overflow-hidden"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Background elements */}
@@ -765,20 +765,20 @@ function CustomRoastingSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(176,141,87,0.08) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(123,89,32,0.08) 0%, transparent 70%)`,
           }}
         />
         {/* Decorative large text */}
         <div
           className="absolute right-0 top-1/2 -translate-y-1/2 font-serif text-[18rem] font-bold leading-none select-none hidden xl:block"
-          style={{ color: "rgba(176,141,87,0.04)", userSelect: "none" }}
+          style={{ color: "rgba(123,89,32,0.04)", userSelect: "none" }}
           aria-hidden
         >
           HB
         </div>
       </div>
 
-      <div ref={ref} className="max-w-7xl mx-auto relative z-10">
+      <div ref={ref} className="site-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left: text */}
           <div>
@@ -901,7 +901,7 @@ function CustomRoastingSection() {
                 className="flex items-start gap-4 p-5 rounded-2xl"
                 style={{
                   backgroundColor: "rgba(245,239,230,0.05)",
-                  border: "1px solid rgba(176,141,87,0.15)",
+                  border: "1px solid rgba(123,89,32,0.15)",
                 }}
               >
                 <span
@@ -942,7 +942,7 @@ function BottomCTA() {
 
   return (
     <section
-      className="py-12 sm:py-16 md:py-20 px-6 md:px-12 lg:px-20 text-center"
+      className="py-12 sm:py-16 md:py-20 text-center"
       style={{ backgroundColor: C.beige }}
     >
       <div ref={ref} className="max-w-2xl mx-auto">

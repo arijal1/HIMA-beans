@@ -20,7 +20,7 @@ const STATS = [
 
 export default function HomeStory() {
   return (
-    <section style={{ backgroundColor: '#1a0f09' }} className="section-gap">
+    <section style={{ backgroundColor: '#0F1710' }} className="section-gap">
       <div className="site-container">
 
         {/* Eyebrow */}
@@ -29,7 +29,7 @@ export default function HomeStory() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="text-[#B08D57] text-[10px] tracking-[0.4em] uppercase text-center mb-8"
+          className="text-[#7B5920] text-[10px] tracking-[0.4em] uppercase text-center mb-8"
           style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
           Nepal · 2,000m above sea level
@@ -45,7 +45,7 @@ export default function HomeStory() {
           style={{ maxWidth: '720px' }}
         >
           <p
-            className="text-[#F5EFE6] italic leading-[1.4]"
+            className="text-[#F3EFE6] italic leading-[1.4]"
             style={{
               fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
               fontSize: 'clamp(1.4rem, 3.5vw, 2.25rem)',
@@ -62,7 +62,7 @@ export default function HomeStory() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          style={{ width: '40px', height: '1px', backgroundColor: '#B08D57', margin: '2.5rem auto' }}
+          style={{ width: '40px', height: '1px', backgroundColor: '#7B5920', margin: '2.5rem auto' }}
         />
 
         {/* Body */}
@@ -74,7 +74,7 @@ export default function HomeStory() {
           className="text-center mx-auto leading-relaxed"
           style={{
             maxWidth: '560px',
-            color: '#8C8477',
+            color: '#6E675F',
             fontSize: '0.95rem',
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
@@ -95,7 +95,7 @@ export default function HomeStory() {
           {STATS.map((s) => (
             <div key={s.value} className="text-center">
               <p
-                className="text-[#B08D57] font-bold"
+                className="text-[#7B5920] font-bold"
                 style={{
                   fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
                   fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
@@ -105,7 +105,7 @@ export default function HomeStory() {
                 {s.value}
               </p>
               <p
-                className="text-[#8C8477] text-[11px] tracking-[0.2em] uppercase mt-2"
+                className="text-[#6E675F] text-[11px] tracking-[0.2em] uppercase mt-2"
                 style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
               >
                 {s.label}
@@ -124,7 +124,7 @@ export default function HomeStory() {
         >
           <Link
             href="/about"
-            className="inline-flex items-center gap-3 text-[#F5EFE6] text-[11px] tracking-[0.25em] uppercase hover:text-[#B08D57] transition-colors duration-300 group"
+            className="inline-flex items-center gap-3 text-[#F3EFE6] text-[11px] tracking-[0.25em] uppercase hover:text-[#7B5920] transition-colors duration-300 group"
             style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
           >
             Our Story
