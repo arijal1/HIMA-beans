@@ -49,21 +49,21 @@ const REGIONS = [
 const PHOTO_FRAMES = [
   {
     label: 'Gulmi Hillside · Dawn',
-    gradient: 'linear-gradient(145deg, #1E1008 0%, #2D1B12 55%, #160C05 100%)',
+    gradient: 'linear-gradient(145deg, #0E0A07 0%, #2D1B12 55%, #0A0704 100%)',
     rotation: -2.5,
     offsetY: 0,
-    accentColor: '#7C5535',
+    accentColor: '#7C4828',
   },
   {
     label: 'Palpa Ridge · Morning Mist',
-    gradient: 'linear-gradient(155deg, #4a3728 0%, #1E1008 50%, #2D1B12 100%)',
+    gradient: 'linear-gradient(155deg, #4a3728 0%, #0E0A07 50%, #2D1B12 100%)',
     rotation: 1.8,
     offsetY: -20,
     accentColor: '#C4A97A',
   },
   {
     label: 'Syangja Valley · Harvest',
-    gradient: 'linear-gradient(130deg, #2D1B12 0%, #4a3728 45%, #1E1008 100%)',
+    gradient: 'linear-gradient(130deg, #2D1B12 0%, #4a3728 45%, #0E0A07 100%)',
     rotation: -1.2,
     offsetY: -8,
     accentColor: '#8C6A3F',
@@ -128,7 +128,7 @@ function PhotoFrame({ label, gradient, rotation, offsetY, accentColor, delay }: 
         className="relative overflow-hidden rounded-sm"
         style={{
           background: gradient,
-          border: '1px solid rgba(123,89,32,0.18)',
+          border: '1px solid rgba(124,72,40,0.18)',
           transform: `rotate(${safeRotation}deg) translateY(${safeOffsetY}px)`,
           boxShadow: '0 22px 55px rgba(0,0,0,0.55), 0 4px 12px rgba(0,0,0,0.4)',
           aspectRatio: '4/3',
@@ -165,7 +165,7 @@ function PhotoFrame({ label, gradient, rotation, offsetY, accentColor, delay }: 
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(245,239,230,0.07) 0%, transparent 70%)',
+              'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(237,224,204,0.07) 0%, transparent 70%)',
           }}
           aria-hidden="true"
         />
@@ -177,7 +177,7 @@ function PhotoFrame({ label, gradient, rotation, offsetY, accentColor, delay }: 
         >
           <p
             className="text-[10px] tracking-[0.28em] uppercase"
-            style={{ color: 'rgba(245,239,230,0.55)' }}
+            style={{ color: 'rgba(237,224,204,0.55)' }}
           >
             {label}
           </p>
@@ -202,7 +202,7 @@ export default function OriginStory() {
   return (
     <section
       ref={sectionRef}
-      style={{ backgroundColor: '#1E1008', position: 'relative', overflow: 'hidden' }}
+      style={{ backgroundColor: '#0E0A07', position: 'relative', overflow: 'hidden' }}
       aria-labelledby="origin-story-heading"
     >
       {/* ── NEPAL watermark ── */}
@@ -216,7 +216,7 @@ export default function OriginStory() {
             fontFamily: '"Playfair Display", Georgia, serif',
             fontSize: 'clamp(110px, 22vw, 340px)',
             fontWeight: 900,
-            color: 'rgba(245,239,230,0.032)',
+            color: 'rgba(237,224,204,0.032)',
             letterSpacing: '-0.04em',
             lineHeight: 1,
             whiteSpace: 'nowrap',
@@ -231,7 +231,7 @@ export default function OriginStory() {
         className="absolute top-0 inset-x-0 h-px"
         style={{
           background:
-            'linear-gradient(to right, transparent, #7C5535 30%, #7C5535 70%, transparent)',
+            'linear-gradient(to right, transparent, #7C4828 30%, #7C4828 70%, transparent)',
         }}
         aria-hidden="true"
       />
@@ -250,7 +250,7 @@ export default function OriginStory() {
           <motion.p
             variants={childUp}
             className="text-[10px] tracking-[0.4em] uppercase mb-5"
-            style={{ color: '#7C5535' }}
+            style={{ color: '#7C4828' }}
           >
             Heritage &middot; Land &middot; Legacy
           </motion.p>
@@ -263,13 +263,13 @@ export default function OriginStory() {
               fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(2.25rem, 5.5vw, 4.25rem)',
               fontWeight: 700,
-              color: '#F2E8D8',
+              color: '#F5EDE0',
               letterSpacing: '-0.02em',
             }}
           >
             Born in the Clouds,
             <br />
-            <em style={{ fontStyle: 'italic', color: '#7C5535' }}>Grown by Hand</em>
+            <em style={{ fontStyle: 'italic', color: '#7C4828' }}>Grown by Hand</em>
           </motion.h2>
         </motion.div>
 
@@ -291,14 +291,14 @@ export default function OriginStory() {
             <motion.div
               variants={childUp}
               className="h-px w-20"
-              style={{ backgroundColor: '#7C5535' }}
+              style={{ backgroundColor: '#7C4828' }}
               aria-hidden="true"
             />
 
             <motion.div variants={childUp} className="flex flex-col gap-5">
               <p
                 className="text-base md:text-[1.05rem] leading-[1.9] font-light"
-                style={{ color: 'rgba(245,239,230,0.72)' }}
+                style={{ color: 'rgba(237,224,204,0.72)' }}
               >
                 Nestled in the Himalayan foothills, Nepal&rsquo;s coffee farms sit between
                 1,000 and 2,100 metres above sea level — an altitude that fundamentally
@@ -309,21 +309,21 @@ export default function OriginStory() {
               </p>
               <p
                 className="text-base md:text-[1.05rem] leading-[1.9] font-light"
-                style={{ color: 'rgba(245,239,230,0.72)' }}
+                style={{ color: 'rgba(237,224,204,0.72)' }}
               >
                 Nepal&rsquo;s coffee story began quietly in the 1970s, carried by a few
                 visionary farmers in{' '}
-                <span style={{ color: '#7C5535', fontWeight: 500 }}>Gulmi</span> and{' '}
-                <span style={{ color: '#7C5535', fontWeight: 500 }}>Palpa</span>. Today the
+                <span style={{ color: '#7C4828', fontWeight: 500 }}>Gulmi</span> and{' '}
+                <span style={{ color: '#7C4828', fontWeight: 500 }}>Palpa</span>. Today the
                 growing regions of{' '}
-                <span style={{ color: '#7C5535', fontWeight: 500 }}>Syangja</span>,{' '}
-                <span style={{ color: '#7C5535', fontWeight: 500 }}>Kavre</span>, and beyond
+                <span style={{ color: '#7C4828', fontWeight: 500 }}>Syangja</span>,{' '}
+                <span style={{ color: '#7C4828', fontWeight: 500 }}>Kavre</span>, and beyond
                 have joined the story — each valley adding its own terroir signature to
                 what is becoming specialty coffee&rsquo;s best-kept secret.
               </p>
               <p
                 className="text-base md:text-[1.05rem] leading-[1.9] font-light"
-                style={{ color: 'rgba(245,239,230,0.72)' }}
+                style={{ color: 'rgba(237,224,204,0.72)' }}
               >
                 Every HIMA BEANS selection is hand-picked at peak ripeness by families who
                 have cultivated these terraced hillsides for generations. No machines. No
@@ -336,12 +336,12 @@ export default function OriginStory() {
             <motion.blockquote
               variants={childUp}
               className="relative border-l-2 pl-6 py-1"
-              style={{ borderColor: '#7C5535' }}
+              style={{ borderColor: '#7C4828' }}
             >
               <p
                 className="text-xl md:text-2xl leading-[1.55] font-light"
                 style={{
-                  color: '#F2E8D8',
+                  color: '#F5EDE0',
                   fontFamily: '"Playfair Display", Georgia, serif',
                   fontStyle: 'italic',
                 }}
@@ -351,7 +351,7 @@ export default function OriginStory() {
               </p>
               <footer
                 className="mt-4 text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: '#87705A' }}
+                style={{ color: '#7A6555' }}
               >
                 — Hima Beans, Origin Promise
               </footer>
@@ -364,14 +364,14 @@ export default function OriginStory() {
                   key={region}
                   className="inline-flex items-center gap-2 px-4 py-2 text-[10px] tracking-[0.2em] uppercase rounded-full"
                   style={{
-                    backgroundColor: 'rgba(123,89,32,0.1)',
-                    color: '#7C5535',
-                    border: '1px solid rgba(123,89,32,0.22)',
+                    backgroundColor: 'rgba(124,72,40,0.1)',
+                    color: '#7C4828',
+                    border: '1px solid rgba(124,72,40,0.22)',
                   }}
                 >
                   <span
                     className="w-1.5 h-1.5 rounded-full shrink-0"
-                    style={{ backgroundColor: '#7C5535' }}
+                    style={{ backgroundColor: '#7C4828' }}
                     aria-hidden="true"
                   />
                   {region}
@@ -403,7 +403,7 @@ export default function OriginStory() {
               aria-hidden="true"
               style={{
                 backgroundImage:
-                  'radial-gradient(circle, rgba(123,89,32,0.22) 1px, transparent 1px)',
+                  'radial-gradient(circle, rgba(124,72,40,0.22) 1px, transparent 1px)',
                 backgroundSize: '10px 10px',
               }}
             />
@@ -412,7 +412,7 @@ export default function OriginStory() {
               aria-hidden="true"
               style={{
                 backgroundImage:
-                  'radial-gradient(circle, rgba(123,89,32,0.16) 1px, transparent 1px)',
+                  'radial-gradient(circle, rgba(124,72,40,0.16) 1px, transparent 1px)',
                 backgroundSize: '8px 8px',
               }}
             />
@@ -431,7 +431,7 @@ export default function OriginStory() {
               fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
               fontWeight: 700,
-              color: '#F2E8D8',
+              color: '#F5EDE0',
               letterSpacing: '-0.02em',
             }}
           >
@@ -441,7 +441,7 @@ export default function OriginStory() {
           {/* 1-col on mobile → 2-col on sm → 3-col on lg */}
           <div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden rounded-sm"
-            style={{ border: '1px solid rgba(123,89,32,0.14)' }}
+            style={{ border: '1px solid rgba(124,72,40,0.14)' }}
           >
             {REGIONS.map((region, i) => (
               <motion.div
@@ -453,17 +453,17 @@ export default function OriginStory() {
                 variants={fadeCustom}
                 className="group relative flex flex-col gap-2 p-6 sm:p-7"
                 style={{
-                  backgroundColor: 'rgba(245,239,230,0.025)',
+                  backgroundColor: 'rgba(237,224,204,0.025)',
                   borderRight:
-                    i % 3 !== 2 ? '1px solid rgba(123,89,32,0.12)' : 'none',
+                    i % 3 !== 2 ? '1px solid rgba(124,72,40,0.12)' : 'none',
                   borderBottom:
-                    i < 3 ? '1px solid rgba(123,89,32,0.12)' : 'none',
+                    i < 3 ? '1px solid rgba(124,72,40,0.12)' : 'none',
                 }}
               >
                 {/* Left accent on hover */}
                 <div
                   className="absolute left-0 top-4 bottom-4 w-px opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-                  style={{ backgroundColor: '#7C5535' }}
+                  style={{ backgroundColor: '#7C4828' }}
                   aria-hidden="true"
                 />
 
@@ -473,27 +473,27 @@ export default function OriginStory() {
                     style={{
                       fontFamily: '"Playfair Display", Georgia, serif',
                       fontWeight: 600,
-                      color: '#F2E8D8',
+                      color: '#F5EDE0',
                     }}
                   >
                     {region.name}
                   </h4>
                   <span
                     className="text-[9px] tracking-[0.18em] uppercase pt-1 shrink-0"
-                    style={{ color: '#7C5535' }}
+                    style={{ color: '#7C4828' }}
                   >
                     {region.alt}
                   </span>
                 </div>
 
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,239,230,0.6)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,224,204,0.6)' }}>
                   {region.trait}
                 </p>
 
                 <p
                   className="text-sm"
                   style={{
-                    color: '#7C5535',
+                    color: '#7C4828',
                     fontFamily: '"Playfair Display", Georgia, serif',
                     fontStyle: 'italic',
                   }}
@@ -511,7 +511,7 @@ export default function OriginStory() {
         className="absolute bottom-0 inset-x-0 h-px"
         style={{
           background:
-            'linear-gradient(to right, transparent, #7C5535 30%, #7C5535 70%, transparent)',
+            'linear-gradient(to right, transparent, #7C4828 30%, #7C4828 70%, transparent)',
         }}
         aria-hidden="true"
       />

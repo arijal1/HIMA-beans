@@ -103,7 +103,7 @@ function CSSBeanParticles() {
               height: bean.height,
               // Coffee bean oval shape
               borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-              background: 'radial-gradient(ellipse at 35% 40%, #5a3820, #1E1008)',
+              background: 'radial-gradient(ellipse at 35% 40%, #5a3820, #0E0A07)',
               // CSS custom properties feed the keyframe
               ['--bean-rotate' as string]: bean.rotate,
               ['--bean-opacity' as string]: bean.opacity,
@@ -159,7 +159,7 @@ function MountainSilhouette({ yOffset }: { yOffset: number }) {
         d="M0,500 L0,390 L100,330 L200,370 L310,295 L400,340 L500,275
            L590,320 L680,260 L770,305 L860,250 L950,300 L1040,235
            L1130,280 L1220,250 L1310,290 L1440,265 L1440,500 Z"
-        fill="#160C05"
+        fill="#0A0704"
       />
     </svg>
   );
@@ -293,7 +293,7 @@ function ScrollIndicator() {
             width: '3px',
             height: '6px',
             borderRadius: '2px',
-            background: '#7C5535',
+            background: '#7C4828',
           }}
         />
       </div>
@@ -309,7 +309,7 @@ function ScrollIndicator() {
       >
         <path
           d="M1 1L7 7L13 1"
-          stroke="#7C5535"
+          stroke="#7C4828"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -348,7 +348,7 @@ export default function Hero() {
         height: '100vh',
         overflow: 'hidden',
         // Deep gradient: dark espresso at bottom, lighter at top
-        background: 'linear-gradient(to top, #160C05 0%, #2D1B12 50%, #4a3728 100%)',
+        background: 'linear-gradient(to top, #0A0704 0%, #2D1B12 50%, #4a3728 100%)',
         opacity: sectionOpacity,
       }}
     >
@@ -363,7 +363,7 @@ export default function Hero() {
           inset: 0,
           zIndex: 3,
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(123,89,32,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(124,72,40,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -427,7 +427,7 @@ export default function Hero() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              color: '#7C5535',
+              color: '#7C4828',
             }}
           >
             <span
@@ -436,7 +436,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: '#7C5535',
+                background: '#7C4828',
                 opacity: 0.7,
               }}
             />
@@ -457,7 +457,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: '#7C5535',
+                background: '#7C4828',
                 opacity: 0.7,
               }}
             />
@@ -476,14 +476,14 @@ export default function Hero() {
             }}
           >
             {/* Line 1 — cream */}
-            <span style={{ display: 'block', color: '#F2E8D8' }}>
+            <span style={{ display: 'block', color: '#F5EDE0' }}>
               <AnimatedHeadline line="Crafted Above" />
             </span>
             {/* Line 2 — gold italic */}
             <span
               style={{
                 display: 'block',
-                color: '#7C5535',
+                color: '#7C4828',
                 fontStyle: 'italic',
               }}
             >
@@ -499,7 +499,7 @@ export default function Hero() {
               maxWidth: '600px',
               fontSize: 'clamp(15px, 4vw, 18px)',
               lineHeight: 1.7,
-              color: 'rgba(245,239,230,0.68)',
+              color: 'rgba(237,224,204,0.68)',
               fontFamily: 'var(--font-inter), Inter, sans-serif',
               fontWeight: 400,
             }}
@@ -516,7 +516,7 @@ export default function Hero() {
               fontStyle: 'italic',
               fontSize: 'clamp(12px, 2vw, 14px)',
               letterSpacing: '0.08em',
-              color: 'rgba(245,239,230,0.5)',
+              color: 'rgba(237,224,204,0.5)',
               maxWidth: '400px',
             }}
           >
@@ -541,8 +541,8 @@ export default function Hero() {
                 style={{
                   display: 'inline-block',
                   padding: '0.75rem 1.75rem',
-                  background: '#7C5535',
-                  color: '#160C05',
+                  background: '#7C4828',
+                  color: '#0A0704',
                   border: 'none',
                   borderRadius: '2px',
                   fontSize: '13px',
@@ -553,13 +553,13 @@ export default function Hero() {
                   cursor: 'pointer',
                   textDecoration: 'none',
                   transition: 'background 0.2s ease',
-                  boxShadow: '0 4px 24px rgba(123,89,32,0.3)',
+                  boxShadow: '0 4px 24px rgba(124,72,40,0.3)',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLAnchorElement).style.background = '#c9a26a';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = '#7C5535';
+                  (e.currentTarget as HTMLAnchorElement).style.background = '#7C4828';
                 }}
               >
                 Explore Our Beans
@@ -574,8 +574,8 @@ export default function Hero() {
                   display: 'inline-block',
                   padding: '0.75rem 1.75rem',
                   background: 'transparent',
-                  color: '#F2E8D8',
-                  border: '1.5px solid rgba(245,239,230,0.45)',
+                  color: '#F5EDE0',
+                  border: '1.5px solid rgba(237,224,204,0.45)',
                   borderRadius: '2px',
                   fontSize: '13px',
                   fontWeight: 500,
@@ -588,12 +588,12 @@ export default function Hero() {
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.borderColor = 'rgba(245,239,230,0.85)';
-                  el.style.background = 'rgba(245,239,230,0.06)';
+                  el.style.borderColor = 'rgba(237,224,204,0.85)';
+                  el.style.background = 'rgba(237,224,204,0.06)';
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.borderColor = 'rgba(245,239,230,0.45)';
+                  el.style.borderColor = 'rgba(237,224,204,0.45)';
                   el.style.background = 'transparent';
                 }}
               >
@@ -616,7 +616,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           height: '200px',
-          background: 'linear-gradient(to top, #160C05 0%, transparent 100%)',
+          background: 'linear-gradient(to top, #0A0704 0%, transparent 100%)',
           zIndex: 6,
           pointerEvents: 'none',
         }}

@@ -10,12 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
-const ESPRESSO   = '#1E1008';
-const WARM_CREAM = '#F2E8D8';
-const MUTED_GOLD = '#7C5535';
+const ESPRESSO   = '#0E0A07';
+const WARM_CREAM = '#F5EDE0';
+const MUTED_GOLD = '#7C4828';
 const SOFT_BEIGE = '#EDE0CC';
 const CHARCOAL   = '#1A1008';
-const STONE      = '#87705A';
+const STONE      = '#7A6555';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Steam warp paths (looping CSS keyframes, 3 wisps)

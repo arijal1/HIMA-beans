@@ -48,9 +48,9 @@ const PILLARS: Pillar[] = [
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
         <path
           d="M20 4C14 4 8 9 8 16c0 5 3 9 7 11.5V34h10v-6.5C29 25 32 21 32 16c0-7-6-12-12-12Z"
-          stroke="#7C5535" strokeWidth="1.5" strokeLinejoin="round"
+          stroke="#7C4828" strokeWidth="1.5" strokeLinejoin="round"
         />
-        <path d="M14 18l4 4 8-8" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14 18l4 4 8-8" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'Ethical Sourcing',
@@ -66,10 +66,10 @@ const PILLARS: Pillar[] = [
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
         <path
           d="M20 6C20 6 8 14 8 23a12 12 0 0 0 24 0C32 14 20 6 20 6Z"
-          stroke="#7C5535" strokeWidth="1.5" strokeLinejoin="round"
+          stroke="#7C4828" strokeWidth="1.5" strokeLinejoin="round"
         />
-        <path d="M20 35V22" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M14 27l6-5 6 5" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M20 35V22" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M14 27l6-5 6 5" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'Shade Grown',
@@ -83,12 +83,12 @@ const PILLARS: Pillar[] = [
     statLabel: 'Full chain visible',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
-        <circle cx="10" cy="20" r="3" stroke="#7C5535" strokeWidth="1.5" />
-        <circle cx="30" cy="20" r="3" stroke="#7C5535" strokeWidth="1.5" />
-        <circle cx="20" cy="10" r="3" stroke="#7C5535" strokeWidth="1.5" />
-        <circle cx="20" cy="30" r="3" stroke="#7C5535" strokeWidth="1.5" />
-        <path d="M13 20h14M20 13v14" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M12.5 12.5l15 15M27.5 12.5l-15 15" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
+        <circle cx="10" cy="20" r="3" stroke="#7C4828" strokeWidth="1.5" />
+        <circle cx="30" cy="20" r="3" stroke="#7C4828" strokeWidth="1.5" />
+        <circle cx="20" cy="10" r="3" stroke="#7C4828" strokeWidth="1.5" />
+        <circle cx="20" cy="30" r="3" stroke="#7C4828" strokeWidth="1.5" />
+        <path d="M13 20h14M20 13v14" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M12.5 12.5l15 15M27.5 12.5l-15 15" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.4" />
       </svg>
     ),
     title: 'Traceable Origin',
@@ -104,9 +104,9 @@ const PILLARS: Pillar[] = [
       <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-9 h-9">
         <path
           d="M8 26c0-5 4-9 8-9 1 0 2 .2 3 .6A8 8 0 0 1 36 24c0 4.4-3.6 8-8 8H12a4 4 0 0 1-4-6Z"
-          stroke="#7C5535" strokeWidth="1.5" strokeLinejoin="round"
+          stroke="#7C4828" strokeWidth="1.5" strokeLinejoin="round"
         />
-        <path d="M20 22V10M16 14l4-4 4 4" stroke="#7C5535" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M20 22V10M16 14l4-4 4 4" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
     title: 'Minimal Carbon',
@@ -143,7 +143,7 @@ function AnimatedCounter({ target, suffix, label }: CounterProps) {
         <motion.span
           className="font-serif tracking-tight"
           style={{
-            color: '#7C5535',
+            color: '#7C4828',
             fontFamily: '"Playfair Display", Georgia, serif',
             fontSize: 'clamp(1.75rem, 5vw, 2.25rem)',
           }}
@@ -152,12 +152,12 @@ function AnimatedCounter({ target, suffix, label }: CounterProps) {
         </motion.span>
         <span
           className="text-xl sm:text-2xl font-serif"
-          style={{ color: '#7C5535', fontFamily: '"Playfair Display", Georgia, serif' }}
+          style={{ color: '#7C4828', fontFamily: '"Playfair Display", Georgia, serif' }}
         >
           {suffix}
         </span>
       </div>
-      <p className="text-xs tracking-[0.2em] uppercase mt-1" style={{ color: '#87705A' }}>
+      <p className="text-xs tracking-[0.2em] uppercase mt-1" style={{ color: '#7A6555' }}>
         {label}
       </p>
     </div>
@@ -185,13 +185,13 @@ function PillarCard({ pillar, index }: PillarCardProps) {
       {/* Hover accent fill */}
       <motion.div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-        style={{ background: 'rgba(123,89,32,0.05)' }}
+        style={{ background: 'rgba(124,72,40,0.05)' }}
       />
 
       {/* Gold left border on hover */}
       <span
         className="absolute left-0 top-0 bottom-0 w-px origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500"
-        style={{ background: '#7C5535' }}
+        style={{ background: '#7C4828' }}
         aria-hidden="true"
       />
 
@@ -210,7 +210,7 @@ function PillarCard({ pillar, index }: PillarCardProps) {
       {/* Title */}
       <h3
         className="text-lg sm:text-xl font-serif mb-3 sm:mb-4 relative z-10"
-        style={{ color: '#F2E8D8', fontFamily: '"Playfair Display", Georgia, serif' }}
+        style={{ color: '#F5EDE0', fontFamily: '"Playfair Display", Georgia, serif' }}
       >
         {pillar.title}
       </h3>
@@ -218,7 +218,7 @@ function PillarCard({ pillar, index }: PillarCardProps) {
       {/* Description */}
       <p
         className="text-sm leading-relaxed relative z-10 flex-1"
-        style={{ color: '#87705A' }}
+        style={{ color: '#7A6555' }}
       >
         {pillar.description}
       </p>
@@ -251,7 +251,7 @@ export default function SustainabilitySection() {
       {/* Gold horizontal rule top */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, #7C5535 30%, #7C5535 70%, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, #7C4828 30%, #7C4828 70%, transparent)' }}
         aria-hidden="true"
       />
 
@@ -268,7 +268,7 @@ export default function SustainabilitySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="text-xs tracking-[0.3em] uppercase mb-4 sm:mb-5"
-            style={{ color: '#7C5535' }}
+            style={{ color: '#7C4828' }}
           >
             Our Earth Promise
           </motion.p>
@@ -281,14 +281,14 @@ export default function SustainabilitySection() {
             transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="font-serif leading-[1.05] mb-5 sm:mb-6"
             style={{
-              color: '#F2E8D8',
+              color: '#F5EDE0',
               fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(2rem, 6vw, 3.75rem)',
             }}
           >
             Earth First,
             <br />
-            <em className="not-italic" style={{ color: '#7C5535' }}>Cup Second.</em>
+            <em className="not-italic" style={{ color: '#7C4828' }}>Cup Second.</em>
           </motion.h2>
 
           <motion.p
@@ -297,7 +297,7 @@ export default function SustainabilitySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.65, delay: 0.16, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="text-sm sm:text-base leading-relaxed max-w-xl"
-            style={{ color: '#87705A' }}
+            style={{ color: '#7A6555' }}
           >
             Premium coffee and environmental stewardship aren&apos;t at odds — they&apos;re inseparable.
             Every decision we make starts with the land, the community, and the future.
@@ -325,9 +325,9 @@ export default function SustainabilitySection() {
           <Link
             href="/sustainability"
             className="group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase transition-colors duration-300"
-            style={{ color: '#7C5535' }}
+            style={{ color: '#7C4828' }}
           >
-            <span className="h-px w-8 transition-all duration-300 group-hover:w-14" style={{ background: '#7C5535' }} />
+            <span className="h-px w-8 transition-all duration-300 group-hover:w-14" style={{ background: '#7C4828' }} />
             Read our full sustainability report
             <svg
               className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
@@ -343,7 +343,7 @@ export default function SustainabilitySection() {
       {/* Gold horizontal rule bottom */}
       <div
         className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, #7C5535 30%, #7C5535 70%, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, #7C4828 30%, #7C4828 70%, transparent)' }}
         aria-hidden="true"
       />
     </section>

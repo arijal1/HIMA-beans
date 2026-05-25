@@ -17,10 +17,10 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#1E1008",
-  cream: "#F2E8D8",
-  stone: "#87705A",
-  gold: "#7C5535",
+  espresso: "#0E0A07",
+  cream: "#F5EDE0",
+  stone: "#7A6555",
+  gold: "#7C4828",
   beige: "#EDE0CC",
   charcoal: "#1A1008",
 } as const;
@@ -294,37 +294,21 @@ function BeanCard({
           rotateY,
           transformStyle: "preserve-3d",
           backgroundColor: C.cream,
-          border: `1px solid ${C.beige}`,
+          border: `1px solid rgba(26,16,8,0.06)`,
           boxShadow: hovered
-            ? "0 24px 48px rgba(30,16,8,0.18), 0 8px 16px rgba(30,16,8,0.10)"
-            : "0 4px 16px rgba(30,16,8,0.07)",
+            ? "0 24px 48px rgba(14,10,7,0.18), 0 8px 16px rgba(14,10,7,0.10)"
+            : "0 4px 16px rgba(14,10,7,0.07)",
           transition: "box-shadow 0.3s ease",
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={handleMouseLeave}
-        className="relative rounded-2xl overflow-hidden flex flex-col h-full min-h-[420px] sm:min-h-[480px]"
+        className="relative overflow-hidden flex flex-col h-full min-h-[420px] sm:min-h-[480px]"
       >
-        {/* Hover glow */}
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="absolute inset-0 pointer-events-none rounded-2xl z-0"
-              style={{
-                background: `radial-gradient(circle at ${glowX.get()}% ${glowY.get()}%, rgba(123,89,32,0.12) 0%, transparent 60%)`,
-              }}
-            />
-          )}
-        </AnimatePresence>
-
-        {/* Accent top bar */}
+        {/* Accent top line — 1px, subtle */}
         <div
-          className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl z-10"
-          style={{ backgroundColor: bean.accentColor }}
+          className="absolute top-0 left-0 right-0 h-px z-10"
+          style={{ backgroundColor: `${C.gold}60` }}
         />
 
         {/* Header area */}
@@ -409,7 +393,7 @@ function BeanCard({
 
           {/* Brew recommendation */}
           <div
-            className="flex items-center gap-2 px-3 py-2 rounded-xl"
+            className="flex items-center gap-2 px-3 py-2"
             style={{ backgroundColor: `${C.espresso}08` }}
           >
             <span className="text-base" aria-hidden>
@@ -518,7 +502,7 @@ function BeansHero() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(123,89,32,0.1) 0%, transparent 65%)`,
+            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(124,72,40,0.1) 0%, transparent 65%)`,
           }}
         />
         {/* Decorative element — coffee bean shape (CSS ellipse rings) */}
@@ -530,7 +514,7 @@ function BeansHero() {
               style={{
                 width: 400 - i * 80,
                 height: 400 - i * 80,
-                border: `1px solid rgba(123,89,32,${opacity * 0.12})`,
+                border: `1px solid rgba(124,72,40,${opacity * 0.12})`,
                 top: `${i * 40}px`,
                 left: `${i * 40}px`,
               }}
@@ -543,23 +527,20 @@ function BeansHero() {
             viewBox="0 0 200 200"
             style={{ opacity: 0.06, position: "absolute", top: 60, left: 60 }}
           >
-            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7C5535" />
+            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7C4828" />
             <path
               d="M100 10 Q130 100 100 190"
-              stroke="#1E1008"
+              stroke="#0E0A07"
               strokeWidth="8"
               fill="none"
             />
           </svg>
         </div>
 
-        {/* Grid pattern */}
+        {/* Subtle radial glow */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(rgba(123,89,32,1) 1px, transparent 1px), linear-gradient(90deg, rgba(123,89,32,1) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
+          className="absolute inset-0 opacity-40"
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(124,72,40,0.06) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -584,7 +565,7 @@ function BeansHero() {
           >
             Our Signature
             <br />
-            <span style={{ color: C.gold }}>Beans</span>
+            Beans
           </motion.h1>
         </div>
 
@@ -593,7 +574,7 @@ function BeansHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7, ease }}
           className="text-base md:text-lg max-w-2xl leading-relaxed"
-          style={{ color: "rgba(245,239,230,0.65)" }}
+          style={{ color: "rgba(237,224,204,0.65)" }}
         >
           Six exceptional lots, each a portrait of its Himalayan origin. Grown at
           altitude, harvested by hand, and roasted to honour every nuance the
@@ -765,13 +746,13 @@ function CustomRoastingSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(123,89,32,0.08) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(124,72,40,0.08) 0%, transparent 70%)`,
           }}
         />
         {/* Decorative large text */}
         <div
           className="absolute right-0 top-1/2 -translate-y-1/2 font-serif text-[18rem] font-bold leading-none select-none hidden xl:block"
-          style={{ color: "rgba(123,89,32,0.04)", userSelect: "none" }}
+          style={{ color: "rgba(124,72,40,0.04)", userSelect: "none" }}
           aria-hidden
         >
           HB
@@ -812,7 +793,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-base leading-relaxed mb-4"
-              style={{ color: "rgba(245,239,230,0.7)" }}
+              style={{ color: "rgba(237,224,204,0.7)" }}
             >
               For cafes, restaurants, and discerning wholesale buyers, we offer
               bespoke roast profiling on any of our Himalayan lots. Work directly
@@ -827,7 +808,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-base leading-relaxed mb-10"
-              style={{ color: "rgba(245,239,230,0.7)" }}
+              style={{ color: "rgba(237,224,204,0.7)" }}
             >
               Minimum order quantities start at 10 kg per lot. White-label and
               co-branded packaging available. Origin traceability certificates
@@ -900,8 +881,8 @@ function CustomRoastingSection() {
                 animate={isInView ? "visible" : "hidden"}
                 className="flex items-start gap-4 p-5 rounded-2xl"
                 style={{
-                  backgroundColor: "rgba(245,239,230,0.05)",
-                  border: "1px solid rgba(123,89,32,0.15)",
+                  backgroundColor: "rgba(237,224,204,0.05)",
+                  border: "1px solid rgba(124,72,40,0.15)",
                 }}
               >
                 <span
@@ -919,7 +900,7 @@ function CustomRoastingSection() {
                   </p>
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: "rgba(245,239,230,0.55)" }}
+                    style={{ color: "rgba(237,224,204,0.55)" }}
                   >
                     {item.body}
                   </p>

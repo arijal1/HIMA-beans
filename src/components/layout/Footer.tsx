@@ -54,7 +54,7 @@ export default function Footer() {
 
   return (
     <footer
-      style={{ backgroundColor: '#160C05', borderTop: '1px solid rgba(123,89,32,0.18)' }}
+      style={{ backgroundColor: '#0A0704', borderTop: '1px solid rgba(124,72,40,0.18)' }}
       aria-label="Site footer"
     >
       <div className="site-container" style={{ paddingTop: 'clamp(3rem,6vw,5rem)', paddingBottom: 'clamp(2rem,4vw,3rem)' }}>
@@ -90,7 +90,7 @@ export default function Footer() {
             >
               HIMA BEANS
             </span>
-            <span style={{ fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#7C5535', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
+            <span style={{ fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#7C4828', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
               Nepal &rarr; Australia
             </span>
           </Link>
@@ -125,7 +125,7 @@ export default function Footer() {
                     {link.label}
                   </Link>
                   {i < NAV_LINKS.length - 1 && (
-                    <span aria-hidden="true" style={{ color: 'rgba(123,89,32,0.35)', margin: '0 0.75rem', fontSize: '10px' }}>
+                    <span aria-hidden="true" style={{ color: 'rgba(124,72,40,0.35)', margin: '0 0.75rem', fontSize: '10px' }}>
                       /
                     </span>
                   )}
@@ -192,8 +192,8 @@ export default function Footer() {
                     transition: 'color 0.2s, border-color 0.2s',
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = '#7C5535';
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(123,89,32,0.45)';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#7C4828';
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(124,72,40,0.45)';
                   }}
                   onMouseLeave={e => {
                     (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(237,230,216,0.38)';

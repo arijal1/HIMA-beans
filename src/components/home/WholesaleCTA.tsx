@@ -28,7 +28,7 @@ function CheckIcon() {
     >
       <path
         d="M3 8l3.5 3.5L13 4.5"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -41,16 +41,16 @@ function SocialProofBadge({ text }: SocialProofBadgeProps) {
   return (
     <div
       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full"
-      style={{ background: 'rgba(123,89,32,0.15)', border: '1px solid rgba(123,89,32,0.35)' }}
+      style={{ background: 'rgba(124,72,40,0.15)', border: '1px solid rgba(124,72,40,0.35)' }}
     >
       <span
         className="w-1.5 h-1.5 rounded-full animate-pulse"
-        style={{ background: '#7C5535' }}
+        style={{ background: '#7C4828' }}
         aria-hidden="true"
       />
       <span
         className="text-xs tracking-[0.15em] uppercase font-medium"
-        style={{ color: '#7C5535' }}
+        style={{ color: '#7C4828' }}
       >
         {text}
       </span>
@@ -96,8 +96,8 @@ export default function WholesaleCTA() {
       {/* ── Split background: full espresso on mobile, split on lg ── */}
       <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none" aria-hidden="true">
         {/* On mobile this stacks; each takes 50% of height. On lg they sit side-by-side at 50% width each */}
-        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#1E1008' }} />
-        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#7C5535' }} />
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#0E0A07' }} />
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#7C4828' }} />
       </div>
 
       {/* ── Diagonal divider: only visible on lg where layout is side-by-side ── */}
@@ -105,7 +105,7 @@ export default function WholesaleCTA() {
         className="absolute inset-y-0 left-1/2 -translate-x-full w-24 pointer-events-none hidden lg:block"
         aria-hidden="true"
         style={{
-          background: 'linear-gradient(to bottom right, #1E1008 50%, #7C5535 50%)',
+          background: 'linear-gradient(to bottom right, #0E0A07 50%, #7C4828 50%)',
           clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 0)',
           zIndex: 1,
         }}
@@ -142,7 +142,7 @@ export default function WholesaleCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: 'rgba(245,239,230,0.55)' }}
+              style={{ color: 'rgba(237,224,204,0.55)' }}
             >
               Wholesale &amp; Trade
             </motion.p>
@@ -156,7 +156,7 @@ export default function WholesaleCTA() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="font-serif leading-[1.05] mb-5 sm:mb-6"
               style={{
-                color: '#F2E8D8',
+                color: '#F5EDE0',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.25rem, 7vw, 4rem)',
               }}
@@ -175,7 +175,7 @@ export default function WholesaleCTA() {
               viewport={{ once: true }}
               transition={{ duration: 0.65, delay: 0.28, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-md"
-              style={{ color: 'rgba(245,239,230,0.65)' }}
+              style={{ color: 'rgba(237,224,204,0.65)' }}
             >
               We supply specialty-grade Himalayan beans to cafés, restaurants, and
               roasters across Australia. Offer your customers a traceable origin
@@ -199,7 +199,7 @@ export default function WholesaleCTA() {
                   </span>
                   <span
                     className="text-sm leading-relaxed"
-                    style={{ color: 'rgba(245,239,230,0.72)' }}
+                    style={{ color: 'rgba(237,224,204,0.72)' }}
                   >
                     {perk}
                   </span>
@@ -217,11 +217,11 @@ export default function WholesaleCTA() {
               <Link
                 href="/wholesale"
                 className="group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase transition-colors duration-300"
-                style={{ color: '#7C5535' }}
+                style={{ color: '#7C4828' }}
               >
                 <span
                   className="h-px w-8 transition-all duration-300 group-hover:w-14"
-                  style={{ background: '#7C5535' }}
+                  style={{ background: '#7C4828' }}
                 />
                 View wholesale details
                 <svg
@@ -253,37 +253,37 @@ export default function WholesaleCTA() {
             <div
               className="relative p-5 sm:p-8 lg:p-10 w-full"
               style={{
-                background: 'rgba(245,239,230,0.08)',
-                border: '1px solid rgba(245,239,230,0.15)',
+                background: 'rgba(237,224,204,0.08)',
+                border: '1px solid rgba(237,224,204,0.15)',
                 backdropFilter: 'blur(8px)',
               }}
             >
               {/* Corner accent */}
               <span
                 className="absolute top-0 right-0 w-12 h-px"
-                style={{ background: '#F2E8D8', opacity: 0.5 }}
+                style={{ background: '#F5EDE0', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute top-0 right-0 w-px h-12"
-                style={{ background: '#F2E8D8', opacity: 0.5 }}
+                style={{ background: '#F5EDE0', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute bottom-0 left-0 w-12 h-px"
-                style={{ background: '#F2E8D8', opacity: 0.5 }}
+                style={{ background: '#F5EDE0', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute bottom-0 left-0 w-px h-12"
-                style={{ background: '#F2E8D8', opacity: 0.5 }}
+                style={{ background: '#F5EDE0', opacity: 0.5 }}
                 aria-hidden="true"
               />
 
               <h3
                 className="text-xl sm:text-2xl font-serif mb-2"
                 style={{
-                  color: '#160C05',
+                  color: '#0A0704',
                   fontFamily: '"Playfair Display", Georgia, serif',
                 }}
               >
@@ -315,7 +315,7 @@ export default function WholesaleCTA() {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#160C05"
+                      stroke="#0A0704"
                       strokeWidth="1.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -325,7 +325,7 @@ export default function WholesaleCTA() {
                   </div>
                   <p
                     className="text-base font-medium mb-1"
-                    style={{ color: '#160C05' }}
+                    style={{ color: '#0A0704' }}
                   >
                     Inquiry received.
                   </p>
@@ -360,7 +360,7 @@ export default function WholesaleCTA() {
                         border: error
                           ? '1px solid #c0392b'
                           : '1px solid rgba(26,15,9,0.2)',
-                        color: '#160C05',
+                        color: '#0A0704',
                       }}
                       aria-describedby={error ? 'wholesale-email-error' : undefined}
                       aria-invalid={!!error}
@@ -381,8 +381,8 @@ export default function WholesaleCTA() {
                     type="submit"
                     className="w-full py-3.5 text-sm tracking-[0.15em] uppercase font-semibold transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                     style={{
-                      background: '#1E1008',
-                      color: '#F2E8D8',
+                      background: '#0E0A07',
+                      color: '#F5EDE0',
                     }}
                   >
                     Request Wholesale Info

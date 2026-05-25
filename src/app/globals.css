@@ -1,53 +1,59 @@
 @import "tailwindcss";
 
 /* ============================================================
-   HIMA BEANS — Global Styles  v3
-   Palette: Himalayan Nature — forest greens, earthy coffee,
-   warm parchment. Connects Nepal landscape with coffee origin.
+   HIMA BEANS — Global Styles  v4
+   Single palette: warm parchment + deep espresso + one muted accent
    ============================================================ */
 
 @theme {
-  --color-espresso:  #1E1008;   /* deep espresso — dark sections / nav */
-  --color-bark:      #160C05;   /* deepest dark — footer bg */
-  --color-parchment: #F2E8D8;   /* warm parchment — main background */
-  --color-linen:     #E8D9C5;   /* warm linen — alt section bg */
-  --color-ink:       #1A1008;   /* near-black — primary text */
-  --color-stone:     #87705A;   /* warm stone — secondary text */
-  --color-coffee:    #7C5535;   /* muted coffee — accent */
-  --color-coffee-lt: #9A6A42;   /* lighter coffee — hover */
-  --color-cream:     #EDE0CC;   /* warm cream — text on dark bg */
+  /* ── Core palette ── */
+  --color-ink:       #0E0A07;   /* deepest dark — nav bg, always */
+  --color-bark:      #0A0704;   /* footer bg */
+  --color-espresso:  #0E0A07;   /* dark sections */
+  --color-parchment: #F5EDE0;   /* main background */
+  --color-linen:     #EBE2D2;   /* alt section bg */
+  --color-text:      #1A1008;   /* primary text */
+  --color-stone:     #7A6555;   /* secondary / muted text */
+  --color-accent:    #7C4828;   /* ONE accent — labels, borders, underlines ONLY */
+  --color-cream:     #EDE0CC;   /* text on dark backgrounds */
 
-  /* Legacy aliases */
-  --color-forest:    #1E1008;
-  --color-earth:     #7C5535;
-  --color-earth-lt:  #9A6A42;
-  --color-sage:      #7C5535;
+  /* Legacy aliases kept for compatibility */
+  --color-coffee:    #7C4828;
+  --color-coffee-lt: #9A6040;
+  --color-earth:     #7C4828;
+  --color-earth-lt:  #9A6040;
+  --color-forest:    #0E0A07;
+  --color-gold:      #7C4828;
+  --color-charcoal:  #1A1008;
+  --color-beige:     #EBE2D2;
+  --color-stone-old: #7A6555;
 
   --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-sans:  var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --espresso:  #1E1008;
-  --bark:      #160C05;
-  --parchment: #F2E8D8;
-  --linen:     #E8D9C5;
-  --ink:       #1A1008;
-  --stone:     #87705A;
-  --coffee:    #7C5535;
-  --coffee-lt: #9A6A42;
+  --ink:       #0E0A07;
+  --bark:      #0A0704;
+  --espresso:  #0E0A07;
+  --parchment: #F5EDE0;
+  --linen:     #EBE2D2;
+  --text-col:  #1A1008;
+  --stone:     #7A6555;
+  --accent:    #7C4828;
   --cream:     #EDE0CC;
 
-  /* Keep old names pointing at new values */
-  --forest:    #1E1008;
-  --earth:     #7C5535;
-  --earth-lt:  #9A6A42;
-  --gold:      #7C5535;
+  /* Legacy */
+  --coffee:    #7C4828;
+  --coffee-lt: #9A6040;
+  --earth:     #7C4828;
+  --gold:      #7C4828;
   --charcoal:  #1A1008;
-  --beige:     #E8D9C5;
+  --beige:     #EBE2D2;
+  --forest:    #0E0A07;
 
   scrollbar-width: thin;
-  scrollbar-color: var(--coffee) transparent;
+  scrollbar-color: var(--accent) transparent;
 }
 
 /* ── Resets ── */
@@ -63,14 +69,14 @@ html {
 
 body {
   background-color: var(--parchment);
-  color: var(--ink);
+  color: var(--text-col);
   font-family: var(--font-sans);
-  line-height: 1.65;
+  line-height: 1.7;
   min-height: 100dvh;
   overflow-x: hidden;
 }
 
-/* ── Grain texture (subtle film feel) ── */
+/* ── Subtle grain ── */
 body::before {
   content: "";
   position: fixed;
@@ -80,22 +86,22 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
-  opacity: 0.025;
+  opacity: 0.02;
   mix-blend-mode: overlay;
 }
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background-color: var(--coffee); border-radius: 9999px; }
+::-webkit-scrollbar-thumb { background-color: var(--accent); border-radius: 9999px; }
 ::-webkit-scrollbar-thumb:hover { background-color: var(--espresso); }
 
 /* ── Selection ── */
-::selection { background-color: var(--coffee); color: var(--parchment); }
-::-moz-selection { background-color: var(--coffee); color: var(--parchment); }
+::selection { background-color: var(--accent); color: var(--parchment); }
+::-moz-selection { background-color: var(--accent); color: var(--parchment); }
 
 /* ── Focus ── */
-:focus-visible { outline: 2px solid var(--coffee); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 /* ── Images ── */
 img { max-width: 100%; height: auto; display: block; }
@@ -104,16 +110,16 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; cursor: pointer; }
 button { cursor: pointer; }
 
-/* ── Headings ── */
+/* ── Headings — always dark ink, never accent ── */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--ink);
+  color: var(--text-col);
 }
 
-/* ── Site container — consistent max-width + breathing room ── */
+/* ── Site container ── */
 .site-container {
   max-width: 1100px;
   margin-left: auto;
@@ -128,12 +134,28 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: clamp(5rem, 10vw, 9rem);
 }
 
-/* Inter-section breathing room */
-.section-inner-gap > * + * {
-  margin-top: clamp(3rem, 5vw, 5rem);
+/* ── Eyebrow label — the ONLY sanctioned use of accent color ── */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
-/* ── Utility: text on dark backgrounds ── */
-.text-on-dark { color: var(--cream); }
-.text-on-dark-muted { color: rgba(237,230,216,0.55); }
-.accent { color: var(--coffee); }
+/* ── Thin divider ── */
+.divider {
+  border: none;
+  height: 1px;
+  background: rgba(26,16,8,0.1);
+  margin: 0;
+}
+.divider-light {
+  border: none;
+  height: 1px;
+  background: rgba(237,224,204,0.12);
+}
+
+/* ── Utility ── */
+.text-on-dark  { color: var(--cream); }
+.text-on-dark-muted { color: rgba(237,224,204,0.5); }

@@ -74,7 +74,7 @@ function QuoteMark() {
     >
       <path
         d="M0 32V19.2C0 10.4 5.6 4.16 16.8 0L19.2 3.68C13.52 5.76 10.16 9.68 9.6 14.4H16V32H0ZM24 32V19.2C24 10.4 29.6 4.16 40.8 0L43.2 3.68C37.52 5.76 34.16 9.68 33.6 14.4H40V32H24Z"
-        fill="#7C5535"
+        fill="#7C4828"
         fillOpacity="0.25"
       />
     </svg>
@@ -89,7 +89,7 @@ function Avatar({ initials }: { initials: string }) {
   return (
     <div
       className="w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center shrink-0 text-xs font-semibold tracking-wider"
-      style={{ background: '#1E1008', color: '#7C5535' }}
+      style={{ background: '#0E0A07', color: '#7C4828' }}
       aria-hidden="true"
     >
       {initials}
@@ -110,7 +110,7 @@ function Stars() {
           width="13"
           height="13"
           viewBox="0 0 14 14"
-          fill="#7C5535"
+          fill="#7C4828"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -143,7 +143,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       }}
       className="group relative flex flex-col p-5 sm:p-6 md:p-8 transition-shadow duration-300 w-full"
       style={{
-        background: '#F2E8D8',
+        background: '#F5EDE0',
         border: '1px solid #EDE0CC',
         boxSizing: 'border-box',
         /* Prevent cards from overflowing their grid cell */
@@ -155,7 +155,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       {/* Hover gold top border */}
       <span
         className="absolute top-0 left-0 right-0 h-px origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
-        style={{ background: '#7C5535' }}
+        style={{ background: '#7C4828' }}
         aria-hidden="true"
       />
 
@@ -171,7 +171,7 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
       <blockquote className="flex-1 mb-5 sm:mb-7">
         <p
           className="text-sm leading-[1.75] italic"
-          style={{ color: '#1E1008' }}
+          style={{ color: '#0E0A07' }}
         >
           &ldquo;{testimonial.quote}&rdquo;
         </p>
@@ -190,11 +190,11 @@ function TestimonialCard({ testimonial, index }: TestimonialCardProps) {
         <div className="min-w-0 flex-1">
           <p
             className="text-sm font-semibold leading-snug truncate"
-            style={{ color: '#1E1008' }}
+            style={{ color: '#0E0A07' }}
           >
             {testimonial.author}
           </p>
-          <p className="text-xs leading-snug truncate" style={{ color: '#87705A' }}>
+          <p className="text-xs leading-snug truncate" style={{ color: '#7A6555' }}>
             {testimonial.role}
             <span aria-hidden="true"> · </span>
             {testimonial.location}
@@ -243,7 +243,7 @@ export default function Testimonials() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: '#7C5535' }}
+              style={{ color: '#7C4828' }}
             >
               What People Are Saying
             </motion.p>
@@ -256,14 +256,14 @@ export default function Testimonials() {
               transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="font-serif leading-[1.05]"
               style={{
-                color: '#1E1008',
+                color: '#0E0A07',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
               }}
             >
               Voices from
               <br />
-              <em className="not-italic" style={{ color: '#87705A' }}>
+              <em className="not-italic" style={{ color: '#7A6555' }}>
                 the Trade.
               </em>
             </motion.h2>
@@ -275,7 +275,7 @@ export default function Testimonials() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="max-w-sm text-sm leading-relaxed md:text-right"
-            style={{ color: '#87705A' }}
+            style={{ color: '#7A6555' }}
           >
             Trusted by baristas, café owners, and coffee lovers across Australia
             who believe Nepal deserves a place in every serious cup.
@@ -310,7 +310,7 @@ export default function Testimonials() {
             <span
               className="text-3xl sm:text-4xl font-serif"
               style={{
-                color: '#1E1008',
+                color: '#0E0A07',
                 fontFamily: '"Playfair Display", Georgia, serif',
               }}
             >
@@ -324,14 +324,14 @@ export default function Testimonials() {
                     width="12"
                     height="12"
                     viewBox="0 0 14 14"
-                    fill="#7C5535"
+                    fill="#7C4828"
                     aria-hidden="true"
                   >
                     <path d="M7 1l1.5 3.5 3.5.5-2.5 2.5.5 3.5L7 9.5 4 11l.5-3.5L2 5l3.5-.5L7 1z" />
                   </svg>
                 ))}
               </div>
-              <p className="text-xs mt-0.5" style={{ color: '#87705A' }}>
+              <p className="text-xs mt-0.5" style={{ color: '#7A6555' }}>
                 Average rating
               </p>
             </div>
@@ -348,13 +348,13 @@ export default function Testimonials() {
             <p
               className="text-2xl font-serif"
               style={{
-                color: '#1E1008',
+                color: '#0E0A07',
                 fontFamily: '"Playfair Display", Georgia, serif',
               }}
             >
               50+
             </p>
-            <p className="text-xs" style={{ color: '#87705A' }}>
+            <p className="text-xs" style={{ color: '#7A6555' }}>
               Australian café partners
             </p>
           </div>
@@ -369,13 +369,13 @@ export default function Testimonials() {
             <p
               className="text-2xl font-serif"
               style={{
-                color: '#1E1008',
+                color: '#0E0A07',
                 fontFamily: '"Playfair Display", Georgia, serif',
               }}
             >
               98%
             </p>
-            <p className="text-xs" style={{ color: '#87705A' }}>
+            <p className="text-xs" style={{ color: '#7A6555' }}>
               Would recommend
             </p>
           </div>

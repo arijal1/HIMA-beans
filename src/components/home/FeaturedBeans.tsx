@@ -37,7 +37,7 @@ const BEANS: BeanCard[] = [
     processing: 'Washed',
     description:
       'Our flagship single-origin from Gulmi district. Grown by the Paudel family cooperative at 1,800 m, this washed-process bean reveals a pristine, luminous clarity rarely found outside elite specialty circles.',
-    accentColor: '#7C5535',
+    accentColor: '#7C4828',
     gradientAngle: 135,
   },
   {
@@ -77,7 +77,7 @@ function RoastBar({ level, accentColor }: { level: number; accentColor: string }
     <div className="flex items-center gap-3">
       <span
         className="text-[10px] tracking-[0.22em] uppercase shrink-0"
-        style={{ color: '#87705A' }}
+        style={{ color: '#7A6555' }}
       >
         Roast
       </span>
@@ -156,13 +156,13 @@ function TiltCard({ bean, index }: TiltCardProps) {
           rotateY: tilt.rotateY,
           scale: isHovered ? 1.025 : 1,
           boxShadow: isHovered
-            ? `0 32px 64px rgba(30,16,8,0.22), 0 0 0 1px ${bean.accentColor}4D`
-            : `0 6px 28px rgba(30,16,8,0.07), 0 0 0 1px ${bean.accentColor}22`,
+            ? `0 32px 64px rgba(14,10,7,0.22), 0 0 0 1px ${bean.accentColor}4D`
+            : `0 6px 28px rgba(14,10,7,0.07), 0 0 0 1px ${bean.accentColor}22`,
         }}
         transition={{ type: 'spring', stiffness: 260, damping: 20, mass: 0.65 }}
         className="relative flex flex-col h-full rounded-sm overflow-hidden"
         style={{
-          backgroundColor: '#F2E8D8',
+          backgroundColor: '#F5EDE0',
           transformStyle: 'preserve-3d',
           border: '1px solid transparent',
         }}
@@ -174,7 +174,7 @@ function TiltCard({ bean, index }: TiltCardProps) {
         <div
           className="relative h-52 shrink-0 overflow-hidden"
           style={{
-            background: `linear-gradient(${bean.gradientAngle}deg, ${bean.accentColor}2E 0%, #1E100826 55%, #1A100814 100%)`,
+            background: `linear-gradient(${bean.gradientAngle}deg, ${bean.accentColor}2E 0%, #0E0A0726 55%, #1A100814 100%)`,
           }}
           aria-hidden="true"
         >
@@ -198,7 +198,7 @@ function TiltCard({ bean, index }: TiltCardProps) {
           <div className="absolute top-4 left-4">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] tracking-[0.22em] uppercase rounded-full"
-              style={{ backgroundColor: '#1E1008', color: '#F2E8D8' }}
+              style={{ backgroundColor: '#0E0A07', color: '#F5EDE0' }}
             >
               {bean.region}
               <span style={{ color: bean.accentColor }}>·</span>
@@ -247,7 +247,7 @@ function TiltCard({ bean, index }: TiltCardProps) {
             <h3
               className="text-2xl leading-snug mb-2"
               style={{
-                color: '#1E1008',
+                color: '#0E0A07',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontWeight: 700,
               }}
@@ -275,7 +275,7 @@ function TiltCard({ bean, index }: TiltCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-sm leading-[1.8] flex-1" style={{ color: '#87705A' }}>
+          <p className="text-sm leading-[1.8] flex-1" style={{ color: '#7A6555' }}>
             {bean.description}
           </p>
 
@@ -339,7 +339,7 @@ export default function FeaturedBeans() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ backgroundColor: '#F2E8D8' }}
+      style={{ backgroundColor: '#F5EDE0' }}
       aria-labelledby="featured-beans-heading"
     >
       {/* Subtle background texture bars */}
@@ -347,7 +347,7 @@ export default function FeaturedBeans() {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            'repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(123,89,32,0.04) 80px)',
+            'repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(124,72,40,0.04) 80px)',
         }}
         aria-hidden="true"
       />
@@ -365,7 +365,7 @@ export default function FeaturedBeans() {
           <motion.p
             variants={headingVariants}
             className="text-[10px] tracking-[0.4em] uppercase mb-5"
-            style={{ color: '#7C5535' }}
+            style={{ color: '#7C4828' }}
           >
             Single Origin &middot; Nepal
           </motion.p>
@@ -375,7 +375,7 @@ export default function FeaturedBeans() {
             variants={headingVariants}
             className="mb-6 leading-[1.1]"
             style={{
-              color: '#1E1008',
+              color: '#0E0A07',
               fontFamily: '"Playfair Display", Georgia, serif',
               fontWeight: 700,
               fontSize: 'clamp(2.25rem, 5.5vw, 4rem)',
@@ -383,20 +383,20 @@ export default function FeaturedBeans() {
           >
             Rare Beans,
             <br />
-            <em style={{ fontStyle: 'italic', color: '#7C5535' }}>Extraordinary Journey</em>
+            <em style={{ fontStyle: 'italic', color: '#7C4828' }}>Extraordinary Journey</em>
           </motion.h2>
 
           <motion.div
             variants={headingVariants}
             className="h-px w-20 mb-6"
-            style={{ backgroundColor: '#7C5535' }}
+            style={{ backgroundColor: '#7C4828' }}
             aria-hidden="true"
           />
 
           <motion.p
             variants={headingVariants}
             className="text-base md:text-lg leading-[1.8]"
-            style={{ color: '#87705A' }}
+            style={{ color: '#7A6555' }}
           >
             Three distinct expressions of Nepal&rsquo;s Himalayan terroir. Each bean
             selected by hand, processed with care, and roasted to reveal its truest character.
@@ -428,7 +428,7 @@ export default function FeaturedBeans() {
           <Link
             href="/beans"
             className="group relative inline-flex items-center gap-3 px-9 py-4 text-sm tracking-[0.18em] uppercase font-medium overflow-hidden rounded-sm transition-colors duration-300"
-            style={{ backgroundColor: '#1E1008', color: '#F2E8D8' }}
+            style={{ backgroundColor: '#0E0A07', color: '#F5EDE0' }}
           >
             <span className="relative z-10">View All Beans</span>
             <span
@@ -440,7 +440,7 @@ export default function FeaturedBeans() {
             {/* Slide-in hover fill */}
             <span
               className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"
-              style={{ backgroundColor: '#7C5535' }}
+              style={{ backgroundColor: '#7C4828' }}
               aria-hidden="true"
             />
           </Link>

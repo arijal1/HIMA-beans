@@ -94,7 +94,7 @@ export const metadata: Metadata = {
    Viewport
    ============================================================ */
 export const viewport: Viewport = {
-  themeColor: "#160C05",
+  themeColor: "#0A0704",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -165,7 +165,7 @@ export default function RootLayout({
 
       <body
         className="min-h-dvh flex flex-col relative"
-        style={{ backgroundColor: "#F2E8D8" }}
+        style={{ backgroundColor: "#F5EDE0" }}
       >
         <LangProvider>{children}</LangProvider>
       </body>

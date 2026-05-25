@@ -20,7 +20,7 @@ function MountainIcon() {
       {/* Back peak */}
       <path
         d="M6 38L18 14l7 10 5-8L40 38H6Z"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinejoin="round"
         fill="none"
@@ -28,14 +28,14 @@ function MountainIcon() {
       {/* Snow cap */}
       <path
         d="M18 14l2.5 4L22 16l1.5 2.5L25 14"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.2"
         strokeLinejoin="round"
-        fill="rgba(123,89,32,0.18)"
+        fill="rgba(124,72,40,0.18)"
       />
       {/* Altitude marker */}
-      <line x1="18" y1="14" x2="18" y2="9" stroke="#7C5535" strokeWidth="1.4" strokeLinecap="round" />
-      <line x1="14.5" y1="9" x2="21.5" y2="9" stroke="#7C5535" strokeWidth="1.4" strokeLinecap="round" />
+      <line x1="18" y1="14" x2="18" y2="9" stroke="#7C4828" strokeWidth="1.4" strokeLinecap="round" />
+      <line x1="14.5" y1="9" x2="21.5" y2="9" stroke="#7C4828" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
 }
@@ -53,34 +53,34 @@ function HandIcon() {
       {/* Palm + fingers */}
       <path
         d="M16 34V20a2.5 2.5 0 0 1 5 0v7"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M21 27V18a2.5 2.5 0 0 1 5 0v9"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M26 27V19a2.5 2.5 0 0 1 5 0v8"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M31 27v-6a2.5 2.5 0 0 1 5 0v10a10 10 0 0 1-10 10h-2a10 10 0 0 1-10-10v-5"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       {/* Cherry on palm */}
-      <circle cx="18.5" cy="26" r="2" fill="#7C5535" opacity="0.45" />
+      <circle cx="18.5" cy="26" r="2" fill="#7C4828" opacity="0.45" />
     </svg>
   );
 }
@@ -102,22 +102,22 @@ function BeanIcon() {
         rx="10"
         ry="15"
         transform="rotate(-18 22 22)"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
-        fill="rgba(123,89,32,0.06)"
+        fill="rgba(124,72,40,0.06)"
       />
       {/* Crease */}
       <path
         d="M15 13c4 4 5 12 3 18"
-        stroke="#7C5535"
+        stroke="#7C4828"
         strokeWidth="1.5"
         strokeLinecap="round"
         fill="none"
       />
       {/* Origin dots */}
-      <circle cx="29" cy="14" r="2" fill="#7C5535" opacity="0.5" />
-      <circle cx="33" cy="20" r="1.5" fill="#7C5535" opacity="0.3" />
-      <circle cx="31" cy="27" r="1" fill="#7C5535" opacity="0.25" />
+      <circle cx="29" cy="14" r="2" fill="#7C4828" opacity="0.5" />
+      <circle cx="33" cy="20" r="1.5" fill="#7C4828" opacity="0.3" />
+      <circle cx="31" cy="27" r="1" fill="#7C4828" opacity="0.25" />
     </svg>
   );
 }
@@ -204,14 +204,14 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
       {/* Hover left-border accent */}
       <div
         className="absolute left-0 top-6 bottom-6 w-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ backgroundColor: '#7C5535' }}
+        style={{ backgroundColor: '#7C4828' }}
         aria-hidden="true"
       />
 
       {/* Icon container */}
       <div
         className="w-14 h-14 flex items-center justify-center rounded-sm"
-        style={{ backgroundColor: 'rgba(123,89,32,0.08)' }}
+        style={{ backgroundColor: 'rgba(124,72,40,0.08)' }}
       >
         {feature.icon}
       </div>
@@ -220,21 +220,21 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
       <div className="flex flex-col gap-2 sm:gap-3">
         <p
           className="text-[10px] tracking-[0.3em] uppercase"
-          style={{ color: '#7C5535' }}
+          style={{ color: '#7C4828' }}
         >
           {feature.subheading}
         </p>
         <h3
           className="text-xl sm:text-2xl md:text-[1.65rem] leading-snug"
           style={{
-            color: '#F2E8D8',
+            color: '#F5EDE0',
             fontFamily: '"Playfair Display", Georgia, serif',
             fontWeight: 700,
           }}
         >
           {feature.heading}
         </h3>
-        <p className="text-sm leading-[1.8] font-light" style={{ color: '#87705A' }}>
+        <p className="text-sm leading-[1.8] font-light" style={{ color: '#7A6555' }}>
           {feature.description}
         </p>
       </div>
@@ -242,7 +242,7 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
       {/* Bottom gold line, grows on hover */}
       <div
         className="h-px w-0 group-hover:w-14 transition-all duration-500"
-        style={{ backgroundColor: '#7C5535' }}
+        style={{ backgroundColor: '#7C4828' }}
         aria-hidden="true"
       />
     </motion.div>
@@ -263,7 +263,7 @@ export default function WhyNepali() {
       {/* Top divider */}
       <div
         className="absolute top-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, #7C5535 40%, #7C5535 60%, transparent)' }}
+        style={{ background: 'linear-gradient(to right, transparent, #7C4828 40%, #7C4828 60%, transparent)' }}
         aria-hidden="true"
       />
 
@@ -271,7 +271,7 @@ export default function WhyNepali() {
       <span
         className="pointer-events-none select-none absolute right-0 top-0 leading-none tracking-tighter"
         style={{
-          color: '#F2E8D8',
+          color: '#F5EDE0',
           opacity: 0.025,
           fontFamily: '"Playfair Display", Georgia, serif',
           fontSize: 'clamp(80px, 18vw, 260px)',
@@ -299,7 +299,7 @@ export default function WhyNepali() {
           <motion.p
             variants={headingVariants}
             className="text-[10px] tracking-[0.4em] uppercase mb-5 sm:mb-6"
-            style={{ color: '#7C5535' }}
+            style={{ color: '#7C4828' }}
           >
             Origin &middot; Craft &middot; Excellence
           </motion.p>
@@ -310,7 +310,7 @@ export default function WhyNepali() {
             variants={headingVariants}
             className="mb-6 sm:mb-8 leading-[1.1]"
             style={{
-              color: '#F2E8D8',
+              color: '#F5EDE0',
               fontFamily: '"Playfair Display", Georgia, serif',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 6vw, 4.5rem)',
@@ -318,14 +318,14 @@ export default function WhyNepali() {
           >
             Why Nepali
             <br />
-            <em style={{ fontStyle: 'italic', color: '#7C5535' }}>Coffee?</em>
+            <em style={{ fontStyle: 'italic', color: '#7C4828' }}>Coffee?</em>
           </motion.h2>
 
           {/* Gold rule */}
           <motion.div
             variants={headingVariants}
             className="h-px w-20 mb-6 sm:mb-8"
-            style={{ backgroundColor: '#7C5535' }}
+            style={{ backgroundColor: '#7C4828' }}
             aria-hidden="true"
           />
 
@@ -333,7 +333,7 @@ export default function WhyNepali() {
           <motion.p
             variants={headingVariants}
             className="text-base sm:text-lg md:text-xl leading-[1.8] font-light"
-            style={{ color: '#87705A' }}
+            style={{ color: '#7A6555' }}
           >
             The Himalayas have shaped some of the world&rsquo;s most dramatic landscapes —
             and some of its most extraordinary coffee. Grown between 1,400&nbsp;m and
@@ -351,7 +351,7 @@ export default function WhyNepali() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px"
-          style={{ backgroundColor: 'rgba(123,89,32,0.13)' }}
+          style={{ backgroundColor: 'rgba(124,72,40,0.13)' }}
         >
           {FEATURES.map((feature, i) => (
             <FeatureCard key={feature.heading} feature={feature} index={i} />
@@ -365,7 +365,7 @@ export default function WhyNepali() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
           className="mt-10 sm:mt-14 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px"
-          style={{ backgroundColor: 'rgba(123,89,32,0.08)' }}
+          style={{ backgroundColor: 'rgba(124,72,40,0.08)' }}
         >
           {[
             { value: '2100m', label: 'Max Elevation' },
@@ -382,7 +382,7 @@ export default function WhyNepali() {
               <span
                 className="leading-none"
                 style={{
-                  color: '#7C5535',
+                  color: '#7C4828',
                   fontFamily: '"Playfair Display", Georgia, serif',
                   fontSize: 'clamp(1.4rem, 4vw, 2.6rem)',
                   fontWeight: 700,
@@ -390,7 +390,7 @@ export default function WhyNepali() {
               >
                 {value}
               </span>
-              <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: '#87705A' }}>
+              <span className="text-[10px] tracking-[0.3em] uppercase" style={{ color: '#7A6555' }}>
                 {label}
               </span>
             </motion.div>
@@ -401,7 +401,7 @@ export default function WhyNepali() {
       {/* Bottom divider */}
       <div
         className="absolute bottom-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, #7C5535 40%, #7C5535 60%, transparent)' }}
+        style={{ background: 'linear-gradient(to right, transparent, #7C4828 40%, #7C4828 60%, transparent)' }}
         aria-hidden="true"
       />
     </section>
