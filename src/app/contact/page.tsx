@@ -126,7 +126,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#7C4828', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
+              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
             >
               Reach Out
             </motion.p>
@@ -349,7 +349,7 @@ export default function ContactPage() {
 
                 {/* Wholesale CTA */}
                 <div style={{ padding: '1.75rem', background: '#0E0A07', borderRadius: '2px' }}>
-                  <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#7C4828', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '0.75rem' }}>
+                  <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '0.75rem' }}>
                     Café & Restaurant
                   </p>
                   <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', color: '#F5EDE0', marginBottom: '0.75rem', lineHeight: 1.5 }}>

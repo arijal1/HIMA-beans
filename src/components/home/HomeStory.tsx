@@ -29,8 +29,8 @@ export default function HomeStory() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="text-[#7C4828] text-[10px] tracking-[0.4em] uppercase text-center mb-8"
-          style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
+          className="text-[10px] tracking-[0.4em] uppercase text-center mb-8"
+          style={{ color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
           Nepal · 2,000m above sea level
         </motion.p>
@@ -74,7 +74,7 @@ export default function HomeStory() {
           className="text-center mx-auto leading-relaxed"
           style={{
             maxWidth: '560px',
-            color: '#7A6555',
+            color: 'rgba(237,224,204,0.5)',
             fontSize: '0.95rem',
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
@@ -95,7 +95,7 @@ export default function HomeStory() {
           {STATS.map((s) => (
             <div key={s.value} className="text-center">
               <p
-                className="text-[#7C4828] font-bold"
+                className="text-[#EDE0CC] font-bold"
                 style={{
                   fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
                   fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',

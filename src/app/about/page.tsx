@@ -233,11 +233,11 @@ function SectionWrapper({
 /* ============================================================
    Overline Label
    ============================================================ */
-function Overline({ children }: { children: React.ReactNode }) {
+function Overline({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
     <p
       className="text-xs font-medium tracking-[0.35em] uppercase mb-4"
-      style={{ color: C.gold }}
+      style={{ color: light ? 'rgba(237,224,204,0.45)' : C.gold }}
     >
       {children}
     </p>
@@ -525,7 +525,7 @@ function HeroSection() {
           animate={{ opacity: 1, letterSpacing: "0.45em" }}
           transition={{ duration: 1.0, delay: 0.2 }}
           className="text-xs font-medium uppercase mb-8"
-          style={{ color: C.gold }}
+          style={{ color: 'rgba(237,224,204,0.45)' }}
         >
           Crafted Above the Clouds
         </motion.p>
@@ -778,7 +778,7 @@ function FarmingSection() {
               animate={isInView ? "visible" : "hidden"}
               variants={fadeIn}
             >
-              <Overline>Himalayan Farming Culture</Overline>
+              <Overline light>Himalayan Farming Culture</Overline>
             </motion.div>
 
             <AnimatedHeading light>
@@ -942,12 +942,12 @@ function QualitySection() {
             animate={isInView ? "visible" : "hidden"}
             variants={fadeIn}
           >
-            <Overline>Why Nepali Coffee Rivals the World&apos;s Best</Overline>
+            <Overline light>Why Nepali Coffee Rivals the World&apos;s Best</Overline>
           </motion.div>
           <AnimatedHeading light className="mx-auto max-w-3xl">
             Where Ethiopia Meets Colombia,
             <br />
-            <em style={{ color: C.gold }}>At Himalayan Altitude</em>
+            <em style={{ color: C.cream }}>At Himalayan Altitude</em>
           </AnimatedHeading>
           <AnimatedParagraph delay={0.15} light className="mt-6 mx-auto max-w-2xl">
             The coffee world has long celebrated Ethiopian florals and Colombian
@@ -1040,7 +1040,7 @@ function PromiseSection() {
               animate={isInView ? "visible" : "hidden"}
               variants={fadeIn}
             >
-              <Overline>Our Promise</Overline>
+              <Overline light>Our Promise</Overline>
             </motion.div>
             <AnimatedHeading light>
               Ethical Sourcing,
@@ -1063,16 +1063,16 @@ function PromiseSection() {
             >
               <Link
                 href="/beans"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:opacity-90 hover:scale-105"
-                style={{ backgroundColor: C.gold, color: C.espresso }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium transition-all duration-300 hover:opacity-80"
+                style={{ backgroundColor: C.beige, color: C.espresso }}
               >
                 Explore Our Beans
                 <span aria-hidden>→</span>
               </Link>
               <Link
                 href="/wholesale"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium border transition-all duration-300 hover:bg-white/10"
-                style={{ borderColor: `${C.cream}40`, color: C.cream }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#EDE0CC]"
+                style={{ borderColor: `rgba(237,224,204,0.25)`, color: 'rgba(237,224,204,0.7)' }}
               >
                 Wholesale Enquiries
               </Link>
@@ -1088,13 +1088,10 @@ function PromiseSection() {
                 variants={slideRight}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="p-6 rounded-2xl"
-                style={{
-                  backgroundColor: "rgba(237,224,204,0.05)",
-                  border: "1px solid rgba(124,72,40,0.2)",
-                }}
+                className="py-5 border-b"
+                style={{ borderColor: "rgba(237,224,204,0.08)" }}
               >
-                <p className="font-serif text-base font-semibold mb-2" style={{ color: C.gold }}>
+                <p className="font-serif text-base font-semibold mb-2" style={{ color: C.beige }}>
                   {promise.title}
                 </p>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(237,224,204,0.65)" }}>

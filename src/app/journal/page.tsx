@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Navigation from '@/components/layout/Navigation';
+import Footer from '@/components/layout/Footer';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -371,7 +373,7 @@ function FeaturedArticle() {
             />
             <span
               className="text-[10px] tracking-[0.35em] uppercase"
-              style={{ color: '#7C4828' }}
+              style={{ color: 'rgba(237,224,204,0.45)' }}
             >
               Origin &middot; 12 min read
             </span>
@@ -402,8 +404,8 @@ function FeaturedArticle() {
             <motion.button
               whileHover={{ x: 6 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] rounded"
-              style={{ color: '#7C4828' }}
+              className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EDE0CC] rounded"
+              style={{ color: 'rgba(237,224,204,0.7)' }}
             >
               Read the Story
               <span aria-hidden="true" className="text-base">→</span>
@@ -427,6 +429,8 @@ export default function JournalPage() {
     : ARTICLES.filter((a) => a.category === activeCategory);
 
   return (
+    <>
+    <Navigation />
     <div className="min-h-screen" style={{ backgroundColor: '#F5EDE0' }}>
       {/* ── Page Header ── */}
       <header
@@ -595,5 +599,7 @@ export default function JournalPage() {
         </motion.div>
       </main>
     </div>
+    <Footer />
+    </>
   );
 }

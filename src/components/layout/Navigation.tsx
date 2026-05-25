@@ -305,7 +305,7 @@ export default function Navigation() {
               </span>
             </div>
 
-            <div className="relative z-10 flex flex-col justify-center h-full px-6 sm:px-10 pt-24 pb-12">
+            <div className="relative z-10 flex flex-col justify-center h-full pr-8 sm:pr-14 pl-6 sm:pl-10 pt-24 pb-12 items-end">
               {/* Mobile lang toggle */}
               <motion.div
                 custom={-1}
@@ -319,7 +319,7 @@ export default function Navigation() {
               </motion.div>
 
               <nav aria-label="Mobile navigation">
-                <ul className="space-y-0.5" role="list">
+                <ul className="space-y-0.5 flex flex-col items-end" role="list">
                   {NAV_LINKS.map((link, i) => (
                     <motion.li
                       key={link.href}
@@ -333,7 +333,7 @@ export default function Navigation() {
                         href={link.href}
                         onClick={() => setMobileOpen(false)}
                         className={[
-                          'group flex items-center gap-5 py-3.5 min-h-[44px] rounded px-1',
+                          'group flex flex-row-reverse items-center gap-5 py-3.5 min-h-[44px] rounded px-1',
                           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828]',
                           'transition-opacity duration-200',
                           pathname === link.href ? 'opacity-100' : 'opacity-40 hover:opacity-100',
@@ -346,7 +346,7 @@ export default function Navigation() {
                           aria-hidden="true"
                         />
                         <span
-                          className="text-[#F5EDE0] text-3xl sm:text-4xl tracking-wide"
+                          className="text-[#F5EDE0] text-3xl sm:text-4xl tracking-wide text-right"
                           style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
                         >
                           {lang === 'EN' ? link.label : link.labelNP}
@@ -371,9 +371,9 @@ export default function Navigation() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="mt-auto pt-8 border-t border-[#F5EDE0]/10"
+                className="mt-auto pt-8 border-t border-[#F5EDE0]/10 text-right"
               >
-                <p className="text-[#7C4828] text-[10px] tracking-[0.3em] uppercase">
+                <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: 'rgba(237,224,204,0.4)' }}>
                   {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
                 </p>
                 <p className="text-[#F5EDE0]/30 text-xs mt-2 tracking-wide">

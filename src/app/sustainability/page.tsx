@@ -273,7 +273,7 @@ function CommitmentBlock({
         >
           <p
             className="font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-3"
-            style={{ color: '#7C4828' }}
+            style={{ color: section.dark ? 'rgba(237,224,204,0.45)' : '#7C4828' }}
           >
             {section.tag}
           </p>
@@ -285,7 +285,7 @@ function CommitmentBlock({
           </h2>
           <p
             className="font-serif text-xl italic mb-8"
-            style={{ color: '#7C4828' }}
+            style={{ color: section.dark ? 'rgba(237,224,204,0.55)' : '#7C4828' }}
           >
             {section.subtitle}
           </p>
@@ -316,29 +316,30 @@ function FarmerCard({ farmer, index }: { farmer: FarmerProfile; index: number })
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="bg-white rounded-3xl overflow-hidden border border-[#EDE0CC]"
+      className="overflow-hidden border border-[rgba(26,16,8,0.1)]"
+      style={{ backgroundColor: '#EBE2D2' }}
     >
       {/* Avatar banner */}
       <div
-        className="h-32 flex items-end px-8 pb-0 relative"
+        className="h-28 flex items-end px-8 pb-0 relative"
         style={{
-          background: 'linear-gradient(135deg, #0E0A07 0%, #7C4828 100%)',
+          background: 'linear-gradient(135deg, #0E0A07 0%, #5C3D2E 100%)',
         }}
       >
         <div
-          className="w-20 h-20 rounded-full border-4 border-white flex items-center justify-center translate-y-10 font-serif text-xl font-bold"
+          className="w-16 h-16 flex items-center justify-center translate-y-8 font-serif text-lg font-bold border-2 border-[#EBE2D2]"
           style={{ backgroundColor: '#7C4828', color: '#F5EDE0' }}
         >
           {farmer.initial}
         </div>
       </div>
 
-      <div className="px-8 pt-14 pb-8">
+      <div className="px-8 pt-12 pb-8">
         <h3 className="font-serif text-2xl text-[#0E0A07] font-semibold mb-1">{farmer.name}</h3>
-        <p className="font-sans text-sm text-[#7C4828] font-semibold mb-0.5">{farmer.location}</p>
+        <p className="font-sans text-xs text-[#7C4828] font-medium tracking-wider uppercase mb-0.5">{farmer.location}</p>
         <p className="font-sans text-xs text-[#7A6555] mb-6">{farmer.tenure}</p>
 
-        <blockquote className="font-serif text-base italic text-[#0E0A07] leading-relaxed mb-6 border-l-2 border-[#7C4828] pl-4">
+        <blockquote className="font-serif text-base italic text-[#1A1008] leading-relaxed mb-6 border-l-2 border-[rgba(26,16,8,0.2)] pl-4">
           {farmer.quote}
         </blockquote>
 
@@ -360,11 +361,11 @@ function ImpactCard({ stat, index }: { stat: ImpactStat; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
       className="text-center px-4 sm:px-6 py-6 sm:py-8"
     >
-      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#7C4828] mb-2">
+      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-2" style={{ color: '#EDE0CC' }}>
         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
       </div>
       <p className="font-serif text-xl text-[#F5EDE0] font-semibold mb-2">{stat.label}</p>
-      <p className="font-sans text-sm text-[#7A6555]">{stat.description}</p>
+      <p className="font-sans text-sm" style={{ color: 'rgba(237,224,204,0.45)' }}>{stat.description}</p>
     </motion.div>
   );
 }
@@ -379,11 +380,12 @@ function CertBadge({ cert, index }: { cert: Certification; index: number }) {
       initial={{ opacity: 0, scale: 0.85 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="flex flex-col items-center gap-3 p-8 rounded-2xl border-2 border-[#EDE0CC] bg-white"
+      className="flex flex-col items-center gap-3 p-8 border border-[rgba(26,16,8,0.1)]"
+      style={{ backgroundColor: '#EBE2D2' }}
     >
       <div
-        className="w-16 h-16 rounded-full flex items-center justify-center text-2xl"
-        style={{ backgroundColor: '#F5EDE0', color: '#7C4828' }}
+        className="w-12 h-12 flex items-center justify-center text-xl"
+        style={{ backgroundColor: 'rgba(26,16,8,0.06)', color: '#7C4828' }}
       >
         {cert.icon}
       </div>
@@ -436,7 +438,8 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+            className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+            style={{ color: 'rgba(237,224,204,0.45)' }}
           >
             Our Earth Promise
           </motion.p>
@@ -448,7 +451,7 @@ export default function SustainabilityPage() {
           >
             Our Earth
             <br />
-            <em className="text-[#7C4828]">Promise</em>
+            <em className="text-[#EDE0CC]">Promise</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -494,14 +497,14 @@ export default function SustainabilityPage() {
       <section className="py-16 md:py-24" style={{ backgroundColor: '#0E0A07' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(237,224,204,0.45)' }}>
               Measured Impact
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EDE0] font-bold leading-tight">
               By the Numbers
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 divide-x divide-y divide-[#5C3D2E] border border-[#5C3D2E] rounded-3xl overflow-hidden">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 divide-x divide-y divide-[rgba(237,224,204,0.08)] border border-[rgba(237,224,204,0.08)] overflow-hidden">
             {IMPACT_STATS.map((stat, i) => (
               <ImpactCard key={stat.label} stat={stat} index={i} />
             ))}
@@ -548,16 +551,16 @@ export default function SustainabilityPage() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-center">
             <Link
               href="/beans"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:scale-105"
-              style={{ backgroundColor: '#7C4828', color: '#F5EDE0' }}
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80"
+              style={{ backgroundColor: '#EDE0CC', color: '#0E0A07' }}
             >
               Shop Our Beans
               <span>→</span>
             </Link>
             <Link
               href="/wholesale"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 rounded-full font-sans font-semibold text-sm tracking-widest uppercase border-2 transition-all duration-300 hover:scale-105"
-              style={{ borderColor: '#7C4828', color: '#7C4828' }}
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase border transition-all duration-300 hover:border-[#EDE0CC]"
+              style={{ borderColor: 'rgba(237,224,204,0.25)', color: 'rgba(237,224,204,0.7)' }}
             >
               Wholesale Inquiry
             </Link>

@@ -269,7 +269,7 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#7C4828', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
+              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
             >
               Help & Support
             </motion.p>
@@ -387,8 +387,8 @@ export default function FAQPage() {
                 style={{
                   display: 'inline-block',
                   padding: '0.8rem 2rem',
-                  background: '#7C4828',
-                  color: '#0A0704',
+                  background: '#EDE0CC',
+                  color: '#0E0A07',
                   borderRadius: '0',
                   fontSize: '13px',
                   fontWeight: 600,

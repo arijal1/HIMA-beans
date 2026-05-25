@@ -86,7 +86,7 @@ export default function ProductsGrid() {
                   <span
                     className="absolute top-3 right-3 text-[10px] tracking-[0.2em] uppercase"
                     style={{
-                      color: '#7C4828',
+                      color: 'rgba(237,224,204,0.7)',
                       backgroundColor: 'rgba(10,6,3,0.7)',
                       padding: '4px 8px',
                       fontFamily: 'var(--font-inter, Inter, sans-serif)',

@@ -427,7 +427,7 @@ export default function Hero() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              color: '#7C4828',
+              color: 'rgba(237,224,204,0.45)',
             }}
           >
             <span
@@ -436,8 +436,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: '#7C4828',
-                opacity: 0.7,
+                background: 'rgba(237,224,204,0.3)',
               }}
             />
             <span
@@ -457,8 +456,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: '#7C4828',
-                opacity: 0.7,
+                background: 'rgba(237,224,204,0.3)',
               }}
             />
           </motion.div>
@@ -479,11 +477,11 @@ export default function Hero() {
             <span style={{ display: 'block', color: '#F5EDE0' }}>
               <AnimatedHeadline line="Crafted Above" />
             </span>
-            {/* Line 2 — gold italic */}
+            {/* Line 2 — cream italic */}
             <span
               style={{
                 display: 'block',
-                color: '#7C4828',
+                color: 'rgba(237,224,204,0.75)',
                 fontStyle: 'italic',
               }}
             >
