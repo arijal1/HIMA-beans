@@ -12,7 +12,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
   return (
     <section
       style={{
-        background: '#182118',
+        background: '#1E1008',
         padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
@@ -36,7 +36,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
               fontSize: '10px',
               letterSpacing: '0.4em',
               textTransform: 'uppercase',
-              color: '#7B5920',
+              color: '#7C5535',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               marginBottom: '1rem',
             }}
@@ -52,7 +52,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
             fontFamily: "'Playfair Display', serif",
             fontSize: 'clamp(2.25rem, 6vw, 4.5rem)',
             fontWeight: 700,
-            color: '#EDE6D8',
+            color: '#EDE0CC',
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
             marginBottom: subtitle ? '1.25rem' : 0,

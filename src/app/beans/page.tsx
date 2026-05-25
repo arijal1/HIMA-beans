@@ -17,12 +17,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#182118",
-  cream: "#F3EFE6",
-  stone: "#6E675F",
-  gold: "#7B5920",
-  beige: "#EDE6D8",
-  charcoal: "#1A1814",
+  espresso: "#1E1008",
+  cream: "#F2E8D8",
+  stone: "#87705A",
+  gold: "#7C5535",
+  beige: "#EDE0CC",
+  charcoal: "#1A1008",
 } as const;
 
 /* ============================================================
@@ -296,8 +296,8 @@ function BeanCard({
           backgroundColor: C.cream,
           border: `1px solid ${C.beige}`,
           boxShadow: hovered
-            ? "0 24px 48px rgba(24,33,24,0.18), 0 8px 16px rgba(24,33,24,0.10)"
-            : "0 4px 16px rgba(24,33,24,0.07)",
+            ? "0 24px 48px rgba(30,16,8,0.18), 0 8px 16px rgba(30,16,8,0.10)"
+            : "0 4px 16px rgba(30,16,8,0.07)",
           transition: "box-shadow 0.3s ease",
         }}
         onMouseMove={handleMouseMove}
@@ -543,10 +543,10 @@ function BeansHero() {
             viewBox="0 0 200 200"
             style={{ opacity: 0.06, position: "absolute", top: 60, left: 60 }}
           >
-            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7B5920" />
+            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7C5535" />
             <path
               d="M100 10 Q130 100 100 190"
-              stroke="#182118"
+              stroke="#1E1008"
               strokeWidth="8"
               fill="none"
             />

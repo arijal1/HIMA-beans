@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ============================================================
    LoadingScreen
    Full-screen branded loading experience.
-   - Espresso brown background (#182118)
+   - Espresso brown background (#1E1008)
    - Animated HIMA BEANS logotype in Playfair Display (cream)
    - Tagline fades in after the logotype settles
    - Gold progress bar tracks to 100 %
@@ -102,7 +102,7 @@ export function LoadingScreen() {
             position: "fixed",
             inset: 0,
             zIndex: 99999,
-            backgroundColor: "#182118",
+            backgroundColor: "#1E1008",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -167,7 +167,7 @@ export function LoadingScreen() {
                 fontFamily: "var(--font-sans, Inter, system-ui, sans-serif)",
                 fontSize: "0.65rem",
                 fontWeight: 500,
-                color: "#7B5920",
+                color: "#7C5535",
                 textTransform: "uppercase",
                 marginBottom: "1.25rem",
               }}
@@ -193,7 +193,7 @@ export function LoadingScreen() {
                     "var(--font-playfair, 'Playfair Display', Georgia, serif)",
                   fontSize: "clamp(2.8rem, 8vw, 5rem)",
                   fontWeight: 700,
-                  color: "#F3EFE6",
+                  color: "#F2E8D8",
                   letterSpacing: "0.08em",
                   lineHeight: 1.1,
                 }}
@@ -250,7 +250,7 @@ export function LoadingScreen() {
                 style={{
                   height: "100%",
                   width: "100%",
-                  backgroundColor: "#7B5920",
+                  backgroundColor: "#7C5535",
                   borderRadius: 9999,
                   transformOrigin: "left center",
                 }}
@@ -269,7 +269,7 @@ export function LoadingScreen() {
               fontFamily: "var(--font-sans, Inter, system-ui, sans-serif)",
               fontSize: "0.6rem",
               fontWeight: 500,
-              color: "#F3EFE6",
+              color: "#F2E8D8",
               letterSpacing: "0.25em",
               textTransform: "uppercase",
             }}

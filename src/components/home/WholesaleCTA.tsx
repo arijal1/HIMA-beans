@@ -28,7 +28,7 @@ function CheckIcon() {
     >
       <path
         d="M3 8l3.5 3.5L13 4.5"
-        stroke="#7B5920"
+        stroke="#7C5535"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -45,12 +45,12 @@ function SocialProofBadge({ text }: SocialProofBadgeProps) {
     >
       <span
         className="w-1.5 h-1.5 rounded-full animate-pulse"
-        style={{ background: '#7B5920' }}
+        style={{ background: '#7C5535' }}
         aria-hidden="true"
       />
       <span
         className="text-xs tracking-[0.15em] uppercase font-medium"
-        style={{ color: '#7B5920' }}
+        style={{ color: '#7C5535' }}
       >
         {text}
       </span>
@@ -96,8 +96,8 @@ export default function WholesaleCTA() {
       {/* ── Split background: full espresso on mobile, split on lg ── */}
       <div className="absolute inset-0 flex flex-col lg:flex-row pointer-events-none" aria-hidden="true">
         {/* On mobile this stacks; each takes 50% of height. On lg they sit side-by-side at 50% width each */}
-        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#182118' }} />
-        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#7B5920' }} />
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#1E1008' }} />
+        <div className="h-1/2 lg:h-auto lg:flex-1" style={{ background: '#7C5535' }} />
       </div>
 
       {/* ── Diagonal divider: only visible on lg where layout is side-by-side ── */}
@@ -105,7 +105,7 @@ export default function WholesaleCTA() {
         className="absolute inset-y-0 left-1/2 -translate-x-full w-24 pointer-events-none hidden lg:block"
         aria-hidden="true"
         style={{
-          background: 'linear-gradient(to bottom right, #182118 50%, #7B5920 50%)',
+          background: 'linear-gradient(to bottom right, #1E1008 50%, #7C5535 50%)',
           clipPath: 'polygon(100% 0, 100% 100%, 0 100%, 0 0)',
           zIndex: 1,
         }}
@@ -156,14 +156,14 @@ export default function WholesaleCTA() {
               transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="font-serif leading-[1.05] mb-5 sm:mb-6"
               style={{
-                color: '#F3EFE6',
+                color: '#F2E8D8',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.25rem, 7vw, 4rem)',
               }}
             >
               Partner
               <br />
-              <em className="not-italic" style={{ color: '#EDE6D8' }}>
+              <em className="not-italic" style={{ color: '#EDE0CC' }}>
                 with Us.
               </em>
             </motion.h2>
@@ -217,11 +217,11 @@ export default function WholesaleCTA() {
               <Link
                 href="/wholesale"
                 className="group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase transition-colors duration-300"
-                style={{ color: '#7B5920' }}
+                style={{ color: '#7C5535' }}
               >
                 <span
                   className="h-px w-8 transition-all duration-300 group-hover:w-14"
-                  style={{ background: '#7B5920' }}
+                  style={{ background: '#7C5535' }}
                 />
                 View wholesale details
                 <svg
@@ -261,29 +261,29 @@ export default function WholesaleCTA() {
               {/* Corner accent */}
               <span
                 className="absolute top-0 right-0 w-12 h-px"
-                style={{ background: '#F3EFE6', opacity: 0.5 }}
+                style={{ background: '#F2E8D8', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute top-0 right-0 w-px h-12"
-                style={{ background: '#F3EFE6', opacity: 0.5 }}
+                style={{ background: '#F2E8D8', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute bottom-0 left-0 w-12 h-px"
-                style={{ background: '#F3EFE6', opacity: 0.5 }}
+                style={{ background: '#F2E8D8', opacity: 0.5 }}
                 aria-hidden="true"
               />
               <span
                 className="absolute bottom-0 left-0 w-px h-12"
-                style={{ background: '#F3EFE6', opacity: 0.5 }}
+                style={{ background: '#F2E8D8', opacity: 0.5 }}
                 aria-hidden="true"
               />
 
               <h3
                 className="text-xl sm:text-2xl font-serif mb-2"
                 style={{
-                  color: '#0F1710',
+                  color: '#160C05',
                   fontFamily: '"Playfair Display", Georgia, serif',
                 }}
               >
@@ -315,7 +315,7 @@ export default function WholesaleCTA() {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="#0F1710"
+                      stroke="#160C05"
                       strokeWidth="1.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -325,7 +325,7 @@ export default function WholesaleCTA() {
                   </div>
                   <p
                     className="text-base font-medium mb-1"
-                    style={{ color: '#0F1710' }}
+                    style={{ color: '#160C05' }}
                   >
                     Inquiry received.
                   </p>
@@ -360,7 +360,7 @@ export default function WholesaleCTA() {
                         border: error
                           ? '1px solid #c0392b'
                           : '1px solid rgba(26,15,9,0.2)',
-                        color: '#0F1710',
+                        color: '#160C05',
                       }}
                       aria-describedby={error ? 'wholesale-email-error' : undefined}
                       aria-invalid={!!error}
@@ -381,8 +381,8 @@ export default function WholesaleCTA() {
                     type="submit"
                     className="w-full py-3.5 text-sm tracking-[0.15em] uppercase font-semibold transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                     style={{
-                      background: '#182118',
-                      color: '#F3EFE6',
+                      background: '#1E1008',
+                      color: '#F2E8D8',
                     }}
                   >
                     Request Wholesale Info

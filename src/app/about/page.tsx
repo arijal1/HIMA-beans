@@ -16,12 +16,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#182118",
-  cream: "#F3EFE6",
-  stone: "#6E675F",
-  gold: "#7B5920",
-  beige: "#EDE6D8",
-  charcoal: "#1A1814",
+  espresso: "#1E1008",
+  cream: "#F2E8D8",
+  stone: "#87705A",
+  gold: "#7C5535",
+  beige: "#EDE0CC",
+  charcoal: "#1A1008",
 } as const;
 
 /* ============================================================
@@ -331,62 +331,56 @@ function GoldDivider({ light = false }: { light?: boolean }) {
 /* ============================================================
    Region Card
    ============================================================ */
-function RegionCard({
-  region,
-  index,
-}: {
-  region: (typeof regions)[0];
-  index: number;
-}) {
+function RegionCard({ region, index }: { region: (typeof regions)[0]; index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-60px" });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
     <motion.div
       ref={ref}
-      custom={index * 0.08}
-      variants={scaleIn}
+      custom={index * 0.07}
+      variants={fadeUp}
       initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      whileHover={{ y: -6, transition: { duration: 0.3 } }}
-      className="relative overflow-hidden rounded-2xl p-5 sm:p-6 flex flex-col gap-4"
-      style={{ backgroundColor: C.beige, border: `1px solid ${C.stone}22` }}
+      animate={isInView ? 'visible' : 'hidden'}
+      style={{
+        paddingTop: '1.5rem',
+        paddingBottom: '1.5rem',
+        borderBottom: '1px solid rgba(135,112,90,0.15)',
+        display: 'grid',
+        gridTemplateColumns: '1fr auto',
+        gap: '0.75rem 1.5rem',
+        alignItems: 'start',
+      }}
     >
-      {/* Accent stripe */}
-      <div
-        className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
-        style={{ backgroundColor: C.gold }}
-      />
-
-      <div className="flex items-start justify-between gap-2 mt-1">
+      {/* Name + characteristic */}
+      <div>
         <h3
-          className="font-serif text-2xl font-bold"
+          className="font-serif text-xl font-bold mb-1"
           style={{ color: C.espresso }}
         >
           {region.name}
         </h3>
-        <span
-          className="text-xs font-medium tracking-wider px-2 py-1 rounded-full whitespace-nowrap"
-          style={{ backgroundColor: C.espresso, color: C.gold }}
-        >
-          {region.altitude}
-        </span>
-      </div>
-
-      <p className="text-sm font-medium" style={{ color: C.stone }}>
-        {region.characteristic}
-      </p>
-
-      <GoldDivider />
-
-      <div>
-        <p className="text-xs uppercase tracking-widest mb-1" style={{ color: C.gold }}>
-          Flavor Profile
+        <p className="text-sm" style={{ color: C.stone }}>
+          {region.characteristic}
         </p>
-        <p className="text-sm font-medium italic" style={{ color: C.charcoal }}>
+        <p className="text-sm italic mt-2" style={{ color: C.charcoal }}>
           {region.flavor}
         </p>
       </div>
+
+      {/* Altitude badge — minimal pill */}
+      <span
+        style={{
+          fontSize: '10px',
+          letterSpacing: '0.12em',
+          color: C.gold,
+          fontFamily: 'var(--font-inter, Inter, sans-serif)',
+          whiteSpace: 'nowrap',
+          paddingTop: '3px',
+        }}
+      >
+        {region.altitude}
+      </span>
     </motion.div>
   );
 }
@@ -719,12 +713,12 @@ function FarmingSection() {
                   {/* Sky gradient */}
                   <defs>
                     <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0F1710" />
-                      <stop offset="100%" stopColor="#182118" />
+                      <stop offset="0%" stopColor="#160C05" />
+                      <stop offset="100%" stopColor="#1E1008" />
                     </linearGradient>
                     <linearGradient id="goldGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#7B5920" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#7B5920" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#7C5535" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#7C5535" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <rect width="800" height="500" fill="url(#skyGrad)" />
@@ -737,12 +731,12 @@ function FarmingSection() {
                   {/* Mid range */}
                   <polygon
                     points="0,420 100,280 220,360 350,200 470,310 600,220 720,300 800,260 800,500 0,500"
-                    fill="rgba(24,33,24,0.6)"
+                    fill="rgba(30,16,8,0.6)"
                   />
                   {/* Front hills */}
                   <polygon
                     points="0,460 120,380 250,430 380,350 500,400 620,360 750,420 800,390 800,500 0,500"
-                    fill="#182118"
+                    fill="#1E1008"
                   />
                   {/* Terraced lines */}
                   {[350, 370, 390, 410, 430, 450].map((y, i) => (
@@ -866,7 +860,7 @@ function RegionsSection() {
           </AnimatedParagraph>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div style={{ borderTop: '1px solid rgba(135,112,90,0.15)' }}>
           {regions.map((region, index) => (
             <RegionCard key={region.name} region={region} index={index} />
           ))}

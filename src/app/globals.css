@@ -7,49 +7,47 @@
    ============================================================ */
 
 @theme {
-  /* ── New Nature / Nepal / Coffee palette ── */
-  --color-forest:    #182118;   /* deep forest night — dark sections */
-  --color-parchment: #F3EFE6;   /* natural paper — main background */
-  --color-linen:     #E9E3D8;   /* warm linen — alt section bg */
-  --color-ink:       #1A1814;   /* warm near-black — primary text */
-  --color-stone:     #6E675F;   /* warm stone — secondary text */
-  --color-earth:     #7B5920;   /* aged coffee gold — accent */
-  --color-earth-lt:  #967033;   /* lighter earth — hover states */
-  --color-sage:      #3A5630;   /* Nepal forest green — used sparingly */
-  --color-cream:     #EDE6D8;   /* warm cream — text on dark bg */
-  --color-bark:      #0F1710;   /* deepest dark — footer/hero bg */
+  --color-espresso:  #1E1008;   /* deep espresso — dark sections / nav */
+  --color-bark:      #160C05;   /* deepest dark — footer bg */
+  --color-parchment: #F2E8D8;   /* warm parchment — main background */
+  --color-linen:     #E8D9C5;   /* warm linen — alt section bg */
+  --color-ink:       #1A1008;   /* near-black — primary text */
+  --color-stone:     #87705A;   /* warm stone — secondary text */
+  --color-coffee:    #7C5535;   /* muted coffee — accent */
+  --color-coffee-lt: #9A6A42;   /* lighter coffee — hover */
+  --color-cream:     #EDE0CC;   /* warm cream — text on dark bg */
 
-  /* Legacy aliases (kept for compatibility) */
-  --color-espresso:  #182118;
-  --color-beige:     #E9E3D8;
-  --color-gold:      #7B5920;
-  --color-charcoal:  #1A1814;
+  /* Legacy aliases */
+  --color-forest:    #1E1008;
+  --color-earth:     #7C5535;
+  --color-earth-lt:  #9A6A42;
+  --color-sage:      #7C5535;
 
   --font-serif: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-sans:  var(--font-inter), "Inter", system-ui, sans-serif;
 }
 
 :root {
-  /* Runtime CSS variables */
-  --forest:    #182118;
-  --parchment: #F3EFE6;
-  --linen:     #E9E3D8;
-  --ink:       #1A1814;
-  --stone:     #6E675F;
-  --earth:     #7B5920;
-  --earth-lt:  #967033;
-  --sage:      #3A5630;
-  --cream:     #EDE6D8;
-  --bark:      #0F1710;
+  --espresso:  #1E1008;
+  --bark:      #160C05;
+  --parchment: #F2E8D8;
+  --linen:     #E8D9C5;
+  --ink:       #1A1008;
+  --stone:     #87705A;
+  --coffee:    #7C5535;
+  --coffee-lt: #9A6A42;
+  --cream:     #EDE0CC;
 
   /* Keep old names pointing at new values */
-  --espresso:  #182118;
-  --beige:     #E9E3D8;
-  --gold:      #7B5920;
-  --charcoal:  #1A1814;
+  --forest:    #1E1008;
+  --earth:     #7C5535;
+  --earth-lt:  #9A6A42;
+  --gold:      #7C5535;
+  --charcoal:  #1A1008;
+  --beige:     #E8D9C5;
 
   scrollbar-width: thin;
-  scrollbar-color: var(--earth) transparent;
+  scrollbar-color: var(--coffee) transparent;
 }
 
 /* ── Resets ── */
@@ -89,15 +87,15 @@ body::before {
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background-color: var(--earth); border-radius: 9999px; }
-::-webkit-scrollbar-thumb:hover { background-color: var(--forest); }
+::-webkit-scrollbar-thumb { background-color: var(--coffee); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background-color: var(--espresso); }
 
 /* ── Selection ── */
-::selection { background-color: var(--earth); color: var(--parchment); }
-::-moz-selection { background-color: var(--earth); color: var(--parchment); }
+::selection { background-color: var(--coffee); color: var(--parchment); }
+::-moz-selection { background-color: var(--coffee); color: var(--parchment); }
 
 /* ── Focus ── */
-:focus-visible { outline: 2px solid var(--earth); outline-offset: 3px; border-radius: 2px; }
+:focus-visible { outline: 2px solid var(--coffee); outline-offset: 3px; border-radius: 2px; }
 
 /* ── Images ── */
 img { max-width: 100%; height: auto; display: block; }
@@ -126,11 +124,16 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Section vertical rhythm ── */
 .section-gap {
-  padding-top: clamp(4rem, 8vw, 7rem);
-  padding-bottom: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 10vw, 9rem);
+}
+
+/* Inter-section breathing room */
+.section-inner-gap > * + * {
+  margin-top: clamp(3rem, 5vw, 5rem);
 }
 
 /* ── Utility: text on dark backgrounds ── */
 .text-on-dark { color: var(--cream); }
 .text-on-dark-muted { color: rgba(237,230,216,0.55); }
-.accent { color: var(--earth); }
+.accent { color: var(--coffee); }

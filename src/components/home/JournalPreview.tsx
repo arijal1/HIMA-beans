@@ -34,7 +34,7 @@ const ARTICLES: Article[] = [
     readTime: '5 min read',
     slug: 'art-of-altitude-nepal-mountains-coffee',
     gradient:
-      'linear-gradient(135deg, #2D1B12 0%, #182118 40%, #4a3728 70%, #0F1710 100%)',
+      'linear-gradient(135deg, #2D1B12 0%, #1E1008 40%, #4a3728 70%, #160C05 100%)',
   },
   {
     id: 'a2',
@@ -45,7 +45,7 @@ const ARTICLES: Article[] = [
     readTime: '8 min read',
     slug: 'morning-in-gulmi-farmers-behind-your-cup',
     gradient:
-      'linear-gradient(135deg, #182118 0%, #5c3d28 50%, #182118 100%)',
+      'linear-gradient(135deg, #1E1008 0%, #5c3d28 50%, #1E1008 100%)',
   },
   {
     id: 'a3',
@@ -56,7 +56,7 @@ const ARTICLES: Article[] = [
     readTime: '6 min read',
     slug: 'brewing-guide-himalayan-specialty-beans',
     gradient:
-      'linear-gradient(135deg, #0F1710 0%, #2D1B12 60%, #182118 100%)',
+      'linear-gradient(135deg, #160C05 0%, #2D1B12 60%, #1E1008 100%)',
   },
 ];
 
@@ -65,9 +65,9 @@ const ARTICLES: Article[] = [
 // ---------------------------------------------------------------------------
 
 const CATEGORY_COLORS: Record<ArticleCategory, { bg: string; text: string }> = {
-  Origin: { bg: 'rgba(123,89,32,0.18)', text: '#7B5920' },
-  Culture: { bg: 'rgba(140,132,119,0.18)', text: '#6E675F' },
-  Brewing: { bg: 'rgba(24,33,24,0.18)', text: '#6E675F' },
+  Origin: { bg: 'rgba(123,89,32,0.18)', text: '#7C5535' },
+  Culture: { bg: 'rgba(140,132,119,0.18)', text: '#87705A' },
+  Brewing: { bg: 'rgba(30,16,8,0.18)', text: '#87705A' },
 };
 
 // ---------------------------------------------------------------------------
@@ -144,7 +144,7 @@ function ArticleImagePlaceholder({
             rx={60 + i * 30}
             ry={40 + i * 20}
             fill="none"
-            stroke="#F3EFE6"
+            stroke="#F2E8D8"
             strokeWidth="1"
             opacity={1 - i * 0.1}
           />
@@ -153,7 +153,7 @@ function ArticleImagePlaceholder({
       {/* Category watermark */}
       <span
         className="absolute bottom-4 right-4 text-[10px] tracking-[0.3em] uppercase opacity-30"
-        style={{ color: '#F3EFE6' }}
+        style={{ color: '#F2E8D8' }}
       >
         {category}
       </span>
@@ -210,7 +210,7 @@ function FeaturedArticleCard({ article }: { article: Article }) {
             <h3
               className="font-serif leading-[1.2] mb-2"
               style={{
-                color: '#F3EFE6',
+                color: '#F2E8D8',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(1.125rem, 3.5vw, 1.875rem)',
               }}
@@ -226,13 +226,13 @@ function FeaturedArticleCard({ article }: { article: Article }) {
             <div className="flex items-center justify-between flex-wrap gap-2">
               <span
                 className="text-xs tracking-[0.15em] uppercase"
-                style={{ color: '#7B5920' }}
+                style={{ color: '#7C5535' }}
               >
                 {article.readTime}
               </span>
               <span
                 className="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase transition-all duration-300 group-hover:gap-3"
-                style={{ color: '#7B5920' }}
+                style={{ color: '#7C5535' }}
               >
                 Read Article
                 <ArrowIcon />
@@ -296,7 +296,7 @@ function SecondaryArticleCard({ article, index }: SecondaryArticleCardProps) {
           <h3
             className="text-sm sm:text-base font-serif leading-snug mb-2 line-clamp-2"
             style={{
-              color: '#182118',
+              color: '#1E1008',
               fontFamily: '"Playfair Display", Georgia, serif',
             }}
           >
@@ -305,13 +305,13 @@ function SecondaryArticleCard({ article, index }: SecondaryArticleCardProps) {
           <div className="flex items-center gap-3 flex-wrap">
             <span
               className="text-xs tracking-[0.12em] uppercase"
-              style={{ color: '#6E675F' }}
+              style={{ color: '#87705A' }}
             >
               {article.readTime}
             </span>
             <span
               className="inline-flex items-center gap-1.5 text-xs tracking-[0.12em] uppercase transition-all duration-300 group-hover:gap-2.5"
-              style={{ color: '#7B5920' }}
+              style={{ color: '#7C5535' }}
             >
               Read
               <ArrowIcon />
@@ -333,7 +333,7 @@ export default function JournalPreview() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ background: '#F3EFE6' }}
+      style={{ background: '#F2E8D8' }}
       aria-labelledby="journal-heading"
     >
       {/* Top rule */}
@@ -341,7 +341,7 @@ export default function JournalPreview() {
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            'linear-gradient(90deg, transparent, #EDE6D8 30%, #EDE6D8 70%, transparent)',
+            'linear-gradient(90deg, transparent, #EDE0CC 30%, #EDE0CC 70%, transparent)',
         }}
         aria-hidden="true"
       />
@@ -360,7 +360,7 @@ export default function JournalPreview() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="text-xs tracking-[0.3em] uppercase mb-4"
-              style={{ color: '#7B5920' }}
+              style={{ color: '#7C5535' }}
             >
               Stories &amp; Craft
             </motion.p>
@@ -373,14 +373,14 @@ export default function JournalPreview() {
               transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="font-serif leading-[1.05]"
               style={{
-                color: '#182118',
+                color: '#1E1008',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
               }}
             >
               From the
               <br />
-              <em className="not-italic" style={{ color: '#6E675F' }}>
+              <em className="not-italic" style={{ color: '#87705A' }}>
                 Journal.
               </em>
             </motion.h2>
@@ -395,11 +395,11 @@ export default function JournalPreview() {
             <Link
               href="/journal"
               className="group inline-flex items-center gap-3 text-sm tracking-[0.15em] uppercase transition-colors duration-300"
-              style={{ color: '#7B5920' }}
+              style={{ color: '#7C5535' }}
             >
               <span
                 className="h-px w-8 transition-all duration-300 group-hover:w-14"
-                style={{ background: '#7B5920' }}
+                style={{ background: '#7C5535' }}
               />
               All Articles
               <ArrowIcon className="transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -421,7 +421,7 @@ export default function JournalPreview() {
                 {i > 0 && (
                   <span
                     className="block h-px my-5 sm:my-6"
-                    style={{ background: '#EDE6D8' }}
+                    style={{ background: '#EDE0CC' }}
                     aria-hidden="true"
                   />
                 )}
@@ -436,11 +436,11 @@ export default function JournalPreview() {
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="mt-8 sm:mt-10 pt-6 sm:pt-8"
-              style={{ borderTop: '1px solid #EDE6D8' }}
+              style={{ borderTop: '1px solid #EDE0CC' }}
             >
               <p
                 className="text-sm leading-relaxed mb-4"
-                style={{ color: '#6E675F' }}
+                style={{ color: '#87705A' }}
               >
                 Origin stories, brewing guides, and the people who grow the world&apos;s
                 most underrated specialty coffee — all in the Hima Beans Journal.
@@ -448,7 +448,7 @@ export default function JournalPreview() {
               <Link
                 href="/journal"
                 className="group inline-flex items-center gap-3 px-5 sm:px-6 py-3 text-sm tracking-[0.12em] uppercase font-medium transition-all duration-200 hover:opacity-90"
-                style={{ background: '#182118', color: '#F3EFE6' }}
+                style={{ background: '#1E1008', color: '#F2E8D8' }}
               >
                 Explore All Stories
                 <ArrowIcon className="transition-transform duration-300 group-hover:translate-x-1.5" />

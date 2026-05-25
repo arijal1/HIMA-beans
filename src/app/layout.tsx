@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import { LangProvider } from '@/context/lang';
 
 /* ============================================================
    Fonts
@@ -93,7 +94,7 @@ export const metadata: Metadata = {
    Viewport
    ============================================================ */
 export const viewport: Viewport = {
-  themeColor: "#0F1710",
+  themeColor: "#160C05",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -164,9 +165,9 @@ export default function RootLayout({
 
       <body
         className="min-h-dvh flex flex-col relative"
-        style={{ backgroundColor: "#F3EFE6" }}
+        style={{ backgroundColor: "#F2E8D8" }}
       >
-        {children}
+        <LangProvider>{children}</LangProvider>
       </body>
     </html>
   );
