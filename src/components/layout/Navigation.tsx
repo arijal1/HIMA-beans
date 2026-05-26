@@ -85,7 +85,7 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      className="relative group text-[#DDD5CA] text-[11px] tracking-[0.18em] font-normal uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
+      className="relative group text-white text-[11px] tracking-[0.18em] font-semibold uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
       aria-current={isActive ? 'page' : undefined}
     >
       <span className="relative">
@@ -183,7 +183,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="site-container h-[68px] flex items-center justify-between gap-4"
+          className="max-w-[1100px] mx-auto h-[68px] flex items-center justify-between gap-4 pl-3 sm:pl-5 lg:pl-6 pr-[clamp(1.5rem,6vw,4rem)]"
           aria-label="Main navigation"
         >
           {/* Logo */}
