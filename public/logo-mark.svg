@@ -1,68 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 45 385 332" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="70 38 360 348" fill="none">
 
   <!-- Gold outer circle ring -->
-  <circle cx="250" cy="205" r="155" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+  <circle cx="250" cy="210" r="168" fill="none" stroke="#C9A84C" stroke-width="3.5"/>
 
-  <!-- Nepal map outline (inside circle, subtle) -->
+  <!-- Nepal map outline -->
   <path d="
-    M 178,154
-    C 185,147 198,150 212,146
-    C 224,142 236,146 250,143
-    C 263,140 276,144 290,141
-    C 303,138 316,142 330,139
-    L 344,145 L 352,156 L 354,170 L 351,182
-    C 337,186 322,183 308,186
-    C 294,188 280,185 266,188
-    C 252,190 238,187 224,189
-    C 210,191 196,188 184,185
-    L 175,175 L 174,162 Z"
-    fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.42"/>
+    M 108,182
+    C 115,175 132,172 150,169 C 165,167 180,169 195,166
+    C 209,163 223,166 238,163 C 252,160 266,163 280,160
+    C 294,157 308,160 322,157 C 336,155 350,158 363,162
+    L 376,168 L 382,179 L 383,193
+    C 368,198 351,194 334,197 C 317,200 300,196 284,199
+    C 268,202 252,198 235,201 C 219,204 202,200 187,197
+    C 171,194 155,197 140,194
+    L 126,190 L 113,187 Z"
+    fill="none" stroke="#C9A84C" stroke-width="1.3" opacity="0.55"/>
 
   <!-- Mountain silhouette -->
   <path d="
-    M 63,368
-    L 115,312 L 130,323 L 142,310 L 154,320
-    L 170,272 L 180,283 L 188,271 L 197,281 L 203,270
-    L 218,248 L 225,257 L 232,247
-    L 250,208
-    L 268,247 L 275,257 L 282,248
-    L 298,268 L 308,259 L 318,270 L 326,261
-    L 343,250 L 352,261 L 362,252 L 372,262 L 380,254
-    L 397,286 L 412,298 L 426,316 L 437,368
+    M 78,378
+    L 96,356 L 104,363 L 111,352 L 118,360 L 124,347
+    L 137,322 L 143,332 L 150,319 L 156,329 L 162,316
+    L 176,291 L 182,301 L 190,285 L 196,295 L 204,278
+    L 218,258 L 224,268 L 231,252 L 238,248
+    L 250,152
+    L 262,248 L 269,252 L 276,268 L 282,258
+    L 296,278 L 304,295 L 310,285 L 318,301 L 324,291
+    L 338,316 L 344,329 L 350,319 L 357,332 L 363,322
+    L 376,347 L 382,360 L 389,352 L 396,363 L 404,356
+    L 422,378
     Z"
     fill="#2C1608"/>
 
   <!-- Snow cap — centre peak -->
-  <path d="M 250,208 L 237,236 L 242,230 L 244,240 L 250,232 L 256,240 L 258,230 L 263,236 Z"
+  <path d="M 250,152 L 236,187 L 240,179 L 244,193 L 250,183 L 256,193 L 260,179 L 264,187 Z"
         fill="#FFFFFF"/>
 
-  <!-- Snow — left ridge -->
-  <path d="M 170,272 C 175,279 180,274 185,280 C 190,285 196,279 202,285"
-        stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <!-- Snow streaks — left ridges -->
+  <path d="M 176,291 C 181,299 187,293 193,301 C 198,308 204,302 210,309"
+        stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 218,258 C 223,266 229,260 234,268"
+        stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 
-  <!-- Snow — right ridge -->
-  <path d="M 343,250 C 349,257 354,252 360,258 C 365,263 371,258 377,264"
-        stroke="#FFFFFF" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <!-- Snow streaks — right ridges -->
+  <path d="M 266,268 C 271,260 277,266 282,258"
+        stroke="#FFFFFF" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+  <path d="M 290,309 C 296,302 302,308 307,301 C 313,293 319,299 324,291"
+        stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Rocky texture lines — left face -->
+  <line x1="244" y1="170" x2="230" y2="210" stroke="#3d1a08" stroke-width="1" opacity="0.5"/>
+  <line x1="238" y1="195" x2="220" y2="240" stroke="#3d1a08" stroke-width="1" opacity="0.45"/>
+  <line x1="228" y1="228" x2="210" y2="265" stroke="#3d1a08" stroke-width="1" opacity="0.4"/>
+
+  <!-- Rocky texture lines — right face -->
+  <line x1="256" y1="170" x2="270" y2="210" stroke="#3d1a08" stroke-width="1" opacity="0.5"/>
+  <line x1="262" y1="195" x2="280" y2="240" stroke="#3d1a08" stroke-width="1" opacity="0.45"/>
+  <line x1="272" y1="228" x2="290" y2="265" stroke="#3d1a08" stroke-width="1" opacity="0.4"/>
 
   <!-- Coffee bean -->
-  <ellipse cx="250" cy="324" rx="19" ry="28" transform="rotate(-8 250 324)" fill="#3D2010"/>
-  <path d="M 244,298 C 251,308 247,317 253,330 C 257,338 251,345 247,352"
-        stroke="#C9A84C" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="250" cy="320" rx="21" ry="31" transform="rotate(-8 250 320)" fill="#3D2010"/>
+  <path d="M 243,291 C 252,304 247,315 254,331 C 259,341 252,350 248,358"
+        stroke="#C9A84C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 
   <!-- Coffee cup body -->
-  <path d="M 229,192 L 233,214 L 267,214 L 271,192 Z" fill="#C9A84C"/>
-  <ellipse cx="250" cy="192" rx="21" ry="4.5" fill="#A87C28"/>
-  <ellipse cx="250" cy="214" rx="17" ry="3.5" fill="#A87C28"/>
-  <path d="M 267,200 C 282,200 285,207 282,212 C 279,217 267,216 267,216"
-        fill="none" stroke="#C9A84C" stroke-width="3.5" stroke-linecap="round"/>
-  <ellipse cx="250" cy="217" rx="27" ry="5.5" fill="#A87C28"/>
+  <path d="M 226,138 L 231,166 L 269,166 L 274,138 Z" fill="#C9A84C"/>
+  <ellipse cx="250" cy="138" rx="24" ry="5.5" fill="#9B7020"/>
+  <ellipse cx="250" cy="166" rx="19" ry="4.5" fill="#9B7020"/>
+  <path d="M 269,147 C 288,147 292,157 289,164 C 286,171 269,169 269,169"
+        fill="none" stroke="#C9A84C" stroke-width="4.5" stroke-linecap="round"/>
+  <ellipse cx="250" cy="170" rx="30" ry="6.5" fill="#9B7020"/>
 
-  <!-- Steam -->
-  <path d="M 237,182 C 234,171 239,161 235,150 C 232,140 236,130 233,120"
-        fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-  <path d="M 250,179 C 254,167 249,155 253,143 C 257,131 252,120 255,110"
-        fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-  <path d="M 263,182 C 266,171 261,161 265,150 C 268,140 264,130 267,120"
-        fill="none" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+  <!-- Steam wisps -->
+  <path d="M 236,128 C 232,115 238,101 233,88 C 228,75 234,63 230,51"
+        fill="none" stroke="#C9A84C" stroke-width="2.3" stroke-linecap="round"/>
+  <path d="M 250,125 C 255,111 249,97 254,84 C 259,71 253,59 257,47"
+        fill="none" stroke="#C9A84C" stroke-width="2.3" stroke-linecap="round"/>
+  <path d="M 264,128 C 268,115 262,101 267,88 C 272,75 266,63 270,51"
+        fill="none" stroke="#C9A84C" stroke-width="2.3" stroke-linecap="round"/>
 
 </svg>
