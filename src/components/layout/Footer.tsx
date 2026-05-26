@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLang } from '@/context/lang';
@@ -79,22 +80,15 @@ export default function Footer() {
           <Link
             href="/"
             aria-label="HIMA BEANS – Home"
-            style={{ display: 'inline-flex', flexDirection: 'column', gap: '0.35rem', width: 'fit-content' }}
+            style={{ display: 'inline-block', width: 'fit-content' }}
           >
-            <span
-              style={{
-                fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
-                fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                color: '#D9DFDC',
-                letterSpacing: '0.08em',
-                lineHeight: 1,
-              }}
-            >
-              HIMA BEANS
-            </span>
-            <span style={{ fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#D4A55A', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
-              Nepal &rarr; Australia
-            </span>
+            <Image
+              src="/logo.svg"
+              alt="HIMA BEANS — Crafted Above the Clouds"
+              width={148}
+              height={168}
+              style={{ display: 'block' }}
+            />
           </Link>
 
           {/* Nav links */}

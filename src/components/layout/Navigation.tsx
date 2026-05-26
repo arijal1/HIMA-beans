@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
@@ -190,18 +191,28 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col items-start group flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
+            className="flex items-center gap-3 group flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
             aria-label="HIMA BEANS — Home"
           >
-            <span
-              className="text-[#F6F1E9] text-xl md:text-[22px] tracking-[0.12em] leading-none transition-opacity duration-300 group-hover:opacity-75"
-              style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
-            >
-              HIMA BEANS
-            </span>
-            <span className="hidden min-[380px]:block text-[#D4A55A] text-[7.5px] tracking-[0.28em] uppercase mt-[5px] leading-none opacity-75">
-              {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
-            </span>
+            <Image
+              src="/logo-mark.svg"
+              alt="HIMA BEANS"
+              width={48}
+              height={41}
+              className="transition-opacity duration-300 group-hover:opacity-80"
+              priority
+            />
+            <div className="flex flex-col items-start">
+              <span
+                className="text-[#F6F1E9] text-xl md:text-[22px] tracking-[0.12em] leading-none transition-opacity duration-300 group-hover:opacity-75"
+                style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
+              >
+                HIMA BEANS
+              </span>
+              <span className="hidden min-[380px]:block text-[#D4A55A] text-[7.5px] tracking-[0.28em] uppercase mt-[5px] leading-none opacity-75">
+                {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
+              </span>
+            </div>
           </Link>
 
           {/* Desktop nav */}
