@@ -728,37 +728,41 @@ export default function WholesalePage() {
         className="py-12 sm:py-16 md:py-24"
         style={{ backgroundColor: '#F6F1E9' }}
       >
-        <div className="max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
-          <div className="text-center mb-14">
+        <div className="site-container">
+          <div className="text-center mb-14 max-w-xl mx-auto">
             <p className="font-sans text-[#D4A55A] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Get in Touch
             </p>
             <h2 className="font-serif text-4xl md:text-5xl text-[#1F4D4F] font-bold leading-tight mb-4">
               Wholesale Enquiry
             </h2>
-            <p className="font-sans text-[#6B7F7E] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6B7F7E] text-base leading-relaxed">
               Fill in the form below and your dedicated account manager will contact you within one
               business day.
             </p>
           </div>
-          <WholesaleForm />
+          <div className="max-w-3xl mx-auto">
+            <WholesaleForm />
+          </div>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-12 sm:py-16 md:py-24 max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] lg:px-12">
-        <div className="text-center mb-10 md:mb-14">
-          <p className="font-sans text-[#D4A55A] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
-            Common Questions
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-[#1F4D4F] font-bold leading-tight">
-            FAQ
-          </h2>
-        </div>
-        <div className="divide-y divide-[rgba(26,46,47,0.08)]">
-          {FAQS.map((faq, i) => (
-            <FAQItem key={faq.question} faq={faq} index={i} />
-          ))}
+      <section className="py-12 sm:py-16 md:py-24" style={{ backgroundColor: '#D9DFDC' }}>
+        <div className="site-container">
+          <div className="text-center mb-10 md:mb-14 max-w-xl mx-auto">
+            <p className="font-sans text-[#D4A55A] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              Common Questions
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl text-[#1F4D4F] font-bold leading-tight">
+              FAQ
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto divide-y divide-[rgba(26,46,47,0.08)]">
+            {FAQS.map((faq, i) => (
+              <FAQItem key={faq.question} faq={faq} index={i} />
+            ))}
+          </div>
         </div>
       </section>
 
