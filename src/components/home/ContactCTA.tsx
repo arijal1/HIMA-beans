@@ -2,8 +2,11 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLang } from '@/context/lang';
 
 export default function ContactCTA() {
+  const { lang } = useLang();
+
   return (
     <section style={{ backgroundColor: '#1F4D4F' }} className="section-gap">
       <div className="site-container text-center">
@@ -16,7 +19,7 @@ export default function ContactCTA() {
           className="text-[10px] tracking-[0.4em] uppercase mb-5"
           style={{ color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
-          Get in Touch
+          {lang === 'EN' ? 'Get in Touch' : 'सम्पर्कमा आउनुहोस्'}
         </motion.p>
 
         <motion.h2
@@ -32,7 +35,7 @@ export default function ContactCTA() {
             maxWidth: '560px',
           }}
         >
-          Ready to Taste the Clouds?
+          {lang === 'EN' ? 'Ready to Taste the Clouds?' : 'बादलको स्वाद लिन तयार हुनुहुन्छ?'}
         </motion.h2>
 
         <motion.p
@@ -48,7 +51,9 @@ export default function ContactCTA() {
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
         >
-          Whether you&apos;re a café owner, a coffee lover, or simply curious — we&apos;d love to hear from you.
+          {lang === 'EN'
+            ? "Whether you're a café owner, a coffee lover, or simply curious — we'd love to hear from you."
+            : 'तपाईं क्याफे मालिक हुनुहोस्, कफी प्रेमी हुनुहोस्, वा केवल जिज्ञासु — हामी तपाईंबाट सुन्न चाहन्छौं।'}
         </motion.p>
 
         <motion.div
@@ -68,7 +73,7 @@ export default function ContactCTA() {
               minWidth: '180px',
             }}
           >
-            Contact Us
+            {lang === 'EN' ? 'Contact Us' : 'सम्पर्क गर्नुहोस्'}
           </Link>
           <Link
             href="/wholesale"
@@ -80,7 +85,7 @@ export default function ContactCTA() {
               minWidth: '180px',
             }}
           >
-            Wholesale Inquiry
+            {lang === 'EN' ? 'Wholesale Inquiry' : 'थोक सोधपुछ'}
           </Link>
         </motion.div>
 

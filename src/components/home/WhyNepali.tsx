@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLang } from '@/context/lang';
 
 // ---------------------------------------------------------------------------
 // SVG Icons
@@ -133,29 +134,6 @@ interface Feature {
   description: string;
 }
 
-const FEATURES: Feature[] = [
-  {
-    icon: <MountainIcon />,
-    heading: 'High Altitude',
-    subheading: '2000m+',
-    description:
-      "Nepal's coffee grows at extraordinary elevations where cool nights and warm days force beans to develop slowly, concentrating natural sugars and building complex, layered flavors that lowland varieties simply cannot replicate.",
-  },
-  {
-    icon: <HandIcon />,
-    heading: 'Hand Picked',
-    subheading: 'Artisan Harvest',
-    description:
-      'Small family farms across Gulmi, Palpa, and Syangja harvest each cherry by hand, selecting only ripe fruit at peak sweetness. This meticulous, generational care translates directly into every cup.',
-  },
-  {
-    icon: <BeanIcon />,
-    heading: 'Rare Origin',
-    subheading: "Nepal's Best-Kept Secret",
-    description:
-      "Nepal's specialty coffee scene is one of the world's most exciting emerging origins. Fewer than 0.1% of global coffee drinkers have tasted it — until now. Each cup is a genuine, traceable discovery.",
-  },
-];
 
 // ---------------------------------------------------------------------------
 // Animation variants
@@ -254,6 +232,49 @@ function FeatureCard({ feature, index }: FeatureCardProps) {
 // ---------------------------------------------------------------------------
 
 export default function WhyNepali() {
+  const { lang } = useLang();
+
+  const FEATURES: Feature[] = [
+    {
+      icon: <MountainIcon />,
+      heading: lang === 'EN' ? 'High Altitude' : 'उच्च उचाइ',
+      subheading: lang === 'EN' ? '2000m+' : '२०००मि+',
+      description: lang === 'EN'
+        ? "Nepal's coffee grows at extraordinary elevations where cool nights and warm days force beans to develop slowly, concentrating natural sugars and building complex, layered flavors that lowland varieties simply cannot replicate."
+        : "नेपालको कफी असाधारण उचाइमा बढ्छ जहाँ चिसो रातहरू र तातो दिनहरूले बिनहरूलाई बिस्तारै परिपक्व हुन बाध्य पार्छन्, प्राकृतिक चिनीहरू सङ्कलित गर्दै जटिल स्वादहरू विकास गर्दछन् जो तल्लो उचाइका किस्महरूले पुनःनिर्माण गर्न सक्दैनन्।",
+    },
+    {
+      icon: <HandIcon />,
+      heading: lang === 'EN' ? 'Hand Picked' : 'हातले टिपिएको',
+      subheading: lang === 'EN' ? 'Artisan Harvest' : 'कारीगर कटाइ',
+      description: lang === 'EN'
+        ? 'Small family farms across Gulmi, Palpa, and Syangja harvest each cherry by hand, selecting only ripe fruit at peak sweetness. This meticulous, generational care translates directly into every cup.'
+        : 'गुल्मी, पाल्पा र स्याङ्जाका साना पारिवारिक खेतहरूले हरेक चेरी हातले टिप्छन्, केवल पूर्ण पाकेको फल मात्र छान्छन्। यो सूक्ष्म, पुस्तान्तरित सेवा प्रत्येक कपमा सीधा प्रतिबिम्बित हुन्छ।',
+    },
+    {
+      icon: <BeanIcon />,
+      heading: lang === 'EN' ? 'Rare Origin' : 'दुर्लभ उत्पत्ति',
+      subheading: lang === 'EN' ? "Nepal's Best-Kept Secret" : 'नेपालको सर्वोत्तम रहस्य',
+      description: lang === 'EN'
+        ? "Nepal's specialty coffee scene is one of the world's most exciting emerging origins. Fewer than 0.1% of global coffee drinkers have tasted it — until now. Each cup is a genuine, traceable discovery."
+        : "नेपालको विशेष कफी दृश्य संसारका सबैभन्दा रोमाञ्चक उभरँदो उत्पत्तिहरूमध्ये एक हो। विश्वका ०.१% भन्दा कम कफी पिउनेहरूले यो चाखेका छन् — अहिलेसम्म। हरेक कप एक वास्तविक, पत्ता लगाउन सकिने खोज हो।",
+    },
+  ];
+
+  const STATS_DATA = lang === 'EN'
+    ? [
+        { value: '2100m', label: 'Max Elevation' },
+        { value: '3', label: 'Sourced Regions' },
+        { value: '100%', label: 'Hand Picked' },
+        { value: '<0.1%', label: 'Global Supply' },
+      ]
+    : [
+        { value: '२१००मि', label: 'अधिकतम उचाइ' },
+        { value: '३', label: 'स्रोत क्षेत्रहरू' },
+        { value: '१००%', label: 'हातले टिपिएको' },
+        { value: '<०.१%', label: 'विश्व आपूर्ति' },
+      ];
+
   return (
     <section
       className="relative overflow-hidden"
@@ -301,7 +322,7 @@ export default function WhyNepali() {
             className="text-[10px] tracking-[0.4em] uppercase mb-5 sm:mb-6"
             style={{ color: '#D4A55A' }}
           >
-            Origin &middot; Craft &middot; Excellence
+            {lang === 'EN' ? 'Origin · Craft · Excellence' : 'उत्पत्ति · कारीगरी · उत्कृष्टता'}
           </motion.p>
 
           {/* Main heading */}
@@ -316,9 +337,9 @@ export default function WhyNepali() {
               fontSize: 'clamp(2rem, 6vw, 4.5rem)',
             }}
           >
-            Why Nepali
+            {lang === 'EN' ? 'Why Nepali' : 'नेपाली कफी'}
             <br />
-            <em style={{ fontStyle: 'italic', color: '#D4A55A' }}>Coffee?</em>
+            <em style={{ fontStyle: 'italic', color: '#D4A55A' }}>{lang === 'EN' ? 'Coffee?' : 'किन?'}</em>
           </motion.h2>
 
           {/* Gold rule */}
@@ -335,12 +356,7 @@ export default function WhyNepali() {
             className="text-base sm:text-lg md:text-xl leading-[1.8] font-light"
             style={{ color: '#6B7F7E' }}
           >
-            The Himalayas have shaped some of the world&rsquo;s most dramatic landscapes —
-            and some of its most extraordinary coffee. Grown between 1,400&nbsp;m and
-            2,100&nbsp;m, Nepali beans develop a density and flavor complexity that
-            lower-altitude origins simply cannot match. Combined with generations of farming
-            wisdom passed through small family cooperatives, what arrives in your cup is
-            something genuinely rare.
+            {lang === 'EN' ? "The Himalayas have shaped some of the world's most dramatic landscapes — and some of its most extraordinary coffee. Grown between 1,400 m and 2,100 m, Nepali beans develop a density and flavor complexity that lower-altitude origins simply cannot match. Combined with generations of farming wisdom passed through small family cooperatives, what arrives in your cup is something genuinely rare." : "हिमालयले संसारका सबैभन्दा नाटकीय भू-दृश्यहरू मात्र होइन — उत्कृष्ट कफी पनि निर्माण गरेको छ। १,४०० मि. देखि २,१०० मि. बीच उब्जेका नेपाली बिनहरूमा यस्तो घनत्व र स्वाद-जटिलता हुन्छ जो तल्लो उचाइका उत्पत्तिहरूले मेल खाउन सक्दैनन्। सानो पारिवारिक सहकारीहरूद्वारा पुस्तौंदेखि हस्तान्तरित खेती ज्ञानसँग जोड्दा, तपाईंको कपमा आउने चिज साँच्चिकै दुर्लभ छ।"}
           </motion.p>
         </motion.div>
 
@@ -354,7 +370,7 @@ export default function WhyNepali() {
           style={{ backgroundColor: 'rgba(212,165,90,0.13)' }}
         >
           {FEATURES.map((feature, i) => (
-            <FeatureCard key={feature.heading} feature={feature} index={i} />
+            <FeatureCard key={i} feature={feature} index={i} />
           ))}
         </motion.div>
 
@@ -367,14 +383,9 @@ export default function WhyNepali() {
           className="mt-10 sm:mt-14 lg:mt-20 grid grid-cols-2 md:grid-cols-4 gap-px"
           style={{ backgroundColor: 'rgba(212,165,90,0.08)' }}
         >
-          {[
-            { value: '2100m', label: 'Max Elevation' },
-            { value: '3', label: 'Sourced Regions' },
-            { value: '100%', label: 'Hand Picked' },
-            { value: '<0.1%', label: 'Global Supply' },
-          ].map(({ value, label }) => (
+          {STATS_DATA.map(({ value, label }, i) => (
             <motion.div
-              key={label}
+              key={i}
               variants={headingVariants}
               className="flex flex-col gap-1.5 sm:gap-2 p-5 sm:p-8 md:p-10"
               style={{ backgroundColor: '#1A2E2F' }}

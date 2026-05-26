@@ -9,6 +9,7 @@ import {
   Variants,
 } from 'framer-motion';
 import MagneticButton from '@/components/ui/MagneticButton';
+import { useLang } from '@/context/lang';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Constants
@@ -239,7 +240,7 @@ function AnimatedHeadline({ line }: { line: string }) {
 // Scroll Indicator — animated mouse + chevron
 // ─────────────────────────────────────────────────────────────────────────────
 
-function ScrollIndicator() {
+function ScrollIndicator({ lang }: { lang: string }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -270,7 +271,7 @@ function ScrollIndicator() {
           fontFamily: 'var(--font-inter), Inter, sans-serif',
         }}
       >
-        Scroll
+        {lang === 'EN' ? 'Scroll' : 'स्क्रोल'}
       </span>
 
       {/* Mouse outline */}
@@ -324,6 +325,7 @@ function ScrollIndicator() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export default function Hero() {
+  const { lang } = useLang();
   const sectionRef = useRef<HTMLElement>(null);
 
   const { scrollY } = useScroll();
@@ -448,7 +450,7 @@ export default function Hero() {
                 fontWeight: 500,
               }}
             >
-              Est. 2024 · Nepal → Australia
+              {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
             </span>
             <span
               aria-hidden="true"
@@ -475,7 +477,7 @@ export default function Hero() {
           >
             {/* Line 1 — cream */}
             <span style={{ display: 'block', color: '#F6F1E9' }}>
-              <AnimatedHeadline line="Crafted Above" />
+              <AnimatedHeadline line={lang === 'EN' ? 'Crafted Above' : 'बादलभन्दा'} />
             </span>
             {/* Line 2 — cream italic */}
             <span
@@ -485,7 +487,7 @@ export default function Hero() {
                 fontStyle: 'italic',
               }}
             >
-              <AnimatedHeadline line="the Clouds" />
+              <AnimatedHeadline line={lang === 'EN' ? 'the Clouds' : 'माथि निर्मित'} />
             </span>
           </motion.h1>
 
@@ -502,7 +504,7 @@ export default function Hero() {
               fontWeight: 400,
             }}
           >
-            Single-origin specialty coffee from Nepal&apos;s Himalayan highlands — sourced above 2,000 metres, roasted in Melbourne.
+            {lang === 'EN' ? "Single-origin specialty coffee from Nepal's Himalayan highlands — sourced above 2,000 metres, roasted in Melbourne." : "नेपालको हिमालयन उपत्यकाबाट एकल-उत्पत्तिको विशेष कफी — २,०००  मिटरभन्दा माथि सङ्कलित, मेलबर्नमा भुटिएको।"}
           </motion.p>
 
           {/* ── Intimate Quote ────────────────────────────────────────────── */}
@@ -518,7 +520,7 @@ export default function Hero() {
               maxWidth: '400px',
             }}
           >
-            &ldquo;Every cup carries a story 2,000 metres high.&rdquo;
+            {lang === 'EN' ? '"Every cup carries a story 2,000 metres high."' : '"हरेक कपले २,०००  मिटर उचाइको कथा बोक्छ।"'}
           </motion.p>
 
           {/* ── CTA Buttons ───────────────────────────────────────────────── */}
@@ -560,7 +562,7 @@ export default function Hero() {
                   (e.currentTarget as HTMLAnchorElement).style.background = '#D4A55A';
                 }}
               >
-                Explore Our Beans
+                {lang === 'EN' ? 'Explore Our Beans' : 'हाम्रा बिनहरू अन्वेषण गर्नुहोस्'}
               </a>
             </MagneticButton>
 
@@ -595,7 +597,7 @@ export default function Hero() {
                   el.style.background = 'transparent';
                 }}
               >
-                Our Story
+                {lang === 'EN' ? 'Our Story' : 'हाम्रो कथा'}
               </a>
             </MagneticButton>
           </motion.div>
@@ -603,7 +605,7 @@ export default function Hero() {
       </motion.div>
 
       {/* ── Scroll Indicator ────────────────────────────────────────────────── */}
-      <ScrollIndicator />
+      <ScrollIndicator lang={lang} />
 
       {/* ── Bottom vignette — blends into next section ──────────────────────── */}
       <div

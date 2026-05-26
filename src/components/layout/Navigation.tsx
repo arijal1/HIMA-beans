@@ -184,7 +184,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="max-w-[1100px] mx-auto h-[68px] flex items-center justify-between gap-4 pl-5 sm:pl-8 lg:pl-10 pr-[clamp(1.5rem,6vw,4rem)]"
+          className="max-w-[1100px] mx-auto h-[68px] flex items-center justify-between gap-4 pl-8 sm:pl-12 lg:pl-14 pr-[clamp(1.5rem,6vw,4rem)]"
           aria-label="Main navigation"
         >
           {/* Logo */}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLang } from '@/context/lang';
 
 const fade = (delay = 0) => ({
   hidden: { opacity: 0, y: 20 },
@@ -12,13 +13,21 @@ const fade = (delay = 0) => ({
   },
 });
 
-const STATS = [
-  { value: '150+', label: 'Farming families' },
-  { value: '2,000m', label: 'Average altitude' },
-  { value: '0', label: 'Intermediaries' },
-] as const;
-
 export default function HomeStory() {
+  const { lang } = useLang();
+
+  const STATS = lang === 'EN'
+    ? [
+        { value: '150+',   label: 'Farming families' },
+        { value: '2,000m', label: 'Average altitude' },
+        { value: '0',      label: 'Intermediaries' },
+      ]
+    : [
+        { value: '१५०+',    label: 'किसान परिवारहरू' },
+        { value: '२,०००मि', label: 'औसत उचाइ' },
+        { value: '०',       label: 'बिचौलिया' },
+      ];
+
   return (
     <section style={{ backgroundColor: '#355E3B' }} className="section-gap">
       <div className="site-container">
@@ -32,7 +41,7 @@ export default function HomeStory() {
           className="text-[10px] tracking-[0.4em] uppercase text-center mb-8"
           style={{ color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
-          Nepal · 2,000m above sea level
+          {lang === 'EN' ? 'Nepal · 2,000m above sea level' : 'नेपाल · समुद्र सतहभन्दा २,०००मी माथि'}
         </motion.p>
 
         {/* Quote */}
@@ -51,8 +60,9 @@ export default function HomeStory() {
               fontSize: 'clamp(1.4rem, 3.5vw, 2.25rem)',
             }}
           >
-            "The best coffee in the world grows where the air is thinnest,
-            the nights are coldest, and the farmers know every tree by name."
+            {lang === 'EN'
+              ? '"The best coffee in the world grows where the air is thinnest, the nights are coldest, and the farmers know every tree by name."'
+              : '"संसारको उत्तम कफी त्यहाँ उब्जन्छ जहाँ हावा सबैभन्दा पातलो छ, रातहरू सबैभन्दा चिसो छन्, र किसानहरूले हरेक रूखलाई नामले चिन्छन्।"'}
           </p>
         </motion.blockquote>
 
@@ -79,9 +89,9 @@ export default function HomeStory() {
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
         >
-          Our farming families in Gulmi, Palpa and Syangja have grown coffee above 1,800 metres
-          for generations. We buy directly from them — no brokers, no compromises — and bring
-          their work to your cup.
+          {lang === 'EN'
+            ? 'Our farming families in Gulmi, Palpa and Syangja have grown coffee above 1,800 metres for generations. We buy directly from them — no brokers, no compromises — and bring their work to your cup.'
+            : 'हाम्रा गुल्मी, पाल्पा र स्याङ्जाका किसान परिवारहरूले पुस्तौंदेखि १,८०० मिटरभन्दा माथि कफी उमार्दै आएका छन्। हामी सीधै उनीहरूसँग किन्छौं — कुनै बिचौलिया छैन — र उनीहरूको मेहनत तपाईंको कपमा ल्याउँछौं।'}
         </motion.p>
 
         {/* Stats */}
@@ -127,7 +137,7 @@ export default function HomeStory() {
             className="inline-flex items-center gap-3 text-[#F6F1E9] text-[11px] tracking-[0.25em] uppercase hover:text-[#D4A55A] transition-colors duration-300 group"
             style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
           >
-            Our Story
+            {lang === 'EN' ? 'Our Story' : 'हाम्रो कथा'}
             <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
           </Link>
         </motion.div>

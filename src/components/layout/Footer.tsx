@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLang } from '@/context/lang';
 
 /* ── SVG icons ── */
 function IconInstagram({ size = 16 }: { size?: number }) {
@@ -32,15 +33,15 @@ function IconLinkedin({ size = 16 }: { size?: number }) {
 
 /* ── Link data ── */
 const NAV_LINKS = [
-  { label: 'Home',           href: '/' },
-  { label: 'Products',       href: '/beans' },
-  { label: 'About',          href: '/about' },
-  { label: 'Sustainability', href: '/sustainability' },
-  { label: 'Wholesale',      href: '/wholesale' },
-  { label: 'Journal',        href: '/journal' },
-  { label: 'FAQ',            href: '/faq' },
-  { label: 'Contact',        href: '/contact' },
-] as const;
+  { label: 'Home',           labelNP: 'गृहपृष्ठ',    href: '/' },
+  { label: 'Products',       labelNP: 'उत्पादनहरू',  href: '/beans' },
+  { label: 'About',          labelNP: 'हाम्रो बारे', href: '/about' },
+  { label: 'Sustainability', labelNP: 'दिगोपन',       href: '/sustainability' },
+  { label: 'Wholesale',      labelNP: 'थोक',          href: '/wholesale' },
+  { label: 'Journal',        labelNP: 'पत्रिका',      href: '/journal' },
+  { label: 'FAQ',            labelNP: 'सामान्य प्रश्न', href: '/faq' },
+  { label: 'Contact',        labelNP: 'सम्पर्क',      href: '/contact' },
+];
 
 const SOCIAL_LINKS = [
   { label: 'Instagram', href: 'https://instagram.com/himabeans',            Icon: IconInstagram },
@@ -51,6 +52,7 @@ const SOCIAL_LINKS = [
 /* ── Footer ── */
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { lang } = useLang();
 
   return (
     <footer
@@ -122,7 +124,7 @@ export default function Footer() {
                     onMouseEnter={e => (e.currentTarget.style.color = '#D9DFDC')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(237,230,216,0.45)')}
                   >
-                    {link.label}
+                    {lang === 'EN' ? link.label : link.labelNP}
                   </Link>
                   {i < NAV_LINKS.length - 1 && (
                     <span aria-hidden="true" style={{ color: 'rgba(212,165,90,0.35)', margin: '0 0.75rem', fontSize: '10px' }}>
@@ -158,8 +160,9 @@ export default function Footer() {
               letterSpacing: '0.02em',
             }}
           >
-            Single-origin specialty coffee from the high-altitude Himalayan farms of Nepal,
-            above 2,000 m — delivered to Australian cups with care.
+            {lang === 'EN'
+              ? 'Single-origin specialty coffee from the high-altitude Himalayan farms of Nepal, above 2,000 m — delivered to Australian cups with care.'
+              : 'नेपालका उच्च-उचाइका हिमालयन खेतबाट, २,०००मि. माथिबाट एकल-उत्पत्तिको विशेष कफी — अस्ट्रेलियाली कपहरूमा ध्यानपूर्वक पुर्‍याइएको।'}
           </p>
 
           <div
