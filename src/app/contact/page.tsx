@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import { useLang } from '@/context/lang';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    Types
@@ -70,6 +71,7 @@ function Field({
 ───────────────────────────────────────────────────────────────────────────── */
 
 export default function ContactPage() {
+  const { lang } = useLang();
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -82,10 +84,10 @@ export default function ContactPage() {
 
   const validate = () => {
     const e: Partial<FormState> = {};
-    if (!form.name.trim()) e.name = 'Required';
+    if (!form.name.trim()) e.name = lang === 'EN' ? 'Required' : 'आवश्यक छ';
     if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      e.email = 'Valid email required';
-    if (!form.message.trim()) e.message = 'Required';
+      e.email = lang === 'EN' ? 'Valid email required' : 'मान्य इमेल आवश्यक छ';
+    if (!form.message.trim()) e.message = lang === 'EN' ? 'Required' : 'आवश्यक छ';
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -128,7 +130,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
             >
-              Reach Out
+              {lang === 'EN' ? 'Reach Out' : 'सम्पर्कमा आउनुहोस्'}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
@@ -144,7 +146,7 @@ export default function ContactPage() {
                 marginBottom: '1rem',
               }}
             >
-              Get in Touch
+              {lang === 'EN' ? 'Get in Touch' : 'कुराकानी सुरु गरौं'}
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -152,7 +154,9 @@ export default function ContactPage() {
               transition={{ duration: 0.7, delay: 0.25 }}
               style={{ color: 'rgba(217,223,220,0.65)', fontSize: '1.05rem', fontFamily: 'var(--font-inter), Inter, sans-serif', maxWidth: '560px', lineHeight: 1.7 }}
             >
-              We source from Nepal, we serve Australia — and we love hearing from curious coffee minds.
+              {lang === 'EN'
+                ? 'We source from Nepal, we serve Australia — and we love hearing from curious coffee minds.'
+                : 'कफीको बारेमा होस् वा साझेदारीको बारेमा — हामी सुन्न यहाँ छौं।'}
             </motion.p>
           </div>
         </section>
@@ -186,9 +190,13 @@ export default function ContactPage() {
                         <path d="M4 10L8.5 14.5L16 6" stroke="#D4A55A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     </div>
-                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', color: '#F6F1E9', marginBottom: '0.75rem' }}>Message Received</h3>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', color: '#F6F1E9', marginBottom: '0.75rem' }}>
+                      {lang === 'EN' ? 'Message Received' : 'सन्देश प्राप्त भयो'}
+                    </h3>
                     <p style={{ color: 'rgba(217,223,220,0.65)', fontFamily: 'var(--font-inter), Inter, sans-serif', lineHeight: 1.7 }}>
-                      Thank you for reaching out. We'll be in touch within one business day.
+                      {lang === 'EN'
+                        ? "Thank you for reaching out. We'll be in touch within one business day."
+                        : 'सम्पर्क गर्नुभएकोमा धन्यवाद। हामी एक कार्य दिनभित्र सम्पर्कमा आउनेछौं।'}
                     </p>
                   </motion.div>
                 ) : (
@@ -196,12 +204,12 @@ export default function ContactPage() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <Field label="Full Name">
+                        <Field label={lang === 'EN' ? 'Full Name' : 'तपाईंको नाम'}>
                           <input
                             type="text"
                             value={form.name}
                             onChange={update('name')}
-                            placeholder="Your name"
+                            placeholder={lang === 'EN' ? 'Your name' : 'तपाईंको नाम'}
                             style={{
                               ...inputStyle,
                               borderColor: errors.name ? '#c0392b' : 'rgba(31,77,79,0.15)',
@@ -212,7 +220,7 @@ export default function ContactPage() {
                           )}
                         </Field>
 
-                        <Field label="Email Address">
+                        <Field label={lang === 'EN' ? 'Email Address' : 'इमेल ठेगाना'}>
                           <input
                             type="email"
                             value={form.email}
@@ -229,7 +237,7 @@ export default function ContactPage() {
                         </Field>
                       </div>
 
-                      <Field label="Subject">
+                      <Field label={lang === 'EN' ? 'Subject' : 'विषय'}>
                         <select
                           value={form.subject}
                           onChange={update('subject')}
@@ -241,11 +249,11 @@ export default function ContactPage() {
                         </select>
                       </Field>
 
-                      <Field label="Message">
+                      <Field label={lang === 'EN' ? 'Message' : 'सन्देश'}>
                         <textarea
                           value={form.message}
                           onChange={update('message')}
-                          placeholder="Tell us what's on your mind..."
+                          placeholder={lang === 'EN' ? "Tell us what's on your mind..." : 'तपाईंको मनमा के छ बताउनुहोस्...'}
                           rows={6}
                           style={{
                             ...inputStyle,
@@ -281,7 +289,9 @@ export default function ContactPage() {
                           boxShadow: '0 4px 20px rgba(212,165,90,0.2)',
                         }}
                       >
-                        {submitting ? 'Sending…' : 'Send Message'}
+                        {submitting
+                          ? (lang === 'EN' ? 'Sending…' : 'पठाउँदै...')
+                          : (lang === 'EN' ? 'Send Message' : 'सन्देश पठाउनुहोस्')}
                       </motion.button>
                     </div>
                   </form>
@@ -299,13 +309,13 @@ export default function ContactPage() {
                 {/* Contact details */}
                 <div>
                   <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#D4A55A', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1.5rem' }}>
-                    Contact Details
+                    {lang === 'EN' ? 'Contact Details' : 'सम्पर्क विवरण'}
                   </p>
 
                   {[
-                    { label: 'Email', value: 'hello@himabeans.com.au', href: 'mailto:hello@himabeans.com.au' },
-                    { label: 'Phone', value: '+61 3 9000 0000', href: 'tel:+61390000000' },
-                    { label: 'Address', value: 'Melbourne, Victoria, Australia', href: undefined },
+                    { label: lang === 'EN' ? 'Email' : 'इमेल', value: 'hello@himabeans.com.au', href: 'mailto:hello@himabeans.com.au' },
+                    { label: lang === 'EN' ? 'Phone' : 'फोन', value: '+61 3 9000 0000', href: 'tel:+61390000000' },
+                    { label: lang === 'EN' ? 'Address' : 'ठेगाना', value: 'Melbourne, Victoria, Australia', href: undefined },
                   ].map(({ label, value, href }) => (
                     <div key={label} style={{ marginBottom: '1.25rem' }}>
                       <p style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#6B7F7E', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '0.25rem' }}>
@@ -328,7 +338,7 @@ export default function ContactPage() {
                 {/* Social links */}
                 <div>
                   <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#D4A55A', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}>
-                    Follow Our Journey
+                    {lang === 'EN' ? 'Follow Our Journey' : 'हाम्रो यात्रा पछ्याउनुहोस्'}
                   </p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     {[
@@ -350,13 +360,15 @@ export default function ContactPage() {
                 {/* Wholesale CTA */}
                 <div style={{ padding: '1.75rem', background: '#1F4D4F', borderRadius: '2px' }}>
                   <p style={{ fontSize: '11px', letterSpacing: '0.3em', textTransform: 'uppercase', color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '0.75rem' }}>
-                    Café & Restaurant
+                    {lang === 'EN' ? 'Café & Restaurant' : 'क्याफे र रेस्टुरेन्ट'}
                   </p>
                   <p style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.1rem', color: '#F6F1E9', marginBottom: '0.75rem', lineHeight: 1.5 }}>
-                    Interested in wholesale?
+                    {lang === 'EN' ? 'Interested in wholesale?' : 'थोकमा रुचि छ?'}
                   </p>
                   <p style={{ fontSize: '0.85rem', color: 'rgba(217,223,220,0.6)', fontFamily: 'var(--font-inter), Inter, sans-serif', lineHeight: 1.6, marginBottom: '1.25rem' }}>
-                    Explore our café partnership program — custom roasting, competitive pricing, and a story your customers will love.
+                    {lang === 'EN'
+                      ? 'Explore our café partnership program — custom roasting, competitive pricing, and a story your customers will love.'
+                      : 'हाम्रो क्याफे साझेदारी कार्यक्रम अन्वेषण गर्नुहोस् — कस्टम रोस्टिङ, प्रतिस्पर्धी मूल्य निर्धारण र तपाईंका ग्राहकहरूले मन पराउने कथा।'}
                   </p>
                   <a
                     href="/wholesale"
@@ -371,7 +383,7 @@ export default function ContactPage() {
                       paddingBottom: '2px',
                     }}
                   >
-                    Explore Wholesale →
+                    {lang === 'EN' ? 'Explore Wholesale →' : 'थोक सोधपुछ →'}
                   </a>
                 </div>
               </motion.div>
@@ -402,7 +414,7 @@ export default function ContactPage() {
               <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(212,165,90,0.1) 0%, transparent 70%)' }} />
               <div style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}>
                 <p style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: '#D4A55A', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '0.5rem' }}>
-                  Find us in
+                  {lang === 'EN' ? 'Find us in' : 'हामीलाई यहाँ भेट्नुहोस्'}
                 </p>
                 <p style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(24px, 4vw, 40px)', color: '#F6F1E9', fontWeight: 700, letterSpacing: '-0.02em' }}>
                   Melbourne, Australia

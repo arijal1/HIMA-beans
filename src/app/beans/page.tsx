@@ -12,6 +12,7 @@ import {
 } from "framer-motion";
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import { useLang } from '@/context/lang';
 
 /* ============================================================
    Brand Tokens
@@ -185,10 +186,14 @@ function beanMatchesFilter(bean: Bean, filter: FilterKey): boolean {
 /* ============================================================
    Roast Indicator
    ============================================================ */
-function RoastIndicator({ roast }: { roast: RoastLevel }) {
+function RoastIndicator({ roast, lang }: { roast: RoastLevel; lang: 'EN' | 'NP' }) {
   const total = 4;
   const filled = ROAST_DOTS[roast];
   const color = ROAST_COLOR[roast];
+
+  const roastLabel: Record<RoastLevel, string> = lang === 'NP'
+    ? { Light: 'हल्का', 'Medium-Light': 'मध्यम-हल्का', Medium: 'मध्यम', Dark: 'गाढा', Blend: 'मिश्रण' }
+    : { Light: 'Light', 'Medium-Light': 'Medium-Light', Medium: 'Medium', Dark: 'Dark', Blend: 'Blend' };
 
   return (
     <div className="flex items-center gap-1.5">
@@ -203,7 +208,7 @@ function RoastIndicator({ roast }: { roast: RoastLevel }) {
         />
       ))}
       <span className="text-xs ml-1 font-medium" style={{ color: C.stone }}>
-        {roast}
+        {roastLabel[roast]}
       </span>
     </div>
   );
@@ -233,9 +238,11 @@ function NoteTag({ note }: { note: string }) {
 function BeanCard({
   bean,
   index,
+  lang,
 }: {
   bean: Bean;
   index: number;
+  lang: 'EN' | 'NP';
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -277,6 +284,13 @@ function BeanCard({
     y.set(0);
     setHovered(false);
   }
+
+  const t = {
+    process: lang === 'NP' ? 'प्रक्रिया' : 'Process:',
+    tastingNotes: lang === 'NP' ? 'स्वाद नोटहरू' : 'Tasting Notes',
+    brewRec: lang === 'NP' ? 'ब्रु सिफारिसहरू' : 'Recommended Brew',
+    learnMore: lang === 'NP' ? 'थप जान्नुहोस्' : 'Learn More',
+  };
 
   return (
     <motion.div
@@ -350,7 +364,7 @@ function BeanCard({
           </h3>
 
           {/* Roast indicator */}
-          <RoastIndicator roast={bean.roast} />
+          <RoastIndicator roast={bean.roast} lang={lang} />
         </div>
 
         {/* Divider */}
@@ -372,7 +386,7 @@ function BeanCard({
           {/* Process */}
           <div className="flex items-center gap-2">
             <span className="text-xs uppercase tracking-widest" style={{ color: `${C.gold}90` }}>
-              Process:
+              {t.process}
             </span>
             <span className="text-xs font-medium" style={{ color: C.espresso }}>
               {bean.process}
@@ -382,7 +396,7 @@ function BeanCard({
           {/* Tasting notes */}
           <div>
             <p className="text-xs uppercase tracking-widest mb-2" style={{ color: `${C.gold}90` }}>
-              Tasting Notes
+              {t.tastingNotes}
             </p>
             <div className="flex flex-wrap gap-1.5">
               {bean.notes.map((note) => (
@@ -401,7 +415,7 @@ function BeanCard({
             </span>
             <div>
               <p className="text-xs uppercase tracking-widest" style={{ color: C.stone }}>
-                Recommended Brew
+                {t.brewRec}
               </p>
               <p className="text-xs font-semibold mt-0.5" style={{ color: C.espresso }}>
                 {bean.brew}
@@ -422,7 +436,7 @@ function BeanCard({
               color: hovered ? C.gold : C.espresso,
             }}
           >
-            <span>Learn More</span>
+            <span>{t.learnMore}</span>
             <motion.span
               animate={hovered ? { x: 4, opacity: 1 } : { x: 0, opacity: 0.5 }}
               transition={{ duration: 0.2 }}
@@ -443,12 +457,18 @@ function BeanCard({
 function FilterBar({
   active,
   onChange,
+  lang,
 }: {
   active: FilterKey;
   onChange: (f: FilterKey) => void;
+  lang: 'EN' | 'NP';
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
+
+  const filterLabel: Record<FilterKey, string> = lang === 'NP'
+    ? { All: 'सबै', Light: 'हल्का', Medium: 'मध्यम', Dark: 'गाढा' }
+    : { All: 'All', Light: 'Light', Medium: 'Medium', Dark: 'Dark' };
 
   return (
     <motion.div
@@ -479,7 +499,7 @@ function FilterBar({
                 transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
               />
             )}
-            <span className="relative z-10">{filter}</span>
+            <span className="relative z-10">{filterLabel[filter]}</span>
           </button>
         );
       })}
@@ -490,7 +510,7 @@ function FilterBar({
 /* ============================================================
    Hero Section
    ============================================================ */
-function BeansHero() {
+function BeansHero({ lang }: { lang: 'EN' | 'NP' }) {
   return (
     <section
       className="relative min-h-[70vh] flex items-end pb-16 sm:pb-20 md:pb-24 pt-28 sm:pt-36 md:pt-40 overflow-hidden"
@@ -552,7 +572,7 @@ function BeansHero() {
           className="text-xs font-medium uppercase mb-6"
           style={{ color: "rgba(217,223,220,0.45)" }}
         >
-          Specialty Coffee
+          {lang === 'NP' ? 'हाम्रा बिनहरू' : 'Specialty Coffee'}
         </motion.p>
 
         <div className="overflow-hidden mb-6">
@@ -563,9 +583,13 @@ function BeansHero() {
             className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-none"
             style={{ color: C.cream }}
           >
-            Our Signature
-            <br />
-            Beans
+            {lang === 'NP' ? 'हिमालयन सङ्ग्रह' : (
+              <>
+                Our Signature
+                <br />
+                Beans
+              </>
+            )}
           </motion.h1>
         </div>
 
@@ -576,9 +600,9 @@ function BeansHero() {
           className="text-base md:text-lg max-w-2xl leading-relaxed"
           style={{ color: "rgba(217,223,220,0.65)" }}
         >
-          Six exceptional lots, each a portrait of its Himalayan origin. Grown at
-          altitude, harvested by hand, and roasted to honour every nuance the
-          mountain sees fit to bestow.
+          {lang === 'NP'
+            ? 'छवटा असाधारण लट, प्रत्येक आफ्नो हिमालयी उत्पत्तिको चित्रण।'
+            : 'Six exceptional lots, each a portrait of its Himalayan origin. Grown at altitude, harvested by hand, and roasted to honour every nuance the mountain sees fit to bestow.'}
         </motion.p>
       </div>
     </section>
@@ -645,7 +669,7 @@ function IntroSection() {
 /* ============================================================
    Bean Grid Section
    ============================================================ */
-function BeanGridSection() {
+function BeanGridSection({ lang }: { lang: 'EN' | 'NP' }) {
   const [activeFilter, setActiveFilter] = useState<FilterKey>("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -653,6 +677,15 @@ function BeanGridSection() {
   const filteredBeans = beans.filter((bean) =>
     beanMatchesFilter(bean, activeFilter)
   );
+
+  const t = {
+    eyebrow: lang === 'NP' ? 'सङ्ग्रह' : 'The Collection',
+    heading: lang === 'NP' ? 'आफ्नो उत्पत्ति छान्नुहोस्' : 'Select Your Origin',
+    filterIntro: lang === 'NP'
+      ? 'आफ्नो स्वाद, ब्रु विधि र क्षणअनुसार उपयुक्त प्रोफाइल पत्ता लगाउन रोस्ट तीव्रताद्वारा फिल्टर गर्नुहोस्।'
+      : 'Filter by roast intensity to discover the profile that suits your palate, your brew method, and your moment.',
+    noMatch: lang === 'NP' ? 'यस फिल्टरसँग मेल खाने बिनहरू छैनन्।' : 'No beans match this filter.',
+  };
 
   return (
     <section
@@ -670,7 +703,7 @@ function BeanGridSection() {
             className="text-xs font-medium uppercase tracking-[0.35em] mb-4"
             style={{ color: C.gold }}
           >
-            The Collection
+            {t.eyebrow}
           </motion.p>
           <motion.h2
             custom={0.1}
@@ -680,7 +713,7 @@ function BeanGridSection() {
             className="font-serif text-4xl md:text-5xl font-bold mb-4"
             style={{ color: C.espresso }}
           >
-            Select Your Origin
+            {t.heading}
           </motion.h2>
           <motion.p
             custom={0.2}
@@ -690,12 +723,11 @@ function BeanGridSection() {
             className="text-base max-w-xl mx-auto mb-10"
             style={{ color: C.stone }}
           >
-            Filter by roast intensity to discover the profile that suits your
-            palate, your brew method, and your moment.
+            {t.filterIntro}
           </motion.p>
 
           {/* Filter bar */}
-          <FilterBar active={activeFilter} onChange={setActiveFilter} />
+          <FilterBar active={activeFilter} onChange={setActiveFilter} lang={lang} />
         </div>
 
         {/* Bean cards grid */}
@@ -709,7 +741,7 @@ function BeanGridSection() {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
           >
             {filteredBeans.map((bean, index) => (
-              <BeanCard key={bean.id} bean={bean} index={index} />
+              <BeanCard key={bean.id} bean={bean} index={index} lang={lang} />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -721,7 +753,7 @@ function BeanGridSection() {
             className="text-center py-20 text-base"
             style={{ color: C.stone }}
           >
-            No beans match this filter.
+            {t.noMatch}
           </motion.p>
         )}
       </div>
@@ -732,9 +764,20 @@ function BeanGridSection() {
 /* ============================================================
    Custom Roasting Section
    ============================================================ */
-function CustomRoastingSection() {
+function CustomRoastingSection({ lang }: { lang: 'EN' | 'NP' }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
+
+  const t = {
+    eyebrow: lang === 'NP' ? 'थोक र कस्टम रोस्टिङ' : 'Wholesale & Custom Roasting',
+    heading: lang === 'NP' ? 'कस्टम रोस्टिङ' : 'Custom Roasting',
+    headingEm: lang === 'NP' ? 'उपलब्ध' : 'Available',
+    body: lang === 'NP'
+      ? 'क्याफे, रेस्टुरेन्ट र विशिष्ट थोक खरिदकर्ताहरूका लागि, हामी हाम्रा हिमालयी लटहरूमा विशेष रोस्ट प्रोफाइलिङ प्रदान गर्छौं।'
+      : 'For cafes, restaurants, and discerning wholesale buyers, we offer bespoke roast profiling on any of our Himalayan lots. Work directly with our head roaster to dial in the exact expression — roast degree, resting protocol, grind specification — that serves your menu.',
+    body2: 'Minimum order quantities start at 10 kg per lot. White-label and co-branded packaging available. Origin traceability certificates included with every wholesale order.',
+    cta: lang === 'NP' ? 'थोकको बारेमा सोधपुछ गर्नुहोस्' : 'Enquire About Wholesale',
+  };
 
   return (
     <section
@@ -771,7 +814,7 @@ function CustomRoastingSection() {
               className="text-xs font-medium uppercase tracking-[0.35em] mb-4"
               style={{ color: "rgba(217,223,220,0.45)" }}
             >
-              Wholesale &amp; Custom Roasting
+              {t.eyebrow}
             </motion.p>
 
             <motion.h2
@@ -782,9 +825,9 @@ function CustomRoastingSection() {
               className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
               style={{ color: C.cream }}
             >
-              Custom Roasting
+              {t.heading}
               <br />
-              <em style={{ color: "#D9DFDC", fontStyle: "italic" }}>Available</em>
+              <em style={{ color: "#D9DFDC", fontStyle: "italic" }}>{t.headingEm}</em>
             </motion.h2>
 
             <motion.p
@@ -795,11 +838,7 @@ function CustomRoastingSection() {
               className="text-base leading-relaxed mb-4"
               style={{ color: "rgba(217,223,220,0.7)" }}
             >
-              For cafes, restaurants, and discerning wholesale buyers, we offer
-              bespoke roast profiling on any of our Himalayan lots. Work directly
-              with our head roaster to dial in the exact expression — roast
-              degree, resting protocol, grind specification — that serves your
-              menu.
+              {t.body}
             </motion.p>
 
             <motion.p
@@ -810,9 +849,7 @@ function CustomRoastingSection() {
               className="text-base leading-relaxed mb-10"
               style={{ color: "rgba(217,223,220,0.7)" }}
             >
-              Minimum order quantities start at 10 kg per lot. White-label and
-              co-branded packaging available. Origin traceability certificates
-              included with every wholesale order.
+              {t.body2}
             </motion.p>
 
             <motion.div
@@ -826,7 +863,7 @@ function CustomRoastingSection() {
                 className="inline-flex items-center gap-3 px-8 py-4 text-[11px] tracking-[0.18em] font-semibold uppercase transition-all duration-300 hover:opacity-80"
                 style={{ backgroundColor: C.beige, color: C.espresso }}
               >
-                Enquire About Wholesale
+                {t.cta}
                 <span aria-hidden>→</span>
               </Link>
             </motion.div>
@@ -908,9 +945,22 @@ function CustomRoastingSection() {
 /* ============================================================
    Bottom CTA Strip
    ============================================================ */
-function BottomCTA() {
+function BottomCTA({ lang }: { lang: 'EN' | 'NP' }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
+
+  const t = {
+    heading: lang === 'NP' ? (
+      <>बिनको पछाडिको<br />कथा</>
+    ) : (
+      <>The Story Behind<br />the Bean</>
+    ),
+    body: lang === 'NP'
+      ? 'नेपालको कफी विरासत पाँच उगाउने क्षेत्रहरूमा फैलिएको छ, प्रत्येक उचाइ, माटो र पुस्तौंदेखिको खेतीज्ञानले आकारिएको।'
+      : "Nepal's coffee heritage spans five growing regions, each shaped by altitude, soil, and generations of farming knowledge. Follow the journey.",
+    btn1: lang === 'NP' ? 'हाम्रो उत्पत्ति कथा' : 'Our Origin Story',
+    btn2: lang === 'NP' ? 'थोक सोधपुछ' : 'Wholesale Enquiry',
+  };
 
   return (
     <section
@@ -936,8 +986,7 @@ function BottomCTA() {
               className="font-serif text-3xl md:text-4xl font-bold mb-5"
               style={{ color: C.espresso }}
             >
-              The Story Behind
-              <br />the Bean
+              {t.heading}
             </motion.h3>
             <motion.p
               custom={0.2}
@@ -947,8 +996,7 @@ function BottomCTA() {
               className="text-base leading-relaxed"
               style={{ color: C.stone }}
             >
-              Nepal&apos;s coffee heritage spans five growing regions, each shaped by altitude,
-              soil, and generations of farming knowledge. Follow the journey.
+              {t.body}
             </motion.p>
           </div>
           <motion.div
@@ -963,7 +1011,7 @@ function BottomCTA() {
               className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium transition-all duration-300 hover:opacity-80"
               style={{ backgroundColor: C.espresso, color: C.cream }}
             >
-              Our Origin Story
+              {t.btn1}
               <span aria-hidden>→</span>
             </Link>
             <Link
@@ -971,7 +1019,7 @@ function BottomCTA() {
               className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#1A2E2F]"
               style={{ borderColor: `rgba(26,46,47,0.2)`, color: C.espresso }}
             >
-              Wholesale Enquiry
+              {t.btn2}
             </Link>
           </motion.div>
         </div>
@@ -984,15 +1032,17 @@ function BottomCTA() {
    Page Export
    ============================================================ */
 export default function BeansPage() {
+  const { lang } = useLang();
+
   return (
     <>
       <Navigation />
       <main>
-      <BeansHero />
+      <BeansHero lang={lang} />
       <IntroSection />
-      <BeanGridSection />
-      <CustomRoastingSection />
-      <BottomCTA />
+      <BeanGridSection lang={lang} />
+      <CustomRoastingSection lang={lang} />
+      <BottomCTA lang={lang} />
       </main>
       <Footer />
     </>

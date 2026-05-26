@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navigation from '@/components/layout/Navigation';
 import Footer from '@/components/layout/Footer';
+import { useLang } from '@/context/lang';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -114,6 +115,19 @@ const ARTICLES: Article[] = [
 ];
 
 // ---------------------------------------------------------------------------
+// Category label translations
+// ---------------------------------------------------------------------------
+
+const CATEGORY_LABELS_NP: Record<Category, string> = {
+  All: 'सबै',
+  Origin: 'उत्पत्ति',
+  Culture: 'संस्कृति',
+  Brewing: 'ब्रुइङ',
+  Sustainability: 'दिगोपन',
+  Education: 'शिक्षा',
+};
+
+// ---------------------------------------------------------------------------
 // Animation variants
 // ---------------------------------------------------------------------------
 
@@ -151,11 +165,15 @@ function CategoryPill({
   label,
   active,
   onClick,
+  lang,
 }: {
   label: Category;
   active: boolean;
   onClick: () => void;
+  lang: 'EN' | 'NP';
 }) {
+  const displayLabel = lang === 'NP' ? CATEGORY_LABELS_NP[label] : label;
+
   return (
     <motion.button
       onClick={onClick}
@@ -169,13 +187,15 @@ function CategoryPill({
       }}
       aria-pressed={active}
     >
-      {label}
+      {displayLabel}
     </motion.button>
   );
 }
 
-function ArticleCard({ article, index }: { article: Article; index: number }) {
+function ArticleCard({ article, index, lang }: { article: Article; index: number; lang: 'EN' | 'NP' }) {
   const accentColor = CATEGORY_COLORS[article.category];
+  const categoryLabel = lang === 'NP' ? CATEGORY_LABELS_NP[article.category] : article.category;
+  const readMoreLabel = lang === 'NP' ? 'थप पढ्नुहोस्' : 'Read More';
 
   return (
     <motion.article
@@ -225,7 +245,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
             className="text-[10px] tracking-[0.3em] uppercase font-medium px-2 py-1"
             style={{ background: `${accentColor}18`, color: accentColor }}
           >
-            {article.category}
+            {categoryLabel}
           </span>
           <span className="text-[11px] tracking-wider" style={{ color: '#6B7F7E' }}>
             {article.readTime} read
@@ -275,7 +295,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
             whileHover={{ x: 4 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >
-            Read More
+            {readMoreLabel}
             <span aria-hidden="true" style={{ fontSize: '14px' }}>→</span>
           </motion.span>
         </div>
@@ -291,7 +311,9 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
   );
 }
 
-function FeaturedArticle() {
+function FeaturedArticle({ lang }: { lang: 'EN' | 'NP' }) {
+  const readStoryLabel = lang === 'NP' ? 'कथा पढ्नुहोस्' : 'Read the Story';
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
@@ -407,7 +429,7 @@ function FeaturedArticle() {
               className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9DFDC] rounded"
               style={{ color: 'rgba(217,223,220,0.7)' }}
             >
-              Read the Story
+              {readStoryLabel}
               <span aria-hidden="true" className="text-base">→</span>
             </motion.button>
           </div>
@@ -422,11 +444,25 @@ function FeaturedArticle() {
 // ---------------------------------------------------------------------------
 
 export default function JournalPage() {
+  const { lang } = useLang();
   const [activeCategory, setActiveCategory] = useState<Category>('All');
 
   const filtered = activeCategory === 'All'
     ? ARTICLES
     : ARTICLES.filter((a) => a.category === activeCategory);
+
+  const t = {
+    eyebrow: lang === 'NP' ? 'हाम्रो पत्रिका' : 'Stories from the highlands',
+    h1Line1: lang === 'NP' ? 'उत्पत्तिका' : 'The',
+    h1Em: lang === 'NP' ? 'कथाहरू' : 'Journal',
+    noArticles: lang === 'NP' ? 'यस श्रेणीमा अहिले कुनै लेखहरू छैनन्।' : 'No articles in this category yet.',
+    newsletterEyebrow: lang === 'NP' ? 'अद्यावधिक रहनुहोस्' : 'Stay current',
+    newsletterHeading: lang === 'NP' ? 'पत्रिकाको सदस्यता लिनुहोस्' : 'Subscribe to the Journal',
+    newsletterBody: lang === 'NP'
+      ? 'उत्पत्ति कथाहरू, ब्रुइङ गाइडहरू र मौसमी विज्ञप्तिहरू — सिधै तपाईंको इनबक्समा।'
+      : 'Origin stories, brewing guides, and seasonal releases — directly to your inbox.',
+    newsletterBtn: lang === 'NP' ? 'सम्पर्कमा आउनुहोस्' : 'Get in Touch',
+  };
 
   return (
     <>
@@ -468,7 +504,7 @@ export default function JournalPage() {
                 className="text-[10px] tracking-[0.4em] uppercase font-medium"
                 style={{ color: '#D4A55A' }}
               >
-                Stories from the highlands
+                {t.eyebrow}
               </span>
             </div>
 
@@ -482,13 +518,13 @@ export default function JournalPage() {
                 letterSpacing: '-0.03em',
               }}
             >
-              The
+              {t.h1Line1}
               <br />
               <em
                 className="not-italic"
                 style={{ color: '#D4A55A' }}
               >
-                Journal
+                {t.h1Em}
               </em>
             </h1>
           </motion.div>
@@ -508,7 +544,7 @@ export default function JournalPage() {
       {/* ── Main Content ── */}
       <main className="site-container py-16">
         {/* Featured article */}
-        <FeaturedArticle />
+        <FeaturedArticle lang={lang} />
 
         {/* Category filters */}
         <motion.div
@@ -525,6 +561,7 @@ export default function JournalPage() {
               label={cat}
               active={activeCategory === cat}
               onClick={() => setActiveCategory(cat)}
+              lang={lang}
             />
           ))}
         </motion.div>
@@ -540,7 +577,7 @@ export default function JournalPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
             {filtered.map((article, index) => (
-              <ArticleCard key={article.id} article={article} index={index} />
+              <ArticleCard key={article.id} article={article} index={index} lang={lang} />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -553,7 +590,7 @@ export default function JournalPage() {
             className="text-center py-24"
           >
             <p className="text-lg" style={{ color: '#6B7F7E' }}>
-              No articles in this category yet.
+              {t.noArticles}
             </p>
           </motion.div>
         )}
@@ -571,7 +608,7 @@ export default function JournalPage() {
             className="text-xs tracking-[0.35em] uppercase mb-4"
             style={{ color: '#D4A55A' }}
           >
-            Stay current
+            {t.newsletterEyebrow}
           </p>
           <h2
             className="font-serif text-4xl md:text-5xl mb-6"
@@ -580,20 +617,20 @@ export default function JournalPage() {
               fontFamily: '"Playfair Display", Georgia, serif',
             }}
           >
-            Subscribe to the Journal
+            {t.newsletterHeading}
           </h2>
           <p
             className="text-base max-w-md mx-auto mb-8 leading-relaxed"
             style={{ color: '#6B7F7E' }}
           >
-            Origin stories, brewing guides, and seasonal releases — directly to your inbox.
+            {t.newsletterBody}
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 px-8 py-4 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300"
             style={{ background: '#1F4D4F', color: '#F6F1E9' }}
           >
-            Get in Touch
+            {t.newsletterBtn}
             <span aria-hidden="true">→</span>
           </Link>
         </motion.div>
