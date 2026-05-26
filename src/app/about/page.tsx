@@ -16,12 +16,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#0E0A07",
-  cream: "#F5EDE0",
-  stone: "#7A6555",
-  gold: "#7C4828",
-  beige: "#EDE0CC",
-  charcoal: "#1A1008",
+  espresso: "#1F4D4F",
+  cream: "#F6F1E9",
+  stone: "#6B7F7E",
+  gold: "#D4A55A",
+  beige: "#D9DFDC",
+  charcoal: "#1A2E2F",
 } as const;
 
 /* ============================================================
@@ -82,7 +82,7 @@ const regions = [
     altitude: "1,400–1,800 m",
     characteristic: "Rich volcanic soil",
     flavor: "Dark chocolate & stone fruit",
-    color: "#5C3D2E",
+    color: "#2B4A4C",
   },
   {
     name: "Palpa",
@@ -237,7 +237,7 @@ function Overline({ children, light = false }: { children: React.ReactNode; ligh
   return (
     <p
       className="text-xs font-medium tracking-[0.35em] uppercase mb-4"
-      style={{ color: light ? 'rgba(237,224,204,0.45)' : C.gold }}
+      style={{ color: light ? 'rgba(217,223,220,0.45)' : C.gold }}
     >
       {children}
     </p>
@@ -298,7 +298,7 @@ function AnimatedParagraph({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       className={`leading-relaxed text-base md:text-lg ${className}`}
-      style={{ color: light ? "rgba(237,224,204,0.75)" : C.stone }}
+      style={{ color: light ? "rgba(217,223,220,0.75)" : C.stone }}
     >
       {children}
     </motion.p>
@@ -321,8 +321,8 @@ function GoldDivider({ light = false }: { light?: boolean }) {
       className="h-px my-8 origin-left"
       style={{
         backgroundColor: light
-          ? "rgba(124,72,40,0.3)"
-          : "rgba(124,72,40,0.25)",
+          ? "rgba(212,165,90,0.3)"
+          : "rgba(212,165,90,0.25)",
       }}
     />
   );
@@ -345,7 +345,7 @@ function RegionCard({ region, index }: { region: (typeof regions)[0]; index: num
       style={{
         paddingTop: '1.5rem',
         paddingBottom: '1.5rem',
-        borderBottom: '1px solid rgba(122,101,85,0.15)',
+        borderBottom: '1px solid rgba(107,127,126,0.15)',
         display: 'grid',
         gridTemplateColumns: '1fr auto',
         gap: '0.75rem 1.5rem',
@@ -459,7 +459,7 @@ function QualityCard({
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       className="flex flex-col gap-3 py-6"
-      style={{ borderBottom: '1px solid rgba(237,224,204,0.1)' }}
+      style={{ borderBottom: '1px solid rgba(217,223,220,0.1)' }}
     >
       <p
         className="font-serif text-lg font-semibold"
@@ -467,7 +467,7 @@ function QualityCard({
       >
         {item.label}
       </p>
-      <p className="text-sm leading-relaxed" style={{ color: 'rgba(237,224,204,0.55)' }}>
+      <p className="text-sm leading-relaxed" style={{ color: 'rgba(217,223,220,0.55)' }}>
         {item.description}
       </p>
     </motion.div>
@@ -501,17 +501,17 @@ function HeroSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(124,72,40,0.12) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,165,90,0.12) 0%, transparent 70%)`,
           }}
         />
         {/* Decorative rings */}
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full"
-          style={{ border: "1px solid rgba(124,72,40,0.07)" }}
+          style={{ border: "1px solid rgba(212,165,90,0.07)" }}
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[480px] rounded-full"
-          style={{ border: "1px solid rgba(124,72,40,0.05)" }}
+          style={{ border: "1px solid rgba(212,165,90,0.05)" }}
         />
       </motion.div>
 
@@ -525,7 +525,7 @@ function HeroSection() {
           animate={{ opacity: 1, letterSpacing: "0.45em" }}
           transition={{ duration: 1.0, delay: 0.2 }}
           className="text-xs font-medium uppercase mb-8"
-          style={{ color: 'rgba(237,224,204,0.45)' }}
+          style={{ color: 'rgba(217,223,220,0.45)' }}
         >
           Crafted Above the Clouds
         </motion.p>
@@ -547,7 +547,7 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.8, ease }}
           className="text-lg md:text-xl font-light tracking-wide"
-          style={{ color: "rgba(237,224,204,0.65)" }}
+          style={{ color: "rgba(217,223,220,0.65)" }}
         >
           From the peaks of the Himalayas to your cup
         </motion.p>
@@ -693,7 +693,7 @@ function FarmingSection() {
             {/* Mountain silhouette illustration (pure CSS) */}
             <div
               className="relative rounded-3xl overflow-hidden aspect-[4/3] flex items-end justify-center"
-              style={{ backgroundColor: "#2B1E17" }}
+              style={{ backgroundColor: "#1A3C3E" }}
             >
               {/* Layered mountain shapes */}
               <div className="absolute inset-0">
@@ -701,12 +701,12 @@ function FarmingSection() {
                   {/* Sky gradient */}
                   <defs>
                     <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#0A0704" />
-                      <stop offset="100%" stopColor="#0E0A07" />
+                      <stop offset="0%" stopColor="#355E3B" />
+                      <stop offset="100%" stopColor="#1F4D4F" />
                     </linearGradient>
                     <linearGradient id="goldGlow" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#7C4828" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#7C4828" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#D4A55A" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="#D4A55A" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   <rect width="800" height="500" fill="url(#skyGrad)" />
@@ -719,12 +719,12 @@ function FarmingSection() {
                   {/* Mid range */}
                   <polygon
                     points="0,420 100,280 220,360 350,200 470,310 600,220 720,300 800,260 800,500 0,500"
-                    fill="rgba(14,10,7,0.6)"
+                    fill="rgba(31,77,79,0.6)"
                   />
                   {/* Front hills */}
                   <polygon
                     points="0,460 120,380 250,430 380,350 500,400 620,360 750,420 800,390 800,500 0,500"
-                    fill="#0E0A07"
+                    fill="#1F4D4F"
                   />
                   {/* Terraced lines */}
                   {[350, 370, 390, 410, 430, 450].map((y, i) => (
@@ -734,7 +734,7 @@ function FarmingSection() {
                       y1={y}
                       x2={700 - i * 20}
                       y2={y + 5}
-                      stroke="rgba(124,72,40,0.15)"
+                      stroke="rgba(212,165,90,0.15)"
                       strokeWidth="1"
                     />
                   ))}
@@ -742,7 +742,7 @@ function FarmingSection() {
                   <ellipse cx="400" cy="200" rx="200" ry="100" fill="url(#goldGlow)" />
                   {/* Stars */}
                   {[[100,80],[250,50],[600,70],[700,100],[500,40],[350,90],[150,110]].map(([cx,cy], i) => (
-                    <circle key={i} cx={cx} cy={cy} r="1.5" fill="rgba(124,72,40,0.6)" />
+                    <circle key={i} cx={cx} cy={cy} r="1.5" fill="rgba(212,165,90,0.6)" />
                   ))}
                 </svg>
               </div>
@@ -848,7 +848,7 @@ function RegionsSection() {
           </AnimatedParagraph>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(122,101,85,0.15)' }}>
+        <div style={{ borderTop: '1px solid rgba(107,127,126,0.15)' }}>
           {regions.map((region, index) => (
             <RegionCard key={region.name} region={region} index={index} />
           ))}
@@ -984,7 +984,7 @@ function QualitySection() {
                       i === 3
                         ? C.gold
                         : "rgba(255,255,255,0.06)",
-                    color: i === 3 ? C.espresso : "rgba(237,224,204,0.6)",
+                    color: i === 3 ? C.espresso : "rgba(217,223,220,0.6)",
                     border: i === 3 ? "none" : "1px solid rgba(255,255,255,0.1)",
                     fontWeight: i === 3 ? 700 : 400,
                   }}
@@ -1071,8 +1071,8 @@ function PromiseSection() {
               </Link>
               <Link
                 href="/wholesale"
-                className="inline-flex items-center gap-2 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#EDE0CC]"
-                style={{ borderColor: `rgba(237,224,204,0.25)`, color: 'rgba(237,224,204,0.7)' }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#D9DFDC]"
+                style={{ borderColor: `rgba(217,223,220,0.25)`, color: 'rgba(217,223,220,0.7)' }}
               >
                 Wholesale Enquiries
               </Link>
@@ -1089,12 +1089,12 @@ function PromiseSection() {
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 className="py-5 border-b"
-                style={{ borderColor: "rgba(237,224,204,0.08)" }}
+                style={{ borderColor: "rgba(217,223,220,0.08)" }}
               >
                 <p className="font-serif text-base font-semibold mb-2" style={{ color: C.beige }}>
                   {promise.title}
                 </p>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(237,224,204,0.65)" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(217,223,220,0.65)" }}>
                   {promise.body}
                 </p>
               </motion.div>

@@ -136,9 +136,9 @@ const stagger = {
 // ---------------------------------------------------------------------------
 
 const CATEGORY_COLORS: Record<Exclude<Category, 'All'>, string> = {
-  Origin: '#7C4828',
-  Culture: '#7A6555',
-  Brewing: '#0E0A07',
+  Origin: '#D4A55A',
+  Culture: '#6B7F7E',
+  Brewing: '#1F4D4F',
   Sustainability: '#5a7a52',
   Education: '#4a6080',
 };
@@ -161,11 +161,11 @@ function CategoryPill({
       onClick={onClick}
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
-      className="relative px-5 py-2 text-xs tracking-[0.25em] uppercase transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828]"
+      className="relative px-5 py-2 text-xs tracking-[0.25em] uppercase transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A]"
       style={{
-        background: active ? '#0E0A07' : 'transparent',
-        color: active ? '#F5EDE0' : '#7A6555',
-        border: `1px solid ${active ? '#0E0A07' : '#EDE0CC'}`,
+        background: active ? '#1F4D4F' : 'transparent',
+        color: active ? '#F6F1E9' : '#6B7F7E',
+        border: `1px solid ${active ? '#1F4D4F' : '#D9DFDC'}`,
       }}
       aria-pressed={active}
     >
@@ -182,14 +182,14 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
       variants={fadeUp}
       custom={index}
       className="group relative flex flex-col overflow-hidden bg-white"
-      style={{ border: '1px solid #EDE0CC' }}
+      style={{ border: '1px solid #D9DFDC' }}
     >
       {/* Image placeholder with gradient */}
       <div className="relative overflow-hidden" style={{ height: '220px' }}>
         <motion.div
           className="absolute inset-0"
           style={{
-            background: `linear-gradient(135deg, ${accentColor}22 0%, #EDE0CC 50%, ${accentColor}15 100%)`,
+            background: `linear-gradient(135deg, ${accentColor}22 0%, #D9DFDC 50%, ${accentColor}15 100%)`,
           }}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
@@ -227,7 +227,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
           >
             {article.category}
           </span>
-          <span className="text-[11px] tracking-wider" style={{ color: '#7A6555' }}>
+          <span className="text-[11px] tracking-wider" style={{ color: '#6B7F7E' }}>
             {article.readTime} read
           </span>
         </div>
@@ -236,7 +236,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         <h3
           className="font-serif text-xl leading-snug mb-3"
           style={{
-            color: '#0E0A07',
+            color: '#1F4D4F',
             fontFamily: '"Playfair Display", Georgia, serif',
           }}
         >
@@ -256,7 +256,7 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
 
         <p
           className="text-sm leading-relaxed flex-1 mb-5"
-          style={{ color: '#7A6555' }}
+          style={{ color: '#6B7F7E' }}
         >
           {article.excerpt}
         </p>
@@ -264,9 +264,9 @@ function ArticleCard({ article, index }: { article: Article; index: number }) {
         {/* Footer row */}
         <div
           className="flex items-center justify-between pt-4"
-          style={{ borderTop: '1px solid #EDE0CC' }}
+          style={{ borderTop: '1px solid #D9DFDC' }}
         >
-          <span className="text-[11px] tracking-wide" style={{ color: '#7A6555' }}>
+          <span className="text-[11px] tracking-wide" style={{ color: '#6B7F7E' }}>
             {article.date}
           </span>
           <motion.span
@@ -298,14 +298,14 @@ function FeaturedArticle() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.3 }}
       className="group relative overflow-hidden mb-20"
-      style={{ background: '#0E0A07' }}
+      style={{ background: '#1F4D4F' }}
     >
       {/* Background pattern */}
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 20% 80%, #7C4828 2px, transparent 2px), radial-gradient(circle at 80% 20%, #F5EDE0 1px, transparent 1px)',
+            'radial-gradient(circle at 20% 80%, #D4A55A 2px, transparent 2px), radial-gradient(circle at 80% 20%, #F6F1E9 1px, transparent 1px)',
           backgroundSize: '48px 48px',
         }}
         aria-hidden="true"
@@ -320,7 +320,7 @@ function FeaturedArticle() {
       >
         <path
           d="M0,200 L0,120 L120,50 L240,90 L360,30 L480,70 L600,10 L720,55 L840,20 L960,65 L1080,35 L1200,70 L1200,200 Z"
-          fill="#7C4828"
+          fill="#D4A55A"
         />
       </svg>
 
@@ -328,7 +328,7 @@ function FeaturedArticle() {
         {/* Left: image placeholder */}
         <div
           className="relative overflow-hidden"
-          style={{ minHeight: '360px', background: 'linear-gradient(135deg, #2D1B12 0%, #4a3728 60%, #0E0A07 100%)' }}
+          style={{ minHeight: '360px', background: 'linear-gradient(135deg, #1E4042 0%, #2B4A4C 60%, #1F4D4F 100%)' }}
         >
           <motion.div
             className="absolute inset-0"
@@ -336,14 +336,14 @@ function FeaturedArticle() {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             style={{
               background:
-                'linear-gradient(135deg, #2D1B12 0%, #4a3728 50%, #7C482820 100%)',
+                'linear-gradient(135deg, #1E4042 0%, #2B4A4C 50%, #D4A55A20 100%)',
             }}
           />
           {/* Featured label overlay */}
           <div className="absolute top-8 left-8">
             <span
               className="text-[10px] tracking-[0.35em] uppercase font-medium px-3 py-1.5"
-              style={{ background: '#7C4828', color: '#F5EDE0' }}
+              style={{ background: '#D4A55A', color: '#F6F1E9' }}
             >
               Featured
             </span>
@@ -352,7 +352,7 @@ function FeaturedArticle() {
           <span
             className="absolute bottom-8 right-8 font-serif leading-none select-none pointer-events-none"
             style={{
-              color: '#7C4828',
+              color: '#D4A55A',
               opacity: 0.15,
               fontSize: 'clamp(80px, 12vw, 140px)',
               fontFamily: '"Playfair Display", Georgia, serif',
@@ -368,12 +368,12 @@ function FeaturedArticle() {
           <div className="flex items-center gap-3 mb-6">
             <span
               className="h-px w-8"
-              style={{ background: '#7C4828' }}
+              style={{ background: '#D4A55A' }}
               aria-hidden="true"
             />
             <span
               className="text-[10px] tracking-[0.35em] uppercase"
-              style={{ color: 'rgba(237,224,204,0.45)' }}
+              style={{ color: 'rgba(217,223,220,0.45)' }}
             >
               Origin &middot; 12 min read
             </span>
@@ -382,7 +382,7 @@ function FeaturedArticle() {
           <h2
             className="font-serif leading-tight mb-6"
             style={{
-              color: '#F5EDE0',
+              color: '#F6F1E9',
               fontFamily: '"Playfair Display", Georgia, serif',
               fontSize: 'clamp(28px, 4vw, 48px)',
             }}
@@ -392,20 +392,20 @@ function FeaturedArticle() {
 
           <p
             className="text-base leading-relaxed mb-8"
-            style={{ color: '#7A6555' }}
+            style={{ color: '#6B7F7E' }}
           >
             At over two thousand metres, the air is thin, the nights are cold, and the coffee cherries grow extraordinarily slowly. That slowness is everything. We trace the journey from Himalayan hillside to your cup — and meet the forces of nature that make Nepali beans unlike anything else on earth.
           </p>
 
           <div className="flex items-center justify-between">
-            <span className="text-xs tracking-wide" style={{ color: '#7A6555' }}>
+            <span className="text-xs tracking-wide" style={{ color: '#6B7F7E' }}>
               May 24, 2025
             </span>
             <motion.button
               whileHover={{ x: 6 }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#EDE0CC] rounded"
-              style={{ color: 'rgba(237,224,204,0.7)' }}
+              className="flex items-center gap-3 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9DFDC] rounded"
+              style={{ color: 'rgba(217,223,220,0.7)' }}
             >
               Read the Story
               <span aria-hidden="true" className="text-base">→</span>
@@ -431,17 +431,17 @@ export default function JournalPage() {
   return (
     <>
     <Navigation />
-    <div className="min-h-screen" style={{ backgroundColor: '#F5EDE0' }}>
+    <div className="min-h-screen" style={{ backgroundColor: '#F6F1E9' }}>
       {/* ── Page Header ── */}
       <header
         className="relative overflow-hidden pt-40 pb-24"
-        style={{ backgroundColor: '#F5EDE0' }}
+        style={{ backgroundColor: '#F6F1E9' }}
       >
         {/* Watermark */}
         <span
           className="pointer-events-none select-none absolute inset-0 flex items-center justify-end pr-8 font-serif leading-none tracking-tighter overflow-hidden"
           style={{
-            color: '#0E0A07',
+            color: '#1F4D4F',
             opacity: 0.04,
             fontSize: 'clamp(80px, 18vw, 220px)',
             fontFamily: '"Playfair Display", Georgia, serif',
@@ -461,12 +461,12 @@ export default function JournalPage() {
             <div className="flex items-center gap-4 mb-6">
               <span
                 className="h-px w-10"
-                style={{ background: '#7C4828' }}
+                style={{ background: '#D4A55A' }}
                 aria-hidden="true"
               />
               <span
                 className="text-[10px] tracking-[0.4em] uppercase font-medium"
-                style={{ color: '#7C4828' }}
+                style={{ color: '#D4A55A' }}
               >
                 Stories from the highlands
               </span>
@@ -476,7 +476,7 @@ export default function JournalPage() {
             <h1
               className="font-serif leading-[1.05]"
               style={{
-                color: '#0E0A07',
+                color: '#1F4D4F',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(56px, 10vw, 120px)',
                 letterSpacing: '-0.03em',
@@ -486,7 +486,7 @@ export default function JournalPage() {
               <br />
               <em
                 className="not-italic"
-                style={{ color: '#7C4828' }}
+                style={{ color: '#D4A55A' }}
               >
                 Journal
               </em>
@@ -496,7 +496,7 @@ export default function JournalPage() {
           {/* Divider */}
           <motion.div
             className="h-px mt-12 mb-0"
-            style={{ background: 'linear-gradient(to right, #7C4828, transparent)' }}
+            style={{ background: 'linear-gradient(to right, #D4A55A, transparent)' }}
             initial={{ scaleX: 0, originX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay: 0.4 }}
@@ -552,7 +552,7 @@ export default function JournalPage() {
             animate={{ opacity: 1 }}
             className="text-center py-24"
           >
-            <p className="text-lg" style={{ color: '#7A6555' }}>
+            <p className="text-lg" style={{ color: '#6B7F7E' }}>
               No articles in this category yet.
             </p>
           </motion.div>
@@ -565,18 +565,18 @@ export default function JournalPage() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
           className="mt-24 pt-16 text-center"
-          style={{ borderTop: '1px solid #EDE0CC' }}
+          style={{ borderTop: '1px solid #D9DFDC' }}
         >
           <p
             className="text-xs tracking-[0.35em] uppercase mb-4"
-            style={{ color: '#7C4828' }}
+            style={{ color: '#D4A55A' }}
           >
             Stay current
           </p>
           <h2
             className="font-serif text-4xl md:text-5xl mb-6"
             style={{
-              color: '#0E0A07',
+              color: '#1F4D4F',
               fontFamily: '"Playfair Display", Georgia, serif',
             }}
           >
@@ -584,14 +584,14 @@ export default function JournalPage() {
           </h2>
           <p
             className="text-base max-w-md mx-auto mb-8 leading-relaxed"
-            style={{ color: '#7A6555' }}
+            style={{ color: '#6B7F7E' }}
           >
             Origin stories, brewing guides, and seasonal releases — directly to your inbox.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 px-8 py-4 text-sm tracking-[0.15em] uppercase font-medium transition-colors duration-300"
-            style={{ background: '#0E0A07', color: '#F5EDE0' }}
+            style={{ background: '#1F4D4F', color: '#F6F1E9' }}
           >
             Get in Touch
             <span aria-hidden="true">→</span>

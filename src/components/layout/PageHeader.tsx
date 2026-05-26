@@ -12,7 +12,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
   return (
     <section
       style={{
-        background: '#0E0A07',
+        background: '#1F4D4F',
         padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)',
         position: 'relative',
         overflow: 'hidden',
@@ -23,7 +23,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(124,72,40,0.07) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,165,90,0.07) 0%, transparent 70%)',
         }}
       />
       <div className="site-container" style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
@@ -36,7 +36,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
               fontSize: '10px',
               letterSpacing: '0.4em',
               textTransform: 'uppercase',
-              color: '#7C4828',
+              color: '#D4A55A',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               marginBottom: '1rem',
             }}
@@ -52,7 +52,7 @@ export default function PageHeader({ eyebrow, title, subtitle }: PageHeaderProps
             fontFamily: "'Playfair Display', serif",
             fontSize: 'clamp(2.25rem, 6vw, 4.5rem)',
             fontWeight: 700,
-            color: '#EDE0CC',
+            color: '#D9DFDC',
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
             marginBottom: subtitle ? '1.25rem' : 0,

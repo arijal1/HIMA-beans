@@ -103,7 +103,7 @@ function CSSBeanParticles() {
               height: bean.height,
               // Coffee bean oval shape
               borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-              background: 'radial-gradient(ellipse at 35% 40%, #5a3820, #0E0A07)',
+              background: 'radial-gradient(ellipse at 35% 40%, #5a3820, #1F4D4F)',
               // CSS custom properties feed the keyframe
               ['--bean-rotate' as string]: bean.rotate,
               ['--bean-opacity' as string]: bean.opacity,
@@ -145,21 +145,21 @@ function MountainSilhouette({ yOffset }: { yOffset: number }) {
         d="M0,500 L0,280 L90,200 L180,255 L280,140 L370,190 L460,110
            L560,170 L640,95 L730,160 L820,100 L920,155 L1010,70
            L1110,130 L1200,85 L1300,145 L1380,105 L1440,150 L1440,500 Z"
-        fill="#2a1810"
+        fill="#1A3C3E"
       />
       {/* Mid range */}
       <path
         d="M0,500 L0,340 L80,280 L160,310 L260,220 L340,265 L430,195
            L520,240 L610,175 L700,225 L790,165 L880,215 L970,155
            L1060,200 L1150,160 L1240,205 L1330,175 L1440,220 L1440,500 Z"
-        fill="#221409"
+        fill="#162E30"
       />
       {/* Near range — darkest, most dominant */}
       <path
         d="M0,500 L0,390 L100,330 L200,370 L310,295 L400,340 L500,275
            L590,320 L680,260 L770,305 L860,250 L950,300 L1040,235
            L1130,280 L1220,250 L1310,290 L1440,265 L1440,500 Z"
-        fill="#0A0704"
+        fill="#355E3B"
       />
     </svg>
   );
@@ -255,7 +255,7 @@ function ScrollIndicator() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: '0.4rem',
-        color: '#EDE0CC',
+        color: '#D9DFDC',
         zIndex: 20,
         cursor: 'default',
         userSelect: 'none',
@@ -293,7 +293,7 @@ function ScrollIndicator() {
             width: '3px',
             height: '6px',
             borderRadius: '2px',
-            background: '#7C4828',
+            background: '#D4A55A',
           }}
         />
       </div>
@@ -309,7 +309,7 @@ function ScrollIndicator() {
       >
         <path
           d="M1 1L7 7L13 1"
-          stroke="#7C4828"
+          stroke="#D4A55A"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -348,7 +348,7 @@ export default function Hero() {
         height: '100vh',
         overflow: 'hidden',
         // Deep gradient: dark espresso at bottom, lighter at top
-        background: 'linear-gradient(to top, #0A0704 0%, #2D1B12 50%, #4a3728 100%)',
+        background: 'linear-gradient(to top, #355E3B 0%, #1E4042 50%, #2B4A4C 100%)',
         opacity: sectionOpacity,
       }}
     >
@@ -363,7 +363,7 @@ export default function Hero() {
           inset: 0,
           zIndex: 3,
           background:
-            'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(124,72,40,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 40% at 50% 60%, rgba(212,165,90,0.06) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
@@ -427,7 +427,7 @@ export default function Hero() {
               display: 'flex',
               alignItems: 'center',
               gap: '0.75rem',
-              color: 'rgba(237,224,204,0.45)',
+              color: 'rgba(217,223,220,0.45)',
             }}
           >
             <span
@@ -436,7 +436,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: 'rgba(237,224,204,0.3)',
+                background: 'rgba(217,223,220,0.3)',
               }}
             />
             <span
@@ -456,7 +456,7 @@ export default function Hero() {
                 display: 'block',
                 width: '2.5rem',
                 height: '1px',
-                background: 'rgba(237,224,204,0.3)',
+                background: 'rgba(217,223,220,0.3)',
               }}
             />
           </motion.div>
@@ -474,14 +474,14 @@ export default function Hero() {
             }}
           >
             {/* Line 1 — cream */}
-            <span style={{ display: 'block', color: '#F5EDE0' }}>
+            <span style={{ display: 'block', color: '#F6F1E9' }}>
               <AnimatedHeadline line="Crafted Above" />
             </span>
             {/* Line 2 — cream italic */}
             <span
               style={{
                 display: 'block',
-                color: 'rgba(237,224,204,0.75)',
+                color: 'rgba(217,223,220,0.75)',
                 fontStyle: 'italic',
               }}
             >
@@ -497,7 +497,7 @@ export default function Hero() {
               maxWidth: '600px',
               fontSize: 'clamp(15px, 4vw, 18px)',
               lineHeight: 1.7,
-              color: 'rgba(237,224,204,0.68)',
+              color: 'rgba(217,223,220,0.68)',
               fontFamily: 'var(--font-inter), Inter, sans-serif',
               fontWeight: 400,
             }}
@@ -514,7 +514,7 @@ export default function Hero() {
               fontStyle: 'italic',
               fontSize: 'clamp(12px, 2vw, 14px)',
               letterSpacing: '0.08em',
-              color: 'rgba(237,224,204,0.5)',
+              color: 'rgba(217,223,220,0.5)',
               maxWidth: '400px',
             }}
           >
@@ -539,8 +539,8 @@ export default function Hero() {
                 style={{
                   display: 'inline-block',
                   padding: '0.75rem 1.75rem',
-                  background: '#7C4828',
-                  color: '#0A0704',
+                  background: '#D4A55A',
+                  color: '#355E3B',
                   border: 'none',
                   borderRadius: '2px',
                   fontSize: '13px',
@@ -551,13 +551,13 @@ export default function Hero() {
                   cursor: 'pointer',
                   textDecoration: 'none',
                   transition: 'background 0.2s ease',
-                  boxShadow: '0 4px 24px rgba(124,72,40,0.3)',
+                  boxShadow: '0 4px 24px rgba(212,165,90,0.3)',
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLAnchorElement).style.background = '#c9a26a';
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = '#7C4828';
+                  (e.currentTarget as HTMLAnchorElement).style.background = '#D4A55A';
                 }}
               >
                 Explore Our Beans
@@ -572,8 +572,8 @@ export default function Hero() {
                   display: 'inline-block',
                   padding: '0.75rem 1.75rem',
                   background: 'transparent',
-                  color: '#F5EDE0',
-                  border: '1.5px solid rgba(237,224,204,0.45)',
+                  color: '#F6F1E9',
+                  border: '1.5px solid rgba(217,223,220,0.45)',
                   borderRadius: '2px',
                   fontSize: '13px',
                   fontWeight: 500,
@@ -586,12 +586,12 @@ export default function Hero() {
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.borderColor = 'rgba(237,224,204,0.85)';
-                  el.style.background = 'rgba(237,224,204,0.06)';
+                  el.style.borderColor = 'rgba(217,223,220,0.85)';
+                  el.style.background = 'rgba(217,223,220,0.06)';
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLAnchorElement;
-                  el.style.borderColor = 'rgba(237,224,204,0.45)';
+                  el.style.borderColor = 'rgba(217,223,220,0.45)';
                   el.style.background = 'transparent';
                 }}
               >
@@ -614,7 +614,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           height: '200px',
-          background: 'linear-gradient(to top, #0A0704 0%, transparent 100%)',
+          background: 'linear-gradient(to top, #355E3B 0%, transparent 100%)',
           zIndex: 6,
           pointerEvents: 'none',
         }}

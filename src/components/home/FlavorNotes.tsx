@@ -32,7 +32,7 @@ const PROFILES: FlavorProfile[] = [
     altitude: '1800m',
     processing: 'Washed',
     notes: [
-      { label: 'Floral', intensity: 85, color: '#7C4828' },
+      { label: 'Floral', intensity: 85, color: '#D4A55A' },
       { label: 'Dark Chocolate', intensity: 92, color: '#8C6A3F' },
       { label: 'Stone Fruit', intensity: 78, color: '#A0784A' },
       { label: 'Caramel', intensity: 70, color: '#C49B6A' },
@@ -49,7 +49,7 @@ const PROFILES: FlavorProfile[] = [
     altitude: '2100m',
     processing: 'Natural',
     notes: [
-      { label: 'Jasmine', intensity: 95, color: '#7C4828' },
+      { label: 'Jasmine', intensity: 95, color: '#D4A55A' },
       { label: 'Honey', intensity: 88, color: '#C49B6A' },
       { label: 'Citrus Zest', intensity: 82, color: '#D4AA7A' },
       { label: 'Stone Fruit', intensity: 60, color: '#A0784A' },
@@ -69,7 +69,7 @@ const PROFILES: FlavorProfile[] = [
       { label: 'Cocoa', intensity: 97, color: '#8C6A3F' },
       { label: 'Cedar', intensity: 80, color: '#9C7850' },
       { label: 'Molasses', intensity: 88, color: '#7A5838' },
-      { label: 'Brown Sugar', intensity: 72, color: '#7C4828' },
+      { label: 'Brown Sugar', intensity: 72, color: '#D4A55A' },
       { label: 'Dried Fruit', intensity: 55, color: '#A0784A' },
     ],
     descriptor:
@@ -95,13 +95,13 @@ function FlavorBar({ label, intensity, color, index }: FlavorBarProps) {
       {/* Fixed-width label — narrower on mobile to reclaim bar space */}
       <span
         className="text-[10px] sm:text-[11px] tracking-[0.12em] uppercase shrink-0 text-right"
-        style={{ color: '#7A6555', width: '5.5rem' }}
+        style={{ color: '#6B7F7E', width: '5.5rem' }}
       >
         {label}
       </span>
       <div
         className="relative flex-1 rounded-full overflow-hidden"
-        style={{ height: '2px', background: '#EDE0CC' }}
+        style={{ height: '2px', background: '#D9DFDC' }}
       >
         <motion.div
           className="absolute inset-y-0 left-0 rounded-full"
@@ -113,7 +113,7 @@ function FlavorBar({ label, intensity, color, index }: FlavorBarProps) {
       </div>
       <span
         className="text-[11px] shrink-0 w-7 text-right"
-        style={{ color: '#7C4828' }}
+        style={{ color: '#D4A55A' }}
       >
         {intensity}
       </span>
@@ -152,7 +152,7 @@ function FlavorRadar({ profile }: { profile: FlavorProfile }) {
           key={f}
           points={gridLine(maxR * f)}
           fill="none"
-          stroke="#EDE0CC"
+          stroke="#D9DFDC"
           strokeWidth="1"
           opacity="0.7"
         />
@@ -161,14 +161,14 @@ function FlavorRadar({ profile }: { profile: FlavorProfile }) {
       {Array.from({ length: n }, (_, i) => {
         const p = toPoint(i, maxR);
         return (
-          <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#EDE0CC" strokeWidth="1" opacity="0.5" />
+          <line key={i} x1={cx} y1={cy} x2={p.x} y2={p.y} stroke="#D9DFDC" strokeWidth="1" opacity="0.5" />
         );
       })}
       {/* Data fill */}
       <motion.polygon
         points={dataStr}
-        fill="rgba(124,72,40,0.13)"
-        stroke="#7C4828"
+        fill="rgba(212,165,90,0.13)"
+        stroke="#D4A55A"
         strokeWidth="1.5"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -181,7 +181,7 @@ function FlavorRadar({ profile }: { profile: FlavorProfile }) {
           cx={p.x}
           cy={p.y}
           r="3"
-          fill="#7C4828"
+          fill="#D4A55A"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.6 + i * 0.07, duration: 0.3, ease: 'backOut' }}
@@ -199,7 +199,7 @@ function FlavorRadar({ profile }: { profile: FlavorProfile }) {
             textAnchor="middle"
             dominantBaseline="middle"
             fontSize="7"
-            fill="#7A6555"
+            fill="#6B7F7E"
             letterSpacing="1"
             style={{ fontFamily: 'var(--font-inter), Inter, sans-serif', textTransform: 'uppercase' }}
           >
@@ -230,24 +230,24 @@ function BeanTab({
       whileHover={{ y: -1 }}
       whileTap={{ scale: 0.97 }}
       // On mobile: full-width inside the scroll container; on sm+ auto-width
-      className="relative flex flex-col items-start px-5 py-3.5 sm:px-6 sm:py-4 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] flex-shrink-0"
+      className="relative flex flex-col items-start px-5 py-3.5 sm:px-6 sm:py-4 text-left transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] flex-shrink-0"
       style={{
-        background: active ? '#0E0A07' : 'transparent',
-        border: `1px solid ${active ? '#0E0A07' : '#EDE0CC'}`,
+        background: active ? '#1F4D4F' : 'transparent',
+        border: `1px solid ${active ? '#1F4D4F' : '#D9DFDC'}`,
         minWidth: '140px',
       }}
       aria-pressed={active}
     >
       <span
         className="text-[10px] tracking-[0.25em] uppercase mb-1"
-        style={{ color: active ? '#7C4828' : '#7A6555' }}
+        style={{ color: active ? '#D4A55A' : '#6B7F7E' }}
       >
         {profile.region}
       </span>
       <span
         className="text-sm font-serif leading-tight whitespace-nowrap"
         style={{
-          color: active ? '#F5EDE0' : '#0E0A07',
+          color: active ? '#F6F1E9' : '#1F4D4F',
           fontFamily: '"Playfair Display", Georgia, serif',
         }}
       >
@@ -257,7 +257,7 @@ function BeanTab({
         <motion.span
           layoutId="flavor-tab-indicator"
           className="absolute bottom-0 left-0 right-0 h-0.5"
-          style={{ background: '#7C4828' }}
+          style={{ background: '#D4A55A' }}
           transition={{ type: 'spring', stiffness: 400, damping: 30 }}
         />
       )}
@@ -276,13 +276,13 @@ export default function FlavorNotes() {
   return (
     <section
       className="relative overflow-hidden"
-      style={{ backgroundColor: '#F5EDE0' }}
+      style={{ backgroundColor: '#F6F1E9' }}
       aria-labelledby="flavor-notes-heading"
     >
       {/* Top gold rule */}
       <div
         className="absolute top-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, #7C4828 40%, #7C4828 60%, transparent)' }}
+        style={{ background: 'linear-gradient(to right, transparent, #D4A55A 40%, #D4A55A 60%, transparent)' }}
         aria-hidden="true"
       />
 
@@ -298,7 +298,7 @@ export default function FlavorNotes() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="text-xs tracking-[0.35em] uppercase mb-4"
-              style={{ color: '#7C4828' }}
+              style={{ color: '#D4A55A' }}
             >
               Tasting Notes
             </motion.p>
@@ -310,14 +310,14 @@ export default function FlavorNotes() {
               transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
               className="font-serif leading-[1.05]"
               style={{
-                color: '#0E0A07',
+                color: '#1F4D4F',
                 fontFamily: '"Playfair Display", Georgia, serif',
                 fontSize: 'clamp(2.4rem, 5vw, 3.8rem)',
               }}
             >
               The Flavor of
               <br />
-              <em style={{ color: '#7C4828' }}>Altitude.</em>
+              <em style={{ color: '#D4A55A' }}>Altitude.</em>
             </motion.h2>
           </div>
           <motion.p
@@ -326,7 +326,7 @@ export default function FlavorNotes() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.18, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
             className="max-w-sm text-sm leading-relaxed"
-            style={{ color: '#7A6555' }}
+            style={{ color: '#6B7F7E' }}
           >
             Each bean expresses Nepal&apos;s highlands differently. Explore the
             precise flavor architecture behind every single-origin selection.
@@ -382,15 +382,15 @@ export default function FlavorNotes() {
                   <div
                     key={label}
                     className="flex flex-col px-4 py-3"
-                    style={{ background: '#fff', border: '1px solid #EDE0CC' }}
+                    style={{ background: '#fff', border: '1px solid #D9DFDC' }}
                   >
                     <span
                       className="text-[9px] tracking-[0.3em] uppercase mb-1"
-                      style={{ color: '#7C4828' }}
+                      style={{ color: '#D4A55A' }}
                     >
                       {label}
                     </span>
-                    <span className="text-sm font-medium" style={{ color: '#0E0A07' }}>
+                    <span className="text-sm font-medium" style={{ color: '#1F4D4F' }}>
                       {value}
                     </span>
                   </div>
@@ -398,22 +398,22 @@ export default function FlavorNotes() {
               </div>
 
               {/* Descriptor */}
-              <p className="text-base leading-[1.8]" style={{ color: '#7A6555' }}>
+              <p className="text-base leading-[1.8]" style={{ color: '#6B7F7E' }}>
                 {active.descriptor}
               </p>
 
               {/* Pairing note */}
               <div
                 className="p-5"
-                style={{ background: 'rgba(124,72,40,0.06)', borderLeft: '2px solid #7C4828' }}
+                style={{ background: 'rgba(212,165,90,0.06)', borderLeft: '2px solid #D4A55A' }}
               >
                 <p
                   className="text-[10px] tracking-[0.25em] uppercase mb-2"
-                  style={{ color: '#7C4828' }}
+                  style={{ color: '#D4A55A' }}
                 >
                   Best Enjoyed As
                 </p>
-                <p className="text-sm leading-relaxed italic" style={{ color: '#0E0A07' }}>
+                <p className="text-sm leading-relaxed italic" style={{ color: '#1F4D4F' }}>
                   {active.pairingNote}
                 </p>
               </div>
@@ -423,7 +423,7 @@ export default function FlavorNotes() {
             <div className="flex flex-col justify-center gap-4">
               <p
                 className="text-[10px] tracking-[0.3em] uppercase mb-2"
-                style={{ color: '#7A6555' }}
+                style={{ color: '#6B7F7E' }}
               >
                 Flavor Intensity
               </p>
@@ -444,7 +444,7 @@ export default function FlavorNotes() {
             <div className="flex flex-col items-center justify-center gap-4">
               <p
                 className="text-[10px] tracking-[0.3em] uppercase"
-                style={{ color: '#7A6555' }}
+                style={{ color: '#6B7F7E' }}
               >
                 Flavor Profile
               </p>
@@ -461,7 +461,7 @@ export default function FlavorNotes() {
       {/* Bottom rule */}
       <div
         className="absolute bottom-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(to right, transparent, #EDE0CC 40%, #EDE0CC 60%, transparent)' }}
+        style={{ background: 'linear-gradient(to right, transparent, #D9DFDC 40%, #D9DFDC 60%, transparent)' }}
         aria-hidden="true"
       />
     </section>

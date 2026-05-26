@@ -11,7 +11,7 @@ const PRODUCTS = [
     altitude: '1,800m',
     roast: 'Light Roast',
     flavor: 'Jasmine · Dark Chocolate · Citrus',
-    gradient: 'linear-gradient(160deg, #0E0A07 0%, #5C3D2E 60%, #7A5035 100%)',
+    gradient: 'linear-gradient(160deg, #1F4D4F 0%, #2B4A4C 60%, #7A5035 100%)',
   },
   {
     slug: 'valley-mist',
@@ -20,7 +20,7 @@ const PRODUCTS = [
     altitude: '2,100m',
     roast: 'Medium Roast',
     flavor: 'Stone Fruit · Brown Sugar · Floral',
-    gradient: 'linear-gradient(160deg, #2D3B35 0%, #0E0A07 55%, #4a3728 100%)',
+    gradient: 'linear-gradient(160deg, #2D3B35 0%, #1F4D4F 55%, #2B4A4C 100%)',
   },
   {
     slug: 'summit-dark',
@@ -29,7 +29,7 @@ const PRODUCTS = [
     altitude: '1,950m',
     roast: 'Dark Roast',
     flavor: 'Cocoa · Walnut · Molasses',
-    gradient: 'linear-gradient(160deg, #110a06 0%, #2A1C14 55%, #0E0A07 100%)',
+    gradient: 'linear-gradient(160deg, #162E30 0%, #1E4042 55%, #1F4D4F 100%)',
   },
 ] as const;
 
@@ -44,24 +44,24 @@ const fadeUp = {
 
 export default function ProductsGrid() {
   return (
-    <section style={{ backgroundColor: '#F5EDE0' }} className="section-gap">
+    <section style={{ backgroundColor: '#F6F1E9' }} className="section-gap">
       <div className="site-container">
 
         {/* Header */}
         <div className="mb-12 md:mb-16">
           <p
-            className="text-[#7C4828] text-[10px] tracking-[0.4em] uppercase mb-3"
+            className="text-[#D4A55A] text-[10px] tracking-[0.4em] uppercase mb-3"
             style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
           >
             Our Coffee
           </p>
           <h2
-            className="text-[#0E0A07] text-3xl md:text-4xl lg:text-5xl font-bold"
+            className="text-[#1F4D4F] text-3xl md:text-4xl lg:text-5xl font-bold"
             style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
           >
             Three Origins.
             <br />
-            <em className="font-normal" style={{ color: '#7C4828' }}>One Altitude.</em>
+            <em className="font-normal" style={{ color: '#D4A55A' }}>One Altitude.</em>
           </h2>
         </div>
 
@@ -86,8 +86,8 @@ export default function ProductsGrid() {
                   <span
                     className="absolute top-3 right-3 text-[10px] tracking-[0.2em] uppercase"
                     style={{
-                      color: 'rgba(237,224,204,0.7)',
-                      backgroundColor: 'rgba(10,6,3,0.7)',
+                      color: 'rgba(217,223,220,0.7)',
+                      backgroundColor: 'rgba(53,94,59,0.7)',
                       padding: '4px 8px',
                       fontFamily: 'var(--font-inter, Inter, sans-serif)',
                     }}
@@ -98,10 +98,10 @@ export default function ProductsGrid() {
                   {/* Bean name overlay at bottom */}
                   <div
                     className="absolute inset-x-0 bottom-0 p-5"
-                    style={{ background: 'linear-gradient(to top, rgba(10,6,3,0.75) 0%, transparent 100%)' }}
+                    style={{ background: 'linear-gradient(to top, rgba(53,94,59,0.75) 0%, transparent 100%)' }}
                   >
                     <p
-                      className="text-[#F5EDE0] text-[9px] tracking-[0.3em] uppercase"
+                      className="text-[#F6F1E9] text-[9px] tracking-[0.3em] uppercase"
                       style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
                     >
                       {p.roast}
@@ -111,10 +111,10 @@ export default function ProductsGrid() {
                   {/* Hover overlay */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"
-                    style={{ backgroundColor: 'rgba(124,72,40,0.12)' }}
+                    style={{ backgroundColor: 'rgba(212,165,90,0.12)' }}
                   >
                     <span
-                      className="text-[#F5EDE0] text-[10px] tracking-[0.25em] uppercase border border-[#F5EDE0]/40 px-4 py-2"
+                      className="text-[#F6F1E9] text-[10px] tracking-[0.25em] uppercase border border-[#F6F1E9]/40 px-4 py-2"
                       style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
                     >
                       View Bean
@@ -125,19 +125,19 @@ export default function ProductsGrid() {
                 {/* Info */}
                 <div>
                   <h3
-                    className="text-[#0E0A07] text-lg font-semibold mb-1 group-hover:text-[#7C4828] transition-colors duration-300"
+                    className="text-[#1F4D4F] text-lg font-semibold mb-1 group-hover:text-[#D4A55A] transition-colors duration-300"
                     style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
                   >
                     {p.name}
                   </h3>
                   <p
-                    className="text-[#7C4828] text-[10px] tracking-[0.25em] uppercase mb-2"
+                    className="text-[#D4A55A] text-[10px] tracking-[0.25em] uppercase mb-2"
                     style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
                   >
                     {p.region}
                   </p>
                   <p
-                    className="text-[#7A6555] text-sm leading-relaxed"
+                    className="text-[#6B7F7E] text-sm leading-relaxed"
                     style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
                   >
                     {p.flavor}
@@ -152,7 +152,7 @@ export default function ProductsGrid() {
         <div className="mt-12 md:mt-16 text-center">
           <Link
             href="/beans"
-            className="text-[#7C4828] text-sm tracking-[0.15em] uppercase hover:text-[#0E0A07] transition-colors duration-300 inline-flex items-center gap-3 group"
+            className="text-[#D4A55A] text-sm tracking-[0.15em] uppercase hover:text-[#1F4D4F] transition-colors duration-300 inline-flex items-center gap-3 group"
             style={{ fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
           >
             View All Beans

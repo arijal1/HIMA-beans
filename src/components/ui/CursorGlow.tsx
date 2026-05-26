@@ -40,11 +40,11 @@ const HALO_SIZE_DEFAULT = 40;
 const HALO_SIZE_HOVER = 72;
 
 /* Colours */
-const COLOR_DOT = "#F5EDE0"; // warm cream
-const COLOR_HALO_DEFAULT = "rgba(237, 224, 204, 0.08)";
-const COLOR_HALO_HOVER = "rgba(124, 72, 40, 0.15)";
-const COLOR_BORDER_DEFAULT = "rgba(237, 224, 204, 0.25)";
-const COLOR_BORDER_HOVER = "#7C4828"; // muted gold
+const COLOR_DOT = "#F6F1E9"; // warm cream
+const COLOR_HALO_DEFAULT = "rgba(217, 223, 220, 0.08)";
+const COLOR_HALO_HOVER = "rgba(212, 165, 90, 0.15)";
+const COLOR_BORDER_DEFAULT = "rgba(217, 223, 220, 0.25)";
+const COLOR_BORDER_HOVER = "#D4A55A"; // muted gold
 
 /* Interactive selectors that trigger the expanded cursor state */
 const INTERACTIVE_SELECTOR =

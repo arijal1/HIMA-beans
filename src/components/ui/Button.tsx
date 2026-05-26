@@ -36,10 +36,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * The flagship CTA button.
    */
   primary: [
-    'bg-[#7C4828] text-[#F5EDE0]',
-    'border border-[#7C4828]',
-    'hover:bg-[#9A6040] hover:border-[#9A6040]',
-    'focus-visible:ring-[#7C4828] focus-visible:ring-offset-[#F5EDE0]',
+    'bg-[#D4A55A] text-[#F6F1E9]',
+    'border border-[#D4A55A]',
+    'hover:bg-[#E0BB7A] hover:border-[#E0BB7A]',
+    'focus-visible:ring-[#D4A55A] focus-visible:ring-offset-[#F6F1E9]',
   ].join(' '),
 
   /**
@@ -47,10 +47,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * Used on dark sections or as a secondary action.
    */
   outline: [
-    'bg-transparent text-[#F5EDE0]',
-    'border border-[#F5EDE0]/70',
-    'hover:bg-[#F5EDE0]/8 hover:border-[#F5EDE0]',
-    'focus-visible:ring-[#F5EDE0] focus-visible:ring-offset-[#0E0A07]',
+    'bg-transparent text-[#F6F1E9]',
+    'border border-[#F6F1E9]/70',
+    'hover:bg-[#F6F1E9]/8 hover:border-[#F6F1E9]',
+    'focus-visible:ring-[#F6F1E9] focus-visible:ring-offset-[#1F4D4F]',
   ].join(' '),
 
   /**
@@ -58,10 +58,10 @@ const variantClasses: Record<ButtonVariant, string> = {
    * Used for tertiary actions like "Learn more".
    */
   ghost: [
-    'bg-transparent text-[#7C4828]',
+    'bg-transparent text-[#D4A55A]',
     'border border-transparent',
-    'hover:text-[#9A6040]',
-    'focus-visible:ring-[#7C4828] focus-visible:ring-offset-transparent',
+    'hover:text-[#E0BB7A]',
+    'focus-visible:ring-[#D4A55A] focus-visible:ring-offset-transparent',
     'underline-offset-4',
   ].join(' '),
 };

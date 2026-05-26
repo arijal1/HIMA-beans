@@ -10,12 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
-const ESPRESSO   = '#0E0A07';
-const WARM_CREAM = '#F5EDE0';
-const MUTED_GOLD = '#7C4828';
-const SOFT_BEIGE = '#EDE0CC';
-const CHARCOAL   = '#1A1008';
-const STONE      = '#7A6555';
+const ESPRESSO   = '#1F4D4F';
+const WARM_CREAM = '#F6F1E9';
+const MUTED_GOLD = '#D4A55A';
+const SOFT_BEIGE = '#D9DFDC';
+const CHARCOAL   = '#1A2E2F';
+const STONE      = '#6B7F7E';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Steam warp paths (looping CSS keyframes, 3 wisps)
@@ -377,10 +377,10 @@ export default function CoffeePourAnimation() {
 
               {/* ── Coffee liquid gradient ── */}
               <linearGradient id="coffee-grad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%"   stopColor="#2A1C14" />
+                <stop offset="0%"   stopColor="#1E4042" />
                 <stop offset="40%"  stopColor={ESPRESSO} />
                 <stop offset="75%"  stopColor="#5C3D28" />
-                <stop offset="100%" stopColor="#2A1C14" />
+                <stop offset="100%" stopColor="#1E4042" />
               </linearGradient>
 
               {/* ── Cup ceramic gradient ── */}

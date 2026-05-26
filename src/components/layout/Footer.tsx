@@ -54,7 +54,7 @@ export default function Footer() {
 
   return (
     <footer
-      style={{ backgroundColor: '#0A0704', borderTop: '1px solid rgba(124,72,40,0.18)' }}
+      style={{ backgroundColor: '#355E3B', borderTop: '1px solid rgba(212,165,90,0.18)' }}
       aria-label="Site footer"
     >
       <div className="site-container" style={{ paddingTop: 'clamp(3rem,6vw,5rem)', paddingBottom: 'clamp(2rem,4vw,3rem)' }}>
@@ -83,14 +83,14 @@ export default function Footer() {
               style={{
                 fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
                 fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-                color: '#EDE0CC',
+                color: '#D9DFDC',
                 letterSpacing: '0.08em',
                 lineHeight: 1,
               }}
             >
               HIMA BEANS
             </span>
-            <span style={{ fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#7C4828', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
+            <span style={{ fontSize: '9px', letterSpacing: '0.38em', textTransform: 'uppercase', color: '#D4A55A', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}>
               Nepal &rarr; Australia
             </span>
           </Link>
@@ -119,13 +119,13 @@ export default function Footer() {
                       padding: '0.3rem 0',
                       transition: 'color 0.2s',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.color = '#EDE0CC')}
+                    onMouseEnter={e => (e.currentTarget.style.color = '#D9DFDC')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'rgba(237,230,216,0.45)')}
                   >
                     {link.label}
                   </Link>
                   {i < NAV_LINKS.length - 1 && (
-                    <span aria-hidden="true" style={{ color: 'rgba(124,72,40,0.35)', margin: '0 0.75rem', fontSize: '10px' }}>
+                    <span aria-hidden="true" style={{ color: 'rgba(212,165,90,0.35)', margin: '0 0.75rem', fontSize: '10px' }}>
                       /
                     </span>
                   )}
@@ -192,8 +192,8 @@ export default function Footer() {
                     transition: 'color 0.2s, border-color 0.2s',
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.color = '#7C4828';
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(124,72,40,0.45)';
+                    (e.currentTarget as HTMLAnchorElement).style.color = '#D4A55A';
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(212,165,90,0.45)';
                   }}
                   onMouseLeave={e => {
                     (e.currentTarget as HTMLAnchorElement).style.color = 'rgba(237,230,216,0.38)';

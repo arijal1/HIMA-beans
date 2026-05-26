@@ -17,12 +17,12 @@ import Footer from '@/components/layout/Footer';
    Brand Tokens
    ============================================================ */
 const C = {
-  espresso: "#0E0A07",
-  cream: "#F5EDE0",
-  stone: "#7A6555",
-  gold: "#7C4828",
-  beige: "#EDE0CC",
-  charcoal: "#1A1008",
+  espresso: "#1F4D4F",
+  cream: "#F6F1E9",
+  stone: "#6B7F7E",
+  gold: "#D4A55A",
+  beige: "#D9DFDC",
+  charcoal: "#1A2E2F",
 } as const;
 
 /* ============================================================
@@ -294,10 +294,10 @@ function BeanCard({
           rotateY,
           transformStyle: "preserve-3d",
           backgroundColor: C.cream,
-          border: `1px solid rgba(26,16,8,0.06)`,
+          border: `1px solid rgba(26,46,47,0.06)`,
           boxShadow: hovered
-            ? "0 24px 48px rgba(14,10,7,0.18), 0 8px 16px rgba(14,10,7,0.10)"
-            : "0 4px 16px rgba(14,10,7,0.07)",
+            ? "0 24px 48px rgba(31,77,79,0.18), 0 8px 16px rgba(31,77,79,0.10)"
+            : "0 4px 16px rgba(31,77,79,0.07)",
           transition: "box-shadow 0.3s ease",
         }}
         onMouseMove={handleMouseMove}
@@ -502,7 +502,7 @@ function BeansHero() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(124,72,40,0.1) 0%, transparent 65%)`,
+            background: `radial-gradient(ellipse 100% 70% at 60% 30%, rgba(212,165,90,0.1) 0%, transparent 65%)`,
           }}
         />
         {/* Decorative element — coffee bean shape (CSS ellipse rings) */}
@@ -514,7 +514,7 @@ function BeansHero() {
               style={{
                 width: 400 - i * 80,
                 height: 400 - i * 80,
-                border: `1px solid rgba(124,72,40,${opacity * 0.12})`,
+                border: `1px solid rgba(212,165,90,${opacity * 0.12})`,
                 top: `${i * 40}px`,
                 left: `${i * 40}px`,
               }}
@@ -527,10 +527,10 @@ function BeansHero() {
             viewBox="0 0 200 200"
             style={{ opacity: 0.06, position: "absolute", top: 60, left: 60 }}
           >
-            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#7C4828" />
+            <ellipse cx="100" cy="100" rx="75" ry="90" fill="#D4A55A" />
             <path
               d="M100 10 Q130 100 100 190"
-              stroke="#0E0A07"
+              stroke="#1F4D4F"
               strokeWidth="8"
               fill="none"
             />
@@ -540,7 +540,7 @@ function BeansHero() {
         {/* Subtle radial glow */}
         <div
           className="absolute inset-0 opacity-40"
-          style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(124,72,40,0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 60%, rgba(212,165,90,0.06) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -550,7 +550,7 @@ function BeansHero() {
           animate={{ opacity: 1, letterSpacing: "0.4em" }}
           transition={{ duration: 1, delay: 0.2, ease }}
           className="text-xs font-medium uppercase mb-6"
-          style={{ color: "rgba(237,224,204,0.45)" }}
+          style={{ color: "rgba(217,223,220,0.45)" }}
         >
           Specialty Coffee
         </motion.p>
@@ -574,7 +574,7 @@ function BeansHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.7, ease }}
           className="text-base md:text-lg max-w-2xl leading-relaxed"
-          style={{ color: "rgba(237,224,204,0.65)" }}
+          style={{ color: "rgba(217,223,220,0.65)" }}
         >
           Six exceptional lots, each a portrait of its Himalayan origin. Grown at
           altitude, harvested by hand, and roasted to honour every nuance the
@@ -657,7 +657,7 @@ function BeanGridSection() {
   return (
     <section
       className="py-16 sm:py-20 md:py-24 "
-      style={{ backgroundColor: "#EBE2D2" }}
+      style={{ backgroundColor: "#D9DFDC" }}
     >
       <div className="site-container">
         {/* Section header */}
@@ -746,13 +746,13 @@ function CustomRoastingSection() {
         <div
           className="absolute inset-0"
           style={{
-            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(124,72,40,0.08) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 80% at 80% 50%, rgba(212,165,90,0.08) 0%, transparent 70%)`,
           }}
         />
         {/* Decorative large text */}
         <div
           className="absolute right-0 top-1/2 -translate-y-1/2 font-serif text-[18rem] font-bold leading-none select-none hidden xl:block"
-          style={{ color: "rgba(124,72,40,0.04)", userSelect: "none" }}
+          style={{ color: "rgba(212,165,90,0.04)", userSelect: "none" }}
           aria-hidden
         >
           HB
@@ -769,7 +769,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-xs font-medium uppercase tracking-[0.35em] mb-4"
-              style={{ color: "rgba(237,224,204,0.45)" }}
+              style={{ color: "rgba(217,223,220,0.45)" }}
             >
               Wholesale &amp; Custom Roasting
             </motion.p>
@@ -784,7 +784,7 @@ function CustomRoastingSection() {
             >
               Custom Roasting
               <br />
-              <em style={{ color: "#EDE0CC", fontStyle: "italic" }}>Available</em>
+              <em style={{ color: "#D9DFDC", fontStyle: "italic" }}>Available</em>
             </motion.h2>
 
             <motion.p
@@ -793,7 +793,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-base leading-relaxed mb-4"
-              style={{ color: "rgba(237,224,204,0.7)" }}
+              style={{ color: "rgba(217,223,220,0.7)" }}
             >
               For cafes, restaurants, and discerning wholesale buyers, we offer
               bespoke roast profiling on any of our Himalayan lots. Work directly
@@ -808,7 +808,7 @@ function CustomRoastingSection() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               className="text-base leading-relaxed mb-10"
-              style={{ color: "rgba(237,224,204,0.7)" }}
+              style={{ color: "rgba(217,223,220,0.7)" }}
             >
               Minimum order quantities start at 10 kg per lot. White-label and
               co-branded packaging available. Origin traceability certificates
@@ -874,7 +874,7 @@ function CustomRoastingSection() {
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 className="flex items-start gap-4 py-5 border-b"
-                style={{ borderColor: "rgba(237,224,204,0.08)" }}
+                style={{ borderColor: "rgba(217,223,220,0.08)" }}
               >
                 <span
                   className="text-base mt-0.5 flex-shrink-0"
@@ -891,7 +891,7 @@ function CustomRoastingSection() {
                   </p>
                   <p
                     className="text-sm leading-relaxed"
-                    style={{ color: "rgba(237,224,204,0.55)" }}
+                    style={{ color: "rgba(217,223,220,0.55)" }}
                   >
                     {item.body}
                   </p>
@@ -968,8 +968,8 @@ function BottomCTA() {
             </Link>
             <Link
               href="/wholesale"
-              className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#1A1008]"
-              style={{ borderColor: `rgba(26,16,8,0.2)`, color: C.espresso }}
+              className="inline-flex items-center gap-3 px-7 py-3.5 text-[11px] tracking-[0.18em] uppercase font-medium border transition-all duration-300 hover:border-[#1A2E2F]"
+              style={{ borderColor: `rgba(26,46,47,0.2)`, color: C.espresso }}
             >
               Wholesale Enquiry
             </Link>

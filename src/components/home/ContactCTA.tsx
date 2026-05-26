@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function ContactCTA() {
   return (
-    <section style={{ backgroundColor: '#0E0A07' }} className="section-gap">
+    <section style={{ backgroundColor: '#1F4D4F' }} className="section-gap">
       <div className="site-container text-center">
 
         <motion.p
@@ -14,7 +14,7 @@ export default function ContactCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-[10px] tracking-[0.4em] uppercase mb-5"
-          style={{ color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
+          style={{ color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter, Inter, sans-serif)' }}
         >
           Get in Touch
         </motion.p>
@@ -24,7 +24,7 @@ export default function ContactCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.08 }}
-          className="text-[#F5EDE0] font-bold mx-auto"
+          className="text-[#F6F1E9] font-bold mx-auto"
           style={{
             fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
             fontSize: 'clamp(1.75rem, 5vw, 3rem)',
@@ -43,7 +43,7 @@ export default function ContactCTA() {
           className="mx-auto mt-5 leading-relaxed"
           style={{
             maxWidth: '440px',
-            color: 'rgba(237,224,204,0.55)',
+            color: 'rgba(217,223,220,0.55)',
             fontSize: '0.9rem',
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
@@ -62,8 +62,8 @@ export default function ContactCTA() {
             href="/contact"
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:opacity-80"
             style={{
-              backgroundColor: '#EDE0CC',
-              color: '#0E0A07',
+              backgroundColor: '#D9DFDC',
+              color: '#1F4D4F',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}
@@ -72,10 +72,10 @@ export default function ContactCTA() {
           </Link>
           <Link
             href="/wholesale"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#EDE0CC]"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-[11px] tracking-[0.2em] uppercase font-medium transition-all duration-300 hover:border-[#D9DFDC]"
             style={{
-              border: '1px solid rgba(237,224,204,0.25)',
-              color: 'rgba(237,224,204,0.7)',
+              border: '1px solid rgba(217,223,220,0.25)',
+              color: 'rgba(217,223,220,0.7)',
               fontFamily: 'var(--font-inter, Inter, sans-serif)',
               minWidth: '180px',
             }}

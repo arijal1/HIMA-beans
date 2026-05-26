@@ -55,8 +55,8 @@ const COMMITMENTS: CommitmentSection[] = [
       'For us, ethical sourcing isn\'t a certification — it\'s the foundation of every business decision we make.',
     ],
     dark: true,
-    gradientFrom: '#0E0A07',
-    gradientTo: '#5C3D2E',
+    gradientFrom: '#1F4D4F',
+    gradientTo: '#2B4A4C',
   },
   {
     tag: 'Commitment 02',
@@ -68,7 +68,7 @@ const COMMITMENTS: CommitmentSection[] = [
       'By refusing to clear-cut for sun-cultivation monocultures, our farming partners preserve the living ecosystem that makes Himalayan coffee possible — for this generation and the next.',
     ],
     dark: false,
-    gradientFrom: '#7A6555',
+    gradientFrom: '#6B7F7E',
     gradientTo: '#A89D8E',
   },
   {
@@ -81,8 +81,8 @@ const COMMITMENTS: CommitmentSection[] = [
       'This isn\'t just transparency for marketing. It\'s accountability — a record of every hand that touched your coffee, and a guarantee that each one was paid fairly.',
     ],
     dark: true,
-    gradientFrom: '#1A1008',
-    gradientTo: '#0E0A07',
+    gradientFrom: '#1A2E2F',
+    gradientTo: '#1F4D4F',
   },
   {
     tag: 'Commitment 04',
@@ -94,8 +94,8 @@ const COMMITMENTS: CommitmentSection[] = [
       'We ship in consolidated freight runs to reduce per-kilo emissions, and we\'re working with our logistics partner on a sea-freight-first model for wholesale customers — cutting air-freight emissions by up to 90% on each pallet.',
     ],
     dark: false,
-    gradientFrom: '#7C4828',
-    gradientTo: '#7A6555',
+    gradientFrom: '#D4A55A',
+    gradientTo: '#6B7F7E',
   },
 ];
 
@@ -235,7 +235,7 @@ function CommitmentBlock({
   return (
     <section
       style={{
-        backgroundColor: section.dark ? '#1A1008' : '#F5EDE0',
+        backgroundColor: section.dark ? '#1A2E2F' : '#F6F1E9',
       }}
     >
       <div
@@ -257,7 +257,7 @@ function CommitmentBlock({
           <div className="w-full h-full flex items-center justify-center">
             <span
               className="font-serif text-7xl opacity-20 select-none"
-              style={{ color: '#F5EDE0' }}
+              style={{ color: '#F6F1E9' }}
             >
               {index + 1 < 10 ? `0${index + 1}` : index + 1}
             </span>
@@ -273,19 +273,19 @@ function CommitmentBlock({
         >
           <p
             className="font-sans text-xs font-semibold tracking-[0.2em] uppercase mb-3"
-            style={{ color: section.dark ? 'rgba(237,224,204,0.45)' : '#7C4828' }}
+            style={{ color: section.dark ? 'rgba(217,223,220,0.45)' : '#D4A55A' }}
           >
             {section.tag}
           </p>
           <h2
             className="font-serif text-4xl md:text-5xl font-bold leading-tight mb-3"
-            style={{ color: section.dark ? '#F5EDE0' : '#0E0A07' }}
+            style={{ color: section.dark ? '#F6F1E9' : '#1F4D4F' }}
           >
             {section.title}
           </h2>
           <p
             className="font-serif text-xl italic mb-8"
-            style={{ color: section.dark ? 'rgba(237,224,204,0.55)' : '#7C4828' }}
+            style={{ color: section.dark ? 'rgba(217,223,220,0.55)' : '#D4A55A' }}
           >
             {section.subtitle}
           </p>
@@ -294,7 +294,7 @@ function CommitmentBlock({
               <p
                 key={i}
                 className="font-sans text-base leading-relaxed"
-                style={{ color: section.dark ? '#EDE0CC' : '#7A6555' }}
+                style={{ color: section.dark ? '#D9DFDC' : '#6B7F7E' }}
               >
                 {para}
               </p>
@@ -316,34 +316,34 @@ function FarmerCard({ farmer, index }: { farmer: FarmerProfile; index: number })
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: index * 0.15, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="overflow-hidden border border-[rgba(26,16,8,0.1)]"
-      style={{ backgroundColor: '#EBE2D2' }}
+      className="overflow-hidden border border-[rgba(26,46,47,0.1)]"
+      style={{ backgroundColor: '#D9DFDC' }}
     >
       {/* Avatar banner */}
       <div
         className="h-28 flex items-end px-8 pb-0 relative"
         style={{
-          background: 'linear-gradient(135deg, #0E0A07 0%, #5C3D2E 100%)',
+          background: 'linear-gradient(135deg, #1F4D4F 0%, #2B4A4C 100%)',
         }}
       >
         <div
-          className="w-16 h-16 flex items-center justify-center translate-y-8 font-serif text-lg font-bold border-2 border-[#EBE2D2]"
-          style={{ backgroundColor: '#7C4828', color: '#F5EDE0' }}
+          className="w-16 h-16 flex items-center justify-center translate-y-8 font-serif text-lg font-bold border-2 border-[#D9DFDC]"
+          style={{ backgroundColor: '#D4A55A', color: '#F6F1E9' }}
         >
           {farmer.initial}
         </div>
       </div>
 
       <div className="px-8 pt-12 pb-8">
-        <h3 className="font-serif text-2xl text-[#0E0A07] font-semibold mb-1">{farmer.name}</h3>
-        <p className="font-sans text-xs text-[#7C4828] font-medium tracking-wider uppercase mb-0.5">{farmer.location}</p>
-        <p className="font-sans text-xs text-[#7A6555] mb-6">{farmer.tenure}</p>
+        <h3 className="font-serif text-2xl text-[#1F4D4F] font-semibold mb-1">{farmer.name}</h3>
+        <p className="font-sans text-xs text-[#D4A55A] font-medium tracking-wider uppercase mb-0.5">{farmer.location}</p>
+        <p className="font-sans text-xs text-[#6B7F7E] mb-6">{farmer.tenure}</p>
 
-        <blockquote className="font-serif text-base italic text-[#1A1008] leading-relaxed mb-6 border-l-2 border-[rgba(26,16,8,0.2)] pl-4">
+        <blockquote className="font-serif text-base italic text-[#1A2E2F] leading-relaxed mb-6 border-l-2 border-[rgba(26,46,47,0.2)] pl-4">
           {farmer.quote}
         </blockquote>
 
-        <p className="font-sans text-sm text-[#7A6555] leading-relaxed">{farmer.detail}</p>
+        <p className="font-sans text-sm text-[#6B7F7E] leading-relaxed">{farmer.detail}</p>
       </div>
     </motion.div>
   );
@@ -361,11 +361,11 @@ function ImpactCard({ stat, index }: { stat: ImpactStat; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
       className="text-center px-4 sm:px-6 py-6 sm:py-8"
     >
-      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-2" style={{ color: '#EDE0CC' }}>
+      <div className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-2" style={{ color: '#D9DFDC' }}>
         <AnimatedCounter value={stat.value} suffix={stat.suffix} />
       </div>
-      <p className="font-serif text-xl text-[#F5EDE0] font-semibold mb-2">{stat.label}</p>
-      <p className="font-sans text-sm" style={{ color: 'rgba(237,224,204,0.45)' }}>{stat.description}</p>
+      <p className="font-serif text-xl text-[#F6F1E9] font-semibold mb-2">{stat.label}</p>
+      <p className="font-sans text-sm" style={{ color: 'rgba(217,223,220,0.45)' }}>{stat.description}</p>
     </motion.div>
   );
 }
@@ -380,17 +380,17 @@ function CertBadge({ cert, index }: { cert: Certification; index: number }) {
       initial={{ opacity: 0, scale: 0.85 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.5, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-      className="flex flex-col items-center gap-3 p-8 border border-[rgba(26,16,8,0.1)]"
-      style={{ backgroundColor: '#EBE2D2' }}
+      className="flex flex-col items-center gap-3 p-8 border border-[rgba(26,46,47,0.1)]"
+      style={{ backgroundColor: '#D9DFDC' }}
     >
       <div
         className="w-12 h-12 flex items-center justify-center text-xl"
-        style={{ backgroundColor: 'rgba(26,16,8,0.06)', color: '#7C4828' }}
+        style={{ backgroundColor: 'rgba(26,46,47,0.06)', color: '#D4A55A' }}
       >
         {cert.icon}
       </div>
-      <p className="font-serif text-lg text-[#0E0A07] font-semibold text-center">{cert.name}</p>
-      <p className="font-sans text-xs text-[#7A6555] text-center">{cert.body}</p>
+      <p className="font-serif text-lg text-[#1F4D4F] font-semibold text-center">{cert.name}</p>
+      <p className="font-sans text-xs text-[#6B7F7E] text-center">{cert.body}</p>
     </motion.div>
   );
 }
@@ -405,19 +405,19 @@ export default function SustainabilityPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen" style={{ backgroundColor: '#F5EDE0' }}>
+      <main className="min-h-screen" style={{ backgroundColor: '#F6F1E9' }}>
       {/* ── Hero ── */}
       <section
         ref={heroRef}
         className="relative min-h-[70vh] md:min-h-[80vh] flex items-end pb-16 md:pb-24 overflow-hidden"
-        style={{ backgroundColor: '#1A1008' }}
+        style={{ backgroundColor: '#1A2E2F' }}
       >
         {/* Mountain gradient */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'radial-gradient(ellipse at 50% 100%, #0E0A07 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, #7A6555 0%, transparent 50%), radial-gradient(ellipse at 20% 60%, #0E0A07 0%, transparent 40%)',
+              'radial-gradient(ellipse at 50% 100%, #1F4D4F 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, #6B7F7E 0%, transparent 50%), radial-gradient(ellipse at 20% 60%, #1F4D4F 0%, transparent 40%)',
           }}
         />
 
@@ -427,7 +427,7 @@ export default function SustainabilityPage() {
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
             className="w-full h-64 opacity-20"
-            fill="#7A6555"
+            fill="#6B7F7E"
           >
             <path d="M0,320 L0,200 L200,80 L400,180 L600,40 L720,120 L840,20 L1000,140 L1200,60 L1440,160 L1440,320 Z" />
           </svg>
@@ -439,7 +439,7 @@ export default function SustainabilityPage() {
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-6"
-            style={{ color: 'rgba(237,224,204,0.45)' }}
+            style={{ color: 'rgba(217,223,220,0.45)' }}
           >
             Our Earth Promise
           </motion.p>
@@ -447,17 +447,17 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EDE0] font-bold leading-[0.95] mb-6 md:mb-8"
+            className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F6F1E9] font-bold leading-[0.95] mb-6 md:mb-8"
           >
             Our Earth
             <br />
-            <em className="text-[#EDE0CC]">Promise</em>
+            <em className="text-[#D9DFDC]">Promise</em>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-sans text-[#EDE0CC] text-lg max-w-xl leading-relaxed"
+            className="font-sans text-[#D9DFDC] text-lg max-w-xl leading-relaxed"
           >
             Every decision we make — from how we source to how we ship — is guided by a single
             commitment: to leave the mountains better than we found them.
@@ -471,16 +471,16 @@ export default function SustainabilityPage() {
       ))}
 
       {/* ── Farmer Stories ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EDE0' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F6F1E9' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#D4A55A] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               The People Behind the Cup
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#0E0A07] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1F4D4F] font-bold leading-tight mb-4">
               Farmer Stories
             </h2>
-            <p className="font-sans text-[#7A6555] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6B7F7E] text-base max-w-lg mx-auto leading-relaxed">
               Behind every bag of HIMA BEANS is a farming family with generations of knowledge and a
               story worth knowing.
             </p>
@@ -494,17 +494,17 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Impact Numbers ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#0E0A07' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#1F4D4F' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(237,224,204,0.45)' }}>
+            <p className="font-sans text-sm font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: 'rgba(217,223,220,0.45)' }}>
               Measured Impact
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EDE0] font-bold leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F6F1E9] font-bold leading-tight">
               By the Numbers
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 divide-x divide-y divide-[rgba(237,224,204,0.08)] border border-[rgba(237,224,204,0.08)] overflow-hidden">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 divide-x divide-y divide-[rgba(217,223,220,0.08)] border border-[rgba(217,223,220,0.08)] overflow-hidden">
             {IMPACT_STATS.map((stat, i) => (
               <ImpactCard key={stat.label} stat={stat} index={i} />
             ))}
@@ -513,16 +513,16 @@ export default function SustainabilityPage() {
       </section>
 
       {/* ── Certifications ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#F5EDE0' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#F6F1E9' }}>
         <div className="site-container">
           <div className="text-center mb-10 md:mb-14">
-            <p className="font-sans text-[#7C4828] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <p className="font-sans text-[#D4A55A] text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               Verified by Third Parties
             </p>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#0E0A07] font-bold leading-tight mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1F4D4F] font-bold leading-tight mb-4">
               Our Certifications
             </h2>
-            <p className="font-sans text-[#7A6555] text-base max-w-lg mx-auto leading-relaxed">
+            <p className="font-sans text-[#6B7F7E] text-base max-w-lg mx-auto leading-relaxed">
               We hold ourselves accountable through independent verification. These certifications
               reflect the standards we meet — and the higher standards we aim for.
             </p>
@@ -538,13 +538,13 @@ export default function SustainabilityPage() {
       {/* ── CTA ── */}
       <section
         className="py-16 md:py-24 text-center"
-        style={{ backgroundColor: '#0E0A07' }}
+        style={{ backgroundColor: '#1F4D4F' }}
       >
         <div className="max-w-2xl mx-auto px-4 sm:px-6">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F5EDE0] font-bold leading-tight mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#F6F1E9] font-bold leading-tight mb-6">
             Drink Coffee That Does Good
           </h2>
-          <p className="font-sans text-[#EDE0CC] text-base leading-relaxed mb-10 opacity-90">
+          <p className="font-sans text-[#D9DFDC] text-base leading-relaxed mb-10 opacity-90">
             Every purchase directly supports Nepali farming families and a regenerative supply
             chain. Shop our full bean range and taste the difference ethical sourcing makes.
           </p>
@@ -552,15 +552,15 @@ export default function SustainabilityPage() {
             <Link
               href="/beans"
               className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase transition-all duration-300 hover:opacity-80"
-              style={{ backgroundColor: '#EDE0CC', color: '#0E0A07' }}
+              style={{ backgroundColor: '#D9DFDC', color: '#1F4D4F' }}
             >
               Shop Our Beans
               <span>→</span>
             </Link>
             <Link
               href="/wholesale"
-              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase border transition-all duration-300 hover:border-[#EDE0CC]"
-              style={{ borderColor: 'rgba(237,224,204,0.25)', color: 'rgba(237,224,204,0.7)' }}
+              className="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-8 md:px-10 py-4 font-sans font-semibold text-[11px] tracking-[0.18em] uppercase border transition-all duration-300 hover:border-[#D9DFDC]"
+              style={{ borderColor: 'rgba(217,223,220,0.25)', color: 'rgba(217,223,220,0.7)' }}
             >
               Wholesale Inquiry
             </Link>

@@ -47,13 +47,13 @@ function LangToggle({ lang, onToggle }: { lang: Lang; onToggle: () => void }) {
     <button
       onClick={onToggle}
       aria-label={lang === 'EN' ? 'Switch to Nepali' : 'Switch to English'}
-      className="flex items-stretch text-[9px] tracking-[0.12em] uppercase rounded-sm overflow-hidden border border-[#7C4828]/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] flex-shrink-0"
+      className="flex items-stretch text-[9px] tracking-[0.12em] uppercase rounded-sm overflow-hidden border border-[#D4A55A]/35 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] flex-shrink-0"
     >
       <span
         className={`px-2 py-1 transition-colors duration-200 leading-none flex items-center ${
           lang === 'EN'
-            ? 'bg-[#7C4828] text-[#0d0a07] font-semibold'
-            : 'text-[#7C4828]/55 hover:text-[#7C4828]'
+            ? 'bg-[#D4A55A] text-[#1F4D4F] font-semibold'
+            : 'text-[#D4A55A]/55 hover:text-[#D4A55A]'
         }`}
       >
         EN
@@ -61,8 +61,8 @@ function LangToggle({ lang, onToggle }: { lang: Lang; onToggle: () => void }) {
       <span
         className={`px-2 py-1 transition-colors duration-200 leading-none flex items-center ${
           lang === 'NP'
-            ? 'bg-[#7C4828] text-[#0d0a07] font-semibold'
-            : 'text-[#7C4828]/55 hover:text-[#7C4828]'
+            ? 'bg-[#D4A55A] text-[#1F4D4F] font-semibold'
+            : 'text-[#D4A55A]/55 hover:text-[#D4A55A]'
         }`}
         style={{ fontFamily: 'system-ui, sans-serif', fontSize: '10px' }}
       >
@@ -85,14 +85,14 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      className="relative group text-[#DDD5CA] text-[11px] tracking-[0.18em] font-normal uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] focus-visible:rounded"
+      className="relative group text-[#DDD5CA] text-[11px] tracking-[0.18em] font-normal uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
       aria-current={isActive ? 'page' : undefined}
     >
       <span className="relative">
         {label}
         <span
           className={[
-            'absolute -bottom-0.5 left-0 h-px bg-[#7C4828] transition-all duration-300 ease-out',
+            'absolute -bottom-0.5 left-0 h-px bg-[#D4A55A] transition-all duration-300 ease-out',
             isActive
               ? 'w-full opacity-100'
               : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100',
@@ -176,10 +176,10 @@ export default function Navigation() {
         animate="visible"
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: '#0E0A07',
+          background: '#1F4D4F',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(237,224,204,0.07)',
+          borderBottom: '1px solid rgba(217,223,220,0.07)',
         }}
       >
         <nav
@@ -189,16 +189,16 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col items-start group flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] focus-visible:rounded"
+            className="flex flex-col items-start group flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
             aria-label="HIMA BEANS — Home"
           >
             <span
-              className="text-[#F5EDE0] text-xl md:text-[22px] tracking-[0.12em] leading-none transition-opacity duration-300 group-hover:opacity-75"
+              className="text-[#F6F1E9] text-xl md:text-[22px] tracking-[0.12em] leading-none transition-opacity duration-300 group-hover:opacity-75"
               style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
             >
               HIMA BEANS
             </span>
-            <span className="hidden min-[380px]:block text-[#7C4828] text-[7.5px] tracking-[0.28em] uppercase mt-[5px] leading-none opacity-75">
+            <span className="hidden min-[380px]:block text-[#D4A55A] text-[7.5px] tracking-[0.28em] uppercase mt-[5px] leading-none opacity-75">
               {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
             </span>
           </Link>
@@ -226,7 +226,7 @@ export default function Navigation() {
             <motion.button
               whileTap={{ scale: 0.88 }}
               onClick={() => setMobileOpen((p) => !p)}
-              className="lg:hidden z-50 flex items-center justify-center w-10 h-10 text-[#F5EDE0] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828] focus-visible:rounded"
+              className="lg:hidden z-50 flex items-center justify-center w-10 h-10 text-[#F6F1E9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
               aria-label={mobileOpen ? 'Close menu' : 'Open navigation menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -274,7 +274,7 @@ export default function Navigation() {
             animate="visible"
             exit="exit"
             className="fixed inset-0 z-40 flex flex-col lg:hidden"
-            style={{ background: '#0E0A07', backdropFilter: 'blur(24px)' }}
+            style={{ background: '#1F4D4F', backdropFilter: 'blur(24px)' }}
           >
             {/* Grain */}
             <div
@@ -295,7 +295,7 @@ export default function Navigation() {
                 style={{
                   fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)',
                   fontSize: 'clamp(60px, 22vw, 200px)',
-                  color: '#F5EDE0',
+                  color: '#F6F1E9',
                   opacity: 0.025,
                   letterSpacing: '0.1em',
                   whiteSpace: 'nowrap',
@@ -334,19 +334,19 @@ export default function Navigation() {
                         onClick={() => setMobileOpen(false)}
                         className={[
                           'group flex flex-row-reverse items-center gap-5 py-3.5 min-h-[44px] rounded px-1',
-                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7C4828]',
+                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A]',
                           'transition-opacity duration-200',
                           pathname === link.href ? 'opacity-100' : 'opacity-40 hover:opacity-100',
                         ].join(' ')}
                         aria-current={pathname === link.href ? 'page' : undefined}
                       >
                         <motion.span
-                          className="h-px bg-[#7C4828] flex-shrink-0"
+                          className="h-px bg-[#D4A55A] flex-shrink-0"
                           animate={{ width: pathname === link.href ? 32 : 14, opacity: pathname === link.href ? 1 : 0.45 }}
                           aria-hidden="true"
                         />
                         <span
-                          className="text-[#F5EDE0] text-3xl sm:text-4xl tracking-wide text-right"
+                          className="text-[#F6F1E9] text-3xl sm:text-4xl tracking-wide text-right"
                           style={{ fontFamily: 'var(--font-playfair, "Playfair Display", Georgia, serif)' }}
                         >
                           {lang === 'EN' ? link.label : link.labelNP}
@@ -371,12 +371,12 @@ export default function Navigation() {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="mt-auto pt-8 border-t border-[#F5EDE0]/10 text-right"
+                className="mt-auto pt-8 border-t border-[#F6F1E9]/10 text-right"
               >
-                <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: 'rgba(237,224,204,0.4)' }}>
+                <p className="text-[10px] tracking-[0.3em] uppercase" style={{ color: 'rgba(217,223,220,0.4)' }}>
                   {lang === 'EN' ? 'Est. 2024 · Nepal → Australia' : 'स्थापित २०२४ · नेपाल → अस्ट्रेलिया'}
                 </p>
-                <p className="text-[#F5EDE0]/30 text-xs mt-2 tracking-wide">
+                <p className="text-[#F6F1E9]/30 text-xs mt-2 tracking-wide">
                   {lang === 'EN' ? 'Crafted Above the Clouds' : 'बादलभन्दा माथि बनाइएको'}
                 </p>
               </motion.div>

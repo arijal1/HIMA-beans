@@ -151,7 +151,7 @@ function AccordionItem({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.6, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-      style={{ borderBottom: '1px solid rgba(14,10,7,0.1)' }}
+      style={{ borderBottom: '1px solid rgba(31,77,79,0.1)' }}
     >
       <button
         onClick={onToggle}
@@ -174,7 +174,7 @@ function AccordionItem({
           style={{
             fontFamily: "'Playfair Display', serif",
             fontSize: 'clamp(1rem, 1.5vw, 1.15rem)',
-            color: '#0E0A07',
+            color: '#1F4D4F',
             fontWeight: 600,
             lineHeight: 1.4,
             flex: 1,
@@ -190,7 +190,7 @@ function AccordionItem({
             width: '24px',
             height: '24px',
             borderRadius: '50%',
-            border: '1.5px solid #7C4828',
+            border: '1.5px solid #D4A55A',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -199,7 +199,7 @@ function AccordionItem({
           }}
         >
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-            <path d="M5 1V9M1 5H9" stroke="#7C4828" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M5 1V9M1 5H9" stroke="#D4A55A" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </motion.div>
       </button>
@@ -216,7 +216,7 @@ function AccordionItem({
             <p
               style={{
                 paddingBottom: '1.5rem',
-                color: '#7A6555',
+                color: '#6B7F7E',
                 lineHeight: 1.8,
                 fontSize: '0.95rem',
                 fontFamily: 'var(--font-inter), Inter, sans-serif',
@@ -253,15 +253,15 @@ export default function FAQPage() {
     <>
       <Navigation />
 
-      <main style={{ background: '#F5EDE0', minHeight: '100vh' }}>
+      <main style={{ background: '#F6F1E9', minHeight: '100vh' }}>
         {/* Hero */}
-        <section style={{ background: '#0E0A07', padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)', position: 'relative', overflow: 'hidden' }}>
+        <section style={{ background: '#1F4D4F', padding: 'clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem)', position: 'relative', overflow: 'hidden' }}>
           <div
             aria-hidden="true"
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(124,72,40,0.08) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,165,90,0.08) 0%, transparent 70%)',
             }}
           />
           <div className="max-w-3xl mx-auto px-[clamp(1.25rem,5vw,3rem)] text-center relative z-10">
@@ -269,7 +269,7 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(237,224,204,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
+              style={{ fontSize: '11px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(217,223,220,0.45)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1rem' }}
             >
               Help & Support
             </motion.p>
@@ -281,7 +281,7 @@ export default function FAQPage() {
                 fontFamily: "'Playfair Display', serif",
                 fontSize: 'clamp(36px, 6vw, 72px)',
                 fontWeight: 700,
-                color: '#F5EDE0',
+                color: '#F6F1E9',
                 lineHeight: 1.1,
                 letterSpacing: '-0.02em',
                 marginBottom: '1.25rem',
@@ -293,7 +293,7 @@ export default function FAQPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              style={{ color: 'rgba(237,224,204,0.65)', fontSize: '1.05rem', lineHeight: 1.7, fontFamily: 'var(--font-inter), Inter, sans-serif' }}
+              style={{ color: 'rgba(217,223,220,0.65)', fontSize: '1.05rem', lineHeight: 1.7, fontFamily: 'var(--font-inter), Inter, sans-serif' }}
             >
               Everything you need to know about HIMA BEANS — from sourcing to shipping.
             </motion.p>
@@ -310,7 +310,7 @@ export default function FAQPage() {
                 gap: '0.25rem',
                 flexWrap: 'wrap',
                 marginBottom: '2rem',
-                borderBottom: '1px solid rgba(14,10,7,0.1)',
+                borderBottom: '1px solid rgba(31,77,79,0.1)',
                 paddingBottom: '0',
                 overflowX: 'auto',
               }}
@@ -328,8 +328,8 @@ export default function FAQPage() {
                     letterSpacing: '0.05em',
                     fontFamily: 'var(--font-inter), Inter, sans-serif',
                     fontWeight: activeCategory === cat ? 600 : 400,
-                    color: activeCategory === cat ? '#0E0A07' : '#7A6555',
-                    borderBottom: activeCategory === cat ? '2px solid #7C4828' : '2px solid transparent',
+                    color: activeCategory === cat ? '#1F4D4F' : '#6B7F7E',
+                    borderBottom: activeCategory === cat ? '2px solid #D4A55A' : '2px solid transparent',
                     transition: 'all 0.2s ease',
                     marginBottom: '-1px',
                     whiteSpace: 'nowrap',
@@ -371,15 +371,15 @@ export default function FAQPage() {
               style={{
                 marginTop: 'clamp(2.5rem, 5vw, 5rem)',
                 padding: 'clamp(1.5rem, 4vw, 3rem)',
-                background: '#0E0A07',
+                background: '#1F4D4F',
                 borderRadius: '0',
                 textAlign: 'center',
               }}
             >
-              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', color: '#F5EDE0', marginBottom: '0.75rem', fontWeight: 600 }}>
+              <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.5rem', color: '#F6F1E9', marginBottom: '0.75rem', fontWeight: 600 }}>
                 Still have questions?
               </h3>
-              <p style={{ color: 'rgba(237,224,204,0.65)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1.5rem', lineHeight: 1.7 }}>
+              <p style={{ color: 'rgba(217,223,220,0.65)', fontFamily: 'var(--font-inter), Inter, sans-serif', marginBottom: '1.5rem', lineHeight: 1.7 }}>
                 Our team is always happy to help. Reach out and we'll get back to you within one business day.
               </p>
               <a
@@ -387,8 +387,8 @@ export default function FAQPage() {
                 style={{
                   display: 'inline-block',
                   padding: '0.8rem 2rem',
-                  background: '#EDE0CC',
-                  color: '#0E0A07',
+                  background: '#D9DFDC',
+                  color: '#1F4D4F',
                   borderRadius: '0',
                   fontSize: '13px',
                   fontWeight: 600,

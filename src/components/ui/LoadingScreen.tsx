@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 /* ============================================================
    LoadingScreen
    Full-screen branded loading experience.
-   - Espresso brown background (#0E0A07)
+   - Espresso brown background (#1F4D4F)
    - Animated HIMA BEANS logotype in Playfair Display (cream)
    - Tagline fades in after the logotype settles
    - Gold progress bar tracks to 100 %
@@ -102,7 +102,7 @@ export function LoadingScreen() {
             position: "fixed",
             inset: 0,
             zIndex: 99999,
-            backgroundColor: "#0E0A07",
+            backgroundColor: "#1F4D4F",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -132,7 +132,7 @@ export function LoadingScreen() {
               width: 480,
               height: 480,
               borderRadius: "50%",
-              border: "1px solid rgba(124, 72, 40, 0.12)",
+              border: "1px solid rgba(212, 165, 90, 0.12)",
               pointerEvents: "none",
             }}
           />
@@ -142,7 +142,7 @@ export function LoadingScreen() {
               width: 320,
               height: 320,
               borderRadius: "50%",
-              border: "1px solid rgba(124, 72, 40, 0.08)",
+              border: "1px solid rgba(212, 165, 90, 0.08)",
               pointerEvents: "none",
             }}
           />
@@ -167,7 +167,7 @@ export function LoadingScreen() {
                 fontFamily: "var(--font-sans, Inter, system-ui, sans-serif)",
                 fontSize: "0.65rem",
                 fontWeight: 500,
-                color: "#7C4828",
+                color: "#D4A55A",
                 textTransform: "uppercase",
                 marginBottom: "1.25rem",
               }}
@@ -193,7 +193,7 @@ export function LoadingScreen() {
                     "var(--font-playfair, 'Playfair Display', Georgia, serif)",
                   fontSize: "clamp(2.8rem, 8vw, 5rem)",
                   fontWeight: 700,
-                  color: "#F5EDE0",
+                  color: "#F6F1E9",
                   letterSpacing: "0.08em",
                   lineHeight: 1.1,
                 }}
@@ -223,7 +223,7 @@ export function LoadingScreen() {
                 fontFamily: "var(--font-sans, Inter, system-ui, sans-serif)",
                 fontSize: "0.78rem",
                 fontWeight: 400,
-                color: "rgba(237, 224, 204, 0.55)",
+                color: "rgba(217, 223, 220, 0.55)",
                 letterSpacing: "0.35em",
                 textTransform: "uppercase",
                 marginTop: "1rem",
@@ -237,7 +237,7 @@ export function LoadingScreen() {
               style={{
                 width: "min(260px, 60vw)",
                 height: 1,
-                backgroundColor: "rgba(124, 72, 40, 0.2)",
+                backgroundColor: "rgba(212, 165, 90, 0.2)",
                 marginTop: "2.5rem",
                 borderRadius: 9999,
                 overflow: "hidden",
@@ -250,7 +250,7 @@ export function LoadingScreen() {
                 style={{
                   height: "100%",
                   width: "100%",
-                  backgroundColor: "#7C4828",
+                  backgroundColor: "#D4A55A",
                   borderRadius: 9999,
                   transformOrigin: "left center",
                 }}
@@ -269,7 +269,7 @@ export function LoadingScreen() {
               fontFamily: "var(--font-sans, Inter, system-ui, sans-serif)",
               fontSize: "0.6rem",
               fontWeight: 500,
-              color: "#F5EDE0",
+              color: "#F6F1E9",
               letterSpacing: "0.25em",
               textTransform: "uppercase",
             }}
