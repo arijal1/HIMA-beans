@@ -85,7 +85,8 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      className="relative group text-white text-[11px] tracking-[0.18em] font-semibold uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
+      className="relative group text-[11px] tracking-[0.18em] uppercase py-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A] focus-visible:rounded"
+      style={{ color: '#ffffff', fontWeight: '700' }}
       aria-current={isActive ? 'page' : undefined}
     >
       <span className="relative">
