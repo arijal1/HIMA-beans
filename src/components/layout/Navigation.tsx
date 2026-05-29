@@ -178,10 +178,10 @@ export default function Navigation() {
         animate="visible"
         className="fixed top-0 left-0 right-0 z-50"
         style={{
-          background: '#1F4D4F',
+          background: '#1C0D05',
           backdropFilter: 'blur(12px)',
           WebkitBackdropFilter: 'blur(12px)',
-          borderBottom: '1px solid rgba(217,223,220,0.07)',
+          borderBottom: '1px solid rgba(212,165,90,0.12)',
         }}
       >
         <nav
@@ -200,7 +200,7 @@ export default function Navigation() {
               width={66}
               height={44}
               className="transition-opacity duration-300 group-hover:opacity-70"
-              style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 6px rgba(201,168,76,0.4))' }}
+              style={{ filter: 'none' }}
               priority
             />
           </Link>
