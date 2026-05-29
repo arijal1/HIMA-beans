@@ -185,7 +185,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="max-w-[1100px] mx-auto h-[52px] flex lg:grid lg:grid-cols-[auto_1fr_auto] items-center gap-4 pl-6 sm:pl-10 lg:pl-12 pr-[clamp(1.5rem,6vw,4rem)]"
+          className="relative max-w-[1100px] mx-auto h-[52px] flex items-center pl-6 sm:pl-10 lg:pl-12 pr-[clamp(1.5rem,6vw,4rem)]"
           aria-label="Main navigation"
         >
           {/* Logo */}
@@ -200,14 +200,14 @@ export default function Navigation() {
               width={66}
               height={44}
               className="transition-opacity duration-300 group-hover:opacity-70"
-              style={{ filter: 'none' }}
+              style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 6px rgba(201,168,76,0.4))' }}
               priority
             />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — absolutely centred so it never pushes the lang toggle */}
           <ul
-            className="hidden lg:flex items-center gap-6 xl:gap-8 justify-center"
+            className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 -translate-x-1/2"
             role="list"
             aria-label="Site pages"
           >
@@ -222,8 +222,8 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Right: lang toggle + mobile button */}
-          <div className="flex items-center gap-3 ml-auto lg:ml-0 flex-shrink-0">
+          {/* Right: lang toggle + mobile button — always far right via ml-auto */}
+          <div className="flex items-center gap-3 ml-auto flex-shrink-0">
             <LangToggle lang={lang} onToggle={toggleLang} />
             <motion.button
               whileTap={{ scale: 0.88 }}

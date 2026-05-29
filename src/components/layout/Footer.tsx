@@ -78,7 +78,7 @@ export default function Footer() {
               alt="HIMA BEANS"
               width={96}
               height={64}
-              style={{ display: 'block' }}
+              style={{ display: 'block', filter: 'brightness(0) invert(1) drop-shadow(0 0 6px rgba(201,168,76,0.4))' }}
             />
           </Link>
 
