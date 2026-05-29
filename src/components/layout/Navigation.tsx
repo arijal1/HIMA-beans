@@ -185,7 +185,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="max-w-[1100px] mx-auto h-[68px] flex items-center justify-between gap-4 pl-8 sm:pl-12 lg:pl-14 pr-[clamp(1.5rem,6vw,4rem)]"
+          className="max-w-[1100px] mx-auto h-[68px] flex items-center gap-4 pl-8 sm:pl-12 lg:pl-14 pr-[clamp(1.5rem,6vw,4rem)]"
           aria-label="Main navigation"
         >
           {/* Logo */}
@@ -222,7 +222,7 @@ export default function Navigation() {
           </ul>
 
           {/* Right: lang toggle + mobile button */}
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3 flex-shrink-0 ml-auto">
             <LangToggle lang={lang} onToggle={toggleLang} />
             <motion.button
               whileTap={{ scale: 0.88 }}
