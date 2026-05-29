@@ -199,7 +199,8 @@ export default function Navigation() {
               alt="HIMA BEANS"
               width={66}
               height={44}
-              className="transition-opacity duration-300 group-hover:opacity-80"
+              className="transition-opacity duration-300 group-hover:opacity-70"
+              style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 6px rgba(201,168,76,0.4))' }}
               priority
             />
           </Link>

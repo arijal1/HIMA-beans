@@ -55,7 +55,7 @@ export default function Footer() {
   return (
     <footer
       aria-label="Site footer"
-      style={{ backgroundColor: '#0f1f20', borderTop: '1px solid rgba(212,165,90,0.15)' }}
+      style={{ backgroundColor: '#1F4D4F', borderTop: '1px solid rgba(212,165,90,0.2)' }}
     >
       <div
         className="site-container"
@@ -78,7 +78,7 @@ export default function Footer() {
               alt="HIMA BEANS"
               width={96}
               height={64}
-              style={{ display: 'block' }}
+              style={{ display: 'block', filter: 'brightness(0) invert(1) drop-shadow(0 0 6px rgba(201,168,76,0.4))' }}
             />
           </Link>
 
@@ -102,7 +102,7 @@ export default function Footer() {
                       fontSize: '11px',
                       letterSpacing: '0.1em',
                       textTransform: 'uppercase',
-                      color: 'rgba(237,230,216,0.38)',
+                      color: 'rgba(237,230,216,0.55)',
                       fontFamily: 'var(--font-inter, Inter, sans-serif)',
                       padding: '0.25rem 0',
                       transition: 'color 0.2s',
@@ -171,7 +171,7 @@ export default function Footer() {
             gap: '0.5rem 2rem',
             fontSize: '10px',
             letterSpacing: '0.06em',
-            color: 'rgba(237,230,216,0.18)',
+            color: 'rgba(237,230,216,0.28)',
             fontFamily: 'var(--font-inter, Inter, sans-serif)',
           }}
         >
