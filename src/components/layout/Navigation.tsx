@@ -222,8 +222,8 @@ export default function Navigation() {
             ))}
           </ul>
 
-          {/* Right: lang toggle + mobile button — always far right via ml-auto */}
-          <div className="flex items-center gap-3 ml-auto flex-shrink-0">
+          {/* Right: lang toggle (always) + hamburger (mobile only) — inline marginLeft:auto guarantees far-right */}
+          <div className="flex items-center gap-3 flex-shrink-0" style={{ marginLeft: 'auto' }}>
             <LangToggle lang={lang} onToggle={toggleLang} />
             <motion.button
               whileTap={{ scale: 0.88 }}
@@ -308,18 +308,6 @@ export default function Navigation() {
             </div>
 
             <div className="relative z-10 flex flex-col justify-center h-full pr-8 sm:pr-14 pl-6 sm:pl-10 pt-24 pb-12 items-end">
-              {/* Mobile lang toggle */}
-              <motion.div
-                custom={-1}
-                variants={mobileLinkVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="mb-8"
-              >
-                <LangToggle lang={lang} onToggle={toggleLang} />
-              </motion.div>
-
               <nav aria-label="Mobile navigation">
                 <ul className="space-y-0.5 flex flex-col items-end" role="list">
                   {NAV_LINKS.map((link, i) => (
