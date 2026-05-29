@@ -185,7 +185,7 @@ export default function Navigation() {
         }}
       >
         <nav
-          className="max-w-[1100px] mx-auto h-[68px] flex items-center gap-4 pl-8 sm:pl-12 lg:pl-14 pr-[clamp(1.5rem,6vw,4rem)]"
+          className="max-w-[1100px] mx-auto h-[52px] flex lg:grid lg:grid-cols-[auto_1fr_auto] items-center gap-4 pl-6 sm:pl-10 lg:pl-12 pr-[clamp(1.5rem,6vw,4rem)]"
           aria-label="Main navigation"
         >
           {/* Logo */}
@@ -197,8 +197,8 @@ export default function Navigation() {
             <Image
               src="/logo.PNG"
               alt="HIMA BEANS"
-              width={84}
-              height={56}
+              width={66}
+              height={44}
               className="transition-opacity duration-300 group-hover:opacity-80"
               priority
             />
@@ -206,7 +206,7 @@ export default function Navigation() {
 
           {/* Desktop nav */}
           <ul
-            className="hidden lg:flex items-center gap-7 xl:gap-9 flex-1 justify-center"
+            className="hidden lg:flex items-center gap-6 xl:gap-8 justify-center"
             role="list"
             aria-label="Site pages"
           >
@@ -222,7 +222,7 @@ export default function Navigation() {
           </ul>
 
           {/* Right: lang toggle + mobile button */}
-          <div className="flex items-center gap-3 flex-shrink-0 ml-auto">
+          <div className="flex items-center gap-3 ml-auto lg:ml-0 flex-shrink-0">
             <LangToggle lang={lang} onToggle={toggleLang} />
             <motion.button
               whileTap={{ scale: 0.88 }}
