@@ -195,10 +195,10 @@ export default function Navigation() {
             aria-label="HIMA BEANS — Home"
           >
             <Image
-              src="/logo-mark.svg"
+              src="/logo.PNG"
               alt="HIMA BEANS"
-              width={56}
-              height={48}
+              width={84}
+              height={56}
               className="transition-opacity duration-300 group-hover:opacity-80"
               priority
             />

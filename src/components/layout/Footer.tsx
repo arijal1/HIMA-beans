@@ -83,10 +83,10 @@ export default function Footer() {
             style={{ display: 'inline-block', width: 'fit-content' }}
           >
             <Image
-              src="/logo.svg"
+              src="/logo.PNG"
               alt="HIMA BEANS — Crafted Above the Clouds"
-              width={148}
-              height={168}
+              width={180}
+              height={120}
               style={{ display: 'block' }}
             />
           </Link>
