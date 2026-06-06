@@ -799,7 +799,7 @@ function CustomRoastingSection({ lang }: { lang: 'EN' | 'NP' }) {
 
   return (
     <section
-      className="pt-28 sm:pt-36 md:pt-48 pb-16 sm:pb-20 md:pb-28 lg:pb-36 relative overflow-hidden"
+      className="pt-48 sm:pt-60 md:pt-72 pb-16 sm:pb-20 md:pb-28 lg:pb-36 relative overflow-hidden"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Background elements */}
