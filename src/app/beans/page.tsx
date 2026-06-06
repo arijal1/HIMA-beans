@@ -706,7 +706,7 @@ function BeanGridSection({ lang }: { lang: 'EN' | 'NP' }) {
 
   return (
     <section
-      className="py-16 sm:py-20 md:py-24 "
+      className="pt-16 sm:pt-20 md:pt-24 pb-40 sm:pb-52 md:pb-64"
       style={{ backgroundColor: "#D9DFDC" }}
     >
       <div className="site-container">
@@ -799,7 +799,7 @@ function CustomRoastingSection({ lang }: { lang: 'EN' | 'NP' }) {
 
   return (
     <section
-      className="pt-48 sm:pt-60 md:pt-72 pb-16 sm:pb-20 md:pb-28 lg:pb-36 relative overflow-hidden"
+      className="py-20 sm:py-24 md:py-32 lg:py-40 relative overflow-hidden"
       style={{ backgroundColor: C.espresso }}
     >
       {/* Background elements */}
