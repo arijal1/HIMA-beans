@@ -295,11 +295,10 @@ function BeanCard({
   return (
     <motion.div
       ref={ref}
-      custom={index * 0.07}
-      variants={fadeUp}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      style={{ perspective: 1000 }}
+      initial={{ opacity: 0, y: 56, scale: 0.93 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 56, scale: 0.93 }}
+      transition={{ duration: 0.72, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      style={{ perspective: 1200 }}
     >
       <motion.div
         ref={cardRef}
@@ -310,19 +309,21 @@ function BeanCard({
           backgroundColor: C.cream,
           border: `1px solid rgba(26,46,47,0.06)`,
           boxShadow: hovered
-            ? "0 24px 48px rgba(31,77,79,0.18), 0 8px 16px rgba(31,77,79,0.10)"
+            ? `0 28px 56px rgba(31,77,79,0.16), 0 8px 20px rgba(31,77,79,0.10), 0 0 0 1px ${bean.accentColor}30`
             : "0 4px 16px rgba(31,77,79,0.07)",
-          transition: "box-shadow 0.3s ease",
+          transition: "box-shadow 0.35s ease",
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={handleMouseLeave}
         className="relative overflow-hidden flex flex-col h-full min-h-[420px] sm:min-h-[480px]"
       >
-        {/* Accent top line — 1px, subtle */}
-        <div
-          className="absolute top-0 left-0 right-0 h-px z-10"
-          style={{ backgroundColor: `${C.gold}60` }}
+        {/* Accent top bar — roast colour per card */}
+        <motion.div
+          className="absolute top-0 left-0 right-0 z-10"
+          animate={{ height: hovered ? '3px' : '2px', opacity: hovered ? 1 : 0.55 }}
+          transition={{ duration: 0.25 }}
+          style={{ backgroundColor: bean.accentColor }}
         />
 
         {/* Header area */}
@@ -452,7 +453,7 @@ function BeanCard({
 }
 
 /* ============================================================
-   Filter Bar
+   Filter Bar  — segmented pill control
    ============================================================ */
 function FilterBar({
   active,
@@ -463,46 +464,62 @@ function FilterBar({
   onChange: (f: FilterKey) => void;
   lang: 'EN' | 'NP';
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
-
   const filterLabel: Record<FilterKey, string> = lang === 'NP'
     ? { All: 'सबै', Light: 'हल्का', Medium: 'मध्यम', Dark: 'गाढा' }
     : { All: 'All', Light: 'Light', Medium: 'Medium', Dark: 'Dark' };
 
+  const roastDot: Record<FilterKey, string | null> = {
+    All: null,
+    Light: '#C9A96E',
+    Medium: '#8B5A2B',
+    Dark: '#4A2512',
+  };
+
   return (
     <motion.div
-      ref={ref}
-      variants={fadeIn}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className="flex flex-wrap gap-2 justify-center"
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay: 0.25, ease }}
+      className="flex justify-center"
     >
-      {FILTERS.map((filter) => {
-        const isActive = active === filter;
-        return (
-          <button
-            key={filter}
-            onClick={() => onChange(filter)}
-            className="relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-200 outline-none"
-            style={{
-              color: isActive ? C.espresso : C.stone,
-              backgroundColor: isActive ? C.gold : "transparent",
-              border: `1px solid ${isActive ? C.gold : `${C.stone}40`}`,
-            }}
-          >
-            {isActive && (
-              <motion.div
-                layoutId="filter-pill"
-                className="absolute inset-0 rounded-full"
-                style={{ backgroundColor: C.gold }}
-                transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] as [number,number,number,number] }}
-              />
-            )}
-            <span className="relative z-10">{filterLabel[filter]}</span>
-          </button>
-        );
-      })}
+      <div
+        className="inline-flex items-center p-1"
+        style={{
+          backgroundColor: 'rgba(26,46,47,0.07)',
+          border: '1px solid rgba(26,46,47,0.12)',
+          borderRadius: '100px',
+          gap: '2px',
+        }}
+      >
+        {FILTERS.map((filter) => {
+          const isActive = active === filter;
+          const dot = roastDot[filter];
+          return (
+            <button
+              key={filter}
+              onClick={() => onChange(filter)}
+              className="relative flex items-center gap-1.5 px-5 py-2 text-[11px] font-semibold tracking-[0.1em] uppercase rounded-full transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4A55A]"
+              style={{ color: isActive ? C.cream : C.stone, minWidth: '64px', justifyContent: 'center' }}
+            >
+              {isActive && (
+                <motion.div
+                  layoutId="filter-active-bg"
+                  className="absolute inset-0 rounded-full"
+                  style={{ backgroundColor: C.espresso }}
+                  transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                />
+              )}
+              {dot && (
+                <span
+                  className="relative z-10 w-2 h-2 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: isActive ? dot : `${dot}70` }}
+                />
+              )}
+              <span className="relative z-10">{filterLabel[filter]}</span>
+            </button>
+          );
+        })}
+      </div>
     </motion.div>
   );
 }
@@ -694,33 +711,34 @@ function BeanGridSection({ lang }: { lang: 'EN' | 'NP' }) {
     >
       <div className="site-container">
         {/* Section header */}
-        <div ref={ref} className="text-center mb-12">
+        <div ref={ref} className="text-center mb-14">
           <motion.p
-            custom={0}
-            variants={fadeIn}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="text-xs font-medium uppercase tracking-[0.35em] mb-4"
+            initial={{ opacity: 0, letterSpacing: '0.2em' }}
+            animate={isInView ? { opacity: 1, letterSpacing: '0.35em' } : {}}
+            transition={{ duration: 0.9, delay: 0, ease }}
+            className="text-xs font-medium uppercase mb-4 inline-block"
             style={{ color: C.gold }}
           >
             {t.eyebrow}
           </motion.p>
-          <motion.h2
-            custom={0.1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="font-serif text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: C.espresso }}
-          >
-            {t.heading}
-          </motion.h2>
+
+          <div className="overflow-hidden mb-4">
+            <motion.h2
+              initial={{ y: 70, opacity: 0 }}
+              animate={isInView ? { y: 0, opacity: 1 } : {}}
+              transition={{ duration: 0.85, delay: 0.1, ease }}
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold"
+              style={{ color: C.espresso }}
+            >
+              {t.heading}
+            </motion.h2>
+          </div>
+
           <motion.p
-            custom={0.2}
-            variants={fadeUp}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="text-base max-w-xl mx-auto mb-10"
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.75, delay: 0.22, ease }}
+            className="text-base max-w-lg mx-auto mb-10 leading-relaxed"
             style={{ color: C.stone }}
           >
             {t.filterIntro}
